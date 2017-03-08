@@ -118,7 +118,7 @@
             <ion-col width-25>
               <ion-item>
                 <ion-label color="dark">Discount</ion-label>
-                <ion-input [(ngModel)]="discountper" type="number"></ion-input>
+                <ion-input [(ngModel)]="discountper" type="number" min="1" max="20" (change)="ApplyDiscount()"></ion-input>
               </ion-item>
             </ion-col>
             <ion-col width-33>
@@ -134,7 +134,7 @@
             <ion-col width-40>
               <ion-item>
                 <ion-label color="dark">Sub Total</ion-label>
-                <ion-input readonly type="text"></ion-input>
+                <ion-input [(ngModel)]="salesubTotal" readonly type="text"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>

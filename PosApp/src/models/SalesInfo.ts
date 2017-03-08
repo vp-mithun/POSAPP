@@ -2,17 +2,17 @@
  * Table SALES object
  */
 export class SalesInfo {
-    product_code:string;
-    product_name:string;
+    productCode:string;
+    productName:string;
     ptype:number;
     quantity:string;
     price:number;
     discount:number;
     discountper:number;
     discountamt:number;
-    sale_manager:string;
+    saleManager:string;
     amount:string;
-    bill_num:string; //Prepend with Date
+    billNum:string; //Prepend with Date
     billnum:string;
     numcount:string;
     customer:string;
@@ -25,14 +25,14 @@ export class SalesInfo {
     returns:number;
     points:number;
     cashtype:string;
-    sale_return:string;
-    return_bill:string;
-    return_date:string;
+    saleReturn:string;
+    returnBill:string;
+    returnDate:string;
     instock:number;
-    shop_id:number;
-    branch_id:number;
-    user_id:number;
-    product_id:number;
+    shopId:number;
+    branchId:number;
+    userId:number;
+    productId:number;
     salebook:string;
     counter:number;
     narration:string;

@@ -1,3 +1,4 @@
+import { SalesInfo } from './../../models/SalesInfo';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 import { Products } from './../../models/Products';
 import { PosDataService } from './../../providers/pos-data-service';
@@ -20,7 +21,8 @@ export class SalesHomePage {
   prodsearchQuery:string = '';
   qtyBtnSelected:number;
   discountper:number;
-  grandTotal:number = 1234523.25
+  grandTotal:number;
+  salesubTotal:number;
 
   //Sale Common Properties
   customerName:string = "Haribhakta";
@@ -31,6 +33,7 @@ export class SalesHomePage {
   saletime:any = moment().format('LT');
 
   //Sales Form
+  salesList:SalesInfo[] = [];
   isSalesItemsExists:boolean = false;
   salesForm: FormGroup;
   get salesItems(): FormArray{
@@ -99,12 +102,56 @@ export class SalesHomePage {
 
   AddProductToSale(selProduct:Products){
     if (this.qtyBtnSelected == undefined) {
-      this.showAlert("Please select Quantity");      
+      this.showAlert("Please select Quantity");
       return;
+    }
+
+    if(this.IsDuplicateProductAdded(selProduct)){
+      this.showAlert("Product already added...");
+      return;
+    }
+    else{
+      this.PrepareSaleInfoList(selProduct);
     }
     
     this.isSalesItemsExists = true;
     this.salesItems.push(this.buildSalesItems(selProduct));    
+    this.UpdateSubGrandTotal();
+  }
+
+  PrepareSaleInfoList(selProduct:Products){
+    let singleSale = new SalesInfo();
+      singleSale.productCode = selProduct.barcode;
+      singleSale.branchId = selProduct.branchId;
+      //To Do - Add More
+
+      this.salesList.push(singleSale);
+  }
+
+
+  IsDuplicateProductAdded(toAddProd:Products): boolean{
+    let prodExists:boolean = false;   
+
+    let foundPrd = _.find(this.salesList, { 'productCode': toAddProd.barcode });
+    if (foundPrd !== undefined) {
+      prodExists = true;
+    }
+    return prodExists
+  }
+
+  UpdateSubGrandTotal()
+  {
+    let subtotal = _.sumBy(this.salesForm.value.salesItems, 'itemPrice');
+    this.salesubTotal = subtotal;
+    this.grandTotal = subtotal;
+    this.ApplyDiscount();
+  }
+
+  ApplyDiscount(){
+    if(this.discountper !== undefined){
+    let disGrandTotal = (this.discountper/100) * this.salesubTotal;
+    this.grandTotal = Math.round(this.salesubTotal - disGrandTotal);
+    }
   }
 
   SetupSalesForm()
