@@ -1,7 +1,8 @@
+import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 import { Products } from './../../models/Products';
 import { PosDataService } from './../../providers/pos-data-service';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 
@@ -23,15 +24,29 @@ export class SalesHomePage {
 
   //Sale Common Properties
   customerName:string = "Haribhakta";
-  validateDate:any = moment().format('L')
+  validateDate:any = moment().format('L');
   saleBook:string = "Cash Sales";
   generatedBillNo:string = "CS-001";
-  todayDate:any = moment().format('L')
-  saletime:any = moment().format('LT')
+  todayDate:any = moment().format('L');
+  saletime:any = moment().format('LT');
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _posService:PosDataService) {
+  //Sales Form
+  isSalesItemsExists:boolean = false;
+  salesForm: FormGroup;
+  get salesItems(): FormArray{
+        return <FormArray>this.salesForm.get('salesItems');
+    }
+
+  constructor(public navCtrl: NavController,
+              public alertCtrl: AlertController, 
+              private fb: FormBuilder,
+              private _posService:PosDataService) {
+
     this.chkSearchType = true;
     this.searchTypestr = "Search by Barcode...";
+
+    //Initiate Form
+    this.SetupSalesForm();
   }
 
   ionViewDidLoad() {
@@ -69,7 +84,7 @@ export class SalesHomePage {
         filterProds = _.filter(this.productslist, t=> (<Products>t).barcode.toLowerCase().includes(qryStr));  
       } else {
         //Name search
-        filterProds = _.filter(this.productslist, t=> (<Products>t).product_name.toLowerCase().includes(qryStr));
+        filterProds = _.filter(this.productslist, t=> (<Products>t).productName.toLowerCase().includes(qryStr));
       }
       this.productslist = filterProds;
     } else {
@@ -83,8 +98,20 @@ export class SalesHomePage {
   }
 
   AddProductToSale(selProduct:Products){
-    console.log(selProduct);
+    if (this.qtyBtnSelected == undefined) {
+      this.showAlert("Please select Quantity");      
+      return;
+    }
     
+    this.isSalesItemsExists = true;
+    this.salesItems.push(this.buildSalesItems(selProduct));    
+  }
+
+  SetupSalesForm()
+  {    
+    this.salesForm = this.fb.group({
+      salesItems: this.fb.array([])
+    });
   }
 
   CalculateLoadProducts(){
@@ -113,4 +140,27 @@ export class SalesHomePage {
       
   } 
 
+  buildSalesItems(selProduct:Products): FormGroup {
+    if (selProduct.barcode !== undefined && selProduct.productName !== undefined) {
+      return this.fb.group({
+                itemName: selProduct.productName,
+                itemQty: this.qtyBtnSelected,
+                itemPrice: this.qtyBtnSelected * selProduct.sellingPrice
+        });
+      }
+  }    
+    
+
+  saveSales(){
+
+  }
+
+  showAlert(msg) {
+    let alert = this.alertCtrl.create({
+      title: 'Sales Warning',
+      subTitle: msg,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 }

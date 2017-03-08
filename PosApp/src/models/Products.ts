@@ -5,15 +5,16 @@ export class Products {
     id:number;
     active:number;
     barcode:string;
-    counter_no:string;
+    counterNo:string;
     description:string;
     pcategory:string;
-    product_name:string;
-    selling_price:number;
-    shop_id:number;
+    productName:string;
+    sellingPrice:number;
+    shopId:number;
+    branchId:number;
     status:number;
     stockonhand:string;
-    userid:number;
+    userId:number;
     vat:string;
 
 }
