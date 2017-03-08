@@ -32,3 +32,6 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+/PosAPI/src/PosAPI/obj
+/PosAPI/src/PosAPI/obj
+/PosAPI/src/PosAPI/bin
