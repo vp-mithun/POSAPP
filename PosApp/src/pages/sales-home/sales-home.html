@@ -1,0 +1,202 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+  <ion-toolbar color="light">
+    <ion-row>
+      <ion-col width-75>
+        Todo - Load Categories
+      </ion-col>
+      <ion-col width-25>
+        <button ion-button color="default"><ion-icon name="add-circle"></ion-icon></button>
+        <button ion-button color="default"><ion-icon name="md-checkmark-circle-outline"></ion-icon></button>
+        <button ion-button color="secondary"><ion-icon name="print"></ion-icon></button>
+        <button ion-button color="danger"><ion-icon name="close-circle"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <div id="salesdiv">
+        <ion-row>
+          <div id="salesItemsdiv">
+            <ion-row>
+              <ion-col width-33>
+                <ion-item>
+                  <ion-label color="dark">Cust</ion-label>
+                  <ion-input [(ngModel)]="customerName" readonly type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col width-33>
+                <ion-item>
+                  <ion-label color="dark">Validity</ion-label>
+                  <ion-input [(ngModel)]="validateDate" readonly type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col width-33>
+                <ion-item>
+                  <ion-label color="dark">Sale Book</ion-label>
+                  <ion-input [(ngModel)]="saleBook" readonly type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col width-33>
+                <ion-item>
+                  <ion-label color="dark">Bill #</ion-label>
+                  <ion-input [(ngModel)]="generatedBillNo" readonly type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col width-33>
+                <ion-item>
+                  <ion-label color="dark">Date</ion-label>
+                  <ion-input [(ngModel)]="todayDate" readonly type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col width-33>
+                <ion-item>
+                  <ion-label color="dark">Time</ion-label>
+                  <ion-input [(ngModel)]="saletime" readonly type="text"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-grid id="ionListSty">
+            <ion-row id="saleItemHeader" align-items-center>
+              <ion-col col-6>
+                Item Name
+              </ion-col>
+              <ion-col col-3>
+                Qty.
+              </ion-col>
+              <ion-col col-3>
+                Price
+              </ion-col>
+              <ion-col col-1>
+
+              </ion-col>
+            </ion-row>
+            <ion-row class="colborder">
+              <ion-col col-6 wrap>
+                <ion-label>curd rice sadfbasdjhas asdfjasjd asdfbasjdfbj</ion-label>
+              </ion-col>
+              <ion-col col-3>
+                <ion-row no-padding>
+                  <ion-col>
+                    <button ion-button small color="danger">-</button>
+                  </ion-col>
+                  <ion-col>
+                    <ion-label>2345</ion-label>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button small color="secondary">+</button>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col col-2>
+                <ion-label>35</ion-label>
+              </ion-col>
+              <ion-col col-1>
+                <button ion-button color="danger" small><ion-icon name="trash"></ion-icon></button>
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+        </ion-row>
+        <!-- Summary -->
+        <ion-row style="background-color: lightgreen">
+          <ion-row>
+            <ion-col width-25>
+              <ion-item>
+                <ion-label color="dark">Discount</ion-label>
+                <ion-input [(ngModel)]="discountper" type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col width-33>
+              <ion-item>
+                <ion-label color="dark">Pay by</ion-label>
+                <ion-select readonly>
+                  <ion-option value="cash" selected>Cash</ion-option>
+                  <ion-option value="card">Debit/Credit Card</ion-option>
+                  <ion-option value="cheque">Cheque</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col width-40>
+              <ion-item>
+                <ion-label color="dark">Sub Total</ion-label>
+                <ion-input readonly type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-row >
+          <ion-row style="background-color: lightgreen">
+            <ion-col width-25>
+              
+            </ion-col>
+            <ion-col width-33>
+              
+            </ion-col>
+            <ion-col width-40>
+              <ion-item>
+                <ion-label color="dark">Grand Total</ion-label>
+                <ion-input [(ngModel)]="grandTotal" readonly type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>        
+        <ion-row style="background-color: lightslategray">
+          <ion-col>
+              <ion-item>
+                <ion-label floating color="dark">Narration</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+            </ion-col>
+        </ion-row>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div id="proddiv">
+        <ion-row>
+          <div id="prodbtndiv">
+            <ion-row>
+              <ion-col width-20>
+                <ion-label style="color: white">Quantity.</ion-label>
+              </ion-col>
+              <ion-col width-80>
+                <button ion-button [color]="qtyBtnSelected == p ? 'secondary' : 'dark'" (click)="setQuantityColor(p)" *ngFor="let p of qtybuttonlist">{{p}}</button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col width-75>
+            <ion-searchbar placeholder="{{searchTypestr}}" [(ngModel)]="prodsearchQuery" (ionInput)="showFilterProducts()"></ion-searchbar>
+          </ion-col>
+          <ion-col width-10>
+            <ion-item>
+              <ion-checkbox color="dark" [(ngModel)]="chkSearchType" (ionChange)="onSearchTypeChange()"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <div id="prodlistdiv">
+            <div style="display: flex; flex-wrap: wrap; align-items: stretch;">
+              <div *ngFor="let s of productslist; let i = index" style="flex: 0 0 calc( 100% / 3 - 2px );">
+                <ion-card (click)="AddProductToSale(s)">
+                  <ion-card-content>
+                    {{s.barcode}}({{s.stockonhand}})
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </div>
+          </div>
+        </ion-row>
+      </div>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -1,0 +1,40 @@
+page-sales-home {
+#proddiv {
+    border-radius: 5px;
+    border: 1px solid #EFEFEF;      
+}
+#prodbtndiv {
+    border-radius: 5px;
+    border: 1px solid #8faee0; 
+    background-color:#8faee0;width:100%;     
+}
+#prodlistdiv {
+    border-radius: 5px;    
+    background-color:#f2f4f4;width:100%;     
+    padding: 2px;
+}
+#salesdiv {
+    border-radius: 5px;
+    border: 1px solid EFEFEF;      
+}
+#salesItemsdiv {
+    border-radius: 5px;
+    border: 1px solid springgreen; 
+    background-color:lightgreen;width:100%;         
+}
+#saleItemHeader {
+    border-radius: 5px;    
+    border: 3px solid lightgrey;
+    background-color:lightgrey;width:100%;         
+    font-size: 15px;
+    font-weight: bold;
+    max-height: 30px;
+}
+.colborder{
+    border-bottom : 1px solid lightgrey;     
+    max-height: 50px;
+    background-color: #f2f4f4;
+}
+
+
+}

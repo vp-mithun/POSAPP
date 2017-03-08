@@ -1,0 +1,28 @@
+<ion-content scroll="false">
+  <div class="splash-bg"></div>
+  <div class="splash-info">
+    <div class="splash-logo"></div>
+    <div class="splash-intro">
+      BAPS POS APP
+    </div>
+  </div>
+  <div padding>
+    <!--<button ion-button block (click)="signup()" class="signup">SIGNUP</button>-->
+    <!--<button ion-button block (click)="login()" class="signup">LOGIN</button>-->
+    <form novalidate (ngSubmit)="onSubmit(loginform)" [formGroup]="loginform">
+      <ion-list>
+        <ion-item>
+          <ion-label floating danger>Username</ion-label>          
+          <ion-input formControlName="username" type="text"></ion-input>        
+        </ion-item>
+        <ion-item>
+          <ion-label floating danger>Password</ion-label>          
+          <ion-input formControlName="password" type="password"></ion-input>        
+        </ion-item>
+        <div padding>
+          <button ion-button color="secondary" type="submit" [disabled]="loginform.invalid">Login</button>
+        </div>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>
