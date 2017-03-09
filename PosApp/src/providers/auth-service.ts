@@ -17,11 +17,14 @@ export class AuthService {
   login(username: string, password: string): Observable<boolean> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-
-        return this.http.post('http://localhost:5000/api/auth/token', 
+    console.log('Inside loggin');
+    
+        return this.http.post('http://192.168.194.2/PosApi/api/auth/token', 
         JSON.stringify({ username: username, password: password }),options)
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
+                console.log(response);
+                
                 let token = response.json() && response.json().token;
                 let loggeduserid = response.json() && response.json().loggeduserid;
                 if (token) {

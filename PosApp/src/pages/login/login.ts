@@ -61,7 +61,7 @@ export class LoginPage {
       // Unable to log in
       loading.dismiss();
       let toast = this.toastCtrl.create({
-        message: "Error Occured!!",
+        message: err,
         duration: 2000,
         position: 'middle'        
       });

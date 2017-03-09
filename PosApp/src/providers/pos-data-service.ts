@@ -12,7 +12,7 @@ export class PosDataService {
 PosApiUrl:string;
 
   constructor(public http: Http, private authServ:AuthService) {
-      this.PosApiUrl = "http://localhost:5000/";
+      this.PosApiUrl = "http://192.168.194.2/PosApi/";
   }
 
   //Gets Users data based on ID
