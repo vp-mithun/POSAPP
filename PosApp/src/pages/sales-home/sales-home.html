@@ -90,13 +90,13 @@
                     <ion-col col-3>
                       <ion-row no-padding>
                         <ion-col>
-                          <button ion-button small color="danger" id="{{ 'itemQtyMinus' + i }}">-</button>
+                          <button ion-button small color="danger" (click)="ReduceQty(i)" id="{{ 'itemQtyMinus' + i }}">-</button>
                         </ion-col>
                         <ion-col>
                           <ion-input formControlName="itemQty" id="{{ 'itemQty' + i }}" readonly type="text"></ion-input>
                         </ion-col>
                         <ion-col>
-                          <button ion-button small color="secondary" id="{{ 'itemQtyPlus' + i }}">+</button>
+                          <button ion-button small color="secondary" (click)="AddQty(i)" id="{{ 'itemQtyPlus' + i }}">+</button>
                         </ion-col>
                       </ion-row>
                     </ion-col>
@@ -104,7 +104,7 @@
                       <ion-input formControlName="itemPrice" id="{{ 'itemPrice' + i }}" readonly type="text"></ion-input>
                     </ion-col>
                     <ion-col col-1>
-                      <button ion-button color="danger" id="{{ 'itemtrash' + i }}" small><ion-icon name="trash"></ion-icon></button>
+                      <button ion-button color="danger" id="{{ 'itemtrash' + i }}" (click)="RemoveItem(i)" small><ion-icon name="trash"></ion-icon></button>
                     </ion-col>
                   </ion-row>
             </ion-row>

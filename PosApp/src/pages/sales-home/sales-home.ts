@@ -192,7 +192,8 @@ export class SalesHomePage {
       return this.fb.group({
                 itemName: selProduct.productName,
                 itemQty: this.qtyBtnSelected,
-                itemPrice: this.qtyBtnSelected * selProduct.sellingPrice
+                itemPrice: this.qtyBtnSelected * selProduct.sellingPrice,
+                itemSellingPrice: selProduct.sellingPrice,
         });
       }
   }    
@@ -200,6 +201,50 @@ export class SalesHomePage {
 
   saveSales(){
 
+  }
+
+  ReduceQty(index){
+    console.log('Reduce ' + index);
+    let itemqty = this.salesForm.value.salesItems[index].itemQty;
+    if (itemqty == 1) {
+      this.showAlert("Minimum Qty is 1");
+      return;
+    }    
+    let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
+    let item = itemsArray.at(index);
+    let newPrice = ((itemqty - 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
+    let newQty =  itemqty - 1;
+
+    item.patchValue({      
+        itemPrice : newPrice,
+        itemQty: newQty      
+    });       
+    this.UpdateSubGrandTotal();
+  }
+
+  AddQty(index){
+    let itemqty = this.salesForm.value.salesItems[index].itemQty;
+    // if (itemqty == 1) {
+    //   this.showAlert("Minimum Qty is 1");
+    //   return;
+    // }    
+    let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
+    let item = itemsArray.at(index);
+    let newPrice = ((itemqty + 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
+    let newQty =  itemqty + 1;
+
+    item.patchValue({      
+        itemPrice : newPrice,
+        itemQty: newQty      
+    });       
+    this.UpdateSubGrandTotal();
+  }
+
+  RemoveItem(index){
+    console.log('Remove ' + index);
+    let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
+    let item = itemsArray.removeAt(index);
+    this.UpdateSubGrandTotal();
   }
 
   showAlert(msg) {
