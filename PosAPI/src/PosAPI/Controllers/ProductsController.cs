@@ -21,7 +21,7 @@ namespace PosAPI.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]ProductQueryStr query)
+        public async Task<IActionResult> Get([FromQuery]GetQueryStr query)
         {
             if (query == null)
             {
@@ -37,11 +37,5 @@ namespace PosAPI.Controllers
             }
             return NotFound();
         }        
-    }
-
-    public class ProductQueryStr
-    {
-        public int branchid { get; set; }
-        public int shopid { get; set; }
     }
 }

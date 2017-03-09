@@ -2,6 +2,7 @@
  * Table SALES object
  */
 export class SalesInfo {
+    id:number;
     productCode:string;
     productName:string;
     ptype:number;

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using PosAPI.DTO;
 
 namespace PosAPI
 {
@@ -68,6 +69,7 @@ namespace PosAPI
             AutoMapper.Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Products, ProductsDTO>();
+                cfg.CreateMap<Salebook, SalebookDTO>();
             });
             
             app.UseMvc();

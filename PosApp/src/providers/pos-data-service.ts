@@ -1,3 +1,4 @@
+import { Salebook } from './../models/Salebook';
 import { Products } from './../models/Products';
 import { Users } from './../models/Users';
 import { AuthService } from './auth-service';
@@ -8,9 +9,10 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PosDataService {
+PosApiUrl:string;
 
   constructor(public http: Http, private authServ:AuthService) {
-    console.log('Hello PosDataService Provider');
+      this.PosApiUrl = "http://localhost:5000/";
   }
 
   //Gets Users data based on ID
@@ -20,7 +22,7 @@ export class PosDataService {
         let options = new RequestOptions({ headers: headers });
  
         // get users from api
-        return this.http.get('http://localhost:5000/api/user/' + this.authServ.loggedUserId, options)
+        return this.http.get(this.PosApiUrl + 'api/user/' + this.authServ.loggedUserId, options)
             .map((response: Response) => response.json() as Users);
     }
 
@@ -31,9 +33,22 @@ export class PosDataService {
         let options = new RequestOptions({ headers: headers });
         let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
 
-        let querystr = "http://localhost:5000/api/products?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
+        let querystr = this.PosApiUrl + "api/products?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
         
         return this.http.get(querystr, options)
             .map((response: Response) => response.json() as Products[]);
+    }
+
+    //Gets list of SaleBook based on Loggedin User ShopId & BranchId
+    getSaleBookList(): Observable<Salebook[]> {
+        // add authorization header with jwt token
+        let headers = new Headers({ 'Authorization': 'Bearer ' + this.authServ.token });
+        let options = new RequestOptions({ headers: headers });
+        let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
+
+        let querystr = this.PosApiUrl + "api/salebook?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
+        
+        return this.http.get(querystr, options)
+            .map((response: Response) => response.json() as Salebook[]);
     }
 }

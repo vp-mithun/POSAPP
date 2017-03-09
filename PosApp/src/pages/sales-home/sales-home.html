@@ -2,20 +2,20 @@
   <ion-navbar>
   </ion-navbar>
   <ion-toolbar color="light">
-    <ion-row>
+    <ion-row >
       <ion-col width-75>
         Todo - Load Categories
       </ion-col>
       <ion-col width-25>
-        <button ion-button color="default"><ion-icon name="add-circle"></ion-icon></button>
-        <button ion-button color="default"><ion-icon name="md-checkmark-circle-outline"></ion-icon></button>
-        <button ion-button color="secondary"><ion-icon name="print"></ion-icon></button>
-        <button ion-button color="danger"><ion-icon name="close-circle"></ion-icon></button>
+        <!--<button ion-button color="default"><ion-icon name="add-circle"></ion-icon></button>-->
+        <button ion-button color="default"  (click)="SaveSales()"><ion-icon name="md-checkmark-circle-outline"></ion-icon></button>
+        <button ion-button color="secondary"  (click)="PrintSales()"><ion-icon name="print"></ion-icon></button>
+        <button ion-button color="danger"  (click)="CloseSales()"><ion-icon name="close-circle"></ion-icon></button>
       </ion-col>
     </ion-row>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content>  
   <ion-row>
     <ion-col>
       <div id="salesdiv">
@@ -37,7 +37,7 @@
               <ion-col width-33>
                 <ion-item>
                   <ion-label color="dark">Sale Book</ion-label>
-                  <ion-input [(ngModel)]="saleBook" readonly type="text"></ion-input>
+                  <ion-input [(ngModel)]="saleBookopt" readonly type="text"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -56,6 +56,9 @@
               </ion-col>
               <ion-col width-33>
                 <ion-item>
+                  <!--<ion-select [(ngModel)]="saletime" color="dark">
+                    <ion-option [value]="prefix" *ngFor=" let book of salesBookList">{{bookname}}</ion-option>
+                  </ion-select>-->
                   <ion-label color="dark">Time</ion-label>
                   <ion-input [(ngModel)]="saletime" readonly type="text"></ion-input>
                 </ion-item>
@@ -79,7 +82,7 @@
 
               </ion-col>
             </ion-row>
-            <form novalidate (ngSubmit)="saveSales()" [formGroup]="salesForm"> 
+            <form novalidate [formGroup]="salesForm"> 
               
             <ion-row class="colborder" formArrayName="salesItems" *ngFor="let item of salesItems.controls; let i=index">                              
                   <ion-row [formGroupName]="i">
@@ -204,5 +207,5 @@
 
     </ion-col>
   </ion-row>
-
+  
 </ion-content>
