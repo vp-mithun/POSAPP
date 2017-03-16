@@ -19,7 +19,7 @@ export class AuthService {
     let options = new RequestOptions({ headers: headers });
     console.log('Inside loggin');
     
-        return this.http.post('http://192.168.194.2/PosApi/api/auth/token', 
+        return this.http.post('http://localhost:5000/api/auth/token', 
         JSON.stringify({ username: username, password: password }),options)
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response

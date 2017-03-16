@@ -16,5 +16,6 @@ export class Products {
     stockonhand:string;
     userId:number;
     vat:string;
+    ptype:string;
 
 }

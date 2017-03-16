@@ -59,4 +59,9 @@ namespace PosAPI.DTO
         public int UserId { get; set; }        
         public string Validitydate { get; set; }
     }
+
+    public class SaleDtoArray
+    {
+        public IList<SalesDTO> SaleInfos { get; set; }
+    }
 }

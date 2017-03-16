@@ -28,14 +28,16 @@ export class SalesHomePage {
   grandTotal:number;
   salesubTotal:number;
   loggedInUser: Users;
+  txtnarration:string;
 
   //Sale Common Properties
   customerName:string = "Haribhakt";
-  validateDate:any = moment().format('L');
+  validateDate:any = moment().format('DD[-]MM[-]YYYY');// moment().format('L');
   saleBookopt:string = "Cash Sales";
+  saleBookoptAbbr:string = "CS-";
   payByopt:string = "cash";
-  generatedBillNo:string = "CS-001";
-  todayDate:any = moment().format('L');
+  generatedBillNo:string;
+  todayDate:any = moment().format('DD[-]MM[-]YYYY')
   saletime:any = moment().format('LT');
 
   //Sales Form
@@ -60,9 +62,32 @@ export class SalesHomePage {
     this.SetupSalesForm();
   }
 
-  ionViewDidLoad() {    
+  ionViewDidEnter() {
+    this.LoadEssentials();
+  }
+
+  LoadEssentials(){
     this.loadProductsList();
     this.loadSalesbookList();
+    this.generateBillNumber();
+  }
+
+  padZero(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+  generateBillNumber():string{
+    let billNumb: string = '';
+
+    this._posService.countOfSalesForDay()
+            .subscribe(salecount => {
+                billNumb = this.saleBookoptAbbr + this.loggedInUser.id + "-" + this.padZero((salecount+1), 3,null);
+                this.generatedBillNo = billNumb;                
+            });
+
+    return billNumb;
   }
 
   StartSales():void{
@@ -91,7 +116,7 @@ export class SalesHomePage {
   loadSalesbookList(){
     this._posService.getSaleBookList()
             .subscribe(saleblist => {
-                this.salesBookList = saleblist;                                
+                this.salesBookList = saleblist;
             });
   }
 
@@ -148,7 +173,7 @@ export class SalesHomePage {
       singleSale.discount = 0;
       singleSale.discountper = 0;
       singleSale.discountamt = 0;
-      singleSale.saleManager = this.loggedInUser.employeeName; //Logged in User Name
+      singleSale.saleManger = this.loggedInUser.employeeName; //Logged in User Name
       singleSale.amount = (this.qtyBtnSelected * selProduct.sellingPrice).toString();
       singleSale.billNum = moment().format('DD[-]MM[-]YYYY[-]') + this.generatedBillNo;
       singleSale.billnum = this.generatedBillNo;
@@ -163,6 +188,9 @@ export class SalesHomePage {
       singleSale.productId = selProduct.id;
       singleSale.salebook = "33"
       singleSale.counter = parseInt(selProduct.counterNo);
+      singleSale.cashtype = "50";
+      singleSale.narration = '';
+      singleSale.ptype = parseInt(selProduct.ptype)
 
       //To Do - Add More
 
@@ -250,15 +278,32 @@ export class SalesHomePage {
 
   //Only Save to DB
   SaveSales(){
-    //this.isAddedEdit = true;
+    //this.isAddedEdit = true;    
 
-    console.log('Save ');
-    console.log(JSON.stringify(this.salesList));
+    if (this.salesList.length > 0) {
+      let narration = this.txtnarration;
+    _.forEach(this.salesList, function(item:SalesInfo) {
+        item.narration = narration;
+      });
+
+      this._posService.saveSalesListDB(this.salesList)
+            .subscribe(prodlist => {
+                console.log('return save');
+            });
+    }
+    else{
+      this.showAlert("Add items to Sales");
+    }
   }
 
   //Save to DB & Print BILL
   PrintSales(){
-    //this.isAddedEdit = true;
+    if (this.salesList.length > 0) {
+      //ToDo - Printing
+    }
+    else{
+      this.showAlert("Add items to Sales");
+    }   
   }
 
   CloseSales(){

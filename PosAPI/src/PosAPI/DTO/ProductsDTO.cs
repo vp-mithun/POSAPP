@@ -12,7 +12,7 @@
         public string Description { get; set; }                       
         public string PCategory { get; set; }        
         public string ProductName { get; set; }        
-        //public string Ptype { get; set; }        
+        public string Ptype { get; set; }        
         //public float Quantity { get; set; }        
         //public int Return { get; set; }        
         //public int Sales { get; set; }        

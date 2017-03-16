@@ -1,3 +1,4 @@
+//import { SalesInfo } from './SalesInfo';
 /**
  * Table SALES object
  */
@@ -11,7 +12,7 @@ export class SalesInfo {
     discount:number;
     discountper:number;
     discountamt:number;
-    saleManager:string;
+    saleManger:string;
     amount:string;
     billNum:string; //Prepend with Date
     billnum:string;
@@ -39,4 +40,11 @@ export class SalesInfo {
     narration:string;
     validitydate:string;
 
+}
+
+/**
+ * name
+ */
+export class SalesInfoObject {
+    SaleInfos:SalesInfo[];
 }
