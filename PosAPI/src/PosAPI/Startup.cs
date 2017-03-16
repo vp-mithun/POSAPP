@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using PosAPI.DTO;
+using Serilog;
+using System.IO;
 
 namespace PosAPI
 {
@@ -20,6 +22,11 @@ namespace PosAPI
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.RollingFile(Path.Combine(env.ContentRootPath, "log-{Date}.txt"))
+                .CreateLogger();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -50,8 +57,8 @@ namespace PosAPI
         {
             app.UseCors("CorsPolicy");
             app.UseResponseCompression();
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddSerilog();
 
             app.UseJwtBearerAuthentication(new JwtBearerOptions()
             {

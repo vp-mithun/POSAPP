@@ -7,8 +7,7 @@ using PosAPI.DTO;
 using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Microsoft.Extensions.Logging;
 
 namespace PosAPI.Controllers
 {
@@ -17,9 +16,12 @@ namespace PosAPI.Controllers
     public class SalesController : Controller
     {
         private readonly posprojectContext _context;
-        public SalesController(posprojectContext Context)
+        private readonly ILogger<SalesController> _logger;
+
+        public SalesController(posprojectContext Context, ILogger<SalesController> Logger)
         {
             _context = Context;
+            _logger = Logger;
         }
 
         // GET: api/values
@@ -45,9 +47,9 @@ namespace PosAPI.Controllers
                 return BadRequest();
             }
             var prodlist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
-            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Equals(query.Sdate)).Distinct().ToListAsync();
+            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Equals(query.Sdate)).GroupBy(f => f.Billnum).ToListAsync();            
 
-            
+
 
             return Ok(prodlist.Count);
         }
@@ -61,7 +63,7 @@ namespace PosAPI.Controllers
                 if (saleList.ToList().Count == 0)
                 {
                     return BadRequest();
-                }
+                }               
 
                 var reverseSales = Mapper.Map<List<SalesDTO>, List<Sales>>(saleList.ToList());
                 foreach (var item in reverseSales)
@@ -77,20 +79,65 @@ namespace PosAPI.Controllers
                     item.SaleReturns = string.Empty;
                     item.ReturnBill = string.Empty;
                     item.ReturnDate = string.Empty;
-                    item.Narration = (item.Narration == null) ? string.Empty : item.Narration;
+                    item.Narration = item.Narration ?? string.Empty;
                     item.Smcomision = string.Empty;
                     item.Tax = string.Empty;
                 }
 
+                var outstockProd = await CheckProductStock(reverseSales);
+                if (outstockProd.Count > 0)
+                {
+                    _logger.LogWarning("Out Of Stocks added");
+                    return BadRequest(outstockProd);
+                }
+
                 await _context.Sales.AddRangeAsync(reverseSales);
+                await UpdateProductStock(reverseSales);
                 await _context.SaveChangesAsync();
                 return Ok();
             }
             catch (Exception ex)
             {
+                _logger.LogCritical("Save Saled FAILED", ex);
                 throw ex;
             }
         }
+
+        private async Task UpdateProductStock(List<Sales> reverseSales)
+        {            
+            var productslist = await _context.Products.ToListAsync();
+
+            foreach (var item in reverseSales)
+            {
+                var prod = productslist.FirstOrDefault(e => e.Id.Equals(item.ProductId));
+                prod.Stockonhand = (Convert.ToInt32(prod.Stockonhand) - Convert.ToInt32(item.Quantity)).ToString();
+                _context.Products.Update(prod);
+            }
+        }
+
+        private async Task<List<OutOfStockProducts>> CheckProductStock(List<Sales> reverseSales)
+        {
+            var outstock = new List<OutOfStockProducts>();
+            var productslist = await _context.Products.ToListAsync();
+
+            foreach (var item in reverseSales)
+            {
+                var prod = productslist.FirstOrDefault(e => e.Id.Equals(item.ProductId));
+                if (!(Convert.ToInt32(prod.Stockonhand) - Convert.ToInt32(item.Quantity) > Convert.ToInt32(item.Quantity)))
+                {
+                    outstock.Add(new OutOfStockProducts() {
+                        Id = prod.Id,
+                        ProductName = prod.ProductName,
+                        CounterNo = prod.CounterNo,
+                        BranchId = prod.BranchId,
+                        ShopId = prod.ShopId
+                    });
+                }
+            }
+            return outstock;
+        }
+
+
 
         // PUT api/values/5
         [HttpPut("{id}")]

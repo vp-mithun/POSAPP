@@ -1,3 +1,5 @@
+import { LoginPage } from './../login/login';
+import { AuthService } from './../../providers/auth-service';
 import { ProductsPage } from './../products/products';
 import { SalesHomePage } from './../sales-home/sales-home';
 import { MySalePage } from './../my-sale/my-sale';
@@ -19,7 +21,7 @@ export class HomePage {
   loggedInUser:Users;
   //loggedInUser: Users[] = [];
 
-  constructor(public navCtrl: NavController, private _posService:PosDataService) {
+  constructor(public navCtrl: NavController, private _posService:PosDataService, private authenticationService: AuthService,) {
     
   }
 
@@ -38,4 +40,8 @@ export class HomePage {
             });
   }
 
+  doLogout(){
+    this.authenticationService.logout();
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

@@ -54,7 +54,7 @@ export class LoginPage {
                       duration: 3000,
                       position: 'middle'        
                     });
-                    toast.present();                    
+                    toast.present();
                 }      
       
     }, (err) => {      

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Users } from './../../models/Users';
 import { Salebook } from './../../models/Salebook';
 import { SalesInfo } from './../../models/SalesInfo';
@@ -32,12 +33,12 @@ export class SalesHomePage {
 
   //Sale Common Properties
   customerName:string = "Haribhakt";
-  validateDate:any = moment().format('DD[-]MM[-]YYYY');// moment().format('L');
+  validateDate:any = moment().format('L');
   saleBookopt:string = "Cash Sales";
   saleBookoptAbbr:string = "CS-";
   payByopt:string = "cash";
   generatedBillNo:string;
-  todayDate:any = moment().format('DD[-]MM[-]YYYY')
+  todayDate:any = moment().format('L');//moment().format('DD[-]MM[-]YYYY')
   saletime:any = moment().format('LT');
 
   //Sales Form
@@ -65,6 +66,13 @@ export class SalesHomePage {
   ionViewDidEnter() {
     this.LoadEssentials();
   }
+
+  // ionViewDidLeave(){
+  //   console.log('leaving me');
+  //   if (this.salesList.length > 0) {
+  //     this.showunSavedConfirm();
+  //   }    
+  // }
 
   LoadEssentials(){
     this.loadProductsList();
@@ -273,13 +281,10 @@ export class SalesHomePage {
                 itembarcode:selProduct.barcode
         });
       }
-  }    
-    
+  } 
 
   //Only Save to DB
   SaveSales(){
-    //this.isAddedEdit = true;    
-
     if (this.salesList.length > 0) {
       let narration = this.txtnarration;
     _.forEach(this.salesList, function(item:SalesInfo) {
@@ -289,6 +294,7 @@ export class SalesHomePage {
       this._posService.saveSalesListDB(this.salesList)
             .subscribe(prodlist => {
                 console.log('return save');
+                this.createNewSaleForm();
             });
     }
     else{
@@ -397,10 +403,60 @@ export class SalesHomePage {
             //this.isAddedEdit = true;
             //TODO -- Other Form elements
             // 1. Load Products, 2. any variable reset
+            this.createNewSaleForm();
           }
         }
       ]
     });
     confirm.present();
+  }
+
+  showunSavedConfirm() {
+    let confirm = this.alertCtrl.create({
+      title: 'Sales Warning',
+      message: 'Unsaved Sales present, Continue?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Disagree clicked');
+            return;
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            //Unsubscribe Observable            
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  //Creates new SALE form, loads necessary with data  
+  createNewSaleForm(){
+    this.salesList = [];
+    this.qtyBtnSelected = undefined;
+    //Initiate Form
+    this.SetupSalesForm();
+
+    this.chkSearchType = true;
+    this.searchTypestr = "Search by Barcode...";
+    this.preloadSaleValues();
+
+    this.isSalesItemsExists = false;
+    this.LoadEssentials();
+
+  }
+
+  preloadSaleValues(){
+    this.validateDate = moment().format('DD[-]MM[-]YYYY');// moment().format('L');
+    this.saleBookopt = "Cash Sales";
+    this.saleBookoptAbbr = "CS-";
+    this.payByopt = "cash";
+    this.generatedBillNo;
+    this.todayDate = moment().format('DD[-]MM[-]YYYY')
+    this.saletime = moment().format('LT');
   }
 }

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Storage } from '@ionic/storage';
-import {AuthHttp, JwtHelper, tokenNotExpired} from 'angular2-jwt';
+import { AuthHttp, JwtHelper, tokenNotExpired} from 'angular2-jwt';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -41,13 +42,18 @@ export class AuthService {
                     // return false to indicate failed login
                     return false;
                 }
-            });
+            })
+        .catch(this.handleError);
     }
  
     logout(): void {
         // clear token remove user from local storage to log user out
         this.token = null;
         localStorage.removeItem('currentUser');
+    }
+
+    handleError(error: any) {        
+        return Observable.throw('Server error');
     }
 
   public authenticated() {
