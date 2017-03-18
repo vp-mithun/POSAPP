@@ -64,6 +64,19 @@
                 </ion-item>
               </ion-col>
             </ion-row>
+            <ion-row>
+              <ion-col width-40>
+                <ion-item>
+                  <ion-label color="dark">QTY</ion-label>
+                  <ion-input type="number" [(ngModel)]="quantityItems" min="1"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col width-60>
+                <ion-item>
+                  <ion-input placeholder="Search by barcode" [(ngModel)]="productSearchQuery" type="text" (keypress)="AddPrintSaleItems($event)"></ion-input>
+                </ion-item>
+              </ion-col>              
+            </ion-row>
           </div>
         </ion-row>
         <ion-row>
@@ -196,7 +209,7 @@
               <div *ngFor="let s of productslist; let i = index" style="flex: 0 0 calc( 100% / 3 - 2px );">
                 <ion-card (click)="AddProductToSale(s)">
                   <ion-card-content>
-                    {{s.barcode}}({{s.stockonhand}})
+                    {{s.productName}}({{s.stockonhand}})
                   </ion-card-content>
                 </ion-card>
               </div>

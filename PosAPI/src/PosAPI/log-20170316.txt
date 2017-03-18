@@ -2182,3 +2182,1996 @@ ORDER BY `e`.`billnum`
 2017-03-16 22:03:29.219 +05:30 [Debug] Connection id ""0HL3CH7OMGS5D"" sending FIN.
 2017-03-16 22:03:29.219 +05:30 [Debug] Connection id ""0HL3CH7OMGS5D"" sent FIN with status "0".
 2017-03-16 22:03:29.219 +05:30 [Debug] Connection id ""0HL3CH7OMGS5D"" stopped.
+2017-03-16 22:34:40.289 +05:30 [Debug] Hosting starting
+2017-03-16 22:34:41.027 +05:30 [Debug] Connection id ""0HL3CHQ4K507Q"" started.
+2017-03-16 22:34:41.089 +05:30 [Debug] Connection id ""0HL3CHQ4K507Q"" received FIN.
+2017-03-16 22:34:41.110 +05:30 [Debug] Hosting started
+2017-03-16 22:34:41.132 +05:30 [Debug] Connection id ""0HL3CHQ4K507Q"" disconnecting.
+2017-03-16 22:34:41.145 +05:30 [Debug] Connection id ""0HL3CHQ4K507Q"" sending FIN.
+2017-03-16 22:34:41.158 +05:30 [Debug] Connection id ""0HL3CHQ4K507Q"" sent FIN with status "0".
+2017-03-16 22:34:41.166 +05:30 [Debug] Connection id ""0HL3CHQ4K507Q"" stopped.
+2017-03-16 22:34:47.148 +05:30 [Debug] Connection id ""0HL3CHQ4K507R"" started.
+2017-03-16 22:34:47.391 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-16 22:34:48.546 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-16 22:34:48.627 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"8454c7f7-e590-4374-98df-c5290a6fe890"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-16 22:34:48.715 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-16 22:34:48.873 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-16 22:34:48.877 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-16 22:34:48.979 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:34:48.987 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:34:48.987 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:34:49.963 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 1240.0433ms
+2017-03-16 22:34:50.006 +05:30 [Debug] Connection id ""0HL3CHQ4K507R"" completed keep alive response.
+2017-03-16 22:34:50.019 +05:30 [Information] Request finished in 2766.764ms 200 application/json; charset=utf-8
+2017-03-16 22:34:50.062 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-16 22:34:50.065 +05:30 [Debug] Request did not match any routes.
+2017-03-16 22:34:50.071 +05:30 [Debug] Connection id ""0HL3CHQ4K507R"" completed keep alive response.
+2017-03-16 22:34:50.072 +05:30 [Information] Request finished in 9.3481ms 404 
+2017-03-16 22:35:42.409 +05:30 [Debug] Connection id ""0HL3CHQ4K507R"" received FIN.
+2017-03-16 22:35:42.462 +05:30 [Debug] Connection id ""0HL3CHQ4K507R"" disconnecting.
+2017-03-16 22:35:42.462 +05:30 [Debug] Connection id ""0HL3CHQ4K507R"" sending FIN.
+2017-03-16 22:35:42.462 +05:30 [Debug] Connection id ""0HL3CHQ4K507R"" sent FIN with status "0".
+2017-03-16 22:35:42.462 +05:30 [Debug] Connection id ""0HL3CHQ4K507R"" stopped.
+2017-03-16 22:39:25.048 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" started.
+2017-03-16 22:39:25.075 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-16 22:39:25.109 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:39:25.109 +05:30 [Information] Request finished in 37.2601ms 204 
+2017-03-16 22:39:25.113 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 39
+2017-03-16 22:39:25.115 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-16 22:39:25.132 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-16 22:39:25.788 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-16 22:39:26.072 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-16 22:39:27.527 +05:30 [Debug] Compiling query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-16 22:39:27.566 +05:30 [Debug] Optimized query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-16 22:39:27.900 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+        FROM `users` AS `e`
+        WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+    , 
+    shaper: UnbufferedEntityShaper<Users>
+)
+
+2017-03-16 22:39:28.977 +05:30 [Information] Executed DbCommand (57ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-16 22:39:29.173 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:39:29.211 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-16 22:39:29.215 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-16 22:39:30.262 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ToSequence(
+    element: Users FirstOrDefault(
+        source: IEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<Users>
+        )
+    )
+)
+
+2017-03-16 22:39:30.278 +05:30 [Information] Executed DbCommand (0ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-16 22:39:30.279 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:39:30.361 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 22:39:30.362 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:39:30.362 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:39:30.362 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:39:30.413 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 5280.7837ms
+2017-03-16 22:39:30.416 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:39:30.416 +05:30 [Information] Request finished in 5302.3477ms 200 application/json; charset=utf-8
+2017-03-16 22:39:30.471 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/108  
+2017-03-16 22:39:30.471 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:39:30.471 +05:30 [Information] Request finished in 0.4506ms 204 
+2017-03-16 22:39:31.177 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/108  
+2017-03-16 22:39:31.266 +05:30 [Information] Successfully validated the token.
+2017-03-16 22:39:31.280 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 22:39:31.280 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-16 22:39:31.283 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-16 22:39:31.315 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-16 22:39:31.330 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["108"]) - ModelState is Valid
+2017-03-16 22:39:31.420 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-16 22:39:31.424 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-16 22:39:31.467 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Users> _ToSequence(
+    task: Task<Users> _FirstOrDefault(
+        source: IAsyncEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE `e`.`id` = @__get_Item_0
+                LIMIT 1
+            , 
+            shaper: BufferedEntityShaper<Users>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-16 22:39:31.804 +05:30 [Information] Executed DbCommand (19ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-16 22:39:31.823 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:39:31.842 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 22:39:31.842 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:39:31.842 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:39:31.842 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:39:31.849 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 566.1151ms
+2017-03-16 22:39:31.850 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:39:31.850 +05:30 [Information] Request finished in 672.9671ms 200 application/json; charset=utf-8
+2017-03-16 22:39:46.081 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-16 22:39:46.082 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:39:46.082 +05:30 [Information] Request finished in 0.4497ms 204 
+2017-03-16 22:39:46.083 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=70&shopid=0  
+2017-03-16 22:39:46.083 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:39:46.083 +05:30 [Information] Request finished in 0.2827ms 204 
+2017-03-16 22:39:46.088 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=70&shopid=0&userId=108&sdate=03/16/2017  
+2017-03-16 22:39:46.088 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:39:46.088 +05:30 [Information] Request finished in 0.5803ms 204 
+2017-03-16 22:39:46.100 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-16 22:39:46.101 +05:30 [Information] Successfully validated the token.
+2017-03-16 22:39:46.101 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 22:39:46.103 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-16 22:39:46.104 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-16 22:39:46.105 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-16 22:39:46.118 +05:30 [Debug] Connection id ""0HL3CHQ4K507T"" started.
+2017-03-16 22:39:46.119 +05:30 [Debug] Connection id ""0HL3CHQ4K507U"" started.
+2017-03-16 22:39:46.122 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=70&shopid=0&userId=108&sdate=03/16/2017  
+2017-03-16 22:39:46.123 +05:30 [Information] Successfully validated the token.
+2017-03-16 22:39:46.124 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 22:39:46.124 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-16 22:39:46.125 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-16 22:39:46.125 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-16 22:39:46.127 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=70&shopid=0  
+2017-03-16 22:39:46.128 +05:30 [Information] Successfully validated the token.
+2017-03-16 22:39:46.128 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 22:39:46.128 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-16 22:39:46.129 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-16 22:39:46.130 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-16 22:39:46.174 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 22:39:46.174 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 22:39:46.186 +05:30 [Debug] Compiling query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active == 1
+select e'
+2017-03-16 22:39:46.186 +05:30 [Debug] Optimized query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active == 1
+select e'
+2017-03-16 22:39:46.188 +05:30 [Debug] Compiling query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-16 22:39:46.188 +05:30 [Debug] Optimized query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-16 22:39:46.196 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 22:39:46.196 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Salebook> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+        FROM `salebook` AS `e`
+        WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+    , 
+    shaper: UnbufferedEntityShaper<Salebook>
+)
+
+2017-03-16 22:39:46.217 +05:30 [Information] Executed DbCommand (4ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-16 22:39:46.222 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Products> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+        FROM `products` AS `e`
+        WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+    , 
+    shaper: UnbufferedEntityShaper<Products>
+)
+
+2017-03-16 22:39:46.242 +05:30 [Debug] Compiling query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-16 22:39:46.243 +05:30 [Debug] Optimized query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-16 22:39:46.246 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:39:46.276 +05:30 [Warning] The LINQ expression 'GroupBy([e].Billnum, [e])' could not be translated and will be evaluated locally.
+2017-03-16 22:39:46.300 +05:30 [Information] Executed DbCommand (37ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+2017-03-16 22:39:46.305 +05:30 [Debug] TRACKED: False
+(QueryContext queryContext) => IAsyncEnumerable<TrackingGrouping<string, Sales>> _TrackGroupedEntities(
+    groupings: IAsyncEnumerable<IGrouping<string, Sales>> _GroupBy(
+        source: IAsyncEnumerable<Sales> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+                FROM `sales` AS `e`
+                WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+                ORDER BY `e`.`billnum`
+            , 
+            shaper: UnbufferedEntityShaper<Sales>
+        )
+        , 
+        keySelector: (Sales e) => e.Billnum, 
+        elementSelector: (Sales e) => e
+    )
+    , 
+    queryContext: queryContext, 
+    entityTrackingInfos: { itemType: Sales }, 
+    entityAccessors: List<Func<Sales, object>> 
+    { 
+        System.Func`2[PosAPI.Sales,PosAPI.Sales], 
+    }
+)
+
+2017-03-16 22:39:46.349 +05:30 [Information] Executed DbCommand (28ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?', @__query_userId_2='?', @__query_Sdate_3='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+FROM `sales` AS `e`
+WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+ORDER BY `e`.`billnum`
+2017-03-16 22:39:46.383 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 22:39:46.384 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:39:46.384 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:39:46.387 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:39:46.400 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:39:46.408 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 22:39:46.409 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:39:46.409 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:39:46.409 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:39:46.409 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 283.6234ms
+2017-03-16 22:39:46.409 +05:30 [Debug] Connection id ""0HL3CHQ4K507U"" completed keep alive response.
+2017-03-16 22:39:46.409 +05:30 [Information] Request finished in 286.9507ms 200 application/json; charset=utf-8
+2017-03-16 22:39:46.415 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 285.7568ms
+2017-03-16 22:39:46.416 +05:30 [Debug] Connection id ""0HL3CHQ4K507T"" completed keep alive response.
+2017-03-16 22:39:46.417 +05:30 [Information] Request finished in 289.1792ms 200 application/json; charset=utf-8
+2017-03-16 22:39:46.987 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:39:47.005 +05:30 [Debug] Executed action method "PosAPI.Controllers.ProductsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 22:39:47.005 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:39:47.006 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:39:47.006 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:39:47.026 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 921.5292ms
+2017-03-16 22:39:47.026 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:39:47.026 +05:30 [Information] Request finished in 925.698ms 200 application/json; charset=utf-8
+2017-03-16 22:41:47.445 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales  
+2017-03-16 22:41:47.445 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:41:47.445 +05:30 [Information] Request finished in 0.7235ms 204 
+2017-03-16 22:41:47.450 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/sales application/json 1057
+2017-03-16 22:41:47.480 +05:30 [Information] Successfully validated the token.
+2017-03-16 22:41:47.480 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 22:41:47.480 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales"'.
+2017-03-16 22:41:47.480 +05:30 [Debug] Action '"PosAPI.Controllers.SalesController.Get (PosAPI)"' with id '"8a80d06d-d771-4a30-8750-297e432b571c"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-16 22:41:47.481 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Post (PosAPI)"
+2017-03-16 22:41:47.481 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-16 22:41:47.482 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-16 22:41:47.559 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Post (PosAPI)" with arguments (["System.Collections.Generic.List`1[PosAPI.DTO.SalesDTO]"]) - ModelState is Valid
+2017-03-16 22:41:47.590 +05:30 [Debug] Compiling query model: 
+'from Products <generated>_0 in DbSet<Products>
+select <generated>_0'
+2017-03-16 22:41:47.590 +05:30 [Debug] Optimized query model: 
+'from Products <generated>_0 in DbSet<Products>
+select <generated>_0'
+2017-03-16 22:41:47.598 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Products> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `p`.`id`, `p`.`active`, `p`.`barcode`, `p`.`black`, `p`.`branch_id`, `p`.`brand`, `p`.`ccode`, `p`.`color`, `p`.`counter_no`, `p`.`description`, `p`.`discount`, `p`.`discount_value`, `p`.`disposiblegoods`, `p`.`dprice`, `p`.`finishedgoods`, `p`.`gtotal_amount`, `p`.`image`, `p`.`image1`, `p`.`image2`, `p`.`image3`, `p`.`image4`, `p`.`leadtime`, `p`.`maxstock`, `p`.`minidescription`, `p`.`minstock`, `p`.`nquantity`, `p`.`opening_balance`, `p`.`outmonths`, `p`.`p_category`, `p`.`pcategory`, `p`.`print`, `p`.`product_name`, `p`.`ptype`, `p`.`quantity`, `p`.`rand`, `p`.`related`, `p`.`remark`, `p`.`return`, `p`.`sales`, `p`.`selling_price`, `p`.`serialnumber`, `p`.`shop_id`, `p`.`smcommision`, `p`.`sprice`, `p`.`status`, `p`.`stockonhand`, `p`.`supplier_name`, `p`.`total_amount`, `p`.`type`, `p`.`uprice`, `p`.`user_id`, `p`.`vat`
+        FROM `products` AS `p`
+    , 
+    shaper: UnbufferedEntityShaper<Products>
+)
+
+2017-03-16 22:41:47.631 +05:30 [Information] Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='0']
+SELECT `p`.`id`, `p`.`active`, `p`.`barcode`, `p`.`black`, `p`.`branch_id`, `p`.`brand`, `p`.`ccode`, `p`.`color`, `p`.`counter_no`, `p`.`description`, `p`.`discount`, `p`.`discount_value`, `p`.`disposiblegoods`, `p`.`dprice`, `p`.`finishedgoods`, `p`.`gtotal_amount`, `p`.`image`, `p`.`image1`, `p`.`image2`, `p`.`image3`, `p`.`image4`, `p`.`leadtime`, `p`.`maxstock`, `p`.`minidescription`, `p`.`minstock`, `p`.`nquantity`, `p`.`opening_balance`, `p`.`outmonths`, `p`.`p_category`, `p`.`pcategory`, `p`.`print`, `p`.`product_name`, `p`.`ptype`, `p`.`quantity`, `p`.`rand`, `p`.`related`, `p`.`remark`, `p`.`return`, `p`.`sales`, `p`.`selling_price`, `p`.`serialnumber`, `p`.`shop_id`, `p`.`smcommision`, `p`.`sprice`, `p`.`status`, `p`.`stockonhand`, `p`.`supplier_name`, `p`.`total_amount`, `p`.`type`, `p`.`uprice`, `p`.`user_id`, `p`.`vat`
+FROM `products` AS `p`
+2017-03-16 22:41:47.967 +05:30 [Debug] Connection id ""0HL3CHQ4K507T"" disconnecting.
+2017-03-16 22:41:47.968 +05:30 [Debug] Connection id ""0HL3CHQ4K507T"" sending FIN.
+2017-03-16 22:41:47.968 +05:30 [Debug] Connection id ""0HL3CHQ4K507T"" sent FIN with status "0".
+2017-03-16 22:41:47.968 +05:30 [Debug] Connection id ""0HL3CHQ4K507T"" stopped.
+2017-03-16 22:41:47.984 +05:30 [Debug] Connection id ""0HL3CHQ4K507U"" disconnecting.
+2017-03-16 22:41:47.984 +05:30 [Debug] Connection id ""0HL3CHQ4K507U"" sending FIN.
+2017-03-16 22:41:47.989 +05:30 [Debug] Connection id ""0HL3CHQ4K507U"" sent FIN with status "0".
+2017-03-16 22:41:47.990 +05:30 [Debug] Connection id ""0HL3CHQ4K507U"" stopped.
+2017-03-16 22:41:48.865 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:41:48.934 +05:30 [Information] Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='0']
+SELECT `p`.`id`, `p`.`active`, `p`.`barcode`, `p`.`black`, `p`.`branch_id`, `p`.`brand`, `p`.`ccode`, `p`.`color`, `p`.`counter_no`, `p`.`description`, `p`.`discount`, `p`.`discount_value`, `p`.`disposiblegoods`, `p`.`dprice`, `p`.`finishedgoods`, `p`.`gtotal_amount`, `p`.`image`, `p`.`image1`, `p`.`image2`, `p`.`image3`, `p`.`image4`, `p`.`leadtime`, `p`.`maxstock`, `p`.`minidescription`, `p`.`minstock`, `p`.`nquantity`, `p`.`opening_balance`, `p`.`outmonths`, `p`.`p_category`, `p`.`pcategory`, `p`.`print`, `p`.`product_name`, `p`.`ptype`, `p`.`quantity`, `p`.`rand`, `p`.`related`, `p`.`remark`, `p`.`return`, `p`.`sales`, `p`.`selling_price`, `p`.`serialnumber`, `p`.`shop_id`, `p`.`smcommision`, `p`.`sprice`, `p`.`status`, `p`.`stockonhand`, `p`.`supplier_name`, `p`.`total_amount`, `p`.`type`, `p`.`uprice`, `p`.`user_id`, `p`.`vat`
+FROM `products` AS `p`
+2017-03-16 22:41:50.145 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:41:50.319 +05:30 [Debug] Beginning transaction with isolation level 'Unspecified'.
+2017-03-16 22:41:50.470 +05:30 [Information] Executed DbCommand (58ms) [Parameters=[@p0='?', @p2='?', @p4='?' (Size = 250), @p6='?', @p8='?', @p10='?' (Size = 8000), @p12='?' (Size = 250), @p14='?' (Size = 8000), @p16='?' (Size = 8000), @p18='?' (Size = 8000), @p20='?', @p22='?' (Size = 250), @p24='?' (Size = 8000), @p26='?', @p28='?' (Size = 8000), @p30='?' (Size = 8000), @p32='?' (Size = 250), @p34='?' (Size = 8000), @p36='?' (Size = 8000), @p38='?' (Size = 8000), @p40='?' (Size = 8000), @p42='?' (Size = 8000), @p44='?' (Size = 8000), @p46='?' (Size = 8000), @p48='?' (Size = 8000), @p50='?' (Size = 8000), @p52='?' (Size = 8000), @p54='?' (Size = 250), @p56='?' (Size = 8000), @p58='?' (Size = 250), @p60='?' (Size = 8000), @p62='?' (Size = 250), @p64='?' (Size = 250), @p66='?', @p68='?' (Size = 8000), @p70='?' (Size = 8000), @p72='?' (Size = 8000), @p74='?', @p76='?', @p78='?', @p80='?' (Size = 8000), @p82='?', @p84='?' (Size = 8000), @p86='?', @p88='?', @p90='?' (Size = 8000), @p92='?' (Size = 8000), @p94='?' (Size = 8000), @p96='?' (Size = 8000), @p98='?' (Size = 8000), @p100='?', @p102='?' (Size = 8000)], CommandType='Text', CommandTimeout='0']
+UPDATE `products` SET `active` = @p2, `barcode` = @p4, `black` = @p6, `branch_id` = @p8, `brand` = @p10, `ccode` = @p12, `color` = @p14, `counter_no` = @p16, `description` = @p18, `discount` = @p20, `discount_value` = @p22, `disposiblegoods` = @p24, `dprice` = @p26, `finishedgoods` = @p28, `gtotal_amount` = @p30, `image` = @p32, `image1` = @p34, `image2` = @p36, `image3` = @p38, `image4` = @p40, `leadtime` = @p42, `maxstock` = @p44, `minidescription` = @p46, `minstock` = @p48, `nquantity` = @p50, `opening_balance` = @p52, `outmonths` = @p54, `p_category` = @p56, `pcategory` = @p58, `print` = @p60, `product_name` = @p62, `ptype` = @p64, `quantity` = @p66, `rand` = @p68, `related` = @p70, `remark` = @p72, `return` = @p74, `sales` = @p76, `selling_price` = @p78, `serialnumber` = @p80, `shop_id` = @p82, `smcommision` = @p84, `sprice` = @p86, `status` = @p88, `stockonhand` = @p90, `supplier_name` = @p92, `total_amount` = @p94, `type` = @p96, `uprice` = @p98, `user_id` = @p100, `vat` = @p102
+WHERE `id` = @p0;
+SELECT ROW_COUNT();
+2017-03-16 22:41:50.492 +05:30 [Information] Executed DbCommand (1ms) [Parameters=[@p0='?', @p2='?', @p4='?' (Size = 250), @p6='?', @p8='?', @p10='?' (Size = 8000), @p12='?' (Size = 250), @p14='?' (Size = 8000), @p16='?' (Size = 8000), @p18='?' (Size = 8000), @p20='?', @p22='?' (Size = 250), @p24='?' (Size = 8000), @p26='?', @p28='?' (Size = 8000), @p30='?' (Size = 8000), @p32='?' (Size = 250), @p34='?' (Size = 8000), @p36='?' (Size = 8000), @p38='?' (Size = 8000), @p40='?' (Size = 8000), @p42='?' (Size = 8000), @p44='?' (Size = 8000), @p46='?' (Size = 8000), @p48='?' (Size = 8000), @p50='?' (Size = 8000), @p52='?' (Size = 8000), @p54='?' (Size = 250), @p56='?' (Size = 8000), @p58='?' (Size = 250), @p60='?' (Size = 8000), @p62='?' (Size = 250), @p64='?' (Size = 250), @p66='?', @p68='?' (Size = 8000), @p70='?' (Size = 8000), @p72='?' (Size = 8000), @p74='?', @p76='?', @p78='?', @p80='?' (Size = 8000), @p82='?', @p84='?' (Size = 8000), @p86='?', @p88='?', @p90='?' (Size = 8000), @p92='?' (Size = 8000), @p94='?' (Size = 8000), @p96='?' (Size = 8000), @p98='?' (Size = 8000), @p100='?', @p102='?' (Size = 8000)], CommandType='Text', CommandTimeout='0']
+UPDATE `products` SET `active` = @p2, `barcode` = @p4, `black` = @p6, `branch_id` = @p8, `brand` = @p10, `ccode` = @p12, `color` = @p14, `counter_no` = @p16, `description` = @p18, `discount` = @p20, `discount_value` = @p22, `disposiblegoods` = @p24, `dprice` = @p26, `finishedgoods` = @p28, `gtotal_amount` = @p30, `image` = @p32, `image1` = @p34, `image2` = @p36, `image3` = @p38, `image4` = @p40, `leadtime` = @p42, `maxstock` = @p44, `minidescription` = @p46, `minstock` = @p48, `nquantity` = @p50, `opening_balance` = @p52, `outmonths` = @p54, `p_category` = @p56, `pcategory` = @p58, `print` = @p60, `product_name` = @p62, `ptype` = @p64, `quantity` = @p66, `rand` = @p68, `related` = @p70, `remark` = @p72, `return` = @p74, `sales` = @p76, `selling_price` = @p78, `serialnumber` = @p80, `shop_id` = @p82, `smcommision` = @p84, `sprice` = @p86, `status` = @p88, `stockonhand` = @p90, `supplier_name` = @p92, `total_amount` = @p94, `type` = @p96, `uprice` = @p98, `user_id` = @p100, `vat` = @p102
+WHERE `id` = @p0;
+SELECT ROW_COUNT();
+2017-03-16 22:41:50.559 +05:30 [Information] Executed DbCommand (57ms) [Parameters=[@p2='?' (Size = 8000), @p4='?' (Size = 8000), @p6='?' (Size = 8000), @p10='?', @p12='?' (Size = 120), @p14='?' (Size = 8000), @p16='?', @p18='?' (Size = 8000), @p20='?', @p22='?', @p24='?' (Size = 8000), @p26='?', @p28='?', @p30='?', @p34='?', @p36='?' (Size = 8000), @p38='?' (Size = 8000), @p40='?' (Size = 8000), @p42='?', @p44='?' (Size = 8000), @p46='?', @p48='?' (Size = 8000), @p50='?' (Size = 8000), @p52='?', @p54='?', @p56='?' (Size = 8000), @p58='?', @p60='?' (Size = 8000), @p62='?', @p64='?' (Size = 8000), @p66='?' (Size = 8000), @p68='?' (Size = 8000), @p70='?', @p72='?', @p74='?' (Size = 8000), @p76='?' (Size = 8000), @p78='?' (Size = 250), @p80='?', @p82='?', @p84='?' (Size = 8000), @p86='?' (Size = 8000), @p90='?' (Size = 8000), @p92='?', @p94='?' (Size = 8000), @p96='?', @p98='?', @p100='?' (Size = 8000)], CommandType='Text', CommandTimeout='0']
+INSERT INTO `sales` (`amount`, `bill_num`, `billnum`, `branch_id`, `cashtype`, `commision`, `counter`, `customer`, `customerid`, `dates`, `discount`, `discountamt`, `discountper`, `edit`, `ex`, `extotalamount`, `extra_discount`, `image`, `instock`, `narration`, `nid`, `numcount`, `phone`, `points`, `price`, `product_code`, `product_id`, `product_name`, `ptype`, `quantity`, `return_bill`, `return_date`, `returns`, `rid`, `sale_manger`, `sale_returns`, `salebook`, `session_id`, `shop_id`, `size`, `smcomision`, `tax`, `totalamount`, `totalpointsamount`, `tottaldiscoun`, `user_id`, `validitydate`)
+VALUES (@p2, @p4, @p6, @p10, @p12, @p14, @p16, @p18, @p20, @p22, @p24, @p26, @p28, @p30, @p34, @p36, @p38, @p40, @p42, @p44, @p46, @p48, @p50, @p52, @p54, @p56, @p58, @p60, @p62, @p64, @p66, @p68, @p70, @p72, @p74, @p76, @p78, @p80, @p82, @p84, @p86, @p90, @p92, @p94, @p96, @p98, @p100);
+
+SELECT LAST_INSERT_ID(), (SELECT `black` FROM `sales` WHERE `id` = LAST_INSERT_ID()), (SELECT `editstat` FROM `sales` WHERE `id` = LAST_INSERT_ID()), (SELECT `status` FROM `sales` WHERE `id` = LAST_INSERT_ID());
+2017-03-16 22:41:50.583 +05:30 [Information] Executed DbCommand (3ms) [Parameters=[@p2='?' (Size = 8000), @p4='?' (Size = 8000), @p6='?' (Size = 8000), @p10='?', @p12='?' (Size = 120), @p14='?' (Size = 8000), @p16='?', @p18='?' (Size = 8000), @p20='?', @p22='?', @p24='?' (Size = 8000), @p26='?', @p28='?', @p30='?', @p34='?', @p36='?' (Size = 8000), @p38='?' (Size = 8000), @p40='?' (Size = 8000), @p42='?', @p44='?' (Size = 8000), @p46='?', @p48='?' (Size = 8000), @p50='?' (Size = 8000), @p52='?', @p54='?', @p56='?' (Size = 8000), @p58='?', @p60='?' (Size = 8000), @p62='?', @p64='?' (Size = 8000), @p66='?' (Size = 8000), @p68='?' (Size = 8000), @p70='?', @p72='?', @p74='?' (Size = 8000), @p76='?' (Size = 8000), @p78='?' (Size = 250), @p80='?', @p82='?', @p84='?' (Size = 8000), @p86='?' (Size = 8000), @p90='?' (Size = 8000), @p92='?', @p94='?' (Size = 8000), @p96='?', @p98='?', @p100='?' (Size = 8000)], CommandType='Text', CommandTimeout='0']
+INSERT INTO `sales` (`amount`, `bill_num`, `billnum`, `branch_id`, `cashtype`, `commision`, `counter`, `customer`, `customerid`, `dates`, `discount`, `discountamt`, `discountper`, `edit`, `ex`, `extotalamount`, `extra_discount`, `image`, `instock`, `narration`, `nid`, `numcount`, `phone`, `points`, `price`, `product_code`, `product_id`, `product_name`, `ptype`, `quantity`, `return_bill`, `return_date`, `returns`, `rid`, `sale_manger`, `sale_returns`, `salebook`, `session_id`, `shop_id`, `size`, `smcomision`, `tax`, `totalamount`, `totalpointsamount`, `tottaldiscoun`, `user_id`, `validitydate`)
+VALUES (@p2, @p4, @p6, @p10, @p12, @p14, @p16, @p18, @p20, @p22, @p24, @p26, @p28, @p30, @p34, @p36, @p38, @p40, @p42, @p44, @p46, @p48, @p50, @p52, @p54, @p56, @p58, @p60, @p62, @p64, @p66, @p68, @p70, @p72, @p74, @p76, @p78, @p80, @p82, @p84, @p86, @p90, @p92, @p94, @p96, @p98, @p100);
+
+SELECT LAST_INSERT_ID(), (SELECT `black` FROM `sales` WHERE `id` = LAST_INSERT_ID()), (SELECT `editstat` FROM `sales` WHERE `id` = LAST_INSERT_ID()), (SELECT `status` FROM `sales` WHERE `id` = LAST_INSERT_ID());
+2017-03-16 22:41:50.589 +05:30 [Debug] Committing transaction.
+2017-03-16 22:41:50.596 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:41:50.605 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Post (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkResult".
+2017-03-16 22:41:50.609 +05:30 [Information] Executing HttpStatusCodeResult, setting HTTP status code 200
+2017-03-16 22:41:50.609 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Post (PosAPI)" in 3128.2191ms
+2017-03-16 22:41:50.610 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:41:50.610 +05:30 [Information] Request finished in 3160.2962ms 200 
+2017-03-16 22:41:50.625 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-16 22:41:50.625 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:41:50.625 +05:30 [Information] Request finished in 0.2551ms 204 
+2017-03-16 22:41:50.626 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=70&shopid=0  
+2017-03-16 22:41:50.626 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:41:50.627 +05:30 [Information] Request finished in 0.3069ms 204 
+2017-03-16 22:41:50.627 +05:30 [Debug] Connection id ""0HL3CHQ4K507V"" started.
+2017-03-16 22:41:50.628 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=70&shopid=0&userId=108&sdate=03/16/2017  
+2017-03-16 22:41:50.628 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:41:50.628 +05:30 [Information] Request finished in 0.1978ms 204 
+2017-03-16 22:41:50.678 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-16 22:41:50.678 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=70&shopid=0  
+2017-03-16 22:41:50.678 +05:30 [Information] Successfully validated the token.
+2017-03-16 22:41:50.678 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 22:41:50.678 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-16 22:41:50.678 +05:30 [Information] Successfully validated the token.
+2017-03-16 22:41:50.678 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 22:41:50.679 +05:30 [Debug] Connection id ""0HL3CHQ4K5080"" started.
+2017-03-16 22:41:50.679 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-16 22:41:50.679 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=70&shopid=0&userId=108&sdate=03/16/2017  
+2017-03-16 22:41:50.679 +05:30 [Information] Successfully validated the token.
+2017-03-16 22:41:50.680 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 22:41:50.680 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-16 22:41:50.680 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-16 22:41:50.680 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-16 22:41:50.680 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-16 22:41:50.680 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-16 22:41:50.680 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-16 22:41:50.680 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-16 22:41:50.680 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 22:41:50.680 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 22:41:50.680 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 22:41:50.715 +05:30 [Information] Executed DbCommand (4ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-16 22:41:50.719 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:41:50.719 +05:30 [Information] Executed DbCommand (23ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?', @__query_userId_2='?', @__query_Sdate_3='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+FROM `sales` AS `e`
+WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+ORDER BY `e`.`billnum`
+2017-03-16 22:41:50.721 +05:30 [Information] Executed DbCommand (25ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+2017-03-16 22:41:50.727 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 22:41:50.727 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:41:50.728 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:41:50.728 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:41:50.729 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 48.9544ms
+2017-03-16 22:41:50.730 +05:30 [Debug] Connection id ""0HL3CHQ4K507V"" completed keep alive response.
+2017-03-16 22:41:50.730 +05:30 [Information] Request finished in 51.6616ms 200 application/json; charset=utf-8
+2017-03-16 22:41:50.732 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:41:50.732 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 22:41:50.732 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:41:50.732 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:41:50.732 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:41:50.733 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 53.0266ms
+2017-03-16 22:41:50.734 +05:30 [Debug] Connection id ""0HL3CHQ4K5080"" completed keep alive response.
+2017-03-16 22:41:50.734 +05:30 [Information] Request finished in 54.5414ms 200 application/json; charset=utf-8
+2017-03-16 22:41:51.392 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-16 22:41:51.392 +05:30 [Debug] Executed action method "PosAPI.Controllers.ProductsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 22:41:51.392 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 22:41:51.393 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 22:41:51.393 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 22:41:51.404 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 723.9304ms
+2017-03-16 22:41:51.404 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" completed keep alive response.
+2017-03-16 22:41:51.404 +05:30 [Information] Request finished in 726.5042ms 200 application/json; charset=utf-8
+2017-03-16 22:43:52.059 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" disconnecting.
+2017-03-16 22:43:52.059 +05:30 [Debug] Connection id ""0HL3CHQ4K507V"" disconnecting.
+2017-03-16 22:43:52.060 +05:30 [Debug] Connection id ""0HL3CHQ4K5080"" disconnecting.
+2017-03-16 22:43:52.060 +05:30 [Debug] Connection id ""0HL3CHQ4K507V"" sending FIN.
+2017-03-16 22:43:52.060 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" sending FIN.
+2017-03-16 22:43:52.060 +05:30 [Debug] Connection id ""0HL3CHQ4K5080"" sending FIN.
+2017-03-16 22:43:52.061 +05:30 [Debug] Connection id ""0HL3CHQ4K507V"" sent FIN with status "0".
+2017-03-16 22:43:52.061 +05:30 [Debug] Connection id ""0HL3CHQ4K5080"" sent FIN with status "0".
+2017-03-16 22:43:52.061 +05:30 [Debug] Connection id ""0HL3CHQ4K507V"" stopped.
+2017-03-16 22:43:52.061 +05:30 [Debug] Connection id ""0HL3CHQ4K5080"" stopped.
+2017-03-16 22:43:52.061 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" sent FIN with status "0".
+2017-03-16 22:43:52.061 +05:30 [Debug] Connection id ""0HL3CHQ4K507S"" stopped.
+2017-03-16 23:21:47.321 +05:30 [Debug] Hosting starting
+2017-03-16 23:21:47.526 +05:30 [Debug] Hosting started
+2017-03-16 23:21:47.701 +05:30 [Debug] Connection id ""0HL3CIKF1F0IM"" started.
+2017-03-16 23:21:47.721 +05:30 [Debug] Connection id ""0HL3CIKF1F0IM"" received FIN.
+2017-03-16 23:21:47.746 +05:30 [Debug] Connection id ""0HL3CIKF1F0IM"" disconnecting.
+2017-03-16 23:21:47.751 +05:30 [Debug] Connection id ""0HL3CIKF1F0IM"" sending FIN.
+2017-03-16 23:21:47.761 +05:30 [Debug] Connection id ""0HL3CIKF1F0IM"" sent FIN with status "0".
+2017-03-16 23:21:47.766 +05:30 [Debug] Connection id ""0HL3CIKF1F0IM"" stopped.
+2017-03-16 23:21:50.017 +05:30 [Debug] Connection id ""0HL3CIKF1F0IN"" started.
+2017-03-16 23:21:50.124 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-16 23:21:50.444 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-16 23:21:50.473 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"ed3d9069-0533-4bc5-858f-8ed3d2abbd70"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-16 23:21:50.512 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-16 23:21:50.582 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-16 23:21:50.584 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-16 23:21:50.619 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:21:50.624 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:21:50.625 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:21:50.895 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 379.4175ms
+2017-03-16 23:21:50.915 +05:30 [Debug] Connection id ""0HL3CIKF1F0IN"" completed keep alive response.
+2017-03-16 23:21:50.921 +05:30 [Information] Request finished in 829.6595ms 200 application/json; charset=utf-8
+2017-03-16 23:21:50.928 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-16 23:21:50.930 +05:30 [Debug] Request did not match any routes.
+2017-03-16 23:21:50.934 +05:30 [Debug] Connection id ""0HL3CIKF1F0IN"" completed keep alive response.
+2017-03-16 23:21:50.935 +05:30 [Information] Request finished in 6.6637ms 404 
+2017-03-16 23:23:51.598 +05:30 [Debug] Connection id ""0HL3CIKF1F0IN"" disconnecting.
+2017-03-16 23:23:51.603 +05:30 [Debug] Connection id ""0HL3CIKF1F0IN"" sending FIN.
+2017-03-16 23:23:51.603 +05:30 [Debug] Connection id ""0HL3CIKF1F0IN"" sent FIN with status "0".
+2017-03-16 23:23:51.613 +05:30 [Debug] Connection id ""0HL3CIKF1F0IN"" stopped.
+2017-03-16 23:29:26.473 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" started.
+2017-03-16 23:29:26.489 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-16 23:29:26.512 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" completed keep alive response.
+2017-03-16 23:29:26.512 +05:30 [Information] Request finished in 22.7601ms 204 
+2017-03-16 23:29:26.516 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 41
+2017-03-16 23:29:26.517 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-16 23:29:26.527 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-16 23:29:26.899 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-16 23:29:27.077 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-16 23:29:28.213 +05:30 [Debug] Compiling query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-16 23:29:28.242 +05:30 [Debug] Optimized query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-16 23:29:28.491 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+        FROM `users` AS `e`
+        WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+    , 
+    shaper: UnbufferedEntityShaper<Users>
+)
+
+2017-03-16 23:29:29.038 +05:30 [Information] Executed DbCommand (83ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-16 23:29:29.168 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:29:29.184 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-16 23:29:29.188 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-16 23:29:29.866 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ToSequence(
+    element: Users FirstOrDefault(
+        source: IEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<Users>
+        )
+    )
+)
+
+2017-03-16 23:29:30.172 +05:30 [Information] Executed DbCommand (60ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-16 23:29:30.175 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:29:30.229 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:29:30.229 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:29:30.230 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:29:30.230 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:29:30.259 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 3730.4211ms
+2017-03-16 23:29:30.261 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" completed keep alive response.
+2017-03-16 23:29:30.261 +05:30 [Information] Request finished in 3744.2656ms 200 application/json; charset=utf-8
+2017-03-16 23:29:30.321 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/115  
+2017-03-16 23:29:30.321 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" completed keep alive response.
+2017-03-16 23:29:30.321 +05:30 [Information] Request finished in 0.4231ms 204 
+2017-03-16 23:29:30.348 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/115  
+2017-03-16 23:29:30.429 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:29:30.439 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:29:30.439 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-16 23:29:30.442 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-16 23:29:30.467 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:29:30.481 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["115"]) - ModelState is Valid
+2017-03-16 23:29:30.529 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-16 23:29:30.533 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-16 23:29:30.564 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Users> _ToSequence(
+    task: Task<Users> _FirstOrDefault(
+        source: IAsyncEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE `e`.`id` = @__get_Item_0
+                LIMIT 1
+            , 
+            shaper: BufferedEntityShaper<Users>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-16 23:29:30.854 +05:30 [Information] Executed DbCommand (77ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-16 23:29:30.889 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:29:30.904 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:29:30.904 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:29:30.904 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:29:30.904 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:29:30.909 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 471.0852ms
+2017-03-16 23:29:30.914 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" completed keep alive response.
+2017-03-16 23:29:30.914 +05:30 [Information] Request finished in 566.3423ms 200 application/json; charset=utf-8
+2017-03-16 23:29:36.494 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-16 23:29:36.494 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" completed keep alive response.
+2017-03-16 23:29:36.494 +05:30 [Information] Request finished in 0.3251ms 204 
+2017-03-16 23:29:36.495 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-16 23:29:36.496 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" completed keep alive response.
+2017-03-16 23:29:36.496 +05:30 [Information] Request finished in 0.9661ms 204 
+2017-03-16 23:29:36.497 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/16/2017  
+2017-03-16 23:29:36.497 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" completed keep alive response.
+2017-03-16 23:29:36.497 +05:30 [Information] Request finished in 0.2467ms 204 
+2017-03-16 23:29:36.511 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-16 23:29:36.512 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:29:36.512 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:29:36.512 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-16 23:29:36.513 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-16 23:29:36.514 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:29:36.514 +05:30 [Debug] Connection id ""0HL3CIKF1F0IP"" started.
+2017-03-16 23:29:36.515 +05:30 [Debug] Connection id ""0HL3CIKF1F0IQ"" started.
+2017-03-16 23:29:36.515 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/16/2017  
+2017-03-16 23:29:36.516 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:29:36.516 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:29:36.516 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-16 23:29:36.517 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-16 23:29:36.517 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:29:36.522 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-16 23:29:36.522 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:29:36.523 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:29:36.523 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-16 23:29:36.524 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-16 23:29:36.524 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:29:36.554 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:29:36.555 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:29:36.555 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:29:36.570 +05:30 [Debug] Compiling query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active == 1
+select e'
+2017-03-16 23:29:36.570 +05:30 [Debug] Optimized query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active == 1
+select e'
+2017-03-16 23:29:36.571 +05:30 [Debug] Compiling query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-16 23:29:36.571 +05:30 [Debug] Optimized query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-16 23:29:36.577 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Salebook> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+        FROM `salebook` AS `e`
+        WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+    , 
+    shaper: UnbufferedEntityShaper<Salebook>
+)
+
+2017-03-16 23:29:36.579 +05:30 [Debug] Compiling query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-16 23:29:36.581 +05:30 [Debug] Optimized query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-16 23:29:36.587 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Products> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+        FROM `products` AS `e`
+        WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+    , 
+    shaper: UnbufferedEntityShaper<Products>
+)
+
+2017-03-16 23:29:36.603 +05:30 [Warning] The LINQ expression 'GroupBy([e].Billnum, [e])' could not be translated and will be evaluated locally.
+2017-03-16 23:29:36.619 +05:30 [Debug] TRACKED: False
+(QueryContext queryContext) => IAsyncEnumerable<TrackingGrouping<string, Sales>> _TrackGroupedEntities(
+    groupings: IAsyncEnumerable<IGrouping<string, Sales>> _GroupBy(
+        source: IAsyncEnumerable<Sales> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+                FROM `sales` AS `e`
+                WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+                ORDER BY `e`.`billnum`
+            , 
+            shaper: UnbufferedEntityShaper<Sales>
+        )
+        , 
+        keySelector: (Sales e) => e.Billnum, 
+        elementSelector: (Sales e) => e
+    )
+    , 
+    queryContext: queryContext, 
+    entityTrackingInfos: { itemType: Sales }, 
+    entityAccessors: List<Func<Sales, object>> 
+    { 
+        System.Func`2[PosAPI.Sales,PosAPI.Sales], 
+    }
+)
+
+2017-03-16 23:29:36.840 +05:30 [Information] Executed DbCommand (65ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-16 23:29:36.863 +05:30 [Information] Executed DbCommand (86ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+2017-03-16 23:29:36.870 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:29:36.920 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:29:36.920 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:29:36.920 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:29:36.920 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:29:36.926 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 402.3596ms
+2017-03-16 23:29:36.926 +05:30 [Debug] Connection id ""0HL3CIKF1F0IP"" completed keep alive response.
+2017-03-16 23:29:36.926 +05:30 [Information] Request finished in 404.7715ms 200 application/json; charset=utf-8
+2017-03-16 23:29:36.938 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at MySql.Data.MySqlClient.MySqlDataReader.GetString(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-16 23:29:37.104 +05:30 [Information] Executed DbCommand (194ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?', @__query_userId_2='?', @__query_Sdate_3='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+FROM `sales` AS `e`
+WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+ORDER BY `e`.`billnum`
+2017-03-16 23:29:37.109 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:29:37.109 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:29:37.109 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:29:37.109 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:29:37.109 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:29:37.114 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 596.4768ms
+2017-03-16 23:29:37.114 +05:30 [Debug] Connection id ""0HL3CIKF1F0IQ"" completed keep alive response.
+2017-03-16 23:29:37.114 +05:30 [Information] Request finished in 598.8308ms 200 application/json; charset=utf-8
+2017-03-16 23:29:37.124 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 612.5484ms
+2017-03-16 23:29:37.124 +05:30 [Error] Connection id ""0HL3CIKF1F0IO"": An unhandled exception was thrown by the application.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at MySql.Data.MySqlClient.MySqlDataReader.GetString(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.<ToListAsync>d__129`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ProductsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ProductsController.cs:line 30
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-16 23:29:37.290 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" completed keep alive response.
+2017-03-16 23:29:37.290 +05:30 [Information] Request finished in 779.327ms 500 
+2017-03-16 23:31:38.037 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" disconnecting.
+2017-03-16 23:31:38.037 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" sending FIN.
+2017-03-16 23:31:38.043 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" sent FIN with status "0".
+2017-03-16 23:31:38.043 +05:30 [Debug] Connection id ""0HL3CIKF1F0IQ"" disconnecting.
+2017-03-16 23:31:38.044 +05:30 [Debug] Connection id ""0HL3CIKF1F0IO"" stopped.
+2017-03-16 23:31:38.044 +05:30 [Debug] Connection id ""0HL3CIKF1F0IQ"" sending FIN.
+2017-03-16 23:31:38.044 +05:30 [Debug] Connection id ""0HL3CIKF1F0IQ"" sent FIN with status "0".
+2017-03-16 23:31:38.044 +05:30 [Debug] Connection id ""0HL3CIKF1F0IQ"" stopped.
+2017-03-16 23:31:38.188 +05:30 [Debug] Connection id ""0HL3CIKF1F0IP"" disconnecting.
+2017-03-16 23:31:38.194 +05:30 [Debug] Connection id ""0HL3CIKF1F0IP"" sending FIN.
+2017-03-16 23:31:38.194 +05:30 [Debug] Connection id ""0HL3CIKF1F0IP"" sent FIN with status "0".
+2017-03-16 23:31:38.194 +05:30 [Debug] Connection id ""0HL3CIKF1F0IP"" stopped.
+2017-03-16 23:32:21.787 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" started.
+2017-03-16 23:32:21.801 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-16 23:32:21.825 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:32:21.825 +05:30 [Information] Request finished in 24.1779ms 204 
+2017-03-16 23:32:21.829 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 41
+2017-03-16 23:32:21.829 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-16 23:32:21.830 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-16 23:32:21.831 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-16 23:32:21.832 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-16 23:32:22.245 +05:30 [Information] Executed DbCommand (90ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-16 23:32:22.245 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:32:22.620 +05:30 [Information] Executed DbCommand (91ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-16 23:32:22.620 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:32:22.620 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:32:22.620 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:32:22.620 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:32:22.620 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:32:22.621 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 789.0059ms
+2017-03-16 23:32:22.621 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:32:22.621 +05:30 [Information] Request finished in 790.935ms 200 application/json; charset=utf-8
+2017-03-16 23:32:22.652 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/115  
+2017-03-16 23:32:22.653 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:32:22.653 +05:30 [Information] Request finished in 0.8756ms 204 
+2017-03-16 23:32:22.665 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/115  
+2017-03-16 23:32:22.665 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:32:22.665 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:32:22.665 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-16 23:32:22.665 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-16 23:32:22.665 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:32:22.666 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["115"]) - ModelState is Valid
+2017-03-16 23:32:22.730 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+System.InvalidOperationException: Packet received out-of-order. Expected 1; got 56.
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.ValueTaskExtensions.<>c__DisplayClass0_0`2.<ContinueWith>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.Serialization.MySqlSession.TryAsyncContinuation(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.Serialization.MySqlSession.<TryPingAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.ConnectionPool.<GetSessionAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__55.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<OpenAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalConnection.<OpenAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-16 23:32:22.762 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 96.6809ms
+2017-03-16 23:32:22.763 +05:30 [Error] Connection id ""0HL3CIKF1F0IR"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Packet received out-of-order. Expected 1; got 56.
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.ValueTaskExtensions.<>c__DisplayClass0_0`2.<ContinueWith>b__0(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.Serialization.MySqlSession.TryAsyncContinuation(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.Serialization.MySqlSession.<TryPingAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.ConnectionPool.<GetSessionAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__55.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<OpenAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalConnection.<OpenAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.UserController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\UserController.cs:line 22
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-16 23:32:22.776 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:32:22.776 +05:30 [Information] Request finished in 111.4295ms 500 
+2017-03-16 23:32:50.757 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-16 23:32:50.757 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:32:50.757 +05:30 [Information] Request finished in 0.3298ms 204 
+2017-03-16 23:32:50.760 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 41
+2017-03-16 23:32:50.760 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-16 23:32:50.760 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-16 23:32:50.760 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-16 23:32:50.760 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-16 23:32:51.137 +05:30 [Information] Executed DbCommand (115ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-16 23:32:51.138 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:32:51.536 +05:30 [Information] Executed DbCommand (121ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-16 23:32:51.536 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:32:51.536 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:32:51.536 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:32:51.536 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:32:51.536 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:32:51.536 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 776.0679ms
+2017-03-16 23:32:51.536 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:32:51.536 +05:30 [Information] Request finished in 776.7ms 200 application/json; charset=utf-8
+2017-03-16 23:32:51.582 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/115  
+2017-03-16 23:32:51.582 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:32:51.582 +05:30 [Information] Request finished in 0.4287ms 204 
+2017-03-16 23:32:51.601 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/115  
+2017-03-16 23:32:51.601 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:32:51.601 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:32:51.601 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-16 23:32:51.601 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-16 23:32:51.601 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:32:51.601 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["115"]) - ModelState is Valid
+2017-03-16 23:32:51.982 +05:30 [Information] Executed DbCommand (97ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-16 23:32:51.983 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:32:51.983 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:32:51.983 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:32:51.983 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:32:51.984 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:32:51.984 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 382.6603ms
+2017-03-16 23:32:51.984 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:32:51.984 +05:30 [Information] Request finished in 383.4515ms 200 application/json; charset=utf-8
+2017-03-16 23:33:07.777 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-16 23:33:07.777 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:33:07.777 +05:30 [Information] Request finished in 0.4679ms 204 
+2017-03-16 23:33:07.806 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 41
+2017-03-16 23:33:07.807 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-16 23:33:07.807 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-16 23:33:07.807 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-16 23:33:07.807 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-16 23:33:08.148 +05:30 [Information] Executed DbCommand (85ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-16 23:33:08.148 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:33:08.497 +05:30 [Information] Executed DbCommand (86ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-16 23:33:08.498 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:33:08.498 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:33:08.498 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:33:08.498 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:33:08.498 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:33:08.498 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 691.4176ms
+2017-03-16 23:33:08.498 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:33:08.498 +05:30 [Information] Request finished in 691.9ms 200 application/json; charset=utf-8
+2017-03-16 23:33:08.527 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/115  
+2017-03-16 23:33:08.528 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:33:08.528 +05:30 [Information] Request finished in 0.9955ms 204 
+2017-03-16 23:33:08.535 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/115  
+2017-03-16 23:33:08.536 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:33:08.536 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:33:08.536 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-16 23:33:08.536 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-16 23:33:08.536 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:33:08.536 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["115"]) - ModelState is Valid
+2017-03-16 23:33:08.942 +05:30 [Information] Executed DbCommand (122ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-16 23:33:08.942 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:33:08.942 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:33:08.943 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:33:08.943 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:33:08.943 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:33:08.943 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 406.7827ms
+2017-03-16 23:33:08.943 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:33:08.943 +05:30 [Information] Request finished in 407.8478ms 200 application/json; charset=utf-8
+2017-03-16 23:33:16.676 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-16 23:33:16.677 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:33:16.677 +05:30 [Information] Request finished in 0.9554ms 204 
+2017-03-16 23:33:16.678 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-16 23:33:16.679 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:33:16.679 +05:30 [Information] Request finished in 1.7541ms 204 
+2017-03-16 23:33:16.679 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/16/2017  
+2017-03-16 23:33:16.680 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:33:16.680 +05:30 [Information] Request finished in 0.8262ms 204 
+2017-03-16 23:33:16.693 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-16 23:33:16.693 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:33:16.693 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:33:16.693 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-16 23:33:16.693 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-16 23:33:16.693 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:33:16.694 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:33:16.694 +05:30 [Debug] Connection id ""0HL3CIKF1F0IS"" started.
+2017-03-16 23:33:16.694 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" started.
+2017-03-16 23:33:16.702 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/16/2017  
+2017-03-16 23:33:16.703 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:33:16.703 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:33:16.703 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-16 23:33:16.703 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-16 23:33:16.703 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:33:16.703 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:33:16.703 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-16 23:33:16.704 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:33:16.704 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:33:16.704 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-16 23:33:16.704 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-16 23:33:16.707 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:33:16.707 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:33:17.054 +05:30 [Information] Executed DbCommand (105ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+2017-03-16 23:33:17.055 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at MySql.Data.MySqlClient.MySqlDataReader.GetString(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-16 23:33:17.105 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 411.963ms
+2017-03-16 23:33:17.108 +05:30 [Information] Executed DbCommand (95ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-16 23:33:17.108 +05:30 [Error] Connection id ""0HL3CIKF1F0IR"": An unhandled exception was thrown by the application.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at MySql.Data.MySqlClient.MySqlDataReader.GetString(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.<ToListAsync>d__129`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ProductsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ProductsController.cs:line 30
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-16 23:33:17.110 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:33:17.117 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:33:17.117 +05:30 [Information] Request finished in 424.287ms 500 
+2017-03-16 23:33:17.118 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:33:17.118 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:33:17.118 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:33:17.118 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:33:17.118 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 414.2484ms
+2017-03-16 23:33:17.118 +05:30 [Debug] Connection id ""0HL3CIKF1F0IS"" completed keep alive response.
+2017-03-16 23:33:17.118 +05:30 [Information] Request finished in 414.959ms 200 application/json; charset=utf-8
+2017-03-16 23:33:17.159 +05:30 [Information] Executed DbCommand (146ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?', @__query_userId_2='?', @__query_Sdate_3='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+FROM `sales` AS `e`
+WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+ORDER BY `e`.`billnum`
+2017-03-16 23:33:17.160 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:33:17.160 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:33:17.160 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:33:17.160 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:33:17.160 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:33:17.160 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 457.1861ms
+2017-03-16 23:33:17.160 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:33:17.160 +05:30 [Information] Request finished in 458.0226ms 200 application/json; charset=utf-8
+2017-03-16 23:33:50.046 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-16 23:33:50.046 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:33:50.046 +05:30 [Information] Request finished in 0.8919ms 204 
+2017-03-16 23:33:50.051 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 41
+2017-03-16 23:33:50.105 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-16 23:33:50.105 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-16 23:33:50.106 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-16 23:33:50.106 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-16 23:33:50.114 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+System.InvalidOperationException: Packet received out-of-order. Expected 1; got 56.
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySql.Data.ValueTaskExtensions.ContinueWith[T,TResult](ValueTask`1 valueTask, Func`2 continuation)
+   at MySql.Data.Protocol.Serialization.ProtocolUtility.ReadPayloadAsync(BufferedByteReader bufferedByteReader, IByteHandler byteHandler, Func`1 getNextSequenceNumber, ArraySegment`1 previousPayloads, ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior)
+   at MySql.Data.Protocol.Serialization.StandardPayloadHandler.ReadPayloadAsync(ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior)
+   at MySql.Data.Serialization.MySqlSession.TryAsync(Func`3 func, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySql.Data.Serialization.MySqlSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySql.Data.Serialization.MySqlSession.<TryPingAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.ConnectionPool.<GetSessionAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__55.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<OpenAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalConnection.Open()
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable.Enumerator.BufferlessMoveNext(Boolean buffer)
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.<_ShapedQuery>d__3`1.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlQueryingEnumerable`1.MySqlEnumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.<_TrackEntities>d__15`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2017-03-16 23:33:58.753 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 8647.5744ms
+2017-03-16 23:33:58.767 +05:30 [Error] Connection id ""0HL3CIKF1F0IT"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Packet received out-of-order. Expected 1; got 56.
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySql.Data.ValueTaskExtensions.ContinueWith[T,TResult](ValueTask`1 valueTask, Func`2 continuation)
+   at MySql.Data.Protocol.Serialization.ProtocolUtility.ReadPayloadAsync(BufferedByteReader bufferedByteReader, IByteHandler byteHandler, Func`1 getNextSequenceNumber, ArraySegment`1 previousPayloads, ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior)
+   at MySql.Data.Protocol.Serialization.StandardPayloadHandler.ReadPayloadAsync(ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior)
+   at MySql.Data.Serialization.MySqlSession.TryAsync(Func`3 func, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySql.Data.Serialization.MySqlSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySql.Data.Serialization.MySqlSession.<TryPingAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.ConnectionPool.<GetSessionAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__55.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<OpenAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalConnection.Open()
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable.Enumerator.BufferlessMoveNext(Boolean buffer)
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.<_ShapedQuery>d__3`1.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlQueryingEnumerable`1.MySqlEnumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.<_TrackEntities>d__15`2.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at PosAPI.Controllers.AuthController.Get(UserInfo query) in D:\POSDemo\PosAPI\src\PosAPI\Controllers\AuthController.cs:line 37
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-16 23:33:58.781 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:33:58.781 +05:30 [Information] Request finished in 8730.2975ms 500 
+2017-03-16 23:34:18.537 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-16 23:34:18.537 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:34:18.537 +05:30 [Information] Request finished in 0.3083ms 204 
+2017-03-16 23:34:18.541 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 41
+2017-03-16 23:34:18.542 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-16 23:34:18.542 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-16 23:34:18.542 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-16 23:34:18.542 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-16 23:34:18.934 +05:30 [Information] Executed DbCommand (102ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-16 23:34:18.934 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:34:19.339 +05:30 [Information] Executed DbCommand (110ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-16 23:34:19.339 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:34:19.340 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:34:19.340 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:34:19.340 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:34:19.340 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:34:19.340 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 798.5159ms
+2017-03-16 23:34:19.340 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:34:19.340 +05:30 [Information] Request finished in 799.156ms 200 application/json; charset=utf-8
+2017-03-16 23:34:19.395 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/115  
+2017-03-16 23:34:19.395 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:34:19.395 +05:30 [Information] Request finished in 0.2355ms 204 
+2017-03-16 23:34:19.409 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/115  
+2017-03-16 23:34:19.409 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:34:19.410 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:34:19.410 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-16 23:34:19.410 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-16 23:34:19.410 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:34:19.410 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["115"]) - ModelState is Valid
+2017-03-16 23:34:19.757 +05:30 [Information] Executed DbCommand (88ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-16 23:34:19.759 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:34:19.759 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:34:19.759 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:34:19.759 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:34:19.759 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:34:19.759 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 349.4384ms
+2017-03-16 23:34:19.759 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:34:19.760 +05:30 [Information] Request finished in 350.9084ms 200 application/json; charset=utf-8
+2017-03-16 23:34:22.460 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-16 23:34:22.460 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:34:22.461 +05:30 [Information] Request finished in 0.9754ms 204 
+2017-03-16 23:34:22.462 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-16 23:34:22.462 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:34:22.462 +05:30 [Information] Request finished in 0.2374ms 204 
+2017-03-16 23:34:22.466 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/16/2017  
+2017-03-16 23:34:22.466 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:34:22.467 +05:30 [Information] Request finished in 0.9974ms 204 
+2017-03-16 23:34:22.479 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-16 23:34:22.480 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:34:22.480 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:34:22.480 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-16 23:34:22.480 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-16 23:34:22.480 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/16/2017  
+2017-03-16 23:34:22.480 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:34:22.480 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:34:22.480 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:34:22.480 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:34:22.482 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-16 23:34:22.483 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-16 23:34:22.483 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:34:22.484 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:34:46.927 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-16 23:34:46.927 +05:30 [Information] Successfully validated the token.
+2017-03-16 23:34:46.927 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-16 23:34:46.927 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-16 23:34:46.927 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-16 23:34:46.927 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-16 23:34:46.952 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-16 23:34:47.012 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+MySql.Data.MySqlClient.MySqlException: Connect Timeout expired. ---> System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.Serialization.MySqlSession.<TryPingAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.ConnectionPool.<GetSessionAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__55.MoveNext()
+   --- End of inner exception stack trace ---
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__55.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<OpenAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalConnection.<OpenAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.AsyncQueryMethodProvider.GroupByAsyncEnumerable`3.GroupByAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-16 23:34:47.077 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 24594.7362ms
+2017-03-16 23:34:47.077 +05:30 [Error] Connection id ""0HL3CIKF1F0IR"": An unhandled exception was thrown by the application.
+MySql.Data.MySqlClient.MySqlException: Connect Timeout expired. ---> System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.Serialization.MySqlSession.<TryPingAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.ConnectionPool.<GetSessionAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__55.MoveNext()
+   --- End of inner exception stack trace ---
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__55.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<OpenAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalConnection.<OpenAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.AsyncQueryMethodProvider.GroupByAsyncEnumerable`3.GroupByAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.<ToListAsync>d__129`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.SalesController.<Get>d__5.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\SalesController.cs:line 49
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-16 23:34:47.097 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" completed keep alive response.
+2017-03-16 23:34:47.097 +05:30 [Information] Request finished in 24618.5708ms 500 
+2017-03-16 23:34:47.223 +05:30 [Information] Executed DbCommand (76ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+2017-03-16 23:34:47.223 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at MySql.Data.MySqlClient.MySqlDataReader.GetString(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-16 23:34:47.318 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 24837.7219ms
+2017-03-16 23:34:47.318 +05:30 [Error] Connection id ""0HL3CIKF1F0IT"": An unhandled exception was thrown by the application.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at MySql.Data.MySqlClient.MySqlDataReader.GetString(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.<ToListAsync>d__129`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ProductsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ProductsController.cs:line 30
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-16 23:34:47.328 +05:30 [Debug] Connection id ""0HL3CIKF1F0IT"" completed keep alive response.
+2017-03-16 23:34:47.328 +05:30 [Information] Request finished in 24848.2382ms 500 
+2017-03-16 23:34:47.373 +05:30 [Information] Executed DbCommand (117ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-16 23:34:47.382 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-16 23:35:18.226 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-16 23:35:18.226 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-16 23:35:18.226 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-16 23:35:18.226 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-16 23:35:18.226 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 31295.3989ms
+2017-03-16 23:35:18.226 +05:30 [Debug] Connection id ""0HL3CIKF1F0IS"" completed keep alive response.
+2017-03-16 23:35:18.226 +05:30 [Information] Request finished in 31296.324ms 200 application/json; charset=utf-8
+2017-03-16 23:36:24.283 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" disconnecting.
+2017-03-16 23:36:24.288 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" sending FIN.
+2017-03-16 23:36:24.293 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" sent FIN with status "0".
+2017-03-16 23:36:24.293 +05:30 [Debug] Connection id ""0HL3CIKF1F0IR"" stopped.

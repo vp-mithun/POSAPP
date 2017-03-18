@@ -28,7 +28,7 @@ namespace PosAPI.Controllers
                 return BadRequest();
             }            
                 var prodlist = await _context.Products.Where(e => e.BranchId.Equals(query.branchid)
-                && e.ShopId.Equals(query.shopid) && e.Active == 1).ToListAsync();
+                && e.ShopId.Equals(query.shopid)).ToListAsync();
 
             if (prodlist.Count > 0)
             {

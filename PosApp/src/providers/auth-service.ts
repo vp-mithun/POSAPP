@@ -10,9 +10,11 @@ import { Observable } from 'rxjs';
 export class AuthService {
   public token: string;
   public loggedUserId: number;
+  public PosApiUrl:string;
 
-  constructor(public http: Http) {
-    console.log('Hello AuthService Provider');
+  constructor(public http: Http) {    
+    this.PosApiUrl = "http://192.168.194.2/PosApi/";
+      //this.PosApiUrl = "http://localhost:5000/";
   }
 
   login(username: string, password: string): Observable<boolean> {
@@ -20,7 +22,7 @@ export class AuthService {
     let options = new RequestOptions({ headers: headers });
     console.log('Inside loggin');
     
-        return this.http.post('http://localhost:5000/api/auth/token', 
+        return this.http.post(this.PosApiUrl + 'api/auth/token', 
         JSON.stringify({ username: username, password: password }),options)
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response

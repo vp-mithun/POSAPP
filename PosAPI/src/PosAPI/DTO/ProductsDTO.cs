@@ -1,8 +1,7 @@
 ﻿namespace PosAPI
 {
     public class ProductsDTO
-    {
-        
+    {        
         public int Id { get; set; }        
         public int Active { get; set; }        
         public string Barcode { get; set; }                
@@ -20,7 +19,7 @@
         //public string Serialnumber { get; set; }        
         public int ShopId { get; set; }        
         public int Status { get; set; }        
-        public string Stockonhand { get; set; }        
+        public int Stockonhand { get; set; }        
         //public string SupplierName { get; set; }        
         //public string Type { get; set; }
         public int UserId { get; set; }        

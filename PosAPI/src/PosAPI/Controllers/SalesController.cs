@@ -110,7 +110,7 @@ namespace PosAPI.Controllers
             foreach (var item in reverseSales)
             {
                 var prod = productslist.FirstOrDefault(e => e.Id.Equals(item.ProductId));
-                prod.Stockonhand = (Convert.ToInt32(prod.Stockonhand) - Convert.ToInt32(item.Quantity)).ToString();
+                prod.Stockonhand = (Convert.ToInt32(prod.Stockonhand) - Convert.ToInt32(item.Quantity));
                 _context.Products.Update(prod);
             }
         }

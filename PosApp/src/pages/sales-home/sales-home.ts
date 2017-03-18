@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import * as _ from 'lodash';
 import * as moment from 'moment';
+import {Printer, PrintOptions} from 'ionic-native';
 
 @Component({
   selector: 'page-sales-home',
@@ -24,6 +25,8 @@ export class SalesHomePage {
   searchTypestr:string;
   chkSearchType:boolean;
   prodsearchQuery:string = '';
+  productSearchQuery:string = '';
+  quantityItems:number;
   qtyBtnSelected:number;
   discountper:number;
   grandTotal:number;
@@ -128,6 +131,43 @@ export class SalesHomePage {
             });
   }
 
+  //Search by Barcode & add to SalesList
+  FilterProducts(){
+    if (this.productSearchQuery.length >= 2) {
+      let qryStr = this.productSearchQuery.toLowerCase();
+
+      let filterProds = [];
+      filterProds = _.filter(this.productslist, t=> (<Products>t).barcode.toLowerCase().includes(qryStr));
+      this.productslist = filterProds;
+      if (filterProds.length == 1) {
+        //Add to SalesList
+        let selProduct = filterProds[0];
+
+        if(this.IsDuplicateProductAdded(selProduct)){
+            this.showAlert("Product already added...");
+            return;
+          }
+        else{
+          this.PrepareSaleInfoList(selProduct);
+        }
+    
+        this.isSalesItemsExists = true;
+        this.salesItems.push(this.buildSalesItems(selProduct));    
+        this.UpdateSubGrandTotal();
+      }
+      // if (this.chkSearchType) {
+      //   //Barcode search
+      //   filterProds = _.filter(this.productslist, t=> (<Products>t).barcode.toLowerCase().includes(qryStr));  
+      // } else {
+      //   //Name search
+      //   filterProds = _.filter(this.productslist, t=> (<Products>t).productName.toLowerCase().includes(qryStr));
+      // }
+      // this.productslist = filterProds;
+    } else {
+      this.productslist = this.fullproductslist;      
+    }
+  }
+
   showFilterProducts(){
     if (this.prodsearchQuery.length >= 2) {
       let qryStr = this.prodsearchQuery.toLowerCase();
@@ -176,13 +216,15 @@ export class SalesHomePage {
       singleSale.productCode = selProduct.barcode;
       singleSale.branchId = selProduct.branchId;
       singleSale.productName = selProduct.productName;
-      singleSale.quantity = this.qtyBtnSelected.toString();
+      singleSale.quantity = this.quantityItems.toString();
+      //singleSale.quantity = this.qtyBtnSelected.toString();
       singleSale.price = selProduct.sellingPrice;
       singleSale.discount = 0;
       singleSale.discountper = 0;
       singleSale.discountamt = 0;
       singleSale.saleManger = this.loggedInUser.employeeName; //Logged in User Name
-      singleSale.amount = (this.qtyBtnSelected * selProduct.sellingPrice).toString();
+      //singleSale.amount = (this.qtyBtnSelected * selProduct.sellingPrice).toString();
+      singleSale.amount = (this.quantityItems * selProduct.sellingPrice).toString();
       singleSale.billNum = moment().format('DD[-]MM[-]YYYY[-]') + this.generatedBillNo;
       singleSale.billnum = this.generatedBillNo;
       singleSale.numcount = ""; //Generate it TODO
@@ -275,8 +317,10 @@ export class SalesHomePage {
     if (selProduct.barcode !== undefined && selProduct.productName !== undefined) {
       return this.fb.group({
                 itemName: selProduct.productName,
-                itemQty: this.qtyBtnSelected,
-                itemPrice: this.qtyBtnSelected * selProduct.sellingPrice,
+                //itemQty: this.qtyBtnSelected,
+                itemQty: this.quantityItems,
+                //itemPrice: this.qtyBtnSelected * selProduct.sellingPrice,
+                itemPrice: this.quantityItems * selProduct.sellingPrice,
                 itemSellingPrice: selProduct.sellingPrice,
                 itembarcode:selProduct.barcode
         });
@@ -300,16 +344,54 @@ export class SalesHomePage {
     else{
       this.showAlert("Add items to Sales");
     }
+  }  
+
+  isReadyToPrint(event):boolean{
+    let isready:boolean = true;
+    //This is ensure that 
+    if(this.productSearchQuery == "0" &&
+     this.productSearchQuery.length == 1 && this.salesList.length == 0){
+       isready = false;
+    }
+    return isready;
   }
+
+
+  //Works only with ENTER keystroke
+  AddPrintSaleItems(event) {
+    if ((this.quantityItems == undefined || this.quantityItems <= 0) && event.keyCode == 13) {
+      this.showAlert("Invalid quantity");
+      return;
+    }
+    
+    if(event.keyCode == 13 && !this.isReadyToPrint(event)){
+      this.showAlert("No items exists, add one");
+      return;
+    }
+    this.FilterProducts();
+   console.log(event.keyCode, this.productSearchQuery);
+}
 
   //Save to DB & Print BILL
   PrintSales(){
-    if (this.salesList.length > 0) {
+    //if (this.salesList.length > 0) {
       //ToDo - Printing
-    }
-    else{
-      this.showAlert("Add items to Sales");
-    }   
+
+      let htmlstring = " <!DOCTYPE html><html><body><h1>Jai Swaminarayan</h1></body></html>";
+
+      Printer.isAvailable().then(function(){
+            Printer.print(htmlstring).then(function(){
+              alert("printing done successfully !");
+            },function(){
+              alert("Error while printing !");
+            });
+        }, function(){
+        alert('Error : printing is unavailable on your device ');
+        });
+    // }
+    // else{
+    //   this.showAlert("Add items to Sales");
+    // }   
   }
 
   CloseSales(){
@@ -325,8 +407,8 @@ export class SalesHomePage {
     }    
     let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
     let item = itemsArray.at(index);
-    let newPrice = ((itemqty - 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
-    let newQty =  itemqty - 1;
+    let newPrice = ((parseInt(itemqty) - 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
+    let newQty =  parseInt(itemqty) - 1;
 
     item.patchValue({      
         itemPrice : newPrice,
@@ -351,8 +433,8 @@ export class SalesHomePage {
     // }    
     let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
     let item = itemsArray.at(index);
-    let newPrice = ((itemqty + 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
-    let newQty =  itemqty + 1;
+    let newPrice = ((parseInt(itemqty) + 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
+    let newQty = parseInt(itemqty) + 1;
 
     item.patchValue({      
         itemPrice : newPrice,

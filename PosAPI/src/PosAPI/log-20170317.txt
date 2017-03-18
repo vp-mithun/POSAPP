@@ -1,0 +1,1414 @@
+2017-03-17 00:11:06.770 +05:30 [Debug] Hosting starting
+2017-03-17 00:11:07.143 +05:30 [Debug] Hosting started
+2017-03-17 00:11:07.455 +05:30 [Debug] Connection id ""0HL3CJG13QT5F"" started.
+2017-03-17 00:11:07.514 +05:30 [Debug] Connection id ""0HL3CJG13QT5F"" received FIN.
+2017-03-17 00:11:07.591 +05:30 [Debug] Connection id ""0HL3CJG13QT5F"" disconnecting.
+2017-03-17 00:11:07.612 +05:30 [Debug] Connection id ""0HL3CJG13QT5F"" sending FIN.
+2017-03-17 00:11:07.620 +05:30 [Debug] Connection id ""0HL3CJG13QT5F"" sent FIN with status "0".
+2017-03-17 00:11:07.624 +05:30 [Debug] Connection id ""0HL3CJG13QT5F"" stopped.
+2017-03-17 00:11:10.527 +05:30 [Debug] Connection id ""0HL3CJG13QT5G"" started.
+2017-03-17 00:11:10.677 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-17 00:11:11.272 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-17 00:11:11.311 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"d067ea12-8d8a-415e-81ea-bebb0f73ee02"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-17 00:11:11.354 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-17 00:11:11.450 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-17 00:11:11.451 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-17 00:11:11.489 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:11:11.497 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:11:11.498 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:11:11.962 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 601.2344ms
+2017-03-17 00:11:11.991 +05:30 [Debug] Connection id ""0HL3CJG13QT5G"" completed keep alive response.
+2017-03-17 00:11:12.014 +05:30 [Information] Request finished in 1384.706ms 200 application/json; charset=utf-8
+2017-03-17 00:11:12.026 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-17 00:11:12.030 +05:30 [Debug] Request did not match any routes.
+2017-03-17 00:11:12.041 +05:30 [Debug] Connection id ""0HL3CJG13QT5G"" completed keep alive response.
+2017-03-17 00:11:12.041 +05:30 [Information] Request finished in 15.2113ms 404 
+2017-03-17 00:11:42.568 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" started.
+2017-03-17 00:11:42.586 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-17 00:11:42.605 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" completed keep alive response.
+2017-03-17 00:11:42.605 +05:30 [Information] Request finished in 19.3867ms 204 
+2017-03-17 00:11:42.611 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 41
+2017-03-17 00:11:42.612 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-17 00:11:42.621 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-17 00:11:43.073 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-17 00:11:43.256 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-17 00:11:44.955 +05:30 [Debug] Compiling query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-17 00:11:44.988 +05:30 [Debug] Optimized query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-17 00:11:45.253 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+        FROM `users` AS `e`
+        WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+    , 
+    shaper: UnbufferedEntityShaper<Users>
+)
+
+2017-03-17 00:11:45.661 +05:30 [Information] Executed DbCommand (82ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-17 00:11:45.819 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:11:45.834 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-17 00:11:45.838 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-17 00:11:46.557 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ToSequence(
+    element: Users FirstOrDefault(
+        source: IEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<Users>
+        )
+    )
+)
+
+2017-03-17 00:11:46.809 +05:30 [Information] Executed DbCommand (56ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-17 00:11:46.811 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:11:46.865 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:11:46.866 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:11:46.866 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:11:46.866 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:11:46.901 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 4278.5467ms
+2017-03-17 00:11:46.904 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" completed keep alive response.
+2017-03-17 00:11:46.904 +05:30 [Information] Request finished in 4292.0315ms 200 application/json; charset=utf-8
+2017-03-17 00:11:46.964 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/115  
+2017-03-17 00:11:46.965 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" completed keep alive response.
+2017-03-17 00:11:46.965 +05:30 [Information] Request finished in 0.3965ms 204 
+2017-03-17 00:11:46.987 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/115  
+2017-03-17 00:11:47.067 +05:30 [Information] Successfully validated the token.
+2017-03-17 00:11:47.078 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 00:11:47.078 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-17 00:11:47.080 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-17 00:11:47.103 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-17 00:11:47.118 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["115"]) - ModelState is Valid
+2017-03-17 00:11:47.168 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-17 00:11:47.172 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-17 00:11:47.206 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Users> _ToSequence(
+    task: Task<Users> _FirstOrDefault(
+        source: IAsyncEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE `e`.`id` = @__get_Item_0
+                LIMIT 1
+            , 
+            shaper: BufferedEntityShaper<Users>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-17 00:11:47.480 +05:30 [Information] Executed DbCommand (62ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-17 00:11:47.516 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:11:47.530 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:11:47.531 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:11:47.531 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:11:47.531 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:11:47.536 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 455.5874ms
+2017-03-17 00:11:47.536 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" completed keep alive response.
+2017-03-17 00:11:47.536 +05:30 [Information] Request finished in 549.0208ms 200 application/json; charset=utf-8
+2017-03-17 00:11:51.896 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-17 00:11:51.896 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" completed keep alive response.
+2017-03-17 00:11:51.896 +05:30 [Information] Request finished in 0.2132ms 204 
+2017-03-17 00:11:51.899 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-17 00:11:51.899 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" completed keep alive response.
+2017-03-17 00:11:51.899 +05:30 [Information] Request finished in 0.2113ms 204 
+2017-03-17 00:11:51.902 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/17/2017  
+2017-03-17 00:11:51.902 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" completed keep alive response.
+2017-03-17 00:11:51.902 +05:30 [Information] Request finished in 0.4161ms 204 
+2017-03-17 00:11:51.918 +05:30 [Debug] Connection id ""0HL3CJG13QT5I"" started.
+2017-03-17 00:11:51.919 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-17 00:11:51.919 +05:30 [Information] Successfully validated the token.
+2017-03-17 00:11:51.919 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 00:11:51.919 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 00:11:51.920 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 00:11:51.920 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-17 00:11:51.920 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-17 00:11:51.921 +05:30 [Information] Successfully validated the token.
+2017-03-17 00:11:51.921 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 00:11:51.921 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-17 00:11:51.922 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-17 00:11:51.922 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-17 00:11:51.962 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 00:11:51.964 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 00:11:51.966 +05:30 [Debug] Connection id ""0HL3CJG13QT5J"" started.
+2017-03-17 00:11:51.970 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/17/2017  
+2017-03-17 00:11:51.970 +05:30 [Information] Successfully validated the token.
+2017-03-17 00:11:51.970 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 00:11:51.970 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-17 00:11:51.971 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-17 00:11:51.971 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-17 00:11:51.980 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 00:11:51.986 +05:30 [Debug] Compiling query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active == 1
+select e'
+2017-03-17 00:11:51.986 +05:30 [Debug] Optimized query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active == 1
+select e'
+2017-03-17 00:11:51.987 +05:30 [Debug] Compiling query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-17 00:11:51.987 +05:30 [Debug] Optimized query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-17 00:11:51.999 +05:30 [Debug] Compiling query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-17 00:11:52.001 +05:30 [Debug] Optimized query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-17 00:11:52.001 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Salebook> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+        FROM `salebook` AS `e`
+        WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+    , 
+    shaper: UnbufferedEntityShaper<Salebook>
+)
+
+2017-03-17 00:11:52.003 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Products> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+        FROM `products` AS `e`
+        WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+    , 
+    shaper: UnbufferedEntityShaper<Products>
+)
+
+2017-03-17 00:11:52.030 +05:30 [Warning] The LINQ expression 'GroupBy([e].Billnum, [e])' could not be translated and will be evaluated locally.
+2017-03-17 00:11:52.039 +05:30 [Debug] TRACKED: False
+(QueryContext queryContext) => IAsyncEnumerable<TrackingGrouping<string, Sales>> _TrackGroupedEntities(
+    groupings: IAsyncEnumerable<IGrouping<string, Sales>> _GroupBy(
+        source: IAsyncEnumerable<Sales> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+                FROM `sales` AS `e`
+                WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+                ORDER BY `e`.`billnum`
+            , 
+            shaper: UnbufferedEntityShaper<Sales>
+        )
+        , 
+        keySelector: (Sales e) => e.Billnum, 
+        elementSelector: (Sales e) => e
+    )
+    , 
+    queryContext: queryContext, 
+    entityTrackingInfos: { itemType: Sales }, 
+    entityAccessors: List<Func<Sales, object>> 
+    { 
+        System.Func`2[PosAPI.Sales,PosAPI.Sales], 
+    }
+)
+
+2017-03-17 00:11:52.267 +05:30 [Information] Executed DbCommand (74ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` = 1)
+2017-03-17 00:11:52.275 +05:30 [Information] Executed DbCommand (60ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?', @__query_userId_2='?', @__query_Sdate_3='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+FROM `sales` AS `e`
+WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+ORDER BY `e`.`billnum`
+2017-03-17 00:11:52.289 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:11:52.289 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:11:52.289 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:11:52.289 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:11:52.290 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:11:52.291 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 319.1901ms
+2017-03-17 00:11:52.293 +05:30 [Debug] Connection id ""0HL3CJG13QT5J"" completed keep alive response.
+2017-03-17 00:11:52.293 +05:30 [Information] Request finished in 323.3281ms 200 application/json; charset=utf-8
+2017-03-17 00:11:52.317 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:11:52.368 +05:30 [Information] Executed DbCommand (97ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-17 00:11:52.373 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:11:52.381 +05:30 [Debug] Executed action method "PosAPI.Controllers.ProductsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:11:52.381 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:11:52.381 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:11:52.381 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:11:52.385 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:11:52.385 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:11:52.385 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:11:52.385 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:11:52.389 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 467.1935ms
+2017-03-17 00:11:52.389 +05:30 [Debug] Connection id ""0HL3CJG13QT5I"" completed keep alive response.
+2017-03-17 00:11:52.389 +05:30 [Information] Request finished in 468.8725ms 200 application/json; charset=utf-8
+2017-03-17 00:11:52.396 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 475.7509ms
+2017-03-17 00:11:52.396 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" completed keep alive response.
+2017-03-17 00:11:52.396 +05:30 [Information] Request finished in 477.5624ms 200 application/json; charset=utf-8
+2017-03-17 00:13:13.043 +05:30 [Debug] Connection id ""0HL3CJG13QT5G"" disconnecting.
+2017-03-17 00:13:13.050 +05:30 [Debug] Connection id ""0HL3CJG13QT5G"" sending FIN.
+2017-03-17 00:13:13.050 +05:30 [Debug] Connection id ""0HL3CJG13QT5G"" sent FIN with status "0".
+2017-03-17 00:13:13.050 +05:30 [Debug] Connection id ""0HL3CJG13QT5G"" stopped.
+2017-03-17 00:13:53.044 +05:30 [Debug] Connection id ""0HL3CJG13QT5I"" disconnecting.
+2017-03-17 00:13:53.048 +05:30 [Debug] Connection id ""0HL3CJG13QT5I"" sending FIN.
+2017-03-17 00:13:53.048 +05:30 [Debug] Connection id ""0HL3CJG13QT5I"" sent FIN with status "0".
+2017-03-17 00:13:53.048 +05:30 [Debug] Connection id ""0HL3CJG13QT5I"" stopped.
+2017-03-17 00:13:53.128 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" disconnecting.
+2017-03-17 00:13:53.128 +05:30 [Debug] Connection id ""0HL3CJG13QT5J"" disconnecting.
+2017-03-17 00:13:53.128 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" sending FIN.
+2017-03-17 00:13:53.128 +05:30 [Debug] Connection id ""0HL3CJG13QT5J"" sending FIN.
+2017-03-17 00:13:53.129 +05:30 [Debug] Connection id ""0HL3CJG13QT5J"" sent FIN with status "0".
+2017-03-17 00:13:53.129 +05:30 [Debug] Connection id ""0HL3CJG13QT5J"" stopped.
+2017-03-17 00:13:53.129 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" sent FIN with status "0".
+2017-03-17 00:13:53.132 +05:30 [Debug] Connection id ""0HL3CJG13QT5H"" stopped.
+2017-03-17 00:17:37.581 +05:30 [Debug] Hosting starting
+2017-03-17 00:17:37.802 +05:30 [Debug] Hosting started
+2017-03-17 00:17:38.193 +05:30 [Debug] Connection id ""0HL3CJJLI8SB1"" started.
+2017-03-17 00:17:38.217 +05:30 [Debug] Connection id ""0HL3CJJLI8SB1"" received FIN.
+2017-03-17 00:17:38.258 +05:30 [Debug] Connection id ""0HL3CJJLI8SB1"" disconnecting.
+2017-03-17 00:17:38.266 +05:30 [Debug] Connection id ""0HL3CJJLI8SB1"" sending FIN.
+2017-03-17 00:17:38.272 +05:30 [Debug] Connection id ""0HL3CJJLI8SB1"" sent FIN with status "0".
+2017-03-17 00:17:38.275 +05:30 [Debug] Connection id ""0HL3CJJLI8SB1"" stopped.
+2017-03-17 00:17:40.454 +05:30 [Debug] Connection id ""0HL3CJJLI8SB2"" started.
+2017-03-17 00:17:40.581 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-17 00:17:40.923 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-17 00:17:40.955 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"dff16ab9-a7a8-4a0d-b8b0-0d552eed3621"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-17 00:17:40.993 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-17 00:17:41.053 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-17 00:17:41.054 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-17 00:17:41.086 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:17:41.090 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:17:41.090 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:17:41.411 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 413.1367ms
+2017-03-17 00:17:41.435 +05:30 [Debug] Connection id ""0HL3CJJLI8SB2"" completed keep alive response.
+2017-03-17 00:17:41.443 +05:30 [Information] Request finished in 896.8862ms 200 application/json; charset=utf-8
+2017-03-17 00:17:41.450 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-17 00:17:41.452 +05:30 [Debug] Request did not match any routes.
+2017-03-17 00:17:41.456 +05:30 [Debug] Connection id ""0HL3CJJLI8SB2"" completed keep alive response.
+2017-03-17 00:17:41.456 +05:30 [Information] Request finished in 6.417ms 404 
+2017-03-17 00:19:41.789 +05:30 [Debug] Connection id ""0HL3CJJLI8SB2"" disconnecting.
+2017-03-17 00:19:41.796 +05:30 [Debug] Connection id ""0HL3CJJLI8SB2"" sending FIN.
+2017-03-17 00:19:41.797 +05:30 [Debug] Connection id ""0HL3CJJLI8SB2"" sent FIN with status "0".
+2017-03-17 00:19:41.797 +05:30 [Debug] Connection id ""0HL3CJJLI8SB2"" stopped.
+2017-03-17 00:20:58.814 +05:30 [Debug] Connection id ""0HL3CJJLI8SB3"" started.
+2017-03-17 00:20:58.815 +05:30 [Debug] Connection id ""0HL3CJJLI8SB4"" started.
+2017-03-17 00:20:58.816 +05:30 [Debug] Connection id ""0HL3CJJLI8SB5"" started.
+2017-03-17 00:20:58.824 +05:30 [Debug] Connection id ""0HL3CJJLI8SB6"" started.
+2017-03-17 00:21:08.506 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" started.
+2017-03-17 00:21:08.507 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-17 00:21:08.535 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" completed keep alive response.
+2017-03-17 00:21:08.535 +05:30 [Information] Request finished in 27.6073ms 204 
+2017-03-17 00:21:08.537 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 41
+2017-03-17 00:21:08.538 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-17 00:21:08.548 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-17 00:21:09.048 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-17 00:21:09.291 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-17 00:21:11.162 +05:30 [Debug] Compiling query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-17 00:21:11.205 +05:30 [Debug] Optimized query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-17 00:21:11.503 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+        FROM `users` AS `e`
+        WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+    , 
+    shaper: UnbufferedEntityShaper<Users>
+)
+
+2017-03-17 00:21:12.024 +05:30 [Information] Executed DbCommand (115ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-17 00:21:12.161 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:21:12.187 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-17 00:21:12.191 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-17 00:21:13.017 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ToSequence(
+    element: Users FirstOrDefault(
+        source: IEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<Users>
+        )
+    )
+)
+
+2017-03-17 00:21:13.372 +05:30 [Information] Executed DbCommand (85ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-17 00:21:13.375 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:21:13.444 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:21:13.445 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:21:13.445 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:21:13.445 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:21:13.481 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 4932.5554ms
+2017-03-17 00:21:13.485 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" completed keep alive response.
+2017-03-17 00:21:13.485 +05:30 [Information] Request finished in 4947.6628ms 200 application/json; charset=utf-8
+2017-03-17 00:21:13.522 +05:30 [Debug] Connection id ""0HL3CJJLI8SB3"" received FIN.
+2017-03-17 00:21:13.522 +05:30 [Debug] Connection id ""0HL3CJJLI8SB4"" received FIN.
+2017-03-17 00:21:13.523 +05:30 [Debug] Connection id ""0HL3CJJLI8SB3"" disconnecting.
+2017-03-17 00:21:13.523 +05:30 [Debug] Connection id ""0HL3CJJLI8SB4"" disconnecting.
+2017-03-17 00:21:13.523 +05:30 [Debug] Connection id ""0HL3CJJLI8SB5"" received FIN.
+2017-03-17 00:21:13.523 +05:30 [Debug] Connection id ""0HL3CJJLI8SB6"" received FIN.
+2017-03-17 00:21:13.523 +05:30 [Debug] Connection id ""0HL3CJJLI8SB5"" disconnecting.
+2017-03-17 00:21:13.523 +05:30 [Debug] Connection id ""0HL3CJJLI8SB3"" sending FIN.
+2017-03-17 00:21:13.524 +05:30 [Debug] Connection id ""0HL3CJJLI8SB6"" disconnecting.
+2017-03-17 00:21:13.524 +05:30 [Debug] Connection id ""0HL3CJJLI8SB5"" sending FIN.
+2017-03-17 00:21:13.528 +05:30 [Debug] Connection id ""0HL3CJJLI8SB4"" sending FIN.
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB6"" sending FIN.
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB6"" sent FIN with status "0".
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB6"" stopped.
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB4"" sent FIN with status "0".
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB5"" sent FIN with status "0".
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB4"" stopped.
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB5"" stopped.
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB3"" sent FIN with status "0".
+2017-03-17 00:21:13.531 +05:30 [Debug] Connection id ""0HL3CJJLI8SB3"" stopped.
+2017-03-17 00:21:13.532 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/115  
+2017-03-17 00:21:13.532 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" completed keep alive response.
+2017-03-17 00:21:13.532 +05:30 [Information] Request finished in 0.3382ms 204 
+2017-03-17 00:21:13.538 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/115  
+2017-03-17 00:21:13.622 +05:30 [Information] Successfully validated the token.
+2017-03-17 00:21:13.632 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 00:21:13.632 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-17 00:21:13.635 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-17 00:21:13.663 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-17 00:21:13.678 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["115"]) - ModelState is Valid
+2017-03-17 00:21:13.728 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-17 00:21:13.731 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-17 00:21:13.763 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Users> _ToSequence(
+    task: Task<Users> _FirstOrDefault(
+        source: IAsyncEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE `e`.`id` = @__get_Item_0
+                LIMIT 1
+            , 
+            shaper: BufferedEntityShaper<Users>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-17 00:21:14.230 +05:30 [Information] Executed DbCommand (110ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-17 00:21:14.252 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:21:14.264 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:21:14.264 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:21:14.264 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:21:14.264 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:21:14.270 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 635.0567ms
+2017-03-17 00:21:14.270 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" completed keep alive response.
+2017-03-17 00:21:14.270 +05:30 [Information] Request finished in 732.0838ms 200 application/json; charset=utf-8
+2017-03-17 00:21:18.162 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-17 00:21:18.162 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" completed keep alive response.
+2017-03-17 00:21:18.163 +05:30 [Information] Request finished in 0.3349ms 204 
+2017-03-17 00:21:18.164 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-17 00:21:18.164 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" completed keep alive response.
+2017-03-17 00:21:18.165 +05:30 [Information] Request finished in 0.3923ms 204 
+2017-03-17 00:21:18.167 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/17/2017  
+2017-03-17 00:21:18.167 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" completed keep alive response.
+2017-03-17 00:21:18.167 +05:30 [Information] Request finished in 0.257ms 204 
+2017-03-17 00:21:18.179 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=77&shopid=0  
+2017-03-17 00:21:18.180 +05:30 [Information] Successfully validated the token.
+2017-03-17 00:21:18.180 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 00:21:18.180 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 00:21:18.181 +05:30 [Debug] Connection id ""0HL3CJJLI8SB8"" started.
+2017-03-17 00:21:18.181 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 00:21:18.181 +05:30 [Debug] Connection id ""0HL3CJJLI8SB9"" started.
+2017-03-17 00:21:18.181 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-17 00:21:18.184 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=77&shopid=0  
+2017-03-17 00:21:18.184 +05:30 [Information] Successfully validated the token.
+2017-03-17 00:21:18.184 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 00:21:18.184 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-17 00:21:18.185 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-17 00:21:18.185 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-17 00:21:18.187 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=77&shopid=0&userId=115&sdate=03/17/2017  
+2017-03-17 00:21:18.187 +05:30 [Information] Successfully validated the token.
+2017-03-17 00:21:18.187 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 00:21:18.187 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-17 00:21:18.188 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-17 00:21:18.188 +05:30 [Information] Authorization was successful for user: "nitinj".
+2017-03-17 00:21:18.230 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 00:21:18.230 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 00:21:18.230 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 00:21:18.247 +05:30 [Debug] Compiling query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-17 00:21:18.247 +05:30 [Debug] Optimized query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-17 00:21:18.247 +05:30 [Debug] Compiling query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active != 1
+select e'
+2017-03-17 00:21:18.248 +05:30 [Debug] Optimized query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active != 1
+select e'
+2017-03-17 00:21:18.252 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Salebook> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+        FROM `salebook` AS `e`
+        WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+    , 
+    shaper: UnbufferedEntityShaper<Salebook>
+)
+
+2017-03-17 00:21:18.256 +05:30 [Debug] Compiling query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-17 00:21:18.259 +05:30 [Debug] Optimized query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-17 00:21:18.268 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Products> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+        FROM `products` AS `e`
+        WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` <> 1)
+    , 
+    shaper: UnbufferedEntityShaper<Products>
+)
+
+2017-03-17 00:21:18.298 +05:30 [Warning] The LINQ expression 'GroupBy([e].Billnum, [e])' could not be translated and will be evaluated locally.
+2017-03-17 00:21:18.312 +05:30 [Debug] TRACKED: False
+(QueryContext queryContext) => IAsyncEnumerable<TrackingGrouping<string, Sales>> _TrackGroupedEntities(
+    groupings: IAsyncEnumerable<IGrouping<string, Sales>> _GroupBy(
+        source: IAsyncEnumerable<Sales> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+                FROM `sales` AS `e`
+                WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+                ORDER BY `e`.`billnum`
+            , 
+            shaper: UnbufferedEntityShaper<Sales>
+        )
+        , 
+        keySelector: (Sales e) => e.Billnum, 
+        elementSelector: (Sales e) => e
+    )
+    , 
+    queryContext: queryContext, 
+    entityTrackingInfos: { itemType: Sales }, 
+    entityAccessors: List<Func<Sales, object>> 
+    { 
+        System.Func`2[PosAPI.Sales,PosAPI.Sales], 
+    }
+)
+
+2017-03-17 00:21:18.505 +05:30 [Information] Executed DbCommand (64ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` <> 1)
+2017-03-17 00:21:18.600 +05:30 [Information] Executed DbCommand (87ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-17 00:21:18.607 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:21:18.659 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:21:18.659 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:21:18.659 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:21:18.659 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:21:18.666 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 480.9764ms
+2017-03-17 00:21:18.666 +05:30 [Debug] Connection id ""0HL3CJJLI8SB8"" completed keep alive response.
+2017-03-17 00:21:18.666 +05:30 [Information] Request finished in 482.688ms 200 application/json; charset=utf-8
+2017-03-17 00:21:18.722 +05:30 [Information] Executed DbCommand (91ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?', @__query_userId_2='?', @__query_Sdate_3='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+FROM `sales` AS `e`
+WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+ORDER BY `e`.`billnum`
+2017-03-17 00:21:18.731 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:21:18.732 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:21:18.732 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:21:18.732 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:21:18.732 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:21:18.732 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 544.2343ms
+2017-03-17 00:21:18.732 +05:30 [Debug] Connection id ""0HL3CJJLI8SB9"" completed keep alive response.
+2017-03-17 00:21:18.732 +05:30 [Information] Request finished in 549.3539ms 200 application/json; charset=utf-8
+2017-03-17 00:21:22.156 +05:30 [Debug] Closing connection to database 'posdemotest' on server '166.62.10.141'.
+2017-03-17 00:21:22.201 +05:30 [Debug] Executed action method "PosAPI.Controllers.ProductsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 00:21:22.201 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 00:21:22.201 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 00:21:22.201 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 00:21:22.238 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 4056.3842ms
+2017-03-17 00:21:22.238 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" completed keep alive response.
+2017-03-17 00:21:22.238 +05:30 [Information] Request finished in 4058.6412ms 200 application/json; charset=utf-8
+2017-03-17 00:23:19.870 +05:30 [Debug] Connection id ""0HL3CJJLI8SB8"" disconnecting.
+2017-03-17 00:23:19.873 +05:30 [Debug] Connection id ""0HL3CJJLI8SB8"" sending FIN.
+2017-03-17 00:23:19.874 +05:30 [Debug] Connection id ""0HL3CJJLI8SB8"" sent FIN with status "0".
+2017-03-17 00:23:19.874 +05:30 [Debug] Connection id ""0HL3CJJLI8SB8"" stopped.
+2017-03-17 00:23:19.887 +05:30 [Debug] Connection id ""0HL3CJJLI8SB9"" disconnecting.
+2017-03-17 00:23:19.887 +05:30 [Debug] Connection id ""0HL3CJJLI8SB9"" sending FIN.
+2017-03-17 00:23:19.887 +05:30 [Debug] Connection id ""0HL3CJJLI8SB9"" sent FIN with status "0".
+2017-03-17 00:23:19.887 +05:30 [Debug] Connection id ""0HL3CJJLI8SB9"" stopped.
+2017-03-17 00:23:22.890 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" disconnecting.
+2017-03-17 00:23:22.890 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" sending FIN.
+2017-03-17 00:23:22.890 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" sent FIN with status "0".
+2017-03-17 00:23:22.890 +05:30 [Debug] Connection id ""0HL3CJJLI8SB7"" stopped.
+2017-03-17 20:22:29.919 +05:30 [Debug] Hosting starting
+2017-03-17 20:22:30.337 +05:30 [Debug] Hosting started
+2017-03-17 20:22:30.771 +05:30 [Debug] Connection id ""0HL3D8KUDU7U2"" started.
+2017-03-17 20:22:30.816 +05:30 [Debug] Connection id ""0HL3D8KUDU7U2"" received FIN.
+2017-03-17 20:22:30.837 +05:30 [Debug] Connection id ""0HL3D8KUDU7U2"" disconnecting.
+2017-03-17 20:22:30.845 +05:30 [Debug] Connection id ""0HL3D8KUDU7U2"" sending FIN.
+2017-03-17 20:22:30.851 +05:30 [Debug] Connection id ""0HL3D8KUDU7U2"" sent FIN with status "0".
+2017-03-17 20:22:30.855 +05:30 [Debug] Connection id ""0HL3D8KUDU7U2"" stopped.
+2017-03-17 20:22:34.118 +05:30 [Debug] Connection id ""0HL3D8KUDU7U3"" started.
+2017-03-17 20:22:34.252 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-17 20:22:34.877 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-17 20:22:34.912 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"54168269-22d2-4cb7-8ace-7696b0a0c6a6"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-17 20:22:34.966 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-17 20:22:35.040 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-17 20:22:35.042 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-17 20:22:35.078 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:22:35.083 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:22:35.084 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:22:35.409 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 437.5041ms
+2017-03-17 20:22:35.433 +05:30 [Debug] Connection id ""0HL3D8KUDU7U3"" completed keep alive response.
+2017-03-17 20:22:35.441 +05:30 [Information] Request finished in 1238.1577ms 200 application/json; charset=utf-8
+2017-03-17 20:22:35.452 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-17 20:22:35.455 +05:30 [Debug] Request did not match any routes.
+2017-03-17 20:22:35.463 +05:30 [Debug] Connection id ""0HL3D8KUDU7U3"" completed keep alive response.
+2017-03-17 20:22:35.463 +05:30 [Information] Request finished in 10.4342ms 404 
+2017-03-17 20:22:54.582 +05:30 [Debug] Connection id ""0HL3D8KUDU7U4"" started.
+2017-03-17 20:22:54.583 +05:30 [Debug] Connection id ""0HL3D8KUDU7U5"" started.
+2017-03-17 20:22:54.583 +05:30 [Debug] Connection id ""0HL3D8KUDU7U6"" started.
+2017-03-17 20:23:10.592 +05:30 [Debug] Connection id ""0HL3D8KUDU7U4"" received FIN.
+2017-03-17 20:23:10.592 +05:30 [Debug] Connection id ""0HL3D8KUDU7U6"" received FIN.
+2017-03-17 20:23:10.593 +05:30 [Debug] Connection id ""0HL3D8KUDU7U4"" disconnecting.
+2017-03-17 20:23:10.593 +05:30 [Debug] Connection id ""0HL3D8KUDU7U4"" sending FIN.
+2017-03-17 20:23:10.593 +05:30 [Debug] Connection id ""0HL3D8KUDU7U4"" sent FIN with status "0".
+2017-03-17 20:23:10.594 +05:30 [Debug] Connection id ""0HL3D8KUDU7U4"" stopped.
+2017-03-17 20:23:10.594 +05:30 [Debug] Connection id ""0HL3D8KUDU7U6"" disconnecting.
+2017-03-17 20:23:10.594 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" started.
+2017-03-17 20:23:10.594 +05:30 [Debug] Connection id ""0HL3D8KUDU7U6"" sending FIN.
+2017-03-17 20:23:10.595 +05:30 [Debug] Connection id ""0HL3D8KUDU7U6"" sent FIN with status "0".
+2017-03-17 20:23:10.595 +05:30 [Debug] Connection id ""0HL3D8KUDU7U6"" stopped.
+2017-03-17 20:23:10.607 +05:30 [Debug] Connection id ""0HL3D8KUDU7U5"" received FIN.
+2017-03-17 20:23:10.607 +05:30 [Debug] Connection id ""0HL3D8KUDU7U5"" disconnecting.
+2017-03-17 20:23:10.613 +05:30 [Debug] Connection id ""0HL3D8KUDU7U5"" sending FIN.
+2017-03-17 20:23:10.613 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-17 20:23:10.613 +05:30 [Debug] Connection id ""0HL3D8KUDU7U5"" sent FIN with status "0".
+2017-03-17 20:23:10.613 +05:30 [Debug] Connection id ""0HL3D8KUDU7U5"" stopped.
+2017-03-17 20:23:10.646 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" completed keep alive response.
+2017-03-17 20:23:10.646 +05:30 [Information] Request finished in 33.1729ms 204 
+2017-03-17 20:23:10.648 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 39
+2017-03-17 20:23:10.649 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-17 20:23:10.658 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-17 20:23:11.061 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-17 20:23:11.242 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-17 20:23:12.638 +05:30 [Debug] Compiling query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-17 20:23:12.670 +05:30 [Debug] Optimized query model: 
+'from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e'
+2017-03-17 20:23:12.940 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+        FROM `users` AS `e`
+        WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+    , 
+    shaper: UnbufferedEntityShaper<Users>
+)
+
+2017-03-17 20:23:13.084 +05:30 [Information] Executed DbCommand (41ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-17 20:23:13.206 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:23:13.219 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-17 20:23:13.225 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where bool e.UserName.Equals(
+    value: __query_username_0
+)
+ && bool e.Password.Equals(
+    value: __query_password_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-17 20:23:13.927 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IEnumerable<Users> _ToSequence(
+    element: Users FirstOrDefault(
+        source: IEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<Users>
+        )
+    )
+)
+
+2017-03-17 20:23:13.946 +05:30 [Information] Executed DbCommand (0ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-17 20:23:13.948 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:23:14.004 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 20:23:14.005 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:23:14.005 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:23:14.005 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:23:14.039 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 3380.4345ms
+2017-03-17 20:23:14.045 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" completed keep alive response.
+2017-03-17 20:23:14.045 +05:30 [Information] Request finished in 3396.6853ms 200 application/json; charset=utf-8
+2017-03-17 20:23:14.127 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/108  
+2017-03-17 20:23:14.127 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" completed keep alive response.
+2017-03-17 20:23:14.127 +05:30 [Information] Request finished in 0.3163ms 204 
+2017-03-17 20:23:14.203 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/108  
+2017-03-17 20:23:14.275 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:23:14.286 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:23:14.287 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-17 20:23:14.289 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-17 20:23:14.312 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:23:14.331 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["108"]) - ModelState is Valid
+2017-03-17 20:23:14.400 +05:30 [Debug] Compiling query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-17 20:23:14.407 +05:30 [Debug] Optimized query model: 
+'(from Users e in DbSet<Users>
+where Property(e, "Id") == __get_Item_0
+select e)
+.FirstOrDefault()'
+2017-03-17 20:23:14.433 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Users> _ToSequence(
+    task: Task<Users> _FirstOrDefault(
+        source: IAsyncEnumerable<Users> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+                FROM `users` AS `e`
+                WHERE `e`.`id` = @__get_Item_0
+                LIMIT 1
+            , 
+            shaper: BufferedEntityShaper<Users>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-17 20:23:14.520 +05:30 [Information] Executed DbCommand (14ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-17 20:23:14.545 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:23:14.558 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 20:23:14.558 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:23:14.558 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:23:14.558 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:23:14.564 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 275.0301ms
+2017-03-17 20:23:14.564 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" completed keep alive response.
+2017-03-17 20:23:14.564 +05:30 [Information] Request finished in 361.4858ms 200 application/json; charset=utf-8
+2017-03-17 20:23:18.258 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:23:18.258 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" completed keep alive response.
+2017-03-17 20:23:18.258 +05:30 [Information] Request finished in 0.2589ms 204 
+2017-03-17 20:23:18.261 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=70&shopid=0  
+2017-03-17 20:23:18.261 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" completed keep alive response.
+2017-03-17 20:23:18.261 +05:30 [Information] Request finished in 0.3111ms 204 
+2017-03-17 20:23:18.264 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=70&shopid=0&userId=108&sdate=03/17/2017  
+2017-03-17 20:23:18.264 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" completed keep alive response.
+2017-03-17 20:23:18.264 +05:30 [Information] Request finished in 0.3107ms 204 
+2017-03-17 20:23:18.297 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:23:18.297 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:23:18.298 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:23:18.298 +05:30 [Debug] Connection id ""0HL3D8KUDU7U8"" started.
+2017-03-17 20:23:18.298 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 20:23:18.298 +05:30 [Debug] Connection id ""0HL3D8KUDU7U9"" started.
+2017-03-17 20:23:18.299 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=70&shopid=0  
+2017-03-17 20:23:18.299 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 20:23:18.299 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:23:18.299 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:23:18.299 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-17 20:23:18.299 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:23:18.300 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-17 20:23:18.300 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:23:18.301 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=70&shopid=0&userId=108&sdate=03/17/2017  
+2017-03-17 20:23:18.301 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:23:18.302 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:23:18.302 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-17 20:23:18.302 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-17 20:23:18.302 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:23:18.359 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 20:23:18.360 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 20:23:18.360 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 20:23:18.377 +05:30 [Debug] Compiling query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-17 20:23:18.377 +05:30 [Debug] Optimized query model: 
+'from Salebook e in DbSet<Salebook>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-17 20:23:18.379 +05:30 [Debug] Compiling query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active != 1
+select e'
+2017-03-17 20:23:18.379 +05:30 [Debug] Optimized query model: 
+'from Products e in DbSet<Products>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && e.Active != 1
+select e'
+2017-03-17 20:23:18.384 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Salebook> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+        FROM `salebook` AS `e`
+        WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+    , 
+    shaper: UnbufferedEntityShaper<Salebook>
+)
+
+2017-03-17 20:23:18.393 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<Products> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+        FROM `products` AS `e`
+        WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` <> 1)
+    , 
+    shaper: UnbufferedEntityShaper<Products>
+)
+
+2017-03-17 20:23:18.404 +05:30 [Information] Executed DbCommand (1ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-17 20:23:18.406 +05:30 [Debug] Compiling query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-17 20:23:18.408 +05:30 [Debug] Optimized query model: 
+'(from Sales e in DbSet<Sales>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+ && bool e.UserId.Equals(
+    obj: __query_userId_2
+)
+ && bool e.Dates.Equals(
+    value: __query_Sdate_3
+)
+
+select e)
+.GroupBy([e].Billnum, [e])'
+2017-03-17 20:23:18.428 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:23:18.440 +05:30 [Information] Executed DbCommand (26ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` <> 1)
+2017-03-17 20:23:18.448 +05:30 [Warning] The LINQ expression 'GroupBy([e].Billnum, [e])' could not be translated and will be evaluated locally.
+2017-03-17 20:23:18.455 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:23:18.456 +05:30 [Debug] Executed action method "PosAPI.Controllers.ProductsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.NotFoundResult".
+2017-03-17 20:23:18.462 +05:30 [Information] Executing HttpStatusCodeResult, setting HTTP status code 404
+2017-03-17 20:23:18.463 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 164.4086ms
+2017-03-17 20:23:18.464 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" completed keep alive response.
+2017-03-17 20:23:18.464 +05:30 [Information] Request finished in 166.7319ms 404 
+2017-03-17 20:23:18.466 +05:30 [Debug] TRACKED: False
+(QueryContext queryContext) => IAsyncEnumerable<TrackingGrouping<string, Sales>> _TrackGroupedEntities(
+    groupings: IAsyncEnumerable<IGrouping<string, Sales>> _GroupBy(
+        source: IAsyncEnumerable<Sales> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+                FROM `sales` AS `e`
+                WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+                ORDER BY `e`.`billnum`
+            , 
+            shaper: UnbufferedEntityShaper<Sales>
+        )
+        , 
+        keySelector: (Sales e) => e.Billnum, 
+        elementSelector: (Sales e) => e
+    )
+    , 
+    queryContext: queryContext, 
+    entityTrackingInfos: { itemType: Sales }, 
+    entityAccessors: List<Func<Sales, object>> 
+    { 
+        System.Func`2[PosAPI.Sales,PosAPI.Sales], 
+    }
+)
+
+2017-03-17 20:23:18.498 +05:30 [Information] Executed DbCommand (0ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?', @__query_userId_2='?', @__query_Sdate_3='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+FROM `sales` AS `e`
+WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+ORDER BY `e`.`billnum`
+2017-03-17 20:23:18.515 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:23:18.515 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 20:23:18.515 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:23:18.515 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:23:18.515 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:23:18.516 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 213.2855ms
+2017-03-17 20:23:18.516 +05:30 [Debug] Connection id ""0HL3D8KUDU7U9"" completed keep alive response.
+2017-03-17 20:23:18.516 +05:30 [Information] Request finished in 214.4812ms 200 application/json; charset=utf-8
+2017-03-17 20:23:18.516 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 20:23:18.516 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:23:18.516 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:23:18.516 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:23:18.526 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 225.8312ms
+2017-03-17 20:23:18.526 +05:30 [Debug] Connection id ""0HL3D8KUDU7U8"" completed keep alive response.
+2017-03-17 20:23:18.526 +05:30 [Information] Request finished in 227.3516ms 200 application/json; charset=utf-8
+2017-03-17 20:24:34.910 +05:30 [Debug] Connection id ""0HL3D8KUDU7UA"" started.
+2017-03-17 20:24:34.911 +05:30 [Debug] Connection id ""0HL3D8KUDU7UB"" started.
+2017-03-17 20:24:34.970 +05:30 [Debug] Connection id ""0HL3D8KUDU7UC"" started.
+2017-03-17 20:24:35.711 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:24:35.711 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 20:24:35.712 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 20:24:35.713 +05:30 [Information] Authorization failed for user: null.
+2017-03-17 20:24:35.713 +05:30 [Information] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'.
+2017-03-17 20:24:35.718 +05:30 [Information] Executing ChallengeResult with authentication schemes ([]).
+2017-03-17 20:24:35.746 +05:30 [Information] AuthenticationScheme: "Bearer" was challenged.
+2017-03-17 20:24:35.746 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 33.2816ms
+2017-03-17 20:24:35.746 +05:30 [Debug] Connection id ""0HL3D8KUDU7UA"" completed keep alive response.
+2017-03-17 20:24:35.746 +05:30 [Information] Request finished in 35.1085ms 401 
+2017-03-17 20:24:35.904 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-17 20:24:35.904 +05:30 [Debug] Request did not match any routes.
+2017-03-17 20:24:35.904 +05:30 [Debug] Connection id ""0HL3D8KUDU7UA"" completed keep alive response.
+2017-03-17 20:24:35.904 +05:30 [Information] Request finished in 0.7706ms 404 
+2017-03-17 20:24:36.350 +05:30 [Debug] Connection id ""0HL3D8KUDU7U3"" disconnecting.
+2017-03-17 20:24:36.350 +05:30 [Debug] Connection id ""0HL3D8KUDU7U3"" sending FIN.
+2017-03-17 20:24:36.350 +05:30 [Debug] Connection id ""0HL3D8KUDU7U3"" sent FIN with status "0".
+2017-03-17 20:24:36.351 +05:30 [Debug] Connection id ""0HL3D8KUDU7U3"" stopped.
+2017-03-17 20:25:10.821 +05:30 [Debug] Connection id ""0HL3D8KUDU7UC"" received FIN.
+2017-03-17 20:25:10.821 +05:30 [Debug] Connection id ""0HL3D8KUDU7UB"" received FIN.
+2017-03-17 20:25:10.828 +05:30 [Debug] Connection id ""0HL3D8KUDU7UC"" disconnecting.
+2017-03-17 20:25:10.829 +05:30 [Debug] Connection id ""0HL3D8KUDU7UC"" sending FIN.
+2017-03-17 20:25:10.830 +05:30 [Debug] Connection id ""0HL3D8KUDU7UB"" disconnecting.
+2017-03-17 20:25:10.830 +05:30 [Debug] Connection id ""0HL3D8KUDU7UB"" sending FIN.
+2017-03-17 20:25:10.830 +05:30 [Debug] Connection id ""0HL3D8KUDU7UC"" sent FIN with status "0".
+2017-03-17 20:25:10.830 +05:30 [Debug] Connection id ""0HL3D8KUDU7UC"" stopped.
+2017-03-17 20:25:10.830 +05:30 [Debug] Connection id ""0HL3D8KUDU7UB"" sent FIN with status "0".
+2017-03-17 20:25:10.830 +05:30 [Debug] Connection id ""0HL3D8KUDU7UB"" stopped.
+2017-03-17 20:25:11.513 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:25:11.515 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 20:25:11.515 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 20:25:11.515 +05:30 [Information] Authorization failed for user: null.
+2017-03-17 20:25:11.515 +05:30 [Information] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'.
+2017-03-17 20:25:11.515 +05:30 [Information] Executing ChallengeResult with authentication schemes ([]).
+2017-03-17 20:25:11.516 +05:30 [Information] AuthenticationScheme: "Bearer" was challenged.
+2017-03-17 20:25:11.516 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 0.6895ms
+2017-03-17 20:25:11.516 +05:30 [Debug] Connection id ""0HL3D8KUDU7UA"" completed keep alive response.
+2017-03-17 20:25:11.516 +05:30 [Information] Request finished in 3.4126ms 401 
+2017-03-17 20:25:19.323 +05:30 [Debug] Connection id ""0HL3D8KUDU7U8"" disconnecting.
+2017-03-17 20:25:19.323 +05:30 [Debug] Connection id ""0HL3D8KUDU7U8"" sending FIN.
+2017-03-17 20:25:19.323 +05:30 [Debug] Connection id ""0HL3D8KUDU7U8"" sent FIN with status "0".
+2017-03-17 20:25:19.324 +05:30 [Debug] Connection id ""0HL3D8KUDU7U8"" stopped.
+2017-03-17 20:25:19.351 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" disconnecting.
+2017-03-17 20:25:19.351 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" sending FIN.
+2017-03-17 20:25:19.351 +05:30 [Debug] Connection id ""0HL3D8KUDU7U9"" disconnecting.
+2017-03-17 20:25:19.351 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" sent FIN with status "0".
+2017-03-17 20:25:19.351 +05:30 [Debug] Connection id ""0HL3D8KUDU7U7"" stopped.
+2017-03-17 20:25:19.351 +05:30 [Debug] Connection id ""0HL3D8KUDU7U9"" sending FIN.
+2017-03-17 20:25:19.352 +05:30 [Debug] Connection id ""0HL3D8KUDU7U9"" sent FIN with status "0".
+2017-03-17 20:25:19.352 +05:30 [Debug] Connection id ""0HL3D8KUDU7U9"" stopped.
+2017-03-17 20:27:02.816 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" started.
+2017-03-17 20:27:02.825 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:27:02.826 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 20:27:02.826 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 20:27:02.826 +05:30 [Information] Authorization failed for user: null.
+2017-03-17 20:27:02.826 +05:30 [Information] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'.
+2017-03-17 20:27:02.826 +05:30 [Information] Executing ChallengeResult with authentication schemes ([]).
+2017-03-17 20:27:02.826 +05:30 [Information] AuthenticationScheme: "Bearer" was challenged.
+2017-03-17 20:27:02.826 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 0.5033ms
+2017-03-17 20:27:02.827 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" completed keep alive response.
+2017-03-17 20:27:02.827 +05:30 [Information] Request finished in 2.0638ms 401 
+2017-03-17 20:27:12.339 +05:30 [Debug] Connection id ""0HL3D8KUDU7UA"" disconnecting.
+2017-03-17 20:27:12.339 +05:30 [Debug] Connection id ""0HL3D8KUDU7UA"" sending FIN.
+2017-03-17 20:27:12.339 +05:30 [Debug] Connection id ""0HL3D8KUDU7UA"" sent FIN with status "0".
+2017-03-17 20:27:12.339 +05:30 [Debug] Connection id ""0HL3D8KUDU7UA"" stopped.
+2017-03-17 20:27:35.302 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" started.
+2017-03-17 20:27:35.328 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/token  
+2017-03-17 20:27:35.330 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" completed keep alive response.
+2017-03-17 20:27:35.330 +05:30 [Information] Request finished in 2.0055ms 204 
+2017-03-17 20:27:35.344 +05:30 [Information] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/token application/json 39
+2017-03-17 20:27:35.346 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Auth/token"'.
+2017-03-17 20:27:35.346 +05:30 [Debug] Executing action "PosAPI.Controllers.AuthController.Get (PosAPI)"
+2017-03-17 20:27:35.347 +05:30 [Debug] Selected input formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonInputFormatter"' for content type '"application/json"'.
+2017-03-17 20:27:35.347 +05:30 [Information] Executing action method "PosAPI.Controllers.AuthController.Get (PosAPI)" with arguments (["PosAPI.Controllers.UserInfo"]) - ModelState is Valid
+2017-03-17 20:27:35.378 +05:30 [Information] Executed DbCommand (0ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+2017-03-17 20:27:35.379 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:27:35.382 +05:30 [Information] Executed DbCommand (0ms) [Parameters=[@__query_username_0='?' (Size = 250), @__query_password_1='?' (Size = 250)], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE (`e`.`user_name` = @__query_username_0) AND (`e`.`password` = @__query_password_1)
+LIMIT 1
+2017-03-17 20:27:35.382 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:27:35.382 +05:30 [Debug] Executed action method "PosAPI.Controllers.AuthController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 20:27:35.383 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:27:35.383 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:27:35.383 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:27:35.383 +05:30 [Information] Executed action "PosAPI.Controllers.AuthController.Get (PosAPI)" in 36.6354ms
+2017-03-17 20:27:35.383 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" completed keep alive response.
+2017-03-17 20:27:35.383 +05:30 [Information] Request finished in 39.1443ms 200 application/json; charset=utf-8
+2017-03-17 20:27:35.488 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/user/108  
+2017-03-17 20:27:35.490 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" completed keep alive response.
+2017-03-17 20:27:35.491 +05:30 [Information] Request finished in 2.8014ms 204 
+2017-03-17 20:27:35.529 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/user/108  
+2017-03-17 20:27:35.537 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:27:35.537 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:27:35.537 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/User/{id}"'.
+2017-03-17 20:27:35.537 +05:30 [Debug] Executing action "PosAPI.Controllers.UserController.Get (PosAPI)"
+2017-03-17 20:27:35.538 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:27:35.538 +05:30 [Information] Executing action method "PosAPI.Controllers.UserController.Get (PosAPI)" with arguments (["108"]) - ModelState is Valid
+2017-03-17 20:27:35.552 +05:30 [Information] Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`email`, `e`.`employee_name`, `e`.`image`, `e`.`otp`, `e`.`otp_access`, `e`.`password`, `e`.`phone`, `e`.`roll`, `e`.`shop_id`, `e`.`status`, `e`.`user_name`
+FROM `users` AS `e`
+WHERE `e`.`id` = @__get_Item_0
+LIMIT 1
+2017-03-17 20:27:35.552 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:27:35.552 +05:30 [Debug] Executed action method "PosAPI.Controllers.UserController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 20:27:35.553 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:27:35.553 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:27:35.553 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:27:35.553 +05:30 [Information] Executed action "PosAPI.Controllers.UserController.Get (PosAPI)" in 15.3401ms
+2017-03-17 20:27:35.553 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" completed keep alive response.
+2017-03-17 20:27:35.553 +05:30 [Information] Request finished in 24.0585ms 200 application/json; charset=utf-8
+2017-03-17 20:28:55.629 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:28:55.630 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 20:28:55.631 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 20:28:55.631 +05:30 [Information] Authorization failed for user: null.
+2017-03-17 20:28:55.631 +05:30 [Information] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'.
+2017-03-17 20:28:55.631 +05:30 [Information] Executing ChallengeResult with authentication schemes ([]).
+2017-03-17 20:28:55.631 +05:30 [Information] AuthenticationScheme: "Bearer" was challenged.
+2017-03-17 20:28:55.631 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 0.2542ms
+2017-03-17 20:28:55.631 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" completed keep alive response.
+2017-03-17 20:28:55.631 +05:30 [Information] Request finished in 2.0256ms 401 
+2017-03-17 20:29:05.532 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:29:05.533 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:29:05.533 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:29:05.533 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 20:29:05.533 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 20:29:05.533 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:29:05.534 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 20:29:05.552 +05:30 [Information] Executed DbCommand (3ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` <> 1)
+2017-03-17 20:29:05.552 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:29:05.552 +05:30 [Debug] Executed action method "PosAPI.Controllers.ProductsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.NotFoundResult".
+2017-03-17 20:29:05.552 +05:30 [Information] Executing HttpStatusCodeResult, setting HTTP status code 404
+2017-03-17 20:29:05.552 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 18.6365ms
+2017-03-17 20:29:05.552 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" completed keep alive response.
+2017-03-17 20:29:05.552 +05:30 [Information] Request finished in 19.8448ms 404 
+2017-03-17 20:29:36.427 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" disconnecting.
+2017-03-17 20:29:36.430 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" sending FIN.
+2017-03-17 20:29:36.434 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" sent FIN with status "0".
+2017-03-17 20:29:36.434 +05:30 [Debug] Connection id ""0HL3D8KUDU7UE"" stopped.
+2017-03-17 20:29:40.767 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:29:40.771 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:29:40.774 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:29:40.776 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 20:29:40.779 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 20:29:40.779 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:29:40.779 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 20:29:53.717 +05:30 [Information] Executed DbCommand (6ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` <> 1)
+2017-03-17 20:29:53.718 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:29:53.718 +05:30 [Debug] Executed action method "PosAPI.Controllers.ProductsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.NotFoundResult".
+2017-03-17 20:29:53.718 +05:30 [Information] Executing HttpStatusCodeResult, setting HTTP status code 404
+2017-03-17 20:29:53.718 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 12938.4205ms
+2017-03-17 20:29:53.718 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" completed keep alive response.
+2017-03-17 20:29:53.718 +05:30 [Information] Request finished in 12952.4773ms 404 
+2017-03-17 20:30:07.703 +05:30 [Debug] Connection id ""0HL3D8KUDU7UF"" started.
+2017-03-17 20:30:07.716 +05:30 [Debug] Connection id ""0HL3D8KUDU7UG"" started.
+2017-03-17 20:30:07.716 +05:30 [Debug] Connection id ""0HL3D8KUDU7UH"" started.
+2017-03-17 20:30:07.716 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/salebook?branchid=70&shopid=0  
+2017-03-17 20:30:07.718 +05:30 [Debug] Connection id ""0HL3D8KUDU7UG"" completed keep alive response.
+2017-03-17 20:30:07.718 +05:30 [Information] Request finished in 1.8744ms 204 
+2017-03-17 20:30:07.729 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:30:07.729 +05:30 [Information] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/sales/GetMaxSaleCount?branchid=70&shopid=0&userId=108&sdate=03/17/2017  
+2017-03-17 20:30:07.729 +05:30 [Debug] Connection id ""0HL3D8KUDU7UH"" completed keep alive response.
+2017-03-17 20:30:07.729 +05:30 [Information] Request finished in 0.3708ms 204 
+2017-03-17 20:30:07.729 +05:30 [Debug] Connection id ""0HL3D8KUDU7UF"" completed keep alive response.
+2017-03-17 20:30:07.729 +05:30 [Information] Request finished in 0.6298ms 204 
+2017-03-17 20:30:07.741 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/salebook?branchid=70&shopid=0  
+2017-03-17 20:30:07.741 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:30:07.741 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:30:07.742 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Salebook"'.
+2017-03-17 20:30:07.742 +05:30 [Debug] Executing action "PosAPI.Controllers.SalebookController.Get (PosAPI)"
+2017-03-17 20:30:07.742 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:30:07.742 +05:30 [Information] Executing action method "PosAPI.Controllers.SalebookController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 20:30:07.743 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/sales/GetMaxSaleCount?branchid=70&shopid=0&userId=108&sdate=03/17/2017  
+2017-03-17 20:30:07.743 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:30:07.743 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:30:07.743 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Sales/GetMaxSaleCount"'.
+2017-03-17 20:30:07.743 +05:30 [Debug] Executing action "PosAPI.Controllers.SalesController.Get (PosAPI)"
+2017-03-17 20:30:07.743 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:30:07.746 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/products?branchid=70&shopid=0  
+2017-03-17 20:30:07.746 +05:30 [Information] Executing action method "PosAPI.Controllers.SalesController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 20:30:07.747 +05:30 [Information] Successfully validated the token.
+2017-03-17 20:30:07.747 +05:30 [Information] HttpContext.User merged via AutomaticAuthentication from authenticationScheme: "Bearer".
+2017-03-17 20:30:07.747 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Products"'.
+2017-03-17 20:30:07.747 +05:30 [Debug] Executing action "PosAPI.Controllers.ProductsController.Get (PosAPI)"
+2017-03-17 20:30:07.747 +05:30 [Information] Authorization was successful for user: "raju1".
+2017-03-17 20:30:07.747 +05:30 [Information] Executing action method "PosAPI.Controllers.ProductsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-17 20:30:13.857 +05:30 [Information] Executed DbCommand (6ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`bookname`, `e`.`branch_id`, `e`.`prefix`, `e`.`shop_id`
+FROM `salebook` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-17 20:30:13.858 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:30:13.859 +05:30 [Information] Executed DbCommand (8ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`active`, `e`.`barcode`, `e`.`black`, `e`.`branch_id`, `e`.`brand`, `e`.`ccode`, `e`.`color`, `e`.`counter_no`, `e`.`description`, `e`.`discount`, `e`.`discount_value`, `e`.`disposiblegoods`, `e`.`dprice`, `e`.`finishedgoods`, `e`.`gtotal_amount`, `e`.`image`, `e`.`image1`, `e`.`image2`, `e`.`image3`, `e`.`image4`, `e`.`leadtime`, `e`.`maxstock`, `e`.`minidescription`, `e`.`minstock`, `e`.`nquantity`, `e`.`opening_balance`, `e`.`outmonths`, `e`.`p_category`, `e`.`pcategory`, `e`.`print`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`rand`, `e`.`related`, `e`.`remark`, `e`.`return`, `e`.`sales`, `e`.`selling_price`, `e`.`serialnumber`, `e`.`shop_id`, `e`.`smcommision`, `e`.`sprice`, `e`.`status`, `e`.`stockonhand`, `e`.`supplier_name`, `e`.`total_amount`, `e`.`type`, `e`.`uprice`, `e`.`user_id`, `e`.`vat`
+FROM `products` AS `e`
+WHERE ((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`active` <> 1)
+2017-03-17 20:30:13.859 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:30:13.860 +05:30 [Debug] Executed action method "PosAPI.Controllers.ProductsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.NotFoundResult".
+2017-03-17 20:30:13.860 +05:30 [Information] Executing HttpStatusCodeResult, setting HTTP status code 404
+2017-03-17 20:30:13.860 +05:30 [Information] Executed action "PosAPI.Controllers.ProductsController.Get (PosAPI)" in 6113.1164ms
+2017-03-17 20:30:13.860 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalebookController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 20:30:13.860 +05:30 [Debug] Connection id ""0HL3D8KUDU7UF"" completed keep alive response.
+2017-03-17 20:30:13.860 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:30:13.860 +05:30 [Information] Request finished in 6114.62ms 404 
+2017-03-17 20:30:13.860 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:30:13.860 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:30:13.860 +05:30 [Information] Executed action "PosAPI.Controllers.SalebookController.Get (PosAPI)" in 6118.7455ms
+2017-03-17 20:30:13.861 +05:30 [Debug] Connection id ""0HL3D8KUDU7UH"" completed keep alive response.
+2017-03-17 20:30:13.861 +05:30 [Information] Request finished in 6120.1357ms 200 application/json; charset=utf-8
+2017-03-17 20:30:13.862 +05:30 [Information] Executed DbCommand (1ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?', @__query_userId_2='?', @__query_Sdate_3='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`amount`, `e`.`bill_num`, `e`.`billnum`, `e`.`black`, `e`.`branch_id`, `e`.`cashtype`, `e`.`commision`, `e`.`counter`, `e`.`customer`, `e`.`customerid`, `e`.`dates`, `e`.`discount`, `e`.`discountamt`, `e`.`discountper`, `e`.`edit`, `e`.`editstat`, `e`.`ex`, `e`.`extotalamount`, `e`.`extra_discount`, `e`.`image`, `e`.`instock`, `e`.`narration`, `e`.`nid`, `e`.`numcount`, `e`.`phone`, `e`.`points`, `e`.`price`, `e`.`product_code`, `e`.`product_id`, `e`.`product_name`, `e`.`ptype`, `e`.`quantity`, `e`.`return_bill`, `e`.`return_date`, `e`.`returns`, `e`.`rid`, `e`.`sale_manger`, `e`.`sale_returns`, `e`.`salebook`, `e`.`session_id`, `e`.`shop_id`, `e`.`size`, `e`.`smcomision`, `e`.`status`, `e`.`tax`, `e`.`totalamount`, `e`.`totalpointsamount`, `e`.`tottaldiscoun`, `e`.`user_id`, `e`.`validitydate`
+FROM `sales` AS `e`
+WHERE (((`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)) AND (`e`.`user_id` = @__query_userId_2)) AND (`e`.`dates` = @__query_Sdate_3)
+ORDER BY `e`.`billnum`
+2017-03-17 20:30:13.862 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-17 20:30:13.863 +05:30 [Debug] Executed action method "PosAPI.Controllers.SalesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-17 20:30:13.863 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-17 20:30:13.863 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-17 20:30:13.863 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-17 20:30:13.863 +05:30 [Information] Executed action "PosAPI.Controllers.SalesController.Get (PosAPI)" in 6119.7224ms
+2017-03-17 20:30:13.863 +05:30 [Debug] Connection id ""0HL3D8KUDU7UG"" completed keep alive response.
+2017-03-17 20:30:13.863 +05:30 [Information] Request finished in 6120.94ms 200 application/json; charset=utf-8
+2017-03-17 20:31:54.977 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" disconnecting.
+2017-03-17 20:31:54.984 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" sending FIN.
+2017-03-17 20:31:54.984 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" sent FIN with status "0".
+2017-03-17 20:31:54.984 +05:30 [Debug] Connection id ""0HL3D8KUDU7UD"" stopped.
+2017-03-17 20:32:09.975 +05:30 [Debug] Connection id ""0HL3D8KUDU7UF"" disconnecting.
+2017-03-17 20:32:09.975 +05:30 [Debug] Connection id ""0HL3D8KUDU7UF"" sending FIN.
+2017-03-17 20:32:09.975 +05:30 [Debug] Connection id ""0HL3D8KUDU7UF"" sent FIN with status "0".
+2017-03-17 20:32:09.976 +05:30 [Debug] Connection id ""0HL3D8KUDU7UH"" disconnecting.
+2017-03-17 20:32:09.976 +05:30 [Debug] Connection id ""0HL3D8KUDU7UF"" stopped.
+2017-03-17 20:32:09.976 +05:30 [Debug] Connection id ""0HL3D8KUDU7UH"" sending FIN.
+2017-03-17 20:32:09.976 +05:30 [Debug] Connection id ""0HL3D8KUDU7UH"" sent FIN with status "0".
+2017-03-17 20:32:09.977 +05:30 [Debug] Connection id ""0HL3D8KUDU7UH"" stopped.
+2017-03-17 20:32:14.976 +05:30 [Debug] Connection id ""0HL3D8KUDU7UG"" disconnecting.
+2017-03-17 20:32:14.976 +05:30 [Debug] Connection id ""0HL3D8KUDU7UG"" sending FIN.
+2017-03-17 20:32:14.977 +05:30 [Debug] Connection id ""0HL3D8KUDU7UG"" sent FIN with status "0".
+2017-03-17 20:32:14.977 +05:30 [Debug] Connection id ""0HL3D8KUDU7UG"" stopped.
