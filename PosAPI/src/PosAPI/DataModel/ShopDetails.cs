@@ -10,6 +10,8 @@ namespace PosAPI
     {
         [Column("id", TypeName = "int(11)")]
         public int Id { get; set; }
+        //[Column("barcode_style", TypeName = "int(11)")]
+        //public int? BarcodeStyle { get; set; }
         [Column("branch_id", TypeName = "int(11)")]
         public int BranchId { get; set; }
         [Required]
@@ -21,14 +23,14 @@ namespace PosAPI
         [Required]
         [Column("color", TypeName = "text")]
         public string Color { get; set; }
-        [Column("created_date", TypeName = "date")]
-        public DateTime CreatedDate { get; set; }
         [Required]
         [Column("fax", TypeName = "text")]
         public string Fax { get; set; }
         [Required]
         [Column("friday", TypeName = "text")]
         public string Friday { get; set; }
+        //[Column("invoice_type", TypeName = "int(11)")]
+        //public int InvoiceType { get; set; }
         [Required]
         [Column("location", TypeName = "text")]
         public string Location { get; set; }
@@ -79,6 +81,9 @@ namespace PosAPI
         [Required]
         [Column("shop_url", TypeName = "text")]
         public string ShopUrl { get; set; }
+        //[Required]
+        //[Column("showproducts", TypeName = "text")]
+        //public string Showproducts { get; set; }
         [Required]
         [Column("state", TypeName = "text")]
         public string State { get; set; }

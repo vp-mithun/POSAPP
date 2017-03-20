@@ -1,0 +1,1617 @@
+2017-03-20 19:54:57.251 +05:30 [Debug] Hosting starting
+2017-03-20 19:54:57.530 +05:30 [Debug] Hosting started
+2017-03-20 19:54:57.893 +05:30 [Debug] Connection id ""0HL3FJJHEOLOP"" started.
+2017-03-20 19:54:57.926 +05:30 [Debug] Connection id ""0HL3FJJHEOLOQ"" started.
+2017-03-20 19:54:58.016 +05:30 [Debug] Connection id ""0HL3FJJHEOLOP"" received FIN.
+2017-03-20 19:54:58.020 +05:30 [Debug] Connection id ""0HL3FJJHEOLOQ"" received FIN.
+2017-03-20 19:54:58.023 +05:30 [Debug] Connection id ""0HL3FJJHEOLOP"" disconnecting.
+2017-03-20 19:54:58.026 +05:30 [Debug] Connection id ""0HL3FJJHEOLOQ"" disconnecting.
+2017-03-20 19:54:58.040 +05:30 [Debug] Connection id ""0HL3FJJHEOLOP"" sending FIN.
+2017-03-20 19:54:58.044 +05:30 [Debug] Connection id ""0HL3FJJHEOLOQ"" sending FIN.
+2017-03-20 19:54:58.051 +05:30 [Debug] Connection id ""0HL3FJJHEOLOQ"" sent FIN with status "0".
+2017-03-20 19:54:58.056 +05:30 [Debug] Connection id ""0HL3FJJHEOLOQ"" stopped.
+2017-03-20 19:54:58.061 +05:30 [Debug] Connection id ""0HL3FJJHEOLOP"" sent FIN with status "0".
+2017-03-20 19:54:58.061 +05:30 [Debug] Connection id ""0HL3FJJHEOLOP"" stopped.
+2017-03-20 19:55:01.336 +05:30 [Debug] Connection id ""0HL3FJJHEOLOR"" started.
+2017-03-20 19:55:01.592 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-20 19:55:02.055 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-20 19:55:02.087 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"8318e076-bba2-42a8-bedc-7979f628dde3"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-20 19:55:02.135 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-20 19:55:02.208 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-20 19:55:02.210 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-20 19:55:02.254 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 19:55:02.260 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 19:55:02.260 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 19:55:02.736 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 596.864ms
+2017-03-20 19:55:02.756 +05:30 [Debug] Connection id ""0HL3FJJHEOLOR"" completed keep alive response.
+2017-03-20 19:55:02.761 +05:30 [Information] Request finished in 1322.4109ms 200 application/json; charset=utf-8
+2017-03-20 19:55:02.779 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-20 19:55:02.781 +05:30 [Debug] Request did not match any routes.
+2017-03-20 19:55:02.789 +05:30 [Debug] Connection id ""0HL3FJJHEOLOR"" completed keep alive response.
+2017-03-20 19:55:02.789 +05:30 [Information] Request finished in 9.8324ms 404 
+2017-03-20 19:55:24.122 +05:30 [Debug] Connection id ""0HL3FJJHEOLOS"" started.
+2017-03-20 19:55:24.127 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=70&shopid=0  
+2017-03-20 19:55:24.300 +05:30 [Information] Failed to validate the token "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyYWp1MSIsImp0aSI6IjQ5NDdkMzkwLTk3OTUtNGQ2ZS1hOTNhLWNhYmU1MWU3NTAxYiIsImdpdmVuX25hbWUiOiJyYWp1MSIsImVtYWlsIjoicmFqdUBnbWFpbC5jb20iLCJleHAiOjE0ODk4MDU4NTUsImlzcyI6Imh0dHA6Ly9wb3MuaW8iLCJhdWQiOiJodHRwOi8vcG9zLmlvIn0.TbNEITqP5eUjlD8pP0e_GvvaXTJE1e0xEEHgkdNVXdM".
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired.
+ValidTo: '03/18/2017 02:57:35'
+Current time: '03/20/2017 14:25:24'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, JwtSecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwt, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.<HandleAuthenticateAsync>d__1.MoveNext()
+2017-03-20 19:55:24.304 +05:30 [Information] "Bearer" was not authenticated. Failure message: "IDX10223: Lifetime validation failed. The token is expired.
+ValidTo: '03/18/2017 02:57:35'
+Current time: '03/20/2017 14:25:24'."
+2017-03-20 19:55:24.304 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 19:55:24.311 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 19:55:24.762 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 19:55:25.926 +05:30 [Debug] Compiling query model: 
+'from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-20 19:55:25.951 +05:30 [Debug] Optimized query model: 
+'from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e'
+2017-03-20 19:55:26.239 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<ShopDetails> _ShapedQuery(
+    queryContext: queryContext, 
+    shaperCommandContext: SelectExpression: 
+        SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`created_date`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+        FROM `shop_details` AS `e`
+        WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+    , 
+    shaper: UnbufferedEntityShaper<ShopDetails>
+)
+
+2017-03-20 19:55:26.462 +05:30 [Information] Executed DbCommand (71ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`created_date`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+FROM `shop_details` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+2017-03-20 19:55:26.530 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+System.InvalidCastException: Unable to convert MySQL date/time to System.DateTime.
+   at MySql.Data.MySqlClient.Results.Row.ParseDateTime(ArraySegment`1 value)
+   at MySql.Data.MySqlClient.Results.Row.GetValue(Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetDateTime(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-20 19:55:26.684 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 2372.8937ms
+2017-03-20 19:55:26.688 +05:30 [Error] Connection id ""0HL3FJJHEOLOS"": An unhandled exception was thrown by the application.
+System.InvalidCastException: Unable to convert MySQL date/time to System.DateTime.
+   at MySql.Data.MySqlClient.Results.Row.ParseDateTime(ArraySegment`1 value)
+   at MySql.Data.MySqlClient.Results.Row.GetValue(Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetDateTime(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.<ToListAsync>d__129`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ShopDetailsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ShopDetailsController.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-20 19:55:26.796 +05:30 [Debug] Connection id ""0HL3FJJHEOLOS"" completed keep alive response.
+2017-03-20 19:55:26.796 +05:30 [Information] Request finished in 2669.0973ms 500 
+2017-03-20 19:58:10.132 +05:30 [Debug] Hosting starting
+2017-03-20 19:58:10.316 +05:30 [Debug] Hosting started
+2017-03-20 19:58:10.579 +05:30 [Debug] Connection id ""0HL3FJLASCTNQ"" started.
+2017-03-20 19:58:10.585 +05:30 [Debug] Connection id ""0HL3FJLASCTNR"" started.
+2017-03-20 19:58:10.605 +05:30 [Debug] Connection id ""0HL3FJLASCTNR"" received FIN.
+2017-03-20 19:58:10.610 +05:30 [Debug] Connection id ""0HL3FJLASCTNQ"" received FIN.
+2017-03-20 19:58:10.628 +05:30 [Debug] Connection id ""0HL3FJLASCTNQ"" disconnecting.
+2017-03-20 19:58:10.628 +05:30 [Debug] Connection id ""0HL3FJLASCTNR"" disconnecting.
+2017-03-20 19:58:10.636 +05:30 [Debug] Connection id ""0HL3FJLASCTNQ"" sending FIN.
+2017-03-20 19:58:10.638 +05:30 [Debug] Connection id ""0HL3FJLASCTNR"" sending FIN.
+2017-03-20 19:58:10.644 +05:30 [Debug] Connection id ""0HL3FJLASCTNR"" sent FIN with status "0".
+2017-03-20 19:58:10.647 +05:30 [Debug] Connection id ""0HL3FJLASCTNR"" stopped.
+2017-03-20 19:58:10.649 +05:30 [Debug] Connection id ""0HL3FJLASCTNQ"" sent FIN with status "0".
+2017-03-20 19:58:10.649 +05:30 [Debug] Connection id ""0HL3FJLASCTNQ"" stopped.
+2017-03-20 19:58:12.869 +05:30 [Debug] Connection id ""0HL3FJLASCTNS"" started.
+2017-03-20 19:58:12.977 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-20 19:58:13.290 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-20 19:58:13.325 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"ec5d6842-f031-4ba3-a63e-86ba2647b8c0"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-20 19:58:13.368 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-20 19:58:13.431 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-20 19:58:13.432 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-20 19:58:13.463 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 19:58:13.468 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 19:58:13.468 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 19:58:13.757 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 385.0615ms
+2017-03-20 19:58:13.777 +05:30 [Debug] Connection id ""0HL3FJLASCTNS"" completed keep alive response.
+2017-03-20 19:58:13.783 +05:30 [Information] Request finished in 837.2736ms 200 application/json; charset=utf-8
+2017-03-20 19:58:13.792 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-20 19:58:13.793 +05:30 [Debug] Request did not match any routes.
+2017-03-20 19:58:13.797 +05:30 [Debug] Connection id ""0HL3FJLASCTNS"" completed keep alive response.
+2017-03-20 19:58:13.797 +05:30 [Information] Request finished in 5.9126ms 404 
+2017-03-20 19:58:23.519 +05:30 [Debug] Connection id ""0HL3FJLASCTNT"" started.
+2017-03-20 19:58:23.521 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=70&shopid=0  
+2017-03-20 19:58:23.522 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 19:58:23.534 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 19:58:23.876 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 19:58:24.856 +05:30 [Debug] Compiling query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 19:58:24.884 +05:30 [Debug] Optimized query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 19:58:25.627 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<ShopDetails> _ToSequence(
+    task: Task<ShopDetails> _FirstOrDefault(
+        source: IAsyncEnumerable<ShopDetails> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`created_date`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+                FROM `shop_details` AS `e`
+                WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<ShopDetails>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-20 19:58:25.792 +05:30 [Information] Executed DbCommand (42ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`created_date`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+FROM `shop_details` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+LIMIT 1
+2017-03-20 19:58:25.836 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+System.InvalidCastException: Unable to convert MySQL date/time to System.DateTime.
+   at MySql.Data.MySqlClient.Results.Row.ParseDateTime(ArraySegment`1 value)
+   at MySql.Data.MySqlClient.Results.Row.GetValue(Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetDateTime(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-20 19:58:25.900 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 2366.5877ms
+2017-03-20 19:58:25.904 +05:30 [Error] Connection id ""0HL3FJLASCTNT"": An unhandled exception was thrown by the application.
+System.InvalidCastException: Unable to convert MySQL date/time to System.DateTime.
+   at MySql.Data.MySqlClient.Results.Row.ParseDateTime(ArraySegment`1 value)
+   at MySql.Data.MySqlClient.Results.Row.GetValue(Int32 ordinal)
+   at MySql.Data.MySqlClient.MySqlDataReader.GetDateTime(Int32 ordinal)
+   at lambda_method(Closure , DbDataReader )
+   at Microsoft.EntityFrameworkCore.Storage.Internal.TypedRelationalValueBufferFactory.Create(DbDataReader dataReader)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ShopDetailsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ShopDetailsController.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-20 19:58:25.982 +05:30 [Debug] Connection id ""0HL3FJLASCTNT"" completed keep alive response.
+2017-03-20 19:58:25.982 +05:30 [Information] Request finished in 2460.6272ms 500 
+2017-03-20 19:58:48.031 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=70&shopid=0  
+2017-03-20 19:58:48.031 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 19:58:48.032 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 19:58:48.036 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 19:58:53.162 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+System.InvalidOperationException: Packet received out-of-order. Expected 1; got 38.
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySql.Data.ValueTaskExtensions.ContinueWith[T,TResult](ValueTask`1 valueTask, Func`2 continuation)
+   at MySql.Data.Protocol.Serialization.ProtocolUtility.ReadPayloadAsync(BufferedByteReader bufferedByteReader, IByteHandler byteHandler, Func`1 getNextSequenceNumber, ArraySegment`1 previousPayloads, ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior)
+   at MySql.Data.Protocol.Serialization.StandardPayloadHandler.ReadPayloadAsync(ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior)
+   at MySql.Data.Serialization.MySqlSession.TryAsync(Func`3 func, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySql.Data.Serialization.MySqlSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySql.Data.Serialization.MySqlSession.<TryPingAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.ConnectionPool.<GetSessionAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__57.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<OpenAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalConnection.<OpenAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-20 19:58:53.256 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 5220.7709ms
+2017-03-20 19:58:53.256 +05:30 [Error] Connection id ""0HL3FJLASCTNT"": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Packet received out-of-order. Expected 1; got 38.
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySql.Data.ValueTaskExtensions.ContinueWith[T,TResult](ValueTask`1 valueTask, Func`2 continuation)
+   at MySql.Data.Protocol.Serialization.ProtocolUtility.ReadPayloadAsync(BufferedByteReader bufferedByteReader, IByteHandler byteHandler, Func`1 getNextSequenceNumber, ArraySegment`1 previousPayloads, ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior)
+   at MySql.Data.Protocol.Serialization.StandardPayloadHandler.ReadPayloadAsync(ProtocolErrorBehavior protocolErrorBehavior, IOBehavior ioBehavior)
+   at MySql.Data.Serialization.MySqlSession.TryAsync(Func`3 func, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySql.Data.Serialization.MySqlSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySql.Data.Serialization.MySqlSession.<TryPingAsync>d__24.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.ConnectionPool.<GetSessionAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<CreateSessionAsync>d__57.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlConnection.<OpenAsync>d__11.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalConnection.<OpenAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ShopDetailsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ShopDetailsController.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-20 19:58:53.288 +05:30 [Debug] Connection id ""0HL3FJLASCTNT"" completed keep alive response.
+2017-03-20 19:58:53.288 +05:30 [Information] Request finished in 5237.6762ms 500 
+2017-03-20 19:59:08.695 +05:30 [Debug] Connection id ""0HL3FJLASCTNS"" reset.
+2017-03-20 19:59:08.695 +05:30 [Debug] Connection id ""0HL3FJLASCTNS"" disconnecting.
+2017-03-20 19:59:08.695 +05:30 [Debug] Connection id ""0HL3FJLASCTNS"" sending FIN.
+2017-03-20 19:59:08.695 +05:30 [Debug] Connection id ""0HL3FJLASCTNS"" sent FIN with status "0".
+2017-03-20 19:59:08.695 +05:30 [Debug] Connection id ""0HL3FJLASCTNS"" stopped.
+2017-03-20 20:02:10.226 +05:30 [Debug] Hosting starting
+2017-03-20 20:02:10.413 +05:30 [Debug] Hosting started
+2017-03-20 20:02:10.699 +05:30 [Debug] Connection id ""0HL3FJNIE8QJG"" started.
+2017-03-20 20:02:10.723 +05:30 [Debug] Connection id ""0HL3FJNIE8QJG"" received FIN.
+2017-03-20 20:02:10.742 +05:30 [Debug] Connection id ""0HL3FJNIE8QJG"" disconnecting.
+2017-03-20 20:02:10.751 +05:30 [Debug] Connection id ""0HL3FJNIE8QJG"" sending FIN.
+2017-03-20 20:02:10.758 +05:30 [Debug] Connection id ""0HL3FJNIE8QJG"" sent FIN with status "0".
+2017-03-20 20:02:10.760 +05:30 [Debug] Connection id ""0HL3FJNIE8QJG"" stopped.
+2017-03-20 20:02:12.968 +05:30 [Debug] Connection id ""0HL3FJNIE8QJH"" started.
+2017-03-20 20:02:13.076 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-20 20:02:13.388 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-20 20:02:13.425 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"9c986d04-4eb4-4734-82f5-b5baf0fe79a6"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-20 20:02:13.461 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-20 20:02:13.520 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-20 20:02:13.522 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-20 20:02:13.551 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 20:02:13.556 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 20:02:13.556 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 20:02:13.830 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 364.7855ms
+2017-03-20 20:02:13.850 +05:30 [Debug] Connection id ""0HL3FJNIE8QJH"" completed keep alive response.
+2017-03-20 20:02:13.858 +05:30 [Information] Request finished in 813.1698ms 200 application/json; charset=utf-8
+2017-03-20 20:02:13.864 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-20 20:02:13.865 +05:30 [Debug] Request did not match any routes.
+2017-03-20 20:02:13.869 +05:30 [Debug] Connection id ""0HL3FJNIE8QJH"" completed keep alive response.
+2017-03-20 20:02:13.870 +05:30 [Information] Request finished in 6.0269ms 404 
+2017-03-20 20:02:23.335 +05:30 [Debug] Connection id ""0HL3FJNIE8QJI"" started.
+2017-03-20 20:02:23.345 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=70&shopid=0  
+2017-03-20 20:02:23.345 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 20:02:23.359 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 20:02:23.702 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 20:02:27.319 +05:30 [Debug] Compiling query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:02:27.350 +05:30 [Debug] Optimized query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:02:28.008 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<ShopDetails> _ToSequence(
+    task: Task<ShopDetails> _FirstOrDefault(
+        source: IAsyncEnumerable<ShopDetails> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`barcode_style`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`invoice_type`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`showproducts`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+                FROM `shop_details` AS `e`
+                WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<ShopDetails>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-20 20:02:28.196 +05:30 [Information] Executed DbCommand (46ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`barcode_style`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`invoice_type`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`showproducts`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+FROM `shop_details` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+LIMIT 1
+2017-03-20 20:02:28.196 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-20 20:02:28.211 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+MySql.Data.MySqlClient.MySqlException: Unknown column 'e.barcode_style' in 'field list'
+   at MySql.Data.Serialization.PayloadData.ThrowIfError()
+   at MySql.Data.Serialization.MySqlSession.TryAsyncContinuation(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.MySqlClient.Results.ResultSet.<ReadResultSetHeaderAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<ReadFirstResultSetAsync>d__62.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<CreateAsync>d__61.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.CommandExecutors.TextCommandExecutor.<ExecuteReaderAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlCommand.<ExecuteReaderAsync>d__50.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-20 20:02:28.258 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 4874.7572ms
+2017-03-20 20:02:28.258 +05:30 [Error] Connection id ""0HL3FJNIE8QJI"": An unhandled exception was thrown by the application.
+MySql.Data.MySqlClient.MySqlException: Unknown column 'e.barcode_style' in 'field list'
+   at MySql.Data.Serialization.PayloadData.ThrowIfError()
+   at MySql.Data.Serialization.MySqlSession.TryAsyncContinuation(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.MySqlClient.Results.ResultSet.<ReadResultSetHeaderAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<ReadFirstResultSetAsync>d__62.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<CreateAsync>d__61.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.CommandExecutors.TextCommandExecutor.<ExecuteReaderAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlCommand.<ExecuteReaderAsync>d__50.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ShopDetailsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ShopDetailsController.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-20 20:02:28.378 +05:30 [Debug] Connection id ""0HL3FJNIE8QJI"" completed keep alive response.
+2017-03-20 20:02:28.378 +05:30 [Information] Request finished in 5005.7582ms 500 
+2017-03-20 20:03:09.301 +05:30 [Debug] Connection id ""0HL3FJNIE8QJH"" reset.
+2017-03-20 20:03:32.351 +05:30 [Debug] Hosting starting
+2017-03-20 20:03:32.537 +05:30 [Debug] Hosting started
+2017-03-20 20:03:32.806 +05:30 [Debug] Connection id ""0HL3FJOATCRG7"" started.
+2017-03-20 20:03:32.826 +05:30 [Debug] Connection id ""0HL3FJOATCRG7"" received FIN.
+2017-03-20 20:03:32.850 +05:30 [Debug] Connection id ""0HL3FJOATCRG7"" disconnecting.
+2017-03-20 20:03:32.858 +05:30 [Debug] Connection id ""0HL3FJOATCRG7"" sending FIN.
+2017-03-20 20:03:32.866 +05:30 [Debug] Connection id ""0HL3FJOATCRG7"" sent FIN with status "0".
+2017-03-20 20:03:32.869 +05:30 [Debug] Connection id ""0HL3FJOATCRG7"" stopped.
+2017-03-20 20:03:35.073 +05:30 [Debug] Connection id ""0HL3FJOATCRG8"" started.
+2017-03-20 20:03:35.178 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-20 20:03:35.543 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-20 20:03:35.586 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"77f447ba-7c70-4df3-abd4-14b927519e7f"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-20 20:03:35.643 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-20 20:03:35.758 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-20 20:03:35.760 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-20 20:03:35.818 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 20:03:35.826 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 20:03:35.826 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 20:03:36.188 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 539.0984ms
+2017-03-20 20:03:36.210 +05:30 [Debug] Connection id ""0HL3FJOATCRG8"" completed keep alive response.
+2017-03-20 20:03:36.217 +05:30 [Information] Request finished in 1071.2863ms 200 application/json; charset=utf-8
+2017-03-20 20:03:36.228 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-20 20:03:36.230 +05:30 [Debug] Request did not match any routes.
+2017-03-20 20:03:36.235 +05:30 [Debug] Connection id ""0HL3FJOATCRG8"" completed keep alive response.
+2017-03-20 20:03:36.235 +05:30 [Information] Request finished in 6.6969ms 404 
+2017-03-20 20:03:46.552 +05:30 [Debug] Connection id ""0HL3FJOATCRG9"" started.
+2017-03-20 20:03:46.556 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=70&shopid=0  
+2017-03-20 20:03:46.556 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 20:03:46.569 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 20:03:46.922 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 20:03:49.504 +05:30 [Debug] Compiling query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:03:49.535 +05:30 [Debug] Optimized query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:03:50.238 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<ShopDetails> _ToSequence(
+    task: Task<ShopDetails> _FirstOrDefault(
+        source: IAsyncEnumerable<ShopDetails> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`invoice_type`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`showproducts`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+                FROM `shop_details` AS `e`
+                WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<ShopDetails>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-20 20:03:50.411 +05:30 [Information] Executed DbCommand (39ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`invoice_type`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`showproducts`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+FROM `shop_details` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+LIMIT 1
+2017-03-20 20:03:50.411 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-20 20:03:50.411 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+MySql.Data.MySqlClient.MySqlException: Unknown column 'e.invoice_type' in 'field list'
+   at MySql.Data.Serialization.PayloadData.ThrowIfError()
+   at MySql.Data.Serialization.MySqlSession.TryAsyncContinuation(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.MySqlClient.Results.ResultSet.<ReadResultSetHeaderAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<ReadFirstResultSetAsync>d__62.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<CreateAsync>d__61.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.CommandExecutors.TextCommandExecutor.<ExecuteReaderAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlCommand.<ExecuteReaderAsync>d__50.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-20 20:03:50.458 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 3869.6227ms
+2017-03-20 20:03:50.458 +05:30 [Error] Connection id ""0HL3FJOATCRG9"": An unhandled exception was thrown by the application.
+MySql.Data.MySqlClient.MySqlException: Unknown column 'e.invoice_type' in 'field list'
+   at MySql.Data.Serialization.PayloadData.ThrowIfError()
+   at MySql.Data.Serialization.MySqlSession.TryAsyncContinuation(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.MySqlClient.Results.ResultSet.<ReadResultSetHeaderAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<ReadFirstResultSetAsync>d__62.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<CreateAsync>d__61.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.CommandExecutors.TextCommandExecutor.<ExecuteReaderAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlCommand.<ExecuteReaderAsync>d__50.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ShopDetailsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ShopDetailsController.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-20 20:03:50.536 +05:30 [Debug] Connection id ""0HL3FJOATCRG9"" completed keep alive response.
+2017-03-20 20:03:50.536 +05:30 [Information] Request finished in 3963.2539ms 500 
+2017-03-20 20:05:09.339 +05:30 [Debug] Hosting starting
+2017-03-20 20:05:09.544 +05:30 [Debug] Hosting started
+2017-03-20 20:05:09.713 +05:30 [Debug] Connection id ""0HL3FJP7PICCR"" started.
+2017-03-20 20:05:09.719 +05:30 [Debug] Connection id ""0HL3FJP7PICCS"" started.
+2017-03-20 20:05:09.739 +05:30 [Debug] Connection id ""0HL3FJP7PICCR"" received FIN.
+2017-03-20 20:05:09.743 +05:30 [Debug] Connection id ""0HL3FJP7PICCS"" received FIN.
+2017-03-20 20:05:09.765 +05:30 [Debug] Connection id ""0HL3FJP7PICCS"" disconnecting.
+2017-03-20 20:05:09.765 +05:30 [Debug] Connection id ""0HL3FJP7PICCR"" disconnecting.
+2017-03-20 20:05:09.773 +05:30 [Debug] Connection id ""0HL3FJP7PICCS"" sending FIN.
+2017-03-20 20:05:09.776 +05:30 [Debug] Connection id ""0HL3FJP7PICCR"" sending FIN.
+2017-03-20 20:05:09.782 +05:30 [Debug] Connection id ""0HL3FJP7PICCR"" sent FIN with status "0".
+2017-03-20 20:05:09.786 +05:30 [Debug] Connection id ""0HL3FJP7PICCR"" stopped.
+2017-03-20 20:05:09.789 +05:30 [Debug] Connection id ""0HL3FJP7PICCS"" sent FIN with status "0".
+2017-03-20 20:05:09.789 +05:30 [Debug] Connection id ""0HL3FJP7PICCS"" stopped.
+2017-03-20 20:05:12.009 +05:30 [Debug] Connection id ""0HL3FJP7PICCT"" started.
+2017-03-20 20:05:12.120 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-20 20:05:12.444 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-20 20:05:12.475 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"2ff610e4-2e6a-4b70-9ddd-68a06c897ff8"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-20 20:05:12.513 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-20 20:05:12.573 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-20 20:05:12.574 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-20 20:05:12.607 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 20:05:12.611 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 20:05:12.611 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 20:05:12.903 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 384.7116ms
+2017-03-20 20:05:12.922 +05:30 [Debug] Connection id ""0HL3FJP7PICCT"" completed keep alive response.
+2017-03-20 20:05:12.928 +05:30 [Information] Request finished in 838.502ms 200 application/json; charset=utf-8
+2017-03-20 20:05:12.937 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-20 20:05:12.939 +05:30 [Debug] Request did not match any routes.
+2017-03-20 20:05:12.944 +05:30 [Debug] Connection id ""0HL3FJP7PICCT"" completed keep alive response.
+2017-03-20 20:05:12.944 +05:30 [Information] Request finished in 7.6626ms 404 
+2017-03-20 20:05:16.055 +05:30 [Debug] Connection id ""0HL3FJP7PICCU"" started.
+2017-03-20 20:05:16.056 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=70&shopid=0  
+2017-03-20 20:05:16.056 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 20:05:16.070 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 20:05:16.417 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 20:05:19.034 +05:30 [Debug] Compiling query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:05:19.061 +05:30 [Debug] Optimized query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:05:19.779 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<ShopDetails> _ToSequence(
+    task: Task<ShopDetails> _FirstOrDefault(
+        source: IAsyncEnumerable<ShopDetails> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`showproducts`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+                FROM `shop_details` AS `e`
+                WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<ShopDetails>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-20 20:05:19.951 +05:30 [Information] Executed DbCommand (51ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`showproducts`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+FROM `shop_details` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+LIMIT 1
+2017-03-20 20:05:19.955 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-20 20:05:19.963 +05:30 [Error] An exception occurred in the database while iterating the results of a query.
+
+MySql.Data.MySqlClient.MySqlException: Unknown column 'e.showproducts' in 'field list'
+   at MySql.Data.Serialization.PayloadData.ThrowIfError()
+   at MySql.Data.Serialization.MySqlSession.TryAsyncContinuation(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.MySqlClient.Results.ResultSet.<ReadResultSetHeaderAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<ReadFirstResultSetAsync>d__62.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<CreateAsync>d__61.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.CommandExecutors.TextCommandExecutor.<ExecuteReaderAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlCommand.<ExecuteReaderAsync>d__50.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-03-20 20:05:20.021 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 3950.9653ms
+2017-03-20 20:05:20.024 +05:30 [Error] Connection id ""0HL3FJP7PICCU"": An unhandled exception was thrown by the application.
+MySql.Data.MySqlClient.MySqlException: Unknown column 'e.showproducts' in 'field list'
+   at MySql.Data.Serialization.PayloadData.ThrowIfError()
+   at MySql.Data.Serialization.MySqlSession.TryAsyncContinuation(Task`1 task)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1.ConfiguredValueTaskAwaiter.GetResult()
+   at MySql.Data.MySqlClient.Results.ResultSet.<ReadResultSetHeaderAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<ReadFirstResultSetAsync>d__62.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlDataReader.<CreateAsync>d__61.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.CommandExecutors.TextCommandExecutor.<ExecuteReaderAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySql.Data.MySqlClient.MySqlCommand.<ExecuteReaderAsync>d__50.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.MySqlRelationalCommand.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<BufferlessMoveNext>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncQueryingEnumerable.AsyncEnumerator.<MoveNext>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.MySqlAsyncQueryingEnumerable`1.MySqlAsyncEnumerator.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<_FirstOrDefault>d__82`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.TaskResultAsyncEnumerable`1.Enumerator.<MoveNext>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.SelectAsyncEnumerable`2.SelectAsyncEnumerator.<MoveNext>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PosAPI.Controllers.ShopDetailsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ShopDetailsController.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-20 20:05:20.111 +05:30 [Debug] Connection id ""0HL3FJP7PICCU"" completed keep alive response.
+2017-03-20 20:05:20.111 +05:30 [Information] Request finished in 4054.9198ms 500 
+2017-03-20 20:06:18.226 +05:30 [Debug] Hosting starting
+2017-03-20 20:06:18.407 +05:30 [Debug] Hosting started
+2017-03-20 20:06:18.654 +05:30 [Debug] Connection id ""0HL3FJPSB0U70"" started.
+2017-03-20 20:06:18.675 +05:30 [Debug] Connection id ""0HL3FJPSB0U70"" received FIN.
+2017-03-20 20:06:18.698 +05:30 [Debug] Connection id ""0HL3FJPSB0U70"" disconnecting.
+2017-03-20 20:06:18.707 +05:30 [Debug] Connection id ""0HL3FJPSB0U70"" sending FIN.
+2017-03-20 20:06:18.715 +05:30 [Debug] Connection id ""0HL3FJPSB0U70"" sent FIN with status "0".
+2017-03-20 20:06:18.719 +05:30 [Debug] Connection id ""0HL3FJPSB0U70"" stopped.
+2017-03-20 20:06:20.993 +05:30 [Debug] Connection id ""0HL3FJPSB0U71"" started.
+2017-03-20 20:06:21.120 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-20 20:06:21.438 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-20 20:06:21.467 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"acd676db-3cd4-49a7-9e6d-c8468c9ebe02"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-20 20:06:21.504 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-20 20:06:21.565 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-20 20:06:21.567 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-20 20:06:21.599 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 20:06:21.615 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 20:06:21.615 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 20:06:21.890 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 381.8709ms
+2017-03-20 20:06:21.912 +05:30 [Debug] Connection id ""0HL3FJPSB0U71"" completed keep alive response.
+2017-03-20 20:06:21.918 +05:30 [Information] Request finished in 838.7179ms 200 application/json; charset=utf-8
+2017-03-20 20:06:21.923 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-20 20:06:21.928 +05:30 [Debug] Request did not match any routes.
+2017-03-20 20:06:21.934 +05:30 [Debug] Connection id ""0HL3FJPSB0U71"" completed keep alive response.
+2017-03-20 20:06:21.934 +05:30 [Information] Request finished in 10.75ms 404 
+2017-03-20 20:06:28.015 +05:30 [Debug] Connection id ""0HL3FJPSB0U72"" started.
+2017-03-20 20:06:28.017 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=70&shopid=0  
+2017-03-20 20:06:28.018 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 20:06:28.028 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 20:06:28.380 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 20:06:33.628 +05:30 [Debug] Compiling query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:06:33.654 +05:30 [Debug] Optimized query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:06:34.395 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<ShopDetails> _ToSequence(
+    task: Task<ShopDetails> _FirstOrDefault(
+        source: IAsyncEnumerable<ShopDetails> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+                FROM `shop_details` AS `e`
+                WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<ShopDetails>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-20 20:06:34.557 +05:30 [Information] Executed DbCommand (46ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+FROM `shop_details` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+LIMIT 1
+2017-03-20 20:06:34.624 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-20 20:06:46.573 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 18543.0125ms
+2017-03-20 20:06:46.576 +05:30 [Error] Connection id ""0HL3FJPSB0U72"": An unhandled exception was thrown by the application.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ShopDetails -> ShopDetailsDTO
+PosAPI.ShopDetails -> PosAPI.DTO.ShopDetailsDTO
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at PosAPI.Controllers.ShopDetailsController.<Get>d__2.MoveNext() in D:\POSDemo\PosAPI\src\PosAPI\Controllers\ShopDetailsController.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__27.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__25.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware`1.<Invoke>d__18.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware.<Invoke>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesContainerMiddleware.<Invoke>d__3.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Server.Kestrel.Internal.Http.Frame`1.<RequestProcessingAsync>d__2.MoveNext()
+2017-03-20 20:06:46.659 +05:30 [Debug] Connection id ""0HL3FJPSB0U72"" completed keep alive response.
+2017-03-20 20:06:46.659 +05:30 [Information] Request finished in 18640.2491ms 500 
+2017-03-20 20:09:19.055 +05:30 [Debug] Hosting starting
+2017-03-20 20:09:19.252 +05:30 [Debug] Hosting started
+2017-03-20 20:09:19.387 +05:30 [Debug] Connection id ""0HL3FJRI6J7J0"" started.
+2017-03-20 20:09:19.410 +05:30 [Debug] Connection id ""0HL3FJRI6J7J0"" received FIN.
+2017-03-20 20:09:19.432 +05:30 [Debug] Connection id ""0HL3FJRI6J7J0"" disconnecting.
+2017-03-20 20:09:19.442 +05:30 [Debug] Connection id ""0HL3FJRI6J7J0"" sending FIN.
+2017-03-20 20:09:19.450 +05:30 [Debug] Connection id ""0HL3FJRI6J7J0"" sent FIN with status "0".
+2017-03-20 20:09:19.453 +05:30 [Debug] Connection id ""0HL3FJRI6J7J0"" stopped.
+2017-03-20 20:09:21.730 +05:30 [Debug] Connection id ""0HL3FJRI6J7J1"" started.
+2017-03-20 20:09:21.839 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-20 20:09:22.153 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-20 20:09:22.182 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"0b484a91-23f1-4052-bd34-6b135dc3a4c8"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-20 20:09:22.216 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-20 20:09:22.276 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-20 20:09:22.277 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-20 20:09:22.314 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 20:09:22.318 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 20:09:22.319 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 20:09:22.590 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 370.2382ms
+2017-03-20 20:09:22.610 +05:30 [Debug] Connection id ""0HL3FJRI6J7J1"" completed keep alive response.
+2017-03-20 20:09:22.616 +05:30 [Information] Request finished in 808.1291ms 200 application/json; charset=utf-8
+2017-03-20 20:09:22.623 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-20 20:09:22.625 +05:30 [Debug] Request did not match any routes.
+2017-03-20 20:09:22.629 +05:30 [Debug] Connection id ""0HL3FJRI6J7J1"" completed keep alive response.
+2017-03-20 20:09:22.630 +05:30 [Information] Request finished in 6.4375ms 404 
+2017-03-20 20:09:27.563 +05:30 [Debug] Connection id ""0HL3FJRI6J7J2"" started.
+2017-03-20 20:09:27.566 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=70&shopid=0  
+2017-03-20 20:09:27.566 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 20:09:27.575 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 20:09:27.953 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 20:09:28.933 +05:30 [Debug] Compiling query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:09:28.962 +05:30 [Debug] Optimized query model: 
+'(from ShopDetails e in DbSet<ShopDetails>
+where bool e.BranchId.Equals(
+    obj: __query_branchid_0
+)
+ && bool e.ShopId.Equals(
+    obj: __query_shopid_1
+)
+
+select e)
+.FirstOrDefault()'
+2017-03-20 20:09:29.653 +05:30 [Debug] TRACKED: True
+(QueryContext queryContext) => IAsyncEnumerable<ShopDetails> _ToSequence(
+    task: Task<ShopDetails> _FirstOrDefault(
+        source: IAsyncEnumerable<ShopDetails> _ShapedQuery(
+            queryContext: queryContext, 
+            shaperCommandContext: SelectExpression: 
+                SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+                FROM `shop_details` AS `e`
+                WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+                LIMIT 1
+            , 
+            shaper: UnbufferedEntityShaper<ShopDetails>
+        )
+        , 
+        cancellationToken: queryContext.CancellationToken
+    )
+)
+
+2017-03-20 20:09:29.816 +05:30 [Information] Executed DbCommand (40ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+FROM `shop_details` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+LIMIT 1
+2017-03-20 20:09:29.884 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-20 20:09:29.942 +05:30 [Debug] Executed action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-20 20:09:29.942 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 20:09:29.942 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 20:09:29.942 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 20:09:29.996 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 2421.1315ms
+2017-03-20 20:09:29.997 +05:30 [Debug] Connection id ""0HL3FJRI6J7J2"" completed keep alive response.
+2017-03-20 20:09:29.998 +05:30 [Information] Request finished in 2431.6814ms 200 application/json; charset=utf-8
+2017-03-20 20:10:36.756 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/shopdetails?branchid=34&shopid=0  
+2017-03-20 20:10:36.756 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/ShopDetails"'.
+2017-03-20 20:10:36.759 +05:30 [Debug] Executing action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)"
+2017-03-20 20:10:36.769 +05:30 [Information] Executing action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" with arguments (["PosAPI.Controllers.GetQueryStr"]) - ModelState is Valid
+2017-03-20 20:10:36.835 +05:30 [Information] Executed DbCommand (0ms) [Parameters=[@__query_branchid_0='?', @__query_shopid_1='?'], CommandType='Text', CommandTimeout='0']
+SELECT `e`.`id`, `e`.`branch_id`, `e`.`business_category`, `e`.`business_subcategory`, `e`.`color`, `e`.`fax`, `e`.`friday`, `e`.`location`, `e`.`monday`, `e`.`owner_email`, `e`.`owner_fb`, `e`.`owner_name`, `e`.`owner_password`, `e`.`owner_phno`, `e`.`prefix`, `e`.`promptzero`, `e`.`saturday`, `e`.`shop_address`, `e`.`shop_id`, `e`.`shop_image`, `e`.`shop_name`, `e`.`shop_phoneno`, `e`.`shop_thankumsg`, `e`.`shop_url`, `e`.`state`, `e`.`sunday`, `e`.`themname`, `e`.`thurseday`, `e`.`tin_num`, `e`.`tuseday`, `e`.`uname`, `e`.`wednesday`, `e`.`zeroproducts`
+FROM `shop_details` AS `e`
+WHERE (`e`.`branch_id` = @__query_branchid_0) AND (`e`.`shop_id` = @__query_shopid_1)
+LIMIT 1
+2017-03-20 20:10:36.835 +05:30 [Debug] Closing connection to database 'posproject' on server 'localhost'.
+2017-03-20 20:10:36.836 +05:30 [Debug] Executed action method "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.OkObjectResult".
+2017-03-20 20:10:36.836 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 20:10:36.836 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 20:10:36.836 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 20:10:36.836 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 76.9456ms
+2017-03-20 20:10:36.836 +05:30 [Debug] Connection id ""0HL3FJRI6J7J2"" completed keep alive response.
+2017-03-20 20:10:36.836 +05:30 [Information] Request finished in 80.9708ms 200 application/json; charset=utf-8

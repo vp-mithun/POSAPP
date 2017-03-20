@@ -1,3 +1,4 @@
+import { BillInvoice } from './../../models/BillInvoice';
 import { Observable } from 'rxjs';
 import { Users } from './../../models/Users';
 import { Salebook } from './../../models/Salebook';
@@ -20,6 +21,7 @@ export class SalesHomePage {
   qtybuttonlist:number[] = [1,2,3,4,5,6,7,8,9]
   productslist: Products[] = []; //Based on loggedIn user branchid & shopid
   fullproductslist: Products[] = [];
+  singleFilterProduct:Products;
   salesBookList:Salebook[] = [];  
   productsGrid: Array<Array<Products>>;
   searchTypestr:string;
@@ -169,8 +171,9 @@ export class SalesHomePage {
   }
 
   showFilterProducts(){
-    if (this.prodsearchQuery.length >= 2) {
-      let qryStr = this.prodsearchQuery.toLowerCase();
+    if (this.productSearchQuery.length >= 2) {
+      this.singleFilterProduct = null;
+      let qryStr = this.productSearchQuery.toLowerCase();
 
       let filterProds = [];
       if (this.chkSearchType) {
@@ -181,6 +184,23 @@ export class SalesHomePage {
         filterProds = _.filter(this.productslist, t=> (<Products>t).productName.toLowerCase().includes(qryStr));
       }
       this.productslist = filterProds;
+
+      if (filterProds.length == 1) {
+        //Add to SalesList
+        this.singleFilterProduct = filterProds[0];
+
+        // if(this.IsDuplicateProductAdded(selProduct)){
+        //     this.showAlert("Product already added...");
+        //     return;
+        //   }
+        // else{
+        //   //this.PrepareSaleInfoList(selProduct);
+        // }
+    
+        // this.isSalesItemsExists = true;
+        // this.salesItems.push(this.buildSalesItems(selProduct));    
+        // this.UpdateSubGrandTotal();
+      }
     } else {
       this.productslist = this.fullproductslist;      
     }
@@ -368,30 +388,63 @@ export class SalesHomePage {
       this.showAlert("No items exists, add one");
       return;
     }
-    this.FilterProducts();
-   console.log(event.keyCode, this.productSearchQuery);
+
+    // Goes for printing
+    if(event.keyCode == 13 && this.productSearchQuery == "0" &&
+     this.productSearchQuery.length == 1 && this.salesList.length > 0){
+       
+       var grpbyCounter = _.groupBy(this.salesList, 'counter');
+       for (var index = 0; index < grpbyCounter.length; index++) {
+         let billInv = new BillInvoice();
+         var element = grpbyCounter[index];
+         if (grpbyCounter.length == (index + 1)) {
+           billInv.PrepareBill(element, true); //Grand total included in bill
+         }
+         else{
+           billInv.PrepareBill(element, false);
+         }
+       }
+       
+    }   
+
+    if(event.keyCode == 13 && this.productSearchQuery != "0" &&
+     this.productSearchQuery.length != 1){
+      if(this.IsDuplicateProductAdded(this.singleFilterProduct)){
+            this.showAlert("Product already added...");
+            return;
+          }
+        else{
+          this.PrepareSaleInfoList(this.singleFilterProduct);
+        }
+    
+        this.isSalesItemsExists = true;
+        this.salesItems.push(this.buildSalesItems(this.singleFilterProduct));    
+        this.UpdateSubGrandTotal();
+
+        this.productSearchQuery = '';
+        this.productslist = this.fullproductslist;      
+    }
+
+    //this.FilterProducts();
+    //this.showFilterProducts();
+   //console.log(event.keyCode, this.productSearchQuery);
 }
 
   //Save to DB & Print BILL
   PrintSales(){
-    //if (this.salesList.length > 0) {
-      //ToDo - Printing
+    var options = { name: 'awesome' };    
 
-      let htmlstring = " <!DOCTYPE html><html><body><h1>Jai Swaminarayan</h1></body></html>";
+    let page = "<body>Jai Swaminarayan !!</body>"
 
-      Printer.isAvailable().then(function(){
-            Printer.print(htmlstring).then(function(){
-              alert("printing done successfully !");
-            },function(){
-              alert("Error while printing !");
-            });
-        }, function(){
-        alert('Error : printing is unavailable on your device ');
-        });
-    // }
-    // else{
-    //   this.showAlert("Add items to Sales");
-    // }   
+    let isPrintAvail = Printer.isAvailable();
+    if (isPrintAvail) {
+      alert("Printer Ready!");
+      Printer.print(page, options).then(function(){
+        alert("Printer Done!");
+      }).catch(function(){
+        alert("Printer Erro!");
+      });
+  }
   }
 
   CloseSales(){

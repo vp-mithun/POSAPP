@@ -79,6 +79,7 @@ namespace PosAPI
                 cfg.CreateMap<Products, ProductsDTO>();
                 cfg.CreateMap<Salebook, SalebookDTO>();
                 cfg.CreateMap<SalesDTO, Sales>();
+                cfg.CreateMap<ShopDetails, ShopDetailsDTO>();
             });
             
             app.UseMvc();

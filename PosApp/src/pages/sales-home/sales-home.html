@@ -65,17 +65,26 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col width-40>
+              <ion-col width-20>
                 <ion-item>
                   <ion-label color="dark">QTY</ion-label>
                   <ion-input type="number" [(ngModel)]="quantityItems" min="1"></ion-input>
                 </ion-item>
               </ion-col>
-              <ion-col width-60>
+              
+              <!--<ion-col width-75>
                 <ion-item>
                   <ion-input placeholder="Search by barcode" [(ngModel)]="productSearchQuery" type="text" (keypress)="AddPrintSaleItems($event)"></ion-input>
                 </ion-item>
-              </ion-col>              
+              </ion-col>-->
+              <ion-col width-70>                
+            <ion-searchbar placeholder="{{searchTypestr}}" [(ngModel)]="productSearchQuery" (ionInput)="showFilterProducts()" (keypress)="AddPrintSaleItems($event)"></ion-searchbar>
+          </ion-col>
+          <ion-col width-10>
+            <ion-item>
+              <ion-checkbox color="dark" [(ngModel)]="chkSearchType" (ionChange)="onSearchTypeChange()"></ion-checkbox>
+            </ion-item>
+          </ion-col>
             </ion-row>
           </div>
         </ion-row>
@@ -181,7 +190,7 @@
     </ion-col>
     <ion-col>
       <div id="proddiv">
-        <ion-row>
+        <!--<ion-row>
           <div id="prodbtndiv">
             <ion-row>
               <ion-col width-20>
@@ -192,8 +201,8 @@
               </ion-col>
             </ion-row>
           </div>
-        </ion-row>
-        <ion-row>
+        </ion-row>-->
+        <!--<ion-row>
           <ion-col width-75>
             <ion-searchbar placeholder="{{searchTypestr}}" [(ngModel)]="prodsearchQuery" (ionInput)="showFilterProducts()"></ion-searchbar>
           </ion-col>
@@ -202,7 +211,7 @@
               <ion-checkbox color="dark" [(ngModel)]="chkSearchType" (ionChange)="onSearchTypeChange()"></ion-checkbox>
             </ion-item>
           </ion-col>
-        </ion-row>
+        </ion-row>-->
         <ion-row>
           <div id="prodlistdiv">
             <div style="display: flex; flex-wrap: wrap; align-items: stretch;">
