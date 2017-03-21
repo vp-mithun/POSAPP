@@ -1615,3 +1615,32 @@ LIMIT 1
 2017-03-20 20:10:36.836 +05:30 [Information] Executed action "PosAPI.Controllers.ShopDetailsController.Get (PosAPI)" in 76.9456ms
 2017-03-20 20:10:36.836 +05:30 [Debug] Connection id ""0HL3FJRI6J7J2"" completed keep alive response.
 2017-03-20 20:10:36.836 +05:30 [Information] Request finished in 80.9708ms 200 application/json; charset=utf-8
+2017-03-20 23:58:02.212 +05:30 [Debug] Hosting starting
+2017-03-20 23:58:02.566 +05:30 [Debug] Hosting started
+2017-03-20 23:58:02.990 +05:30 [Debug] Connection id ""0HL3FNRC50VDF"" started.
+2017-03-20 23:58:03.000 +05:30 [Debug] Connection id ""0HL3FNRC50VDG"" started.
+2017-03-20 23:58:03.030 +05:30 [Debug] Connection id ""0HL3FNRC50VDF"" received FIN.
+2017-03-20 23:58:03.030 +05:30 [Debug] Connection id ""0HL3FNRC50VDG"" reset.
+2017-03-20 23:58:03.040 +05:30 [Debug] Connection id ""0HL3FNRC50VDG"" disconnecting.
+2017-03-20 23:58:03.050 +05:30 [Debug] Connection id ""0HL3FNRC50VDG"" stopped.
+2017-03-20 23:58:03.060 +05:30 [Debug] Connection id ""0HL3FNRC50VDF"" disconnecting.
+2017-03-20 23:58:03.060 +05:30 [Debug] Connection id ""0HL3FNRC50VDF"" sending FIN.
+2017-03-20 23:58:03.070 +05:30 [Debug] Connection id ""0HL3FNRC50VDF"" sent FIN with status "0".
+2017-03-20 23:58:03.070 +05:30 [Debug] Connection id ""0HL3FNRC50VDF"" stopped.
+2017-03-20 23:58:05.408 +05:30 [Debug] Connection id ""0HL3FNRC50VDH"" started.
+2017-03-20 23:58:05.548 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2017-03-20 23:58:05.982 +05:30 [Debug] Request successfully matched the route with name 'null' and template '"api/Values"'.
+2017-03-20 23:58:06.022 +05:30 [Debug] Action '"PosAPI.Controllers.ValuesController.Post (PosAPI)"' with id '"4a0301cd-7623-4da2-ad79-d06052b41e46"' did not match the constraint '"Microsoft.AspNetCore.Mvc.Internal.HttpMethodActionConstraint"'
+2017-03-20 23:58:06.067 +05:30 [Debug] Executing action "PosAPI.Controllers.ValuesController.Get (PosAPI)"
+2017-03-20 23:58:06.144 +05:30 [Information] Executing action method "PosAPI.Controllers.ValuesController.Get (PosAPI)" with arguments (null) - ModelState is Valid
+2017-03-20 23:58:06.147 +05:30 [Debug] Executed action method "PosAPI.Controllers.ValuesController.Get (PosAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult".
+2017-03-20 23:58:06.192 +05:30 [Debug] No information found on request to perform content negotiation.
+2017-03-20 23:58:06.199 +05:30 [Debug] Selected output formatter '"Microsoft.AspNetCore.Mvc.Formatters.JsonOutputFormatter"' and content type '"application/json"' to write the response.
+2017-03-20 23:58:06.199 +05:30 [Information] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext".
+2017-03-20 23:58:06.560 +05:30 [Information] Executed action "PosAPI.Controllers.ValuesController.Get (PosAPI)" in 488.981ms
+2017-03-20 23:58:06.578 +05:30 [Debug] Connection id ""0HL3FNRC50VDH"" completed keep alive response.
+2017-03-20 23:58:06.590 +05:30 [Information] Request finished in 1080.0111ms 200 application/json; charset=utf-8
+2017-03-20 23:58:06.613 +05:30 [Information] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico  
+2017-03-20 23:58:06.620 +05:30 [Debug] Request did not match any routes.
+2017-03-20 23:58:06.625 +05:30 [Debug] Connection id ""0HL3FNRC50VDH"" completed keep alive response.
+2017-03-20 23:58:06.625 +05:30 [Information] Request finished in 12.5974ms 404 

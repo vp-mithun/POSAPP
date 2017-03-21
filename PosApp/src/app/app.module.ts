@@ -1,3 +1,4 @@
+import { InvoiceGenerator } from './../providers/invoice-generator';
 import { ProductsPage } from './../pages/products/products';
 import { SalesHomePage } from './../pages/sales-home/sales-home';
 import { MySalePage } from './../pages/my-sale/my-sale';
@@ -30,6 +31,6 @@ import { HomePage } from '../pages/home/home';
     SalesHomePage,
     ProductsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator]
 })
 export class AppModule {}

@@ -1,3 +1,5 @@
+import { InvoiceGenerator } from './../../providers/invoice-generator';
+import { BillInfo } from './../../models/BillInfo';
 import { BillInvoice } from './../../models/BillInvoice';
 import { Observable } from 'rxjs';
 import { Users } from './../../models/Users';
@@ -57,6 +59,7 @@ export class SalesHomePage {
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController, 
               private fb: FormBuilder,
+              private invbill:InvoiceGenerator,
               private _posService:PosDataService) {
 
     this.chkSearchType = true;
@@ -393,18 +396,57 @@ export class SalesHomePage {
     if(event.keyCode == 13 && this.productSearchQuery == "0" &&
      this.productSearchQuery.length == 1 && this.salesList.length > 0){
        
-       var grpbyCounter = _.groupBy(this.salesList, 'counter');
-       for (var index = 0; index < grpbyCounter.length; index++) {
-         let billInv = new BillInvoice();
-         var element = grpbyCounter[index];
-         if (grpbyCounter.length == (index + 1)) {
-           billInv.PrepareBill(element, true); //Grand total included in bill
-         }
-         else{
-           billInv.PrepareBill(element, false);
-         }
-       }
-       
+       var grpbyCounter = _.toArray(_.groupBy(this.salesList, 'counter'));
+
+       //grpbyCounter.forEach(elem => {
+         for (var index = 0; index < grpbyCounter.length; index++) {
+           var element = grpbyCounter[index];
+          let billInv = new BillInvoice();
+          let newBill:BillInfo;
+            if (element.length == (index + 1)) {
+              newBill = billInv.PrepareBill(element, true); //Grand total included in bill
+            }
+            else{
+              newBill = billInv.PrepareBill(element, false);
+            }
+
+            //Will generate bill HTML
+            //billInv.PrepareBillInvoiceFromTemplate(newBill);
+            this.invbill.buildInvoiceFromTemplate(newBill);
+
+        //   for (var index = 0; index < elem.length; index++) {
+          
+        //   var element = elem[index];
+        //   // if (elem.length == (index + 1)) {
+        //   //   billInv.PrepareBill(element, true); //Grand total included in bill
+        //   // }
+        //   // else{
+        //   //   billInv.PrepareBill(element, false);
+        //   // }
+        // }
+       };
+
+    //   var grouped = _.groupBy(this.salesList, function(item) {
+    //       return item.counter;
+    //     });
+    //     _.each((_.toArray(grouped), function (num) {
+    //       return num;
+    //     }),
+    // function (vitem) {
+    //   console.log(vitem);
+
+    //   for (var index = 0; index < vitem.length; index++) {
+    //       let billInv = new BillInvoice();
+    //       var element = vitem[index];
+    //       if (vitem.length == (index + 1)) {
+    //         billInv.PrepareBill(element, true); //Grand total included in bill
+    //       }
+    //       else{
+    //         billInv.PrepareBill(element, false);
+    //       }
+    //     }
+
+    // });
     }   
 
     if(event.keyCode == 13 && this.productSearchQuery != "0" &&

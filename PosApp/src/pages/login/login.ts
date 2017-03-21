@@ -28,8 +28,7 @@ export class LoginPage {
     });
               }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  ionViewDidLoad() {    
   }
 
   onSubmit({value,valid}: {value: any,valid: boolean}) {        

@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PosAPI.DTO;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace PosAPI.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     public class ShopDetailsController : Controller
     {
         private readonly posprojectContext _context;

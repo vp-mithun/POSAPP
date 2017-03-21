@@ -28,6 +28,7 @@ export class HomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');    
         this.loadUserInfo();
+        this.loadStoreDetails();
   }
 
   loadUserInfo()
@@ -38,6 +39,14 @@ export class HomePage {
                 this.loggedInUserName = users.employeeName;
                 localStorage.setItem('loggedUserInfo', JSON.stringify(this.loggedInUser));
             });
+  }
+
+  //Store Details of LOgged in user
+  loadStoreDetails(){
+    this._posService.getStoreDetails()
+            .subscribe(storedetails => {
+                localStorage.setItem('loggedUserStoreInfo', JSON.stringify(storedetails));
+            });    
   }
 
   doLogout(){

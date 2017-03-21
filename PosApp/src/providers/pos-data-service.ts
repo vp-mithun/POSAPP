@@ -1,3 +1,4 @@
+import { StoreInfo } from './../models/StoreInfo';
 import { SalesInfo, SalesInfoObject } from './../models/SalesInfo';
 import { Salebook } from './../models/Salebook';
 import { Products } from './../models/Products';
@@ -15,8 +16,8 @@ PosApiUrl:string;
 saleInfoArry:SalesInfoObject;
 
   constructor(public http: Http, private authServ:AuthService) {
-      this.PosApiUrl = "http://192.168.194.2/PosApi/";
-      //this.PosApiUrl = "http://localhost:5000/";
+      //this.PosApiUrl = "http://192.168.194.2/PosApi/";
+      this.PosApiUrl = "http://localhost:5000/";
   }
 
   //Gets Users data based on ID
@@ -93,5 +94,21 @@ saleInfoArry:SalesInfoObject;
         
         return this.http.get(querystr, options)
             .map((response: Response) => response.json() as number);
+    }
+
+    //Gets Store data based on shopID & branchId
+  getStoreDetails(): Observable<StoreInfo> {
+        // add authorization header with jwt token
+        let headers = new Headers({ 'Authorization': 'Bearer ' + this.authServ.token });
+        let options = new RequestOptions({ headers: headers });
+
+        let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
+
+        let querystr = this.PosApiUrl + "api/shopdetails?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
+        
+        return this.http.get(querystr, options)
+            .map((response: Response) => response.json() as StoreInfo);
+ 
+        
     }
 }

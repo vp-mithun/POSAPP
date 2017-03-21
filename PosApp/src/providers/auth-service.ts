@@ -13,8 +13,8 @@ export class AuthService {
   public PosApiUrl:string;
 
   constructor(public http: Http) {    
-    this.PosApiUrl = "http://192.168.194.2/PosApi/";
-      //this.PosApiUrl = "http://localhost:5000/";
+    //this.PosApiUrl = "http://192.168.194.2/PosApi/";
+    this.PosApiUrl = "http://localhost:5000/";
   }
 
   login(username: string, password: string): Observable<boolean> {
