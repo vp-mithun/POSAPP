@@ -3,7 +3,7 @@ import { Users } from './Users';
 import { BillInfo } from './BillInfo';
 import { SalesInfo } from './SalesInfo';
 import * as _ from 'lodash';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+
 
 /**
  * Class for Preparing Bill, printing
@@ -14,11 +14,10 @@ export class BillInvoice {
     public PrepareBill(saleArry:SalesInfo[], includeGT:boolean):BillInfo{
         let newBill = new BillInfo();
         
-        var converter = require('number-to-words');
-        //console.log("Rs. " + converter.toWords(289) + " only" );
+        var converter = require('number-to-words');       
 
         newBill.counter = saleArry[0].counter;
-        newBill.billNo = saleArry[0].billNum;
+        newBill.billNo = saleArry[0].billnum;
         newBill.billdate = saleArry[0].dates.toString();
         newBill.custName = saleArry[0].customer;
         newBill.billQty = this.GetBillQtySum(saleArry);
@@ -28,51 +27,40 @@ export class BillInvoice {
         newBill.billInWords = "Rs. " + converter.toWords(newBill.billSubTotal) + " only"
         this.AddUserName(newBill);
         this.AddStoreInfo(newBill);
+        //Check if Discount applied
+        if(saleArry[0].discount != undefined && saleArry[0].discount > 0){
+            newBill.isDiscountApplies = true;
+            //newBill.amtDiscounted = saleArry[0].discountamt;
+            newBill.discPert = saleArry[0].discount;
+        }        
         newBill.SalesItems = saleArry;
+        newBill.isGrandTotal = includeGT;
 
         return newBill;
     }
 
     GetBillQtySum(salrArry:SalesInfo[]):number{
         let qty:number = 0;
-        qty = _.sumBy(salrArry, 'quantity');
+        qty = _.sumBy(salrArry, function(o) { return parseFloat(o.quantity); });
+        //qty = _.sumBy(salrArry, 'quantity');
         return qty;
     }
 
     GetBillSubTotalSum(salrArry:SalesInfo[]):number{
         let subtotal:number = 0;
-        subtotal = _.sumBy(salrArry, 'amount');
+        subtotal = _.sumBy(salrArry, function(o) { return parseFloat(o.amount); });
+        //subtotal = _.sumBy(salrArry, 'amount');
         return subtotal;
     }
 
     AddUserName(bill:BillInfo){
         let loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;
-        bill.billBy = loggedInUser.userName;
+        bill.billBy = loggedInUser.employeeName;
     }
 
     AddStoreInfo(bill:BillInfo){
         let loggedInStore = JSON.parse(localStorage.getItem('loggedUserStoreInfo')) as StoreInfo;
         bill.storeName = loggedInStore.shopName;
         bill.storeLoc = loggedInStore.location;
-    }
-
-    PrepareBillInvoiceFromTemplate(billItem:BillInfo){
-
-        var mu = require('mu2'); 
-        var fs = require('file-system');
-
-        fs.readFile(__dirname + '/template/billInvoiceTemplate.html', function (err, data) {
-              if (err) throw err;
-                mu.compileAndRender(data.toString(), JSON.stringify(billItem))
-                          .on('data', function (dataitem) {
-                                                console.log(dataitem.toString());
-                                                              });                
-            });
-
-        // mu.root = __dirname + '/src/models/'
-        // mu.compileAndRender('billInvoiceTemplate.html', JSON.stringify(billItem))
-        //   .on('data', function (data) {
-        //           console.log(data.toString());
-        //           });
-    }
+    }    
 }

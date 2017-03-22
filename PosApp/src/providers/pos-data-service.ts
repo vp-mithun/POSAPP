@@ -1,5 +1,5 @@
 import { StoreInfo } from './../models/StoreInfo';
-import { SalesInfo, SalesInfoObject } from './../models/SalesInfo';
+import { SalesInfo } from './../models/SalesInfo';
 import { Salebook } from './../models/Salebook';
 import { Products } from './../models/Products';
 import { Users } from './../models/Users';
@@ -13,7 +13,6 @@ import * as moment from 'moment';
 @Injectable()
 export class PosDataService {
 PosApiUrl:string;
-saleInfoArry:SalesInfoObject;
 
   constructor(public http: Http, private authServ:AuthService) {
       //this.PosApiUrl = "http://192.168.194.2/PosApi/";

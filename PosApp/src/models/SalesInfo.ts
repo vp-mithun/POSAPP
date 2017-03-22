@@ -6,6 +6,7 @@ export class SalesInfo {
     id:number;
     productCode:string;
     productName:string;
+    shortproductName:string;
     ptype:number;
     quantity:string;
     price:number;
@@ -42,9 +43,4 @@ export class SalesInfo {
 
 }
 
-/**
- * name
- */
-export class SalesInfoObject {
-    SaleInfos:SalesInfo[];
-}
+

@@ -14,6 +14,12 @@ export class BillInfo {
     billBy:string;
     billQty:number;
     billSubTotal:number;
+    isGrandTotal:boolean;
     grandTotal:number;
+    isDiscountApplies:boolean;
+    isTaxable:boolean = false;
+    amtDiscounted:number;
+    discPert:number;
+    taxapplied:number;
     SalesItems:SalesInfo[];
 }

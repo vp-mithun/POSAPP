@@ -13,6 +13,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import {Printer, PrintOptions} from 'ionic-native';
+var Handlebars = require('Handlebars');
 
 @Component({
   selector: 'page-sales-home',
@@ -37,6 +38,7 @@ export class SalesHomePage {
   salesubTotal:number;
   loggedInUser: Users;
   txtnarration:string;
+  billHtmlTemplate:any;
 
   //Sale Common Properties
   customerName:string = "Haribhakt";
@@ -67,20 +69,18 @@ export class SalesHomePage {
 
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;
 
+    this.invbill.buildInvoiceFromTemplate()
+                .subscribe(htmltemp => {
+                  this.billHtmlTemplate = Handlebars.compile(htmltemp);
+                });
+
     //Initiate Form
     this.SetupSalesForm();
   }
 
   ionViewDidEnter() {
     this.LoadEssentials();
-  }
-
-  // ionViewDidLeave(){
-  //   console.log('leaving me');
-  //   if (this.salesList.length > 0) {
-  //     this.showunSavedConfirm();
-  //   }    
-  // }
+  }  
 
   LoadEssentials(){
     this.loadProductsList();
@@ -159,15 +159,7 @@ export class SalesHomePage {
         this.isSalesItemsExists = true;
         this.salesItems.push(this.buildSalesItems(selProduct));    
         this.UpdateSubGrandTotal();
-      }
-      // if (this.chkSearchType) {
-      //   //Barcode search
-      //   filterProds = _.filter(this.productslist, t=> (<Products>t).barcode.toLowerCase().includes(qryStr));  
-      // } else {
-      //   //Name search
-      //   filterProds = _.filter(this.productslist, t=> (<Products>t).productName.toLowerCase().includes(qryStr));
-      // }
-      // this.productslist = filterProds;
+      }      
     } else {
       this.productslist = this.fullproductslist;      
     }
@@ -190,19 +182,7 @@ export class SalesHomePage {
 
       if (filterProds.length == 1) {
         //Add to SalesList
-        this.singleFilterProduct = filterProds[0];
-
-        // if(this.IsDuplicateProductAdded(selProduct)){
-        //     this.showAlert("Product already added...");
-        //     return;
-        //   }
-        // else{
-        //   //this.PrepareSaleInfoList(selProduct);
-        // }
-    
-        // this.isSalesItemsExists = true;
-        // this.salesItems.push(this.buildSalesItems(selProduct));    
-        // this.UpdateSubGrandTotal();
+        this.singleFilterProduct = filterProds[0];        
       }
     } else {
       this.productslist = this.fullproductslist;      
@@ -233,12 +213,17 @@ export class SalesHomePage {
     this.UpdateSubGrandTotal();
   }
 
+  ShortProductName(prodname:string){
+    return (prodname.substring(0,45)+ "...");    
+  }
+
   PrepareSaleInfoList(selProduct:Products){
     let singleSale = new SalesInfo();
       //singleSale.id = selProduct.id;
       singleSale.productCode = selProduct.barcode;
       singleSale.branchId = selProduct.branchId;
       singleSale.productName = selProduct.productName;
+      singleSale.shortproductName = this.ShortProductName(selProduct.productName);
       singleSale.quantity = this.quantityItems.toString();
       //singleSale.quantity = this.qtyBtnSelected.toString();
       singleSale.price = selProduct.sellingPrice;
@@ -292,9 +277,17 @@ export class SalesHomePage {
   ApplyDiscount(){
     if(this.discountper !== undefined){
       let disGrandTotal = (this.discountper/100) * this.salesubTotal;
-      this.grandTotal = Math.round(this.salesubTotal - disGrandTotal);
+      this.grandTotal = Math.round(this.salesubTotal - disGrandTotal);      
+      this.setDiscountOnSingleSales();
     }
     this.setTotalAmountOnSales(this.grandTotal);
+  }
+
+  setDiscountOnSingleSales(){    
+    let disc = this.discountper;
+    _.forEach(this.salesList, function(item:SalesInfo) {
+        item.discount = disc;
+      });
   }
 
   setTotalAmountOnSales(grandTotal:number){    
@@ -403,50 +396,15 @@ export class SalesHomePage {
            var element = grpbyCounter[index];
           let billInv = new BillInvoice();
           let newBill:BillInfo;
-            if (element.length == (index + 1)) {
+            if (grpbyCounter.length == (index + 1)) {
               newBill = billInv.PrepareBill(element, true); //Grand total included in bill
             }
             else{
               newBill = billInv.PrepareBill(element, false);
             }
 
-            //Will generate bill HTML
-            //billInv.PrepareBillInvoiceFromTemplate(newBill);
-            this.invbill.buildInvoiceFromTemplate(newBill);
-
-        //   for (var index = 0; index < elem.length; index++) {
-          
-        //   var element = elem[index];
-        //   // if (elem.length == (index + 1)) {
-        //   //   billInv.PrepareBill(element, true); //Grand total included in bill
-        //   // }
-        //   // else{
-        //   //   billInv.PrepareBill(element, false);
-        //   // }
-        // }
+            this.PrintSales(this.GenerateBillHTML(newBill));
        };
-
-    //   var grouped = _.groupBy(this.salesList, function(item) {
-    //       return item.counter;
-    //     });
-    //     _.each((_.toArray(grouped), function (num) {
-    //       return num;
-    //     }),
-    // function (vitem) {
-    //   console.log(vitem);
-
-    //   for (var index = 0; index < vitem.length; index++) {
-    //       let billInv = new BillInvoice();
-    //       var element = vitem[index];
-    //       if (vitem.length == (index + 1)) {
-    //         billInv.PrepareBill(element, true); //Grand total included in bill
-    //       }
-    //       else{
-    //         billInv.PrepareBill(element, false);
-    //       }
-    //     }
-
-    // });
     }   
 
     if(event.keyCode == 13 && this.productSearchQuery != "0" &&
@@ -466,27 +424,33 @@ export class SalesHomePage {
         this.productSearchQuery = '';
         this.productslist = this.fullproductslist;      
     }
+}
 
-    //this.FilterProducts();
-    //this.showFilterProducts();
-   //console.log(event.keyCode, this.productSearchQuery);
+GenerateBillHTML(newBill:BillInfo){
+        var helpers = function() {
+                  var nameIndex = 1;
+                  Handlebars.registerHelper('item_index', function() {
+                    return nameIndex++;
+                  });
+                }();
+        var result = this.billHtmlTemplate(newBill);                  
+        //console.log(result);
+        return result;
 }
 
   //Save to DB & Print BILL
-  PrintSales(){
-    var options = { name: 'awesome' };    
-
-    let page = "<body>Jai Swaminarayan !!</body>"
+  PrintSales(billHtml){
+    var options = { name: 'awesome' };        
 
     let isPrintAvail = Printer.isAvailable();
     if (isPrintAvail) {
-      alert("Printer Ready!");
-      Printer.print(page, options).then(function(){
+        alert("Printer Ready!");
+      Printer.print(billHtml, options).then(function(){
         alert("Printer Done!");
       }).catch(function(){
         alert("Printer Erro!");
       });
-  }
+    }
   }
 
   CloseSales(){

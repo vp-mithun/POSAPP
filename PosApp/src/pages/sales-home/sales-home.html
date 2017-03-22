@@ -17,7 +17,7 @@
 </ion-header>
 <ion-content>  
   <ion-row>
-    <ion-col>
+    <ion-col width-60>
       <div id="salesdiv">
         <ion-row>
           <div id="salesItemsdiv">
@@ -188,7 +188,7 @@
         </ion-row>
       </div>
     </ion-col>
-    <ion-col>
+    <ion-col width-40>
       <div id="proddiv">
         <!--<ion-row>
           <div id="prodbtndiv">
@@ -215,7 +215,7 @@
         <ion-row>
           <div id="prodlistdiv">
             <div style="display: flex; flex-wrap: wrap; align-items: stretch;">
-              <div *ngFor="let s of productslist; let i = index" style="flex: 0 0 calc( 100% / 3 - 2px );">
+              <div *ngFor="let s of productslist; let i = index" style="flex: 0 0 calc( 100% / 2 - 2px );">
                 <ion-card (click)="AddProductToSale(s)">
                   <ion-card-content>
                     {{s.productName}}({{s.stockonhand}})
