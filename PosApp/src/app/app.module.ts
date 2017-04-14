@@ -1,3 +1,5 @@
+import { SqlDbService } from './../providers/sql-db-service';
+import { SettingsPage } from './../pages/settings/settings';
 import { InvoiceGenerator } from './../providers/invoice-generator';
 import { ProductsPage } from './../pages/products/products';
 import { SalesHomePage } from './../pages/sales-home/sales-home';
@@ -17,7 +19,8 @@ import { HomePage } from '../pages/home/home';
     LoginPage,
     MySalePage,
     SalesHomePage,
-    ProductsPage
+    ProductsPage,
+    SettingsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,8 +32,9 @@ import { HomePage } from '../pages/home/home';
     LoginPage,
     MySalePage,
     SalesHomePage,
-    ProductsPage
+    ProductsPage,
+    SettingsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator, SqlDbService]
 })
 export class AppModule {}

@@ -389,7 +389,8 @@ export class SalesHomePage {
     if(event.keyCode == 13 && this.productSearchQuery == "0" &&
      this.productSearchQuery.length == 1 && this.salesList.length > 0){
        
-       var grpbyCounter = _.toArray(_.groupBy(this.salesList, 'counter'));
+       let grpbyCounter = _.toArray(_.groupBy(this.salesList, 'counter'));
+       let printSlips = []; 
 
        //grpbyCounter.forEach(elem => {
          for (var index = 0; index < grpbyCounter.length; index++) {
@@ -402,9 +403,14 @@ export class SalesHomePage {
             else{
               newBill = billInv.PrepareBill(element, false);
             }
-
-            this.PrintSales(this.GenerateBillHTML(newBill));
+            printSlips.push(this.GenerateBillHTML(newBill));                      
        };
+
+       this.RunPrintSlips(printSlips).then(res => {
+         console.log(res + '--');         
+       });
+       //this.SaveSales();
+
     }   
 
     if(event.keyCode == 13 && this.productSearchQuery != "0" &&
@@ -426,6 +432,28 @@ export class SalesHomePage {
     }
 }
 
+RunPrintSlips(tasks) {
+  var options = { name: 'awesome' };
+  var result = Promise.resolve();
+  tasks.forEach(task => {
+    result = result.then(() =>{
+      Printer.print(task, options).then(function(){
+        console.log('Print 1');
+        
+        //task();
+        //alert("Printer Done!");
+      }).catch(function(){
+        console.log('Print 1**');
+        //task()
+        //alert("Printer Erro!");
+      });       
+      });
+  });
+  console.log('Printing Done ' +  result);
+  
+  return result;
+}
+
 GenerateBillHTML(newBill:BillInfo){
         var helpers = function() {
                   var nameIndex = 1;
@@ -439,18 +467,26 @@ GenerateBillHTML(newBill:BillInfo){
 }
 
   //Save to DB & Print BILL
-  PrintSales(billHtml){
-    var options = { name: 'awesome' };        
-
-    let isPrintAvail = Printer.isAvailable();
-    if (isPrintAvail) {
-        alert("Printer Ready!");
+  PrintSales(billHtml): Promise<boolean>{
+    var options = { name: 'awesome' };
+    return new Promise<boolean>((resolve, reject)=>{
       Printer.print(billHtml, options).then(function(){
-        alert("Printer Done!");
+        resolve(true);
+        //alert("Printer Done!");
       }).catch(function(){
-        alert("Printer Erro!");
+        reject(false);
+        //alert("Printer Erro!");
       });
-    }
+    });
+  }
+
+  isPrintAvailable():boolean{
+    Printer.isAvailable().then(function(){
+      return true;
+    }).catch(function(){
+      return false;
+    });
+    return false;
   }
 
   CloseSales(){

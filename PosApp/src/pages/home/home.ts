@@ -21,7 +21,8 @@ export class HomePage {
   loggedInUser:Users;
   //loggedInUser: Users[] = [];
 
-  constructor(public navCtrl: NavController, private _posService:PosDataService, private authenticationService: AuthService,) {
+  constructor(public navCtrl: NavController, private _posService:PosDataService,
+   private authenticationService: AuthService) {
     
   }
 

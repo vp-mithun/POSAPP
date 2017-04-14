@@ -13,8 +13,8 @@ export class AuthService {
   public PosApiUrl:string;
 
   constructor(public http: Http) {    
-    //this.PosApiUrl = "http://192.168.194.2/PosApi/";
-    this.PosApiUrl = "http://localhost:5000/";
+    this.PosApiUrl = "http://192.168.194.2/PosApi/";
+    //this.PosApiUrl = "http://localhost:5000/";
   }
 
   login(username: string, password: string): Observable<boolean> {
@@ -61,6 +61,23 @@ export class AuthService {
   public authenticated() {
     // Check if there's an unexpired JWT
     return tokenNotExpired();
+  }
+
+  public CheckConnection(Appurl:string) : Observable<boolean>{
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+
+      let url = "http://" + Appurl +"/posapi/api/values";
+
+      return this.http.post(url,options)
+            .map((response: Response) => {                               
+                if(response.status == 200)
+                {    
+                    return true;
+                }
+                return false;
+                
+            }).catch(this.handleError);        
   }
 
 }

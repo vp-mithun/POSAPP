@@ -68,7 +68,7 @@
               <ion-col width-20>
                 <ion-item>
                   <ion-label color="dark">QTY</ion-label>
-                  <ion-input type="number" [(ngModel)]="quantityItems" min="1"></ion-input>
+                  <ion-input type="number" [(ngModel)]="quantityItems" min="1" tabindex="1"></ion-input>
                 </ion-item>
               </ion-col>
               
@@ -78,7 +78,7 @@
                 </ion-item>
               </ion-col>-->
               <ion-col width-70>                
-            <ion-searchbar placeholder="{{searchTypestr}}" [(ngModel)]="productSearchQuery" (ionInput)="showFilterProducts()" (keypress)="AddPrintSaleItems($event)"></ion-searchbar>
+            <ion-searchbar tabindex="2" placeholder="{{searchTypestr}}" [(ngModel)]="productSearchQuery" (ionInput)="showFilterProducts()" (keypress)="AddPrintSaleItems($event)"></ion-searchbar>
           </ion-col>
           <ion-col width-10>
             <ion-item>

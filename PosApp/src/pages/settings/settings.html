@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">    
+    <ion-title>BAPS POS Settings</ion-title>        
+    <ion-buttons end>
+      <button ion-button icon-only (click)="doLogout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>    
+  </ion-navbar>  
+</ion-header>
+
+
+<ion-content padding>
+<ion-item>
+    <ion-label color="primary" stacked>Web API Url</ion-label>
+    <ion-input type="text" placeholder="Enter url" [(ngModel)]="APIurl"></ion-input>
+</ion-item>
+<button ion-button (click)="updateUrl()">Update</button>
+<hr>
+<ion-item>
+    <ion-label color="primary" floating>Select Printer</ion-label>
+    <ion-select [(ngModel)]="selectedPrinterName" (ionChange)="setPrinterName()">
+      <ion-option *ngFor="let item of printerList" [value]="item">{{item}}</ion-option>
+    </ion-select>
+</ion-item>
+<button ion-button (click)="LoadPrinterList()">Load Printers</button>
+
+
+</ion-content>

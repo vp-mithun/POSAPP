@@ -1,3 +1,4 @@
+import { SettingsPage } from './../settings/settings';
 import { AuthService } from './../../providers/auth-service';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
@@ -38,33 +39,39 @@ export class LoginPage {
       });
       loading.present();
 
-    this.authenticationService.login(value.username, value.password).subscribe((resp) => {      
+    if (value.username == "bapsadmin" &&  value.password == "admin123") {
       loading.dismiss();
-      console.log(resp);
-      if (resp === true) {
-                    // login successful
-                    this.navCtrl.setRoot(HomePage);
-                } else {
-                    // login failed
-                    // Unable to log in
-                    loading.dismiss();
-                    let toast = this.toastCtrl.create({
-                      message: "Login Failed",
-                      duration: 3000,
-                      position: 'middle'        
-                    });
-                    toast.present();
-                }      
-      
-    }, (err) => {      
-      // Unable to log in
-      loading.dismiss();
-      let toast = this.toastCtrl.create({
-        message: err,
-        duration: 2000,
-        position: 'middle'        
+      this.navCtrl.setRoot(SettingsPage);
+    }
+    else{
+      this.authenticationService.login(value.username, value.password).subscribe((resp) => {      
+        loading.dismiss();
+        //console.log(resp);
+        if (resp === true) {
+                      // login successful
+                      this.navCtrl.setRoot(HomePage);
+                  } else {
+                      // login failed
+                      // Unable to log in
+                      loading.dismiss();
+                      let toast = this.toastCtrl.create({
+                        message: "Login Failed",
+                        duration: 3000,
+                        position: 'middle'        
+                      });
+                      toast.present();
+                  }      
+        
+      }, (err) => {      
+        // Unable to log in
+        loading.dismiss();
+        let toast = this.toastCtrl.create({
+          message: err,
+          duration: 2000,
+          position: 'middle'        
+        });
+        toast.present();
       });
-      toast.present();
-    });
+    }
    }
 }
