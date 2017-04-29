@@ -1,9 +1,11 @@
+import { PrinterService } from './../../providers/printer-service';
 import { AppSettings } from './../../models/AppSettings';
 import { AuthService } from './../../providers/auth-service';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 declare let BTPrinter: any;
+declare let DatecsPrinter:any;
 
 @Component({
   selector: 'page-settings',
@@ -11,7 +13,7 @@ declare let BTPrinter: any;
 })
 export class SettingsPage {
   APIurl:string = "";   
-  printerList:Array<string>;
+  printerList:any;
   selectedPrinterName:string;
 
   settings:AppSettings = new AppSettings();
@@ -20,7 +22,8 @@ export class SettingsPage {
               public navParams: NavParams, 
               private authenticationService: AuthService,
               public loadingCtrl:LoadingController,
-              public toastCtrl:ToastController) {
+              public toastCtrl:ToastController,
+              public printSer:PrinterService) {
 
                 //  this.printerList = new Array<string>();
                 //  this.printerList.push('a');
@@ -55,7 +58,7 @@ export class SettingsPage {
            this.settings.PosApiUrl = this.APIurl;
            localStorage.setItem('AppSettings', JSON.stringify(this.settings));
            loading.dismiss();
-           alert("Sucessfully Connected");
+           alert(resp);
         }  
       }, (err) => {      
         // Unable to log in
@@ -73,15 +76,22 @@ export class SettingsPage {
   }
 
   LoadPrinterList(){
-    BTPrinter.list((data) => {
-			console.log('Printers list:', data);
-      console.log(data + '--' + data[0]);
-      //alert(data[0]);      
-      this.printerList = data;
+    // BTPrinter.list((data) => {
+		// 	console.log('Printers list:', data);
+    //   console.log(data + '--' + data[0]);
+    //   //alert(data[0]);      
+    //   this.printerList = data;
 
-		}, (err) => {      
-			alert(`Error: ${err}`);
-		});
+		// }, (err) => {      
+		// 	alert(`Error: ${err}`);
+		// });
+
+    this.printSer.listBluetoothDevices().then(result => {
+      console.log(JSON.stringify(result));
+      this.printerList = result;
+    }).catch(err => {
+
+    });
   }
 
   setPrinterName(){

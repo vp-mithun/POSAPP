@@ -1,3 +1,4 @@
+import { PrinterService } from './../providers/printer-service';
 import { SqlDbService } from './../providers/sql-db-service';
 import { SettingsPage } from './../pages/settings/settings';
 import { InvoiceGenerator } from './../providers/invoice-generator';
@@ -35,6 +36,6 @@ import { HomePage } from '../pages/home/home';
     ProductsPage,
     SettingsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator, SqlDbService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator, SqlDbService, PrinterService]
 })
 export class AppModule {}

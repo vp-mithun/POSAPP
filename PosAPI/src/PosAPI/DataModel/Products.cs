@@ -68,17 +68,17 @@ namespace PosAPI
         [Required]
         [Column("leadtime", TypeName = "text")]
         public string Leadtime { get; set; }
-        //[Column("maxstock", TypeName = "int(11)")]
-        //public int Maxstock { get; set; }
-        [Column("maxstock", TypeName = "text")]
-        public string Maxstock { get; set; }
+        [Column("maxstock", TypeName = "int(11)")]
+        public int Maxstock { get; set; }
+        //[Column("maxstock", TypeName = "text")]
+        //public string Maxstock { get; set; }
         [Required]
         [Column("minidescription", TypeName = "text")]
         public string Minidescription { get; set; }
-        //[Column("minstock", TypeName = "int(11)")]
-        //public int Minstock { get; set; }
-        [Column("minstock", TypeName = "text")]
-        public string Minstock { get; set; }
+        [Column("minstock", TypeName = "int(11)")]
+        public int Minstock { get; set; }
+        //[Column("minstock", TypeName = "text")]
+        //public string Minstock { get; set; }
         [Required]
         [Column("nquantity", TypeName = "text")]
         public string Nquantity { get; set; }
@@ -132,10 +132,10 @@ namespace PosAPI
         public float Sprice { get; set; }
         [Column("status", TypeName = "int(250)")]
         public int Status { get; set; }
-        //[Column("stockonhand", TypeName = "int(11)")]
-        //public int Stockonhand { get; set; }
-        [Column("stockonhand", TypeName = "text")]
-        public string Stockonhand { get; set; }
+        [Column("stockonhand", TypeName = "int(11)")]
+        public int Stockonhand { get; set; }
+        //[Column("stockonhand", TypeName = "text")]
+        //public string Stockonhand { get; set; }
         [Required]
         [Column("supplier_name", TypeName = "text")]
         public string SupplierName { get; set; }

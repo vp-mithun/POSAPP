@@ -20,7 +20,7 @@
 <ion-item>
     <ion-label color="primary" floating>Select Printer</ion-label>
     <ion-select [(ngModel)]="selectedPrinterName" (ionChange)="setPrinterName()">
-      <ion-option *ngFor="let item of printerList" [value]="item">{{item}}</ion-option>
+      <ion-option *ngFor="let item of printerList" [value]="item.address">{{item.name}}</ion-option>
     </ion-select>
 </ion-item>
 <button ion-button (click)="LoadPrinterList()">Load Printers</button>

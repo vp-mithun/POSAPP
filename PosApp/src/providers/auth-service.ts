@@ -1,3 +1,4 @@
+import { AppSettings } from './../models/AppSettings';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Storage } from '@ionic/storage';
@@ -13,7 +14,11 @@ export class AuthService {
   public PosApiUrl:string;
 
   constructor(public http: Http) {    
-    this.PosApiUrl = "http://192.168.194.2/PosApi/";
+      let settingsObj = JSON.parse(localStorage.getItem('AppSettings')) as AppSettings;
+          if (settingsObj != null) {
+              this.PosApiUrl = settingsObj.PosApiUrl;
+            }
+    //this.PosApiUrl = "http://192.168.194.2/PosApi/";
     //this.PosApiUrl = "http://localhost:5000/";
   }
 
@@ -22,7 +27,8 @@ export class AuthService {
     let options = new RequestOptions({ headers: headers });
     console.log('Inside loggin');
     
-        return this.http.post(this.PosApiUrl + 'api/auth/token', 
+        let url = "http://" + this.PosApiUrl +"/posapi/api/auth/token";
+        return this.http.post(url, 
         JSON.stringify({ username: username, password: password }),options)
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
@@ -55,7 +61,7 @@ export class AuthService {
     }
 
     handleError(error: any) {        
-        return Observable.throw('Server error');
+        return Observable.throw('Server error ' + error);
     }
 
   public authenticated() {

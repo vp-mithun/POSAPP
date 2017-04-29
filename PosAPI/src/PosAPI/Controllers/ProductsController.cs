@@ -36,6 +36,16 @@ namespace PosAPI.Controllers
                 return Ok(proddtolist);
             }
             return NotFound();
-        }        
+        }
+
+        [Route("fullcount")]
+        [HttpGet]        
+        [AllowAnonymous]
+        public async Task<IActionResult> GetCount()
+        {
+            var prodlist = await _context.Products.CountAsync();
+
+            return Ok(("Count of Products " + prodlist));
+        }
     }
 }

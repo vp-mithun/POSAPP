@@ -1,3 +1,5 @@
+import { AppSettings } from './../../models/AppSettings';
+import { PrinterService } from './../../providers/printer-service';
 import { InvoiceGenerator } from './../../providers/invoice-generator';
 import { BillInfo } from './../../models/BillInfo';
 import { BillInvoice } from './../../models/BillInvoice';
@@ -62,7 +64,8 @@ export class SalesHomePage {
               public alertCtrl: AlertController, 
               private fb: FormBuilder,
               private invbill:InvoiceGenerator,
-              private _posService:PosDataService) {
+              private _posService:PosDataService,
+              public printSer:PrinterService) {
 
     this.chkSearchType = true;
     this.searchTypestr = "Search by Barcode...";
@@ -76,9 +79,31 @@ export class SalesHomePage {
 
     //Initiate Form
     this.SetupSalesForm();
+    this.ConnectToPrinter();
+  }
+
+  ConnectToPrinter(){
+    let settingsObj = JSON.parse(localStorage.getItem('AppSettings')) as AppSettings;
+          if (settingsObj != null) {
+              //this.PosApiUrl = settingsObj.printerName
+              if(settingsObj.printerName !== null){
+              this.printSer.connectToBlueToothDevice(settingsObj.printerName).then(result => {
+                      console.log('Connection ' + JSON.stringify(result));                      
+                            
+                              }).catch(err => {
+                                alert('Printer Connectin ' + err);
+                              });
+            }
+            else{
+              alert("No Printer, Configured !!");
+            }
+          }
+
   }
 
   ionViewDidEnter() {
+    console.log("Sales Home enter");
+    
     this.LoadEssentials();
   }  
 
@@ -214,10 +239,11 @@ export class SalesHomePage {
   }
 
   ShortProductName(prodname:string){
-    return (prodname.substring(0,45)+ "...");    
+    return (prodname.substring(0,20));
   }
 
   PrepareSaleInfoList(selProduct:Products){
+    if(selProduct !== null){
     let singleSale = new SalesInfo();
       //singleSale.id = selProduct.id;
       singleSale.productCode = selProduct.barcode;
@@ -253,6 +279,7 @@ export class SalesHomePage {
       //To Do - Add More
 
       this.salesList.push(singleSale);
+    }
   }
 
 
@@ -354,7 +381,7 @@ export class SalesHomePage {
       this._posService.saveSalesListDB(this.salesList)
             .subscribe(prodlist => {
                 console.log('return save');
-                this.createNewSaleForm();
+                //this.createNewSaleForm();
             });
     }
     else{
@@ -387,30 +414,9 @@ export class SalesHomePage {
 
     // Goes for printing
     if(event.keyCode == 13 && this.productSearchQuery == "0" &&
-     this.productSearchQuery.length == 1 && this.salesList.length > 0){
-       
-       let grpbyCounter = _.toArray(_.groupBy(this.salesList, 'counter'));
-       let printSlips = []; 
-
-       //grpbyCounter.forEach(elem => {
-         for (var index = 0; index < grpbyCounter.length; index++) {
-           var element = grpbyCounter[index];
-          let billInv = new BillInvoice();
-          let newBill:BillInfo;
-            if (grpbyCounter.length == (index + 1)) {
-              newBill = billInv.PrepareBill(element, true); //Grand total included in bill
-            }
-            else{
-              newBill = billInv.PrepareBill(element, false);
-            }
-            printSlips.push(this.GenerateBillHTML(newBill));                      
-       };
-
-       this.RunPrintSlips(printSlips).then(res => {
-         console.log(res + '--');         
-       });
-       //this.SaveSales();
-
+     this.productSearchQuery.length == 1 && this.salesList.length > 0){       
+       this.SaveSales();
+       this.PrepareBillToPrint();
     }   
 
     if(event.keyCode == 13 && this.productSearchQuery != "0" &&
@@ -432,25 +438,41 @@ export class SalesHomePage {
     }
 }
 
-RunPrintSlips(tasks) {
-  var options = { name: 'awesome' };
+//Gets called after Save to DB
+PrepareBillToPrint(){
+  let grpbyCounter = _.toArray(_.groupBy(this.salesList, 'counter'));
+       let printSlips = []; 
+
+       //grpbyCounter.forEach(elem => {
+         for (var index = 0; index < grpbyCounter.length; index++) {
+           var element = grpbyCounter[index];
+          let billInv = new BillInvoice();
+          let newBill:BillInfo;
+            if (grpbyCounter.length == (index + 1)) {
+              newBill = billInv.PrepareBill(element, true); //Grand total included in bill
+            }
+            else{
+              newBill = billInv.PrepareBill(element, false);
+            }
+            printSlips.push(this.GenerateBillHTML(newBill));                      
+       };
+
+       this.RunPrintSlips(printSlips).then(res => {
+         this.createNewSaleForm();
+       });
+}
+
+RunPrintSlips(tasks) {  
   var result = Promise.resolve();
   tasks.forEach(task => {
     result = result.then(() =>{
-      Printer.print(task, options).then(function(){
-        console.log('Print 1');
-        
-        //task();
-        //alert("Printer Done!");
-      }).catch(function(){
-        console.log('Print 1**');
-        //task()
-        //alert("Printer Erro!");
-      });       
+      //console.log(task);      
+      this.printSer.printText(task, null).then(function(){
+      }).catch(function(err){
+        alert("Printer Erro! " + err);
+      });
       });
   });
-  console.log('Printing Done ' +  result);
-  
   return result;
 }
 
@@ -461,8 +483,8 @@ GenerateBillHTML(newBill:BillInfo){
                     return nameIndex++;
                   });
                 }();
-        var result = this.billHtmlTemplate(newBill);                  
-        //console.log(result);
+        var result = this.billHtmlTemplate(newBill);
+//        console.log(result);
         return result;
 }
 

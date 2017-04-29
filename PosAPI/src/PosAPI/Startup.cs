@@ -24,7 +24,7 @@ namespace PosAPI
             Configuration = builder.Build();
 
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
+                .MinimumLevel.Error()
                 .WriteTo.RollingFile(Path.Combine(env.ContentRootPath, "log-{Date}.txt"))
                 .CreateLogger();
         }
