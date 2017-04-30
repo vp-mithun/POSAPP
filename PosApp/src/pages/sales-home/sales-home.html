@@ -2,59 +2,64 @@
   <ion-navbar>
   </ion-navbar>
   <ion-toolbar color="light">
-    <!--<ion-row >
-      <ion-col width-75>
+    <ion-grid>
+    <ion-row >
+      <ion-col col-8>
         Todo - Load Categories
       </ion-col>
-      <ion-col width-25>
-        
-        <button ion-button color="default"  (click)="SaveSales()"><ion-icon name="md-checkmark-circle-outline"></ion-icon></button>
+      <ion-col>        
+        <!--<button ion-button color="default"  (click)="SaveSales()"><ion-icon name="md-checkmark-circle-outline"></ion-icon></button>-->
         <button ion-button color="secondary"  (click)="PrintSales()"><ion-icon name="print"></ion-icon></button>
         <button ion-button color="danger"  (click)="CloseSales()"><ion-icon name="close-circle"></ion-icon></button>
       </ion-col>
-    </ion-row>-->
+    </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 <ion-content>  
-  <ion-row>
-    <ion-col width-60>
+  <ion-grid no-padding>
+  <ion-row no-padding>
+    <ion-col col-8>
       <div id="salesdiv">
         <ion-row>
           <div id="salesItemsdiv">
             <ion-row>
-              <ion-col width-33>
+              <ion-col>
                 <ion-item>
                   <ion-label color="dark">Cust</ion-label>
                   <ion-input [(ngModel)]="customerName" readonly type="text"></ion-input>
                 </ion-item>
               </ion-col>
-              <ion-col width-33>
+              <ion-col>
                 <ion-item>
                   <ion-label color="dark">Validity</ion-label>
                   <ion-input [(ngModel)]="validateDate" readonly type="text"></ion-input>
                 </ion-item>
               </ion-col>
-              <ion-col width-33>
+              <ion-col >
                 <ion-item>
                   <ion-label color="dark">Sale Book</ion-label>
                   <ion-input [(ngModel)]="saleBookopt" readonly type="text"></ion-input>
+                  <!--<ion-select [(ngModel)]="saleBookopt" color="dark">
+                    <ion-option [value]="book.prefix" *ngFor="let book of salesBookList">{{book.bookname}}</ion-option>
+                  </ion-select>-->
                 </ion-item>
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col width-33>
+              <ion-col>
                 <ion-item>
                   <ion-label color="dark">Bill #</ion-label>
                   <ion-input [(ngModel)]="generatedBillNo" readonly type="text"></ion-input>
                 </ion-item>
               </ion-col>
-              <ion-col width-33>
+              <ion-col>
                 <ion-item>
                   <ion-label color="dark">Date</ion-label>
                   <ion-input [(ngModel)]="todayDate" readonly type="text"></ion-input>
                 </ion-item>
               </ion-col>
-              <ion-col width-33>
+              <ion-col>
                 <ion-item>
                   <!--<ion-select [(ngModel)]="saletime" color="dark">
                     <ion-option [value]="prefix" *ngFor=" let book of salesBookList">{{bookname}}</ion-option>
@@ -65,10 +70,10 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col width-20>
+              <ion-col col-4>
                 <ion-item>
-                  <ion-label color="dark">QTY</ion-label>
-                  <ion-input type="number" [(ngModel)]="quantityItems" min="1" tabindex="1"></ion-input>
+                  <ion-label color="dark">Quantity</ion-label>
+                  <ion-input #qtyinpt type="number" [(ngModel)]="quantityItems" min="1"></ion-input>
                 </ion-item>
               </ion-col>
               
@@ -77,14 +82,15 @@
                   <ion-input placeholder="Search by barcode" [(ngModel)]="productSearchQuery" type="text" (keypress)="AddPrintSaleItems($event)"></ion-input>
                 </ion-item>
               </ion-col>-->
-              <ion-col width-70>                
+              <ion-col col-8> 
             <ion-searchbar tabindex="2" placeholder="{{searchTypestr}}" [(ngModel)]="productSearchQuery" (ionInput)="showFilterProducts()" (keypress)="AddPrintSaleItems($event)"></ion-searchbar>
+            <!--<ion-auto-complete></ion-auto-complete>-->
           </ion-col>
-          <ion-col width-10>
+          <!--<ion-col width-10>
             <ion-item>
               <ion-checkbox color="dark" [(ngModel)]="chkSearchType" (ionChange)="onSearchTypeChange()"></ion-checkbox>
             </ion-item>
-          </ion-col>
+          </ion-col>-->
             </ion-row>
           </div>
         </ion-row>
@@ -140,13 +146,13 @@
         <!-- Summary -->
         <ion-row style="background-color: lightgreen" *ngIf="isSalesItemsExists">
           <ion-row>
-            <ion-col width-25>
+            <ion-col>
               <ion-item>
-                <ion-label color="dark">Discount</ion-label>
+                <ion-label floatting color="dark">Discount</ion-label>
                 <ion-input [(ngModel)]="discountper" type="number" min="1" max="20" (change)="ApplyDiscount()"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col width-33>
+            <ion-col>
               <ion-item>
                 <ion-label color="dark">Pay by</ion-label>
                 <ion-select readonly>
@@ -156,22 +162,17 @@
                 </ion-select>
               </ion-item>
             </ion-col>
-            <ion-col width-40>
+            <ion-col>
               <ion-item>
-                <ion-label color="dark">Sub Total</ion-label>
+                <ion-label floatting color="dark">Sub Total</ion-label>
                 <ion-input [(ngModel)]="salesubTotal" readonly type="text"></ion-input>
               </ion-item>
-            </ion-col>
+            </ion-col>            
           </ion-row>
         </ion-row>
         <ion-row style="background-color: lightgreen" *ngIf="isSalesItemsExists">
-          <ion-col width-25>
-
-          </ion-col>
-          <ion-col width-33>
-
-          </ion-col>
-          <ion-col width-40>
+          
+          <ion-col col-4 offset-8>
             <ion-item>
               <ion-label color="dark">Grand Total</ion-label>
               <ion-input [(ngModel)]="grandTotal" readonly type="text"></ion-input>
@@ -188,30 +189,8 @@
         </ion-row>
       </div>
     </ion-col>
-    <ion-col width-40>
-      <div id="proddiv">
-        <!--<ion-row>
-          <div id="prodbtndiv">
-            <ion-row>
-              <ion-col width-20>
-                <ion-label style="color: white">Quantity.</ion-label>
-              </ion-col>
-              <ion-col width-80>
-                <button ion-button [color]="qtyBtnSelected == p ? 'secondary' : 'dark'" (click)="setQuantityColor(p)" *ngFor="let p of qtybuttonlist">{{p}}</button>
-              </ion-col>
-            </ion-row>
-          </div>
-        </ion-row>-->
-        <!--<ion-row>
-          <ion-col width-75>
-            <ion-searchbar placeholder="{{searchTypestr}}" [(ngModel)]="prodsearchQuery" (ionInput)="showFilterProducts()"></ion-searchbar>
-          </ion-col>
-          <ion-col width-10>
-            <ion-item>
-              <ion-checkbox color="dark" [(ngModel)]="chkSearchType" (ionChange)="onSearchTypeChange()"></ion-checkbox>
-            </ion-item>
-          </ion-col>
-        </ion-row>-->
+    <ion-col>
+      <div id="proddiv">        
         <ion-row>
           <div id="prodlistdiv">
             <div style="display: flex; flex-wrap: wrap; align-items: stretch;">
@@ -229,5 +208,5 @@
 
     </ion-col>
   </ion-row>
-  
+  </ion-grid>
 </ion-content>

@@ -1,3 +1,4 @@
+import { Configservice } from './configservice';
 import { AppSettings } from './../models/AppSettings';
 import { StoreInfo } from './../models/StoreInfo';
 import { SalesInfo } from './../models/SalesInfo';
@@ -15,11 +16,7 @@ import * as moment from 'moment';
 export class PosDataService {
 PosApiUrl:string;
 
-  constructor(public http: Http, private authServ:AuthService) {
-      let settingsObj = JSON.parse(localStorage.getItem('AppSettings')) as AppSettings;
-          if (settingsObj != null) {
-              this.PosApiUrl = "http://"+ settingsObj.PosApiUrl + "/PosApi/";              
-            }
+  constructor(public http: Http, private authServ:AuthService, private confgSrv:Configservice) {      
       //this.PosApiUrl = "http://192.168.194.2/PosApi/";
       //this.PosApiUrl = "http://localhost:5000/";
   }
@@ -31,7 +28,8 @@ PosApiUrl:string;
         let options = new RequestOptions({ headers: headers });
  
         // get users from api
-        return this.http.get(this.PosApiUrl + 'api/user/' + this.authServ.loggedUserId, options)
+        let url = this.confgSrv.getPosApiUrl();
+        return this.http.get(url + 'api/user/' + this.authServ.loggedUserId, options)
             .map((response: Response) => response.json() as Users);
     }
 
@@ -44,8 +42,8 @@ PosApiUrl:string;
         let options = new RequestOptions({ headers: headers });
         let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
 
-        let querystr = this.PosApiUrl + "api/products?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
-        
+        //let querystr = this.PosApiUrl + "api/products?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
+        let querystr = this.confgSrv.getPosApiUrl() + "api/products?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId;
         return this.http.get(querystr, options)
             .map((response: Response) => response.json() as Products[]);
     }
@@ -57,14 +55,15 @@ PosApiUrl:string;
         let options = new RequestOptions({ headers: headers });
         let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
 
-        let querystr = this.PosApiUrl + "api/salebook?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
+        //        let querystr = this.PosApiUrl + "api/salebook?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
+        let querystr = this.confgSrv.getPosApiUrl() + "api/salebook?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
         
         return this.http.get(querystr, options)
             .map((response: Response) => response.json() as Salebook[]);
     }
 
-    saveSalesListDB(tosaveSalesList:SalesInfo[]):Observable<number>{
-        let recordsAffected = 0;
+    saveSalesListDB(tosaveSalesList:SalesInfo[]):Observable<string>{
+        let billNum:string = "";
         //let headers = new Headers([{ 'Authorization': 'Bearer ' + this.authServ.token, 
         //'Content-Type': 'application/json', "Accept" : "application/json" }]);
 
@@ -78,13 +77,15 @@ PosApiUrl:string;
         // this.saleInfoArry =  new SalesInfoObject();
         // this.saleInfoArry.SaleInfos = tosaveSalesList;
         //let body = JSON.stringify(this.saleInfoArry);
-        return this.http.post(this.PosApiUrl + 'api/sales', 
+        return this.http.post(this.confgSrv.getPosApiUrl() + 'api/sales', 
          body,options)
             .map((response: Response) => {
                 console.log(response);
-
-        return recordsAffected;
-    });
+                if (response.status == 200) {
+                    billNum = response.text();
+                }                
+            return billNum
+        });
 }
 
     countOfSalesForDay():Observable<number>{
@@ -93,7 +94,7 @@ PosApiUrl:string;
         let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
         let saleDate = moment().format('L');
 
-        let querystr = this.PosApiUrl + "api/sales/GetMaxSaleCount?branchid="+userinfo.branchId+"&shopid="+
+        let querystr = this.confgSrv.getPosApiUrl() + "api/sales/GetMaxSaleCount?branchid="+userinfo.branchId+"&shopid="+
                         userinfo.shopId+"&userId="+userinfo.id+"&sdate="+saleDate;
         
         return this.http.get(querystr, options)
@@ -108,8 +109,8 @@ PosApiUrl:string;
 
         let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
 
-        let querystr = this.PosApiUrl + "api/shopdetails?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
-        
+        //let querystr = this.PosApiUrl + "api/shopdetails?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
+        let querystr = this.confgSrv.getPosApiUrl() + "api/shopdetails?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
         return this.http.get(querystr, options)
             .map((response: Response) => response.json() as StoreInfo);
  

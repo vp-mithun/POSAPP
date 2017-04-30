@@ -1,3 +1,4 @@
+import { SQLite } from 'ionic-native';
 import { PrinterService } from './../../providers/printer-service';
 import { AppSettings } from './../../models/AppSettings';
 import { AuthService } from './../../providers/auth-service';
@@ -15,6 +16,7 @@ export class SettingsPage {
   APIurl:string = "";   
   printerList:any;
   selectedPrinterName:string;
+  sqlstorage: SQLite;
 
   settings:AppSettings = new AppSettings();
 
@@ -48,7 +50,7 @@ export class SettingsPage {
   updateUrl(){
     if (this.APIurl !== "") {
       let loading  = this.loadingCtrl.create({
-        content: 'Please wait...'        
+        content: 'Connecting...'        
       });
       loading.present();
 
@@ -57,8 +59,9 @@ export class SettingsPage {
         if(resp === true){
            this.settings.PosApiUrl = this.APIurl;
            localStorage.setItem('AppSettings', JSON.stringify(this.settings));
+//           this.AddApiUrl(this.APIurl);
            loading.dismiss();
-           alert(resp);
+           alert('Connected');
         }  
       }, (err) => {      
         // Unable to log in
@@ -71,21 +74,13 @@ export class SettingsPage {
         toast.present();
       });
     }
-    
-
   }
 
+  public AddApiUrl(APIurl:string) {
+      
+    }
+
   LoadPrinterList(){
-    // BTPrinter.list((data) => {
-		// 	console.log('Printers list:', data);
-    //   console.log(data + '--' + data[0]);
-    //   //alert(data[0]);      
-    //   this.printerList = data;
-
-		// }, (err) => {      
-		// 	alert(`Error: ${err}`);
-		// });
-
     this.printSer.listBluetoothDevices().then(result => {
       console.log(JSON.stringify(result));
       this.printerList = result;

@@ -1,3 +1,4 @@
+import { Configservice } from './../providers/configservice';
 import { PrinterService } from './../providers/printer-service';
 import { SqlDbService } from './../providers/sql-db-service';
 import { SettingsPage } from './../pages/settings/settings';
@@ -12,6 +13,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { HttpModule } from "@angular/http";
+import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { HomePage } from '../pages/home/home';
     SettingsPage
   ],
   imports: [
+    BrowserModule,
+    HttpModule,    
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -36,6 +41,6 @@ import { HomePage } from '../pages/home/home';
     ProductsPage,
     SettingsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator, SqlDbService, PrinterService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator, SqlDbService, PrinterService, Configservice]
 })
 export class AppModule {}

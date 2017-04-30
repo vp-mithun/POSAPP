@@ -10,12 +10,13 @@ import { SalesInfo } from './../../models/SalesInfo';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 import { Products } from './../../models/Products';
 import { PosDataService } from './../../providers/pos-data-service';
-import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { Component, Input, ViewChild } from '@angular/core';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import {Printer, PrintOptions} from 'ionic-native';
 var Handlebars = require('Handlebars');
+
 
 @Component({
   selector: 'page-sales-home',
@@ -23,6 +24,8 @@ var Handlebars = require('Handlebars');
 })
 export class SalesHomePage {
   //isAddedEdit:boolean = true;
+  @ViewChild('qtyinpt') qtyinput;
+
   qtybuttonlist:number[] = [1,2,3,4,5,6,7,8,9]
   productslist: Products[] = []; //Based on loggedIn user branchid & shopid
   fullproductslist: Products[] = [];
@@ -46,11 +49,12 @@ export class SalesHomePage {
   customerName:string = "Haribhakt";
   validateDate:any = moment().format('L');
   saleBookopt:string = "Cash Sales";
-  saleBookoptAbbr:string = "CS-";
+  saleBookoptAbbr:string = "CS";
   payByopt:string = "cash";
   generatedBillNo:string;
   todayDate:any = moment().format('L');//moment().format('DD[-]MM[-]YYYY')
   saletime:any = moment().format('LT');
+  loading:any;
 
   //Sales Form
   salesList:SalesInfo[] = [];
@@ -65,7 +69,8 @@ export class SalesHomePage {
               private fb: FormBuilder,
               private invbill:InvoiceGenerator,
               private _posService:PosDataService,
-              public printSer:PrinterService) {
+              public printSer:PrinterService,
+              private loadingCtrl:LoadingController) {
 
     this.chkSearchType = true;
     this.searchTypestr = "Search by Barcode...";
@@ -76,6 +81,10 @@ export class SalesHomePage {
                 .subscribe(htmltemp => {
                   this.billHtmlTemplate = Handlebars.compile(htmltemp);
                 });
+
+    this.loading  = this.loadingCtrl.create({
+        content: 'Processing Order..'        
+      });     
 
     //Initiate Form
     this.SetupSalesForm();
@@ -103,6 +112,9 @@ export class SalesHomePage {
 
   ionViewDidEnter() {
     console.log("Sales Home enter");
+    setTimeout(() => {
+      this.qtyinput.setFocus();
+    },150);
     
     this.LoadEssentials();
   }  
@@ -124,7 +136,7 @@ export class SalesHomePage {
 
     this._posService.countOfSalesForDay()
             .subscribe(salecount => {
-                billNumb = this.saleBookoptAbbr + this.loggedInUser.id + "-" + this.padZero((salecount+1), 3,null);
+                billNumb = this.saleBookoptAbbr  + "-" + this.padZero((salecount+1), 4,null);
                 this.generatedBillNo = billNumb;                
             });
 
@@ -138,18 +150,18 @@ export class SalesHomePage {
   onSearchTypeChange(){
     if(this.chkSearchType){
       //Barcode search
-      this.searchTypestr = "Search by Barcode...";
+      this.searchTypestr = "Search Products...";
     }
-    else{
-      //product name
-      this.searchTypestr = "Search by Product Name...";
-    }
+    // else{
+    //   //product name
+    //   this.searchTypestr = "Search by Product Name...";
+    // }
   }
 
   loadProductsList(){
     this._posService.getProductList()
             .subscribe(prodlist => {
-                this.productslist = prodlist;
+                this.productslist = _.take(prodlist, 100);
                 this.fullproductslist = prodlist;
             });
   }
@@ -193,12 +205,13 @@ export class SalesHomePage {
   showFilterProducts(){
     if (this.productSearchQuery.length >= 2) {
       this.singleFilterProduct = null;
+      this.productslist = this.fullproductslist;
       let qryStr = this.productSearchQuery.toLowerCase();
 
       let filterProds = [];
       if (this.chkSearchType) {
         //Barcode search
-        filterProds = _.filter(this.productslist, t=> (<Products>t).barcode.toLowerCase().includes(qryStr));  
+        filterProds = _.filter(this.productslist, t=> (<Products>t).barcode.toLowerCase().includes(qryStr) || (<Products>t).productName.toLowerCase().includes(qryStr));  
       } else {
         //Name search
         filterProds = _.filter(this.productslist, t=> (<Products>t).productName.toLowerCase().includes(qryStr));
@@ -210,7 +223,7 @@ export class SalesHomePage {
         this.singleFilterProduct = filterProds[0];        
       }
     } else {
-      this.productslist = this.fullproductslist;      
+      this.productslist = this.fullproductslist;
     }
   }
 
@@ -261,7 +274,7 @@ export class SalesHomePage {
       singleSale.amount = (this.quantityItems * selProduct.sellingPrice).toString();
       singleSale.billNum = moment().format('DD[-]MM[-]YYYY[-]') + this.generatedBillNo;
       singleSale.billnum = this.generatedBillNo;
-      singleSale.numcount = ""; //Generate it TODO
+      singleSale.numcount = ""; //Generate it TODO - Not Needed
       singleSale.customer = this.customerName;
       singleSale.totalamount = 0; // This gets updated while saving
       singleSale.dates = this.todayDate;
@@ -274,16 +287,16 @@ export class SalesHomePage {
       singleSale.counter = parseInt(selProduct.counterNo);
       singleSale.cashtype = "50";
       singleSale.narration = '';
-      singleSale.ptype = parseInt(selProduct.ptype)
-
-      //To Do - Add More
-
+      singleSale.ptype = parseInt(selProduct.ptype);
       this.salesList.push(singleSale);
     }
   }
 
 
   IsDuplicateProductAdded(toAddProd:Products): boolean{
+    if(toAddProd == null){
+      return;
+    }
     let prodExists:boolean = false;   
 
     let foundPrd = _.find(this.salesList, { 'productCode': toAddProd.barcode });
@@ -365,23 +378,26 @@ export class SalesHomePage {
                 //itemPrice: this.qtyBtnSelected * selProduct.sellingPrice,
                 itemPrice: this.quantityItems * selProduct.sellingPrice,
                 itemSellingPrice: selProduct.sellingPrice,
-                itembarcode:selProduct.barcode
+                itembarcode:selProduct.barcode                
         });
       }
   } 
 
   //Only Save to DB
-  SaveSales(){
+  SaveSales(){    
     if (this.salesList.length > 0) {
+      this.loading.present();
       let narration = this.txtnarration;
     _.forEach(this.salesList, function(item:SalesInfo) {
         item.narration = narration;
       });
 
       this._posService.saveSalesListDB(this.salesList)
-            .subscribe(prodlist => {
-                console.log('return save');
+            .subscribe(savedbillNo => {
+                console.log('return save ' + savedbillNo);
+                this.loading.dismiss();
                 //this.createNewSaleForm();
+                this.PrepareBillToPrint(savedbillNo);
             });
     }
     else{
@@ -416,11 +432,11 @@ export class SalesHomePage {
     if(event.keyCode == 13 && this.productSearchQuery == "0" &&
      this.productSearchQuery.length == 1 && this.salesList.length > 0){       
        this.SaveSales();
-       this.PrepareBillToPrint();
+       //this.PrepareBillToPrint();
     }   
 
     if(event.keyCode == 13 && this.productSearchQuery != "0" &&
-     this.productSearchQuery.length != 1){
+     this.productSearchQuery.length != 1 && this.singleFilterProduct !== null){
       if(this.IsDuplicateProductAdded(this.singleFilterProduct)){
             this.showAlert("Product already added...");
             return;
@@ -439,7 +455,7 @@ export class SalesHomePage {
 }
 
 //Gets called after Save to DB
-PrepareBillToPrint(){
+PrepareBillToPrint(newBillNo:string){
   let grpbyCounter = _.toArray(_.groupBy(this.salesList, 'counter'));
        let printSlips = []; 
 
@@ -450,9 +466,11 @@ PrepareBillToPrint(){
           let newBill:BillInfo;
             if (grpbyCounter.length == (index + 1)) {
               newBill = billInv.PrepareBill(element, true); //Grand total included in bill
+              newBill.billNo = newBillNo;
             }
             else{
               newBill = billInv.PrepareBill(element, false);
+              newBill.billNo = newBillNo;
             }
             printSlips.push(this.GenerateBillHTML(newBill));                      
        };
@@ -525,29 +543,33 @@ GenerateBillHTML(newBill:BillInfo){
     let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
     let item = itemsArray.at(index);
     let newPrice = ((parseInt(itemqty) - 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
+    let barcode = this.salesForm.value.salesItems[index].itembarcode;
     let newQty =  parseInt(itemqty) - 1;
 
     item.patchValue({      
         itemPrice : newPrice,
         itemQty: newQty      
     });
-    this.setQtyPriceOnSingleSales(newQty,newPrice);
+    this.setQtyPriceOnSingleSales(newQty,newPrice, barcode);
     this.UpdateSubGrandTotal();
   }
 
-  setQtyPriceOnSingleSales(newQty:number,newPrice:number){    
+  setQtyPriceOnSingleSales(newQty:number,newPrice:number, itembarcode:string){    
     _.forEach(this.salesList, function(item:SalesInfo) {
+      if(item.productCode == itembarcode){
         item.quantity = newQty.toString();
         item.amount = newPrice.toString();
-      });
+      }
+    });
   }
 
   AddQty(index){
     let itemqty = this.salesForm.value.salesItems[index].itemQty;
+    let barcode = this.salesForm.value.salesItems[index].itembarcode;
     // if (itemqty == 1) {
     //   this.showAlert("Minimum Qty is 1");
     //   return;
-    // }    
+    // }    itembarcode
     let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
     let item = itemsArray.at(index);
     let newPrice = ((parseInt(itemqty) + 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
@@ -557,7 +579,7 @@ GenerateBillHTML(newBill:BillInfo){
         itemPrice : newPrice,
         itemQty: newQty      
     });
-    this.setQtyPriceOnSingleSales(newQty,newPrice);
+    this.setQtyPriceOnSingleSales(newQty,newPrice, barcode);
     this.UpdateSubGrandTotal();
   }
 

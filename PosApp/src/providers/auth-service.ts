@@ -1,3 +1,4 @@
+import { Configservice } from './configservice';
 import { AppSettings } from './../models/AppSettings';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
@@ -13,11 +14,8 @@ export class AuthService {
   public loggedUserId: number;
   public PosApiUrl:string;
 
-  constructor(public http: Http) {    
-      let settingsObj = JSON.parse(localStorage.getItem('AppSettings')) as AppSettings;
-          if (settingsObj != null) {
-              this.PosApiUrl = settingsObj.PosApiUrl;
-            }
+  constructor(public http: Http, private confgSrv:Configservice) {    
+      
     //this.PosApiUrl = "http://192.168.194.2/PosApi/";
     //this.PosApiUrl = "http://localhost:5000/";
   }
@@ -27,7 +25,7 @@ export class AuthService {
     let options = new RequestOptions({ headers: headers });
     console.log('Inside loggin');
     
-        let url = "http://" + this.PosApiUrl +"/posapi/api/auth/token";
+        let url = this.confgSrv.getPosApiUrl() + "api/auth/token";
         return this.http.post(url, 
         JSON.stringify({ username: username, password: password }),options)
             .map((response: Response) => {
@@ -73,7 +71,9 @@ export class AuthService {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
 
-      let url = "http://" + Appurl +"/posapi/api/values";
+    let url = "http://" + Appurl +"/api/values";
+    //let url = "http://" + Appurl +"/posapi/api/values";
+    //let url = this.confgSrv.getPosApiUrl() + "api/values";
 
       return this.http.post(url,options)
             .map((response: Response) => {                               
@@ -85,5 +85,4 @@ export class AuthService {
                 
             }).catch(this.handleError);        
   }
-
 }

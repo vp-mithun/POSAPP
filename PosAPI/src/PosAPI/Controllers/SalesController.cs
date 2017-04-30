@@ -24,34 +24,39 @@ namespace PosAPI.Controllers
             _logger = Logger;
         }
 
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //// GET: api/values
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/values/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         
         [Route("GetMaxSaleCount")]
-        public async Task<IActionResult> Get([FromQuery]GetQueryStr query)
+        public async Task<IActionResult> GetMaxSaleCount([FromQuery]GetQueryStr query)
         {
             if (query == null)
             {
                 return BadRequest();
             }
+            //var prodlist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
+            //&& e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Equals(query.Sdate)).GroupBy(f => f.Billnum).ToListAsync();            
+            var numb = await GetMaximumSaleNumber(query);
+            return Ok(numb);
+        }
+
+        private async Task<int> GetMaximumSaleNumber(GetQueryStr query)
+        {
             var prodlist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
-            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Equals(query.Sdate)).GroupBy(f => f.Billnum).ToListAsync();            
-
-
-
-            return Ok(prodlist.Count);
+            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Equals(query.Sdate)).GroupBy(f => f.Billnum).ToListAsync();
+            return prodlist.Count;
         }
 
         // POST api/values
@@ -60,10 +65,19 @@ namespace PosAPI.Controllers
         {
             try
             {
+                var generatedBillNumb = "";
                 if (saleList.ToList().Count == 0)
                 {
                     return BadRequest();
-                }               
+                }
+
+                int maxCount = await GetMaximumSaleNumber(new GetQueryStr()
+                {
+                    branchid = saleList.FirstOrDefault().BranchId,
+                    shopid = saleList.FirstOrDefault().ShopId,
+                    Sdate = saleList.FirstOrDefault().Dates,
+                    userId = saleList.FirstOrDefault().UserId
+                });
 
                 var reverseSales = Mapper.Map<List<SalesDTO>, List<Sales>>(saleList.ToList());
                 foreach (var item in reverseSales)
@@ -82,6 +96,11 @@ namespace PosAPI.Controllers
                     item.Narration = item.Narration ?? string.Empty;
                     item.Smcomision = string.Empty;
                     item.Tax = string.Empty;
+                    item.BillNum = item.BillNum.Substring(0, (item.BillNum.Length - 4)) + (maxCount + 1).ToString("D4");
+                    item.Billnum = item.Billnum.Substring(0, (item.Billnum.Length - 4)) + (maxCount + 1).ToString("D4");
+                    item.Numcount = (maxCount + 1).ToString("D4");
+                    item.Instock = await GetStockInHand(item.ProductId, Convert.ToInt32(item.Quantity));
+                    generatedBillNumb = item.Billnum.Substring(0, (item.Billnum.Length - 4)) + (maxCount + 1).ToString("D4");
                 }
 
                 var outstockProd = await CheckProductStock(reverseSales);
@@ -94,7 +113,7 @@ namespace PosAPI.Controllers
                 await _context.Sales.AddRangeAsync(reverseSales);
                 await UpdateProductStock(reverseSales);
                 await _context.SaveChangesAsync();
-                return Ok();
+                return Ok(generatedBillNumb);
             }
             catch (Exception ex)
             {
@@ -138,7 +157,12 @@ namespace PosAPI.Controllers
             return outstock;
         }
 
-
+        private async Task<int> GetStockInHand(int prodId, int qty)
+        {
+            var productslist = await _context.Products.ToListAsync();
+            var prod = productslist.FirstOrDefault(e => e.Id.Equals(prodId));
+            return (Convert.ToInt32(prod.Stockonhand) - Convert.ToInt32(qty));
+        }
 
         // PUT api/values/5
         [HttpPut("{id}")]
