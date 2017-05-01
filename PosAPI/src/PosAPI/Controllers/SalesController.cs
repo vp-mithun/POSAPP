@@ -55,7 +55,7 @@ namespace PosAPI.Controllers
         private async Task<int> GetMaximumSaleNumber(GetQueryStr query)
         {
             var prodlist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
-            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Equals(query.Sdate)).GroupBy(f => f.Billnum).ToListAsync();
+            && e.ShopId.Equals(query.shopid) && e.Dates.Equals(query.Sdate)).GroupBy(f => f.Billnum).ToListAsync();
             return prodlist.Count;
         }
 

@@ -51,27 +51,25 @@ export class LoginPage {
     
   }
 
-  onSubmit({value,valid}: {value: any,valid: boolean}) {
-
-    let url = this.confSrv.getPosApiUrl();
-    if(url == ""){
-      alert("Configure Settings missing");
-      return;
-    }
+  onSubmit({value,valid}: {value: any,valid: boolean}) {   
 
     //this.navCtrl.setRoot(HomePage);
     let loading  = this.loadingCtrl.create({
         content: 'Please wait...'        
       });
-      loading.present();
-
-    
+      loading.present();    
 
     if (value.username == "bapsadmin" &&  value.password == "admin123") {
       loading.dismiss();
       this.navCtrl.setRoot(SettingsPage);
     }
     else{
+      let url = this.confSrv.getPosApiUrl();
+      if(url == ""){
+        alert("Configure Settings missing");
+        loading.dismiss();
+        return;
+      }else{
       this.authenticationService.login(value.username, value.password).subscribe((resp) => {      
         loading.dismiss();
         //console.log(resp);
@@ -100,6 +98,7 @@ export class LoginPage {
         });
         toast.present();
       });
+    }
     }
    }
 }

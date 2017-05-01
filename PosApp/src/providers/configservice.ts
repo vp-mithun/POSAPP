@@ -10,8 +10,8 @@ private PosApiUrl:string = "";
   getPosApiUrl():string{
     let settingsObj = JSON.parse(localStorage.getItem('AppSettings')) as AppSettings;
           if (settingsObj != null) {
-              //this.PosApiUrl = "http://" + settingsObj.PosApiUrl + "/posapi/";
-              this.PosApiUrl = "http://" + settingsObj.PosApiUrl + "/";
+              this.PosApiUrl = "http://" + settingsObj.PosApiUrl + "/posapi/";
+              //this.PosApiUrl = "http://" + settingsObj.PosApiUrl + "/";
             }
     return this.PosApiUrl;
   }

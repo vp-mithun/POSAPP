@@ -71,9 +71,8 @@ export class AuthService {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
 
-    let url = "http://" + Appurl +"/api/values";
-    //let url = "http://" + Appurl +"/posapi/api/values";
-    //let url = this.confgSrv.getPosApiUrl() + "api/values";
+    //let url = "http://" + Appurl +"/api/values";
+    let url = "http://" + Appurl +"/posapi/api/values";    
 
       return this.http.post(url,options)
             .map((response: Response) => {                               

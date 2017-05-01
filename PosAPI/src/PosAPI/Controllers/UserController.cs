@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
+using AutoMapper;
+using PosAPI.DTO;
 
 namespace PosAPI.Controllers
 {
@@ -22,7 +24,8 @@ namespace PosAPI.Controllers
             var userdata = await _context.Users.FindAsync(id);
             if (userdata != null)
             {
-                return Ok(userdata);
+
+                return Ok(Mapper.Map<UsersDTO>(userdata));
             }
             return NotFound();
         }

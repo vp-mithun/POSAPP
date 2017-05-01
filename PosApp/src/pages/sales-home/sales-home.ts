@@ -73,7 +73,7 @@ export class SalesHomePage {
               private loadingCtrl:LoadingController) {
 
     this.chkSearchType = true;
-    this.searchTypestr = "Search by Barcode...";
+    this.searchTypestr = "Search Products..";
 
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;
 
@@ -111,13 +111,16 @@ export class SalesHomePage {
   }
 
   ionViewDidEnter() {
-    console.log("Sales Home enter");
+    console.log("Sales Home enter");    
+    this.setQuantityFocus();
+    this.LoadEssentials();
+  }  
+
+  setQuantityFocus(){
     setTimeout(() => {
       this.qtyinput.setFocus();
     },150);
-    
-    this.LoadEssentials();
-  }  
+  }
 
   LoadEssentials(){
     this.loadProductsList();
@@ -150,7 +153,7 @@ export class SalesHomePage {
   onSearchTypeChange(){
     if(this.chkSearchType){
       //Barcode search
-      this.searchTypestr = "Search Products...";
+      this.searchTypestr = "Search Products..";
     }
     // else{
     //   //product name
@@ -428,7 +431,7 @@ export class SalesHomePage {
       return;
     }
 
-    // Goes for printing
+    // Goes for saving & printing - IMP
     if(event.keyCode == 13 && this.productSearchQuery == "0" &&
      this.productSearchQuery.length == 1 && this.salesList.length > 0){       
        this.SaveSales();
@@ -502,7 +505,7 @@ GenerateBillHTML(newBill:BillInfo){
                   });
                 }();
         var result = this.billHtmlTemplate(newBill);
-//        console.log(result);
+        console.log(result);
         return result;
 }
 
@@ -663,9 +666,11 @@ GenerateBillHTML(newBill:BillInfo){
     this.SetupSalesForm();
 
     this.chkSearchType = true;
-    this.searchTypestr = "Search by Barcode...";
+    this.searchTypestr = "Search Products..";
+    this.productSearchQuery = '';
+    this.quantityItems = undefined;
     this.preloadSaleValues();
-
+    this.setQuantityFocus();
     this.isSalesItemsExists = false;
     this.LoadEssentials();
 
