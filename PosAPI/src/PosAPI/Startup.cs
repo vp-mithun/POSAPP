@@ -81,6 +81,7 @@ namespace PosAPI
                 cfg.CreateMap<SalesDTO, Sales>().ForMember(v =>v.Billnum, m=>m.MapFrom(u=>u.Billnum));
                 cfg.CreateMap<ShopDetails, ShopDetailsDTO>();
                 cfg.CreateMap<Users, UsersDTO>();
+                cfg.CreateMap<Sales, SalesDTO>();
             });
             
             app.UseMvc();

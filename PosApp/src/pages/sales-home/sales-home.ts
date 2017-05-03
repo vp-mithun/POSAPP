@@ -47,6 +47,7 @@ export class SalesHomePage {
 
   //Sale Common Properties
   customerName:string = "Haribhakt";
+  validityDate:string = new Date().toISOString();  
   validateDate:any = moment().format('L');
   saleBookopt:string = "Cash Sales";
   saleBookoptAbbr:string = "CS";
@@ -77,10 +78,11 @@ export class SalesHomePage {
 
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;
 
-    this.invbill.buildInvoiceFromTemplate()
-                .subscribe(htmltemp => {
-                  this.billHtmlTemplate = Handlebars.compile(htmltemp);
-                });
+    // this.invbill.buildInvoiceFromTemplate()
+    //             .subscribe(htmltemp => {
+    //               this.billHtmlTemplate = Handlebars.compile(htmltemp);
+    //             });
+    
 
     this.loading  = this.loadingCtrl.create({
         content: 'Processing Order..'        
@@ -89,6 +91,41 @@ export class SalesHomePage {
     //Initiate Form
     this.SetupSalesForm();
     this.ConnectToPrinter();
+  }
+
+
+  BuildHTMLInvoice(){
+    let template = `{center}{h}{{storeName}},{{storeLoc}}{/h}
+{b}Counter : {{counter}}{/b}
+{left}{s}Bill#{{billNo}}{/s}{right}{s}   Date: {{billdate}}{/s}
+{left}{s}Name:{{custName}}{/s}{right}{s} Time: {{billTime}}{/s}
+{s}Desc.             Qty.   Rate   Amount{/s}
+--------------------------------
+{s}
+{{#SalesItems}}
+{{shortproductName}}       {{quantity}}  {{price}}   {{amount}}
+{{/SalesItems}}
+{/s}
+--------------------------------
+{{#if isDiscountApplies}}
+            Discount : {{discPert}}%
+--------------------------------
+{{/if}}
+{{#if isTaxable}}
+            Tax : {{taxapplied}}
+--------------------------------
+{{/if}}
+        Sub Total : {{billQty}}{s}Qty{/s} {{billSubTotal}}
+--------------------------------
+{{#if isGrandTotal}}
+ {center}{h}Grand Total: {{grandTotal}}{/h}
+{{/if}}
+{s}{{billInWords}}{/s}{br}
+{b}Bill By:{/b} {{billBy}}
+{center}{h}Jai Swaminarayan{/h}{br}{br}{br}`;
+
+  this.billHtmlTemplate = Handlebars.compile(template);
+
   }
 
   ConnectToPrinter(){
@@ -463,6 +500,7 @@ PrepareBillToPrint(newBillNo:string){
        let printSlips = []; 
 
        //grpbyCounter.forEach(elem => {
+        // alert('grpLength' + grpbyCounter.length)
          for (var index = 0; index < grpbyCounter.length; index++) {
            var element = grpbyCounter[index];
           let billInv = new BillInvoice();
@@ -488,6 +526,7 @@ RunPrintSlips(tasks) {
   tasks.forEach(task => {
     result = result.then(() =>{
       //console.log(task);      
+      //alert('Abt to print' + task.length);
       this.printSer.printText(task, null).then(function(){
       }).catch(function(err){
         alert("Printer Erro! " + err);
@@ -498,13 +537,16 @@ RunPrintSlips(tasks) {
 }
 
 GenerateBillHTML(newBill:BillInfo){
-        var helpers = function() {
-                  var nameIndex = 1;
-                  Handlebars.registerHelper('item_index', function() {
-                    return nameIndex++;
-                  });
-                }();
+        // var helpers = function() {
+        //           var nameIndex = 1;
+        //           Handlebars.registerHelper('item_index', function() {
+        //             return nameIndex++;
+        //           });
+        //         }();
+        //alert('Abt HTML to prepared');
+        this.BuildHTMLInvoice();
         var result = this.billHtmlTemplate(newBill);
+        //alert('HTML prepared');
         console.log(result);
         return result;
 }

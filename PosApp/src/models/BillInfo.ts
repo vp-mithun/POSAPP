@@ -9,6 +9,7 @@ export class BillInfo {
     counter:number;
     billNo:string;
     billdate:string;
+    billTime:string;
     custName:string;
     billInWords:string;
     billBy:string;

@@ -1,52 +1,54 @@
 <ion-header>
   <ion-navbar>
   </ion-navbar>
-  <ion-toolbar color="light">
+  <!--<ion-toolbar color="light">
     <ion-grid>
     <ion-row >
       <ion-col col-8>
         Todo - Load Categories
       </ion-col>
-      <ion-col>        
-        <!--<button ion-button color="default"  (click)="SaveSales()"><ion-icon name="md-checkmark-circle-outline"></ion-icon></button>-->
+      <ion-col>               
         <button ion-button color="secondary"  (click)="SaveSales()"><ion-icon name="print"></ion-icon></button>
         <button ion-button color="danger"  (click)="CloseSales()"><ion-icon name="close-circle"></ion-icon></button>
       </ion-col>
     </ion-row>
     </ion-grid>
-  </ion-toolbar>
+  </ion-toolbar>-->
 </ion-header>
-<ion-content>  
+<ion-content no-padding>
   <ion-grid no-padding>
-  <ion-row no-padding>
-    <ion-col col-8>
-      <div id="salesdiv">
-        <ion-row>
-          <div id="salesItemsdiv">
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-label color="dark">Cust</ion-label>
-                  <ion-input [(ngModel)]="customerName" readonly type="text"></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col>
-                <ion-item>
-                  <ion-label color="dark">Validity</ion-label>
-                  <ion-input [(ngModel)]="validateDate" readonly type="text"></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col >
-                <ion-item>
-                  <ion-label color="dark">Sale Book</ion-label>
-                  <ion-input [(ngModel)]="saleBookopt" readonly type="text"></ion-input>
-                  <!--<ion-select [(ngModel)]="saleBookopt" color="dark">
+    <ion-row no-padding>
+      <ion-col>
+        <div id="salesdiv">
+          <ion-row>
+            <div id="salesItemsdiv">
+              <ion-row>
+                <ion-col>
+                  <ion-item no-padding>
+                    <!--<ion-label color="dark" floating>Cust</ion-label>-->
+                    <!--<ion-icon name="contact" item-left></ion-icon>-->
+                    <ion-input [(ngModel)]="customerName" placeholder="Name" type="text"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <!--<ion-label floating color="dark"><ion-icon name="calender" item-left></ion-icon></ion-label>-->
+                    <!--<ion-input [(ngModel)]="validateDate" readonly type="text"></ion-input>-->
+                    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="validityDate"></ion-datetime>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <!--<ion-label color="dark">Sale Book</ion-label>-->
+
+                    <ion-input [(ngModel)]="saleBookopt" readonly type="text"></ion-input>
+                    <!--<ion-select [(ngModel)]="saleBookopt" color="dark" item-left>
                     <ion-option [value]="book.prefix" *ngFor="let book of salesBookList">{{book.bookname}}</ion-option>
                   </ion-select>-->
-                </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-row>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <!--<ion-row>
               <ion-col>
                 <ion-item>
                   <ion-label color="dark">Bill #</ion-label>
@@ -61,98 +63,93 @@
               </ion-col>
               <ion-col>
                 <ion-item>
-                  <!--<ion-select [(ngModel)]="saletime" color="dark">
+                  <ion-select [(ngModel)]="saletime" color="dark">
                     <ion-option [value]="prefix" *ngFor=" let book of salesBookList">{{bookname}}</ion-option>
-                  </ion-select>-->
+                  </ion-select>
                   <ion-label color="dark">Time</ion-label>
                   <ion-input [(ngModel)]="saletime" readonly type="text"></ion-input>
                 </ion-item>
               </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-4>
-                <ion-item>
-                  <ion-label color="dark">Quantity</ion-label>
-                  <ion-input #qtyinpt type="number" [(ngModel)]="quantityItems" min="1"></ion-input>
-                </ion-item>
-              </ion-col>
-              
-              <!--<ion-col width-75>
+            </ion-row>-->
+              <ion-row>
+                <ion-col col-4>
+                  <ion-item>
+                    <ion-input placeholder="Quantity" #qtyinpt type="number" [(ngModel)]="quantityItems" min="1" max="1000"></ion-input>
+                  </ion-item>
+                </ion-col>
+
+                <!--<ion-col width-75>
                 <ion-item>
                   <ion-input placeholder="Search by barcode" [(ngModel)]="productSearchQuery" type="text" (keypress)="AddPrintSaleItems($event)"></ion-input>
                 </ion-item>
               </ion-col>-->
-              <ion-col col-8> 
-            <ion-searchbar tabindex="2" placeholder="{{searchTypestr}}" [(ngModel)]="productSearchQuery" (ionInput)="showFilterProducts()" (keypress)="AddPrintSaleItems($event)"></ion-searchbar>
-            <!--<ion-auto-complete></ion-auto-complete>-->
-          </ion-col>
-          <!--<ion-col width-10>
+                <ion-col col-8>
+                  <ion-searchbar placeholder="{{searchTypestr}}" [(ngModel)]="productSearchQuery" (ionInput)="showFilterProducts()" (keypress)="AddPrintSaleItems($event)"></ion-searchbar>
+                  <!--<ion-auto-complete></ion-auto-complete>-->
+                </ion-col>
+                <!--<ion-col width-10>
             <ion-item>
               <ion-checkbox color="dark" [(ngModel)]="chkSearchType" (ionChange)="onSearchTypeChange()"></ion-checkbox>
             </ion-item>
           </ion-col>-->
-            </ion-row>
-          </div>
-        </ion-row>
-        <ion-row>
-          <ion-grid id="ionListSty">
-            <ion-row id="saleItemHeader" align-items-center>
-              <ion-col col-6>
-                Item Name
-              </ion-col>
-              <ion-col col-3>
-                Qty.
-              </ion-col>
-              <ion-col col-3>
-                Price
-              </ion-col>
-              <ion-col col-1>
-
-              </ion-col>
-            </ion-row>
-            <form novalidate [formGroup]="salesForm"> 
-              
-            <ion-row class="colborder" formArrayName="salesItems" *ngFor="let item of salesItems.controls; let i=index">                              
-                  <ion-row [formGroupName]="i">
-                    <ion-col col-6 wrap>
-                      <!--<ion-label>curd rice sadfbasdjhas asdfjasjd asdfbasjdfbj</ion-label>-->
-                      <ion-input formControlName="itemName" id="{{ 'itemName' + i }}" readonly type="text"></ion-input>
-                    </ion-col>
-                    <ion-col col-3>
-                      <ion-row no-padding>
-                        <ion-col>
-                          <button ion-button small color="danger" (click)="ReduceQty(i)" id="{{ 'itemQtyMinus' + i }}">-</button>
-                        </ion-col>
-                        <ion-col>
-                          <ion-input formControlName="itemQty" id="{{ 'itemQty' + i }}" readonly type="text"></ion-input>
-                        </ion-col>
-                        <ion-col>
-                          <button ion-button small color="secondary" (click)="AddQty(i)" id="{{ 'itemQtyPlus' + i }}">+</button>
-                        </ion-col>
-                      </ion-row>
-                    </ion-col>
-                    <ion-col col-2>
-                      <ion-input formControlName="itemPrice" id="{{ 'itemPrice' + i }}" readonly type="text"></ion-input>
-                    </ion-col>
-                    <ion-col col-1>
-                      <button ion-button color="danger" id="{{ 'itemtrash' + i }}" (click)="RemoveItem(i)" small><ion-icon name="trash"></ion-icon></button>
-                    </ion-col>
-                  </ion-row>
-            </ion-row>
-              
-            </form>
-          </ion-grid>
-        </ion-row>
-        <!-- Summary -->
-        <ion-row style="background-color: lightgreen" *ngIf="isSalesItemsExists">
+              </ion-row>
+            </div>
+          </ion-row>
           <ion-row>
-            <ion-col>
+            <ion-card *ngIf="isSalesItemsExists" style="background-color:lightgrey">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label color="dark">Sub Total</ion-label>
+                    <ion-input [(ngModel)]="salesubTotal" readonly type="text"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label color="dark">Grand Total</ion-label>
+                    <ion-input [(ngModel)]="grandTotal" readonly type="text"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-row>
+
+          <form novalidate [formGroup]="salesForm">
+            <ion-row>
+              <ion-card formArrayName="salesItems" *ngFor="let item of salesItems.controls; let i=index" no-padding style="background-color:aliceblue">
+                <ion-row [formGroupName]="i">
+                  <ion-input formControlName="itemName" id="{{ 'itemName' + i }}" readonly type="text" style="font-size:18px;font-weight:bold;"></ion-input>
+                  <button item-left ion-button color="danger" id="{{ 'itemtrash' + i }}" (click)="RemoveItem(i)" small><ion-icon name="trash"></ion-icon></button>&nbsp;
+                </ion-row>
+                <ion-row [formGroupName]="i">
+                  <ion-col>
+                    <button ion-button small icon-left color="dark" (click)="ReduceQty(i)" id="{{ 'itemQtyMinus' + i }}">-</button>
+                  </ion-col>
+                  <ion-col>
+                    <ion-input formControlName="itemQty" id="{{ 'itemQty' + i }}" readonly type="text" style="font-size:18px;font-weight:bold;">
+                      Qty</ion-input>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button small color="secondary" (click)="AddQty(i)" id="{{ 'itemQtyPlus' + i }}">+</button>
+                  </ion-col>
+                  <ion-col>
+                    Rate
+                    <ion-input formControlName="itemSellingPrice" id="{{ 'itemSellingPrice' + i }}" readonly type="text" style="font-size:18px;font-weight:bold;"></ion-input>
+                  </ion-col>
+                  <ion-col>
+                    Amount
+                    <ion-input formControlName="itemPrice" id="{{ 'itemPrice' + i }}" readonly type="text" style="font-size:18px;font-weight:bold;"></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+            </ion-row>
+          </form>
+          <!-- Summary -->
+          <ion-row *ngIf="isSalesItemsExists" style="background-color:lightgrey">
               <ion-item>
                 <ion-label floatting color="dark">Discount</ion-label>
                 <ion-input [(ngModel)]="discountper" type="number" min="1" max="20" (change)="ApplyDiscount()"></ion-input>
               </ion-item>
-            </ion-col>
-            <ion-col>
               <ion-item>
                 <ion-label color="dark">Pay by</ion-label>
                 <ion-select readonly>
@@ -161,35 +158,14 @@
                   <ion-option value="cheque">Cheque</ion-option>
                 </ion-select>
               </ion-item>
-            </ion-col>
-            <ion-col>
               <ion-item>
-                <ion-label floatting color="dark">Sub Total</ion-label>
-                <ion-input [(ngModel)]="salesubTotal" readonly type="text"></ion-input>
-              </ion-item>
-            </ion-col>            
-          </ion-row>
-        </ion-row>
-        <ion-row style="background-color: lightgreen" *ngIf="isSalesItemsExists">
-          
-          <ion-col col-4 offset-8>
-            <ion-item>
-              <ion-label color="dark">Grand Total</ion-label>
-              <ion-input [(ngModel)]="grandTotal" readonly type="text"></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-        <ion-row style="background-color: lightslategray" *ngIf="isSalesItemsExists">
-          <ion-col>
-            <ion-item>
               <ion-label floating color="dark">Narration</ion-label>
               <ion-input [(ngModel)]="txtnarration" type="text"></ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-      </div>
-    </ion-col>
-    <ion-col>
+            </ion-item>            
+          </ion-row>
+        </div>
+      </ion-col>
+      <!--<ion-col>
       <div id="proddiv">        
         <ion-row>
           <div id="prodlistdiv">
@@ -206,7 +182,13 @@
         </ion-row>
       </div>
 
-    </ion-col>
-  </ion-row>
+    </ion-col>-->
+    </ion-row>
   </ion-grid>
+  <ion-fab bottom right *ngIf="isSalesItemsExists">
+    <button ion-fab color="secondary" big (click)="SaveSales()"><ion-icon name="print"></ion-icon></button>
+  </ion-fab>
+  <ion-fab bottom left *ngIf="isSalesItemsExists">
+    <button ion-fab big color="danger"  (click)="CloseSales()"><ion-icon name="close-circle"></ion-icon></button>
+  </ion-fab>
 </ion-content>

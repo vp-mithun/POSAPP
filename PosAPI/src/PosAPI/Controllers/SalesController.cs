@@ -31,14 +31,24 @@ namespace PosAPI.Controllers
         //    return new string[] { "value1", "value2" };
         //}
 
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        // GET api/values/5
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("GetMySalesForDay")]
+        public async Task<IActionResult>  GetMySalesForDay(GetQueryStr query)
+        {
+            if (query.userId == 0 && query.branchid == 0)
+            {
+                return BadRequest();
+            }
+            var saleslist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
+            && e.ShopId.Equals(query.shopid) && e.Dates.Equals(query.Sdate)).ToListAsync();
+            var mysaleList = Mapper.Map<List<SalesDTO>>(saleslist);
 
-        
+            return Ok(mysaleList);
+        }
+
+
         [Route("GetMaxSaleCount")]
         public async Task<IActionResult> GetMaxSaleCount([FromQuery]GetQueryStr query)
         {

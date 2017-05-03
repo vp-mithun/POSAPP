@@ -3,7 +3,7 @@ import { Users } from './Users';
 import { BillInfo } from './BillInfo';
 import { SalesInfo } from './SalesInfo';
 import * as _ from 'lodash';
-
+import * as moment from 'moment';
 
 /**
  * Class for Preparing Bill, printing
@@ -19,6 +19,7 @@ export class BillInvoice {
         newBill.counter = saleArry[0].counter;
         newBill.billNo = saleArry[0].billnum;
         newBill.billdate = saleArry[0].dates.toString();
+        newBill.billTime = moment().format('LT');
         newBill.custName = saleArry[0].customer;
         newBill.billQty = this.GetBillQtySum(saleArry);
         newBill.billSubTotal = this.GetBillSubTotalSum(saleArry);
