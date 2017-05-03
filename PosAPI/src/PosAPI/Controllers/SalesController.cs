@@ -32,8 +32,7 @@ namespace PosAPI.Controllers
         //}
 
         // GET api/values/5
-        [HttpGet]
-        [AllowAnonymous]
+        [HttpGet]        
         [Route("GetMySalesForDay")]
         public async Task<IActionResult>  GetMySalesForDay(GetQueryStr query)
         {

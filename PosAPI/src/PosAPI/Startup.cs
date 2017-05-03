@@ -9,6 +9,8 @@ using System.Text;
 using PosAPI.DTO;
 using Serilog;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PosAPI
 {
@@ -81,7 +83,8 @@ namespace PosAPI
                 cfg.CreateMap<SalesDTO, Sales>().ForMember(v =>v.Billnum, m=>m.MapFrom(u=>u.Billnum));
                 cfg.CreateMap<ShopDetails, ShopDetailsDTO>();
                 cfg.CreateMap<Users, UsersDTO>();
-                cfg.CreateMap<Sales, SalesDTO>();
+                cfg.CreateMap<Sales, SalesDTO>().ForMember(v => v.Billnum, m => m.MapFrom(u => u.Billnum));
+                
             });
             
             app.UseMvc();

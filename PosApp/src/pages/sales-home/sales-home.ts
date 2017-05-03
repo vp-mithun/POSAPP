@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormA
 import { Products } from './../../models/Products';
 import { PosDataService } from './../../providers/pos-data-service';
 import { Component, Input, ViewChild } from '@angular/core';
-import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, ActionSheetController } from 'ionic-angular';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 import {Printer, PrintOptions} from 'ionic-native';
@@ -71,22 +71,16 @@ export class SalesHomePage {
               private invbill:InvoiceGenerator,
               private _posService:PosDataService,
               public printSer:PrinterService,
-              private loadingCtrl:LoadingController) {
+              private loadingCtrl:LoadingController, 
+              private actShtCtr: ActionSheetController) {
 
     this.chkSearchType = true;
     this.searchTypestr = "Search Products..";
 
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;
-
-    // this.invbill.buildInvoiceFromTemplate()
-    //             .subscribe(htmltemp => {
-    //               this.billHtmlTemplate = Handlebars.compile(htmltemp);
-    //             });
-    
-
     this.loading  = this.loadingCtrl.create({
         content: 'Processing Order..'        
-      });     
+      });
 
     //Initiate Form
     this.SetupSalesForm();
@@ -536,14 +530,7 @@ RunPrintSlips(tasks) {
   return result;
 }
 
-GenerateBillHTML(newBill:BillInfo){
-        // var helpers = function() {
-        //           var nameIndex = 1;
-        //           Handlebars.registerHelper('item_index', function() {
-        //             return nameIndex++;
-        //           });
-        //         }();
-        //alert('Abt HTML to prepared');
+GenerateBillHTML(newBill:BillInfo){        
         this.BuildHTMLInvoice();
         var result = this.billHtmlTemplate(newBill);
         //alert('HTML prepared');
@@ -726,5 +713,50 @@ GenerateBillHTML(newBill:BillInfo){
     this.generatedBillNo;
     this.todayDate = moment().format('DD[-]MM[-]YYYY')
     this.saletime = moment().format('LT');
+  }
+
+  SalesItemsMoreOptions(index:any){
+    console.log(index +  ' INdex');
+    
+    let actionSheet = this.actShtCtr.create({
+      title: 'Options',
+      cssClass: 'action-sheets-basic-page',
+      buttons: [        
+        {
+          text: 'Add Qty.',
+          icon: 'add',
+          handler: () => {
+            console.log('Add clicked');
+            this.AddQty(index);
+          }
+        },
+        {
+          text: 'Reduce Qty.',
+          icon: 'remove',
+          handler: () => {
+            console.log('reduce clicked');
+            this.ReduceQty(index);
+          }
+        },
+        {
+          text: 'Delete',
+          role: 'destructive',
+          icon:  'trash',
+          handler: () => {
+            console.log('Delete clicked');
+            this.RemoveItem(index);
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel', // will always sort to be on the bottom
+          icon: 'close',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+actionSheet.present();
   }
 }

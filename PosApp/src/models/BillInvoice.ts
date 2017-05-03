@@ -25,7 +25,7 @@ export class BillInvoice {
         newBill.billSubTotal = this.GetBillSubTotalSum(saleArry);
         newBill.grandTotal = saleArry[0].totalamount;
         newBill.SalesItems = saleArry;
-        newBill.billInWords = "Rs. " + converter.toWords(newBill.billSubTotal) + " only"
+        newBill.billInWords = "Rs." + converter.toWords(newBill.grandTotal) + " only"
         this.AddUserName(newBill);
         this.AddStoreInfo(newBill);
         //Check if Discount applied

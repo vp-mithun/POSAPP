@@ -113,7 +113,19 @@ PosApiUrl:string;
         let querystr = this.confgSrv.getPosApiUrl() + "api/shopdetails?branchid="+userinfo.branchId+"&shopid="+userinfo.shopId; 
         return this.http.get(querystr, options)
             .map((response: Response) => response.json() as StoreInfo);
- 
+    }
+
+    //Gets list of Sales based on Loggedin User ShopId & BranchId and Date
+    getMySalesForDay(): Observable<SalesInfo[]> {
+        // add authorization header with jwt token
+        let headers = new Headers({ 'Authorization': 'Bearer ' + this.authServ.token });
+        let options = new RequestOptions({ headers: headers });
+        let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
+        let saleDate = moment().format('L');
         
+        let querystr = this.confgSrv.getPosApiUrl() + "api/sales/GetMySalesForDay?branchid="+userinfo.branchId+"&shopid="+
+                        userinfo.shopId+"&userId="+userinfo.id+"&sdate="+saleDate;
+        return this.http.get(querystr, options)
+            .map((response: Response) => response.json() as SalesInfo[]);
     }
 }

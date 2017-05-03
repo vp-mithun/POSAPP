@@ -113,15 +113,45 @@
               </ion-row>
             </ion-card>
           </ion-row>
-
+          <!-- Headers -->
+          <ion-row *ngIf="isSalesItemsExists" no-padding style="background-color:lightgrey;color:white;">
+            <ion-col col-4>
+              <ion-label color="dark" style="font-weight:bold;">&nbsp;&nbsp;&nbsp;Item Name</ion-label>
+            </ion-col>
+            <ion-col col-2>
+              <ion-label color="dark" style="font-weight:bold;">Quantity</ion-label>
+            </ion-col>
+            <ion-col col-2>
+              <ion-label color="dark" style="font-weight:bold;">Rate</ion-label>
+            </ion-col>
+            <ion-col col-2>
+              <ion-label color="dark" style="font-weight:bold;">Amount</ion-label>
+            </ion-col>
+            <ion-col col-1>              
+            </ion-col>
+          </ion-row>
           <form novalidate [formGroup]="salesForm">
             <ion-row>
-              <ion-card formArrayName="salesItems" *ngFor="let item of salesItems.controls; let i=index" no-padding style="background-color:aliceblue">
+              <ion-card formArrayName="salesItems" *ngFor="let item of salesItems.controls; let i=index" no-padding style="background-color:lightgrey;">
                 <ion-row [formGroupName]="i">
-                  <ion-input formControlName="itemName" id="{{ 'itemName' + i }}" readonly type="text" style="font-size:18px;font-weight:bold;"></ion-input>
-                  <button item-left ion-button color="danger" id="{{ 'itemtrash' + i }}" (click)="RemoveItem(i)" small><ion-icon name="trash"></ion-icon></button>&nbsp;
+                  <ion-col col-4>
+                  <ion-input formControlName="itemName" id="{{ 'itemName' + i }}" readonly type="text" style="font-weight:bold;"></ion-input>  
+                  </ion-col>
+                  <ion-col col-2>
+                    <ion-input formControlName="itemQty" id="{{ 'itemQty' + i }}" readonly type="text" >
+                      </ion-input>
+                  </ion-col>
+                  <ion-col col-2>                    
+                    <ion-input formControlName="itemSellingPrice" id="{{ 'itemSellingPrice' + i }}" readonly type="text"></ion-input>
+                  </ion-col>
+                  <ion-col col-2>                    
+                    <ion-input formControlName="itemPrice" id="{{ 'itemPrice' + i }}" readonly type="text"></ion-input>
+                  </ion-col>
+                  <ion-col col-1 align-self-end>
+                  <button icon-only end ion-button color="primary" id="{{ 'itemtrash' + i }}" (click)="SalesItemsMoreOptions(i)" small><ion-icon name="more"></ion-icon></button> 
+                  </ion-col>                  
                 </ion-row>
-                <ion-row [formGroupName]="i">
+                <!--<ion-row [formGroupName]="i">
                   <ion-col>
                     <button ion-button small icon-left color="dark" (click)="ReduceQty(i)" id="{{ 'itemQtyMinus' + i }}">-</button>
                   </ion-col>
@@ -140,7 +170,7 @@
                     Amount
                     <ion-input formControlName="itemPrice" id="{{ 'itemPrice' + i }}" readonly type="text" style="font-size:18px;font-weight:bold;"></ion-input>
                   </ion-col>
-                </ion-row>
+                </ion-row>-->
               </ion-card>
             </ion-row>
           </form>
@@ -186,7 +216,7 @@
     </ion-row>
   </ion-grid>
   <ion-fab bottom right *ngIf="isSalesItemsExists">
-    <button ion-fab color="secondary" big (click)="SaveSales()"><ion-icon name="print"></ion-icon></button>
+    <button ion-fab big color="secondary" big (click)="SaveSales()"><ion-icon name="print"></ion-icon></button>
   </ion-fab>
   <ion-fab bottom left *ngIf="isSalesItemsExists">
     <button ion-fab big color="danger"  (click)="CloseSales()"><ion-icon name="close-circle"></ion-icon></button>
