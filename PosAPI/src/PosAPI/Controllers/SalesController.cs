@@ -41,7 +41,7 @@ namespace PosAPI.Controllers
                 return BadRequest();
             }
             var saleslist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
-            && e.ShopId.Equals(query.shopid) && e.Dates.Equals(query.Sdate)).ToListAsync();
+            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Equals(query.Sdate)).ToListAsync();
             var mysaleList = Mapper.Map<List<SalesDTO>>(saleslist);
 
             return Ok(mysaleList);
