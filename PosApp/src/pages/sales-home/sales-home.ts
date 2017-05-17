@@ -47,13 +47,14 @@ export class SalesHomePage {
 
   //Sale Common Properties
   customerName:string = "Haribhakt";
-  validityDate:string = new Date().toISOString();  
-  validateDate:any = moment().format('L');
+  dateValue = moment();  
+  validityDate:string = this.dateValue.toISOString();  
+  validateDate:any = moment().format('MM[/]DD[/]YYYY');
   saleBookopt:string = "Cash Sales";
   saleBookoptAbbr:string = "CS";
   payByopt:string = "cash";
   generatedBillNo:string;
-  todayDate:any = moment().format('L');//moment().format('DD[-]MM[-]YYYY')
+  todayDate:any = moment().format('MM[/]DD[/]YYYY')
   saletime:any = moment().format('LT');
   loading:any;
 
@@ -77,10 +78,7 @@ export class SalesHomePage {
     this.chkSearchType = true;
     this.searchTypestr = "Search Products..";
 
-    this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;
-    this.loading  = this.loadingCtrl.create({
-        content: 'Processing Order..'        
-      });
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;   
 
     //Initiate Form
     this.SetupSalesForm();
@@ -91,25 +89,23 @@ export class SalesHomePage {
   BuildHTMLInvoice(){
     let template = `{center}{h}{{storeName}},{{storeLoc}}{/h}
 {b}Counter : {{counter}}{/b}
-{left}{s}Bill#{{billNo}}{/s}{right}{s}   Date: {{billdate}}{/s}
+{left}{s}Bill# {{billNo}}{/s}{right}{s}   Date: {{billdate}}{/s}
 {left}{s}Name:{{custName}}{/s}{right}{s} Time: {{billTime}}{/s}
-{s}Desc.             Qty.   Rate   Amount{/s}
+{s}Desc.          Qty.   Rate   Amount{/s}
 --------------------------------
-{s}
 {{#SalesItems}}
-{{shortproductName}}       {{quantity}}  {{price}}   {{amount}}
+{{shortproductName}}    {{quantity}}  {{price}}   {{amount}}
 {{/SalesItems}}
-{/s}
 --------------------------------
 {{#if isDiscountApplies}}
-            Discount : {{discPert}}%
+          Discount : {{discPert}}%
 --------------------------------
 {{/if}}
 {{#if isTaxable}}
-            Tax : {{taxapplied}}
+          Tax : {{taxapplied}}
 --------------------------------
 {{/if}}
-        Sub Total : {{billQty}}{s}Qty{/s} {{billSubTotal}}
+        Sub Total : {{billQty}}  {{billSubTotal}}
 --------------------------------
 {{#if isGrandTotal}}
  {center}{h}Grand Total: {{grandTotal}}{/h}
@@ -372,6 +368,7 @@ export class SalesHomePage {
 
   SetupSalesForm()
   {    
+    console.log("Setupsalesform")
     this.salesForm = this.fb.group({
       salesItems: this.fb.array([])
     });
@@ -419,6 +416,11 @@ export class SalesHomePage {
 
   //Only Save to DB
   SaveSales(){    
+
+    this.loading  = this.loadingCtrl.create({
+        content: 'Processing Order..'        
+      });
+
     if (this.salesList.length > 0) {
       this.loading.present();
       let narration = this.txtnarration;
@@ -706,12 +708,14 @@ GenerateBillHTML(newBill:BillInfo){
   }
 
   preloadSaleValues(){
-    this.validateDate = moment().format('DD[-]MM[-]YYYY');// moment().format('L');
+    console.log('preloadSaleValues');
+    this.validateDate = moment().format('MM[/]DD[/]YYYY');// moment().format('L');
     this.saleBookopt = "Cash Sales";
-    this.saleBookoptAbbr = "CS-";
+    this.saleBookoptAbbr = "CS";
     this.payByopt = "cash";
     this.generatedBillNo;
-    this.todayDate = moment().format('DD[-]MM[-]YYYY')
+    this.discountper = undefined;
+    this.todayDate = moment().format('MM[/]DD[/]YYYY')
     this.saletime = moment().format('LT');
   }
 

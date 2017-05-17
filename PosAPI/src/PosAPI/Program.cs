@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
+using System.IO;
 
 namespace PosAPI
 {
@@ -14,9 +10,11 @@ namespace PosAPI
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
+                .UseSetting("detailedErrors", "true")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
+                .CaptureStartupErrors(true)
                 .Build();
 
             host.Run();

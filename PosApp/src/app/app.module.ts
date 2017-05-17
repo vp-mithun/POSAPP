@@ -1,3 +1,4 @@
+import { Mysalemodal } from './../pages/mysalemodal/mysalemodal';
 import { Configservice } from './../providers/configservice';
 import { PrinterService } from './../providers/printer-service';
 import { SqlDbService } from './../providers/sql-db-service';
@@ -24,7 +25,8 @@ import { BrowserModule } from "@angular/platform-browser";
     MySalePage,
     SalesHomePage,
     ProductsPage,
-    SettingsPage
+    SettingsPage,
+    Mysalemodal
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { BrowserModule } from "@angular/platform-browser";
     MySalePage,
     SalesHomePage,
     ProductsPage,
-    SettingsPage
+    SettingsPage,
+    Mysalemodal
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator, SqlDbService, PrinterService, Configservice]
 })

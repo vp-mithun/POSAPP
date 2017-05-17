@@ -3,20 +3,18 @@
   </ion-navbar>
 </ion-header>
 <ion-content no-padding>
-  <ion-list>
-    <ion-item-group *ngFor="let item of mysortedList">
-      <ion-item-divider secondary>
-        {{item.billNo}}
-        <ion-item *ngFor="let sale of item.billItems">
-          <h2><b>Product Name #</b> {{ sale.productName }}</h2>
-          <!--<h3><b>Total Amount</b> {{ sale.totalamount }}</h3>-->
-        </ion-item>
-      </ion-item-divider>
-    </ion-item-group>
-    <!--<ion-item *virtualItem="let item">
-      <h2><b>Bill #</b> {{ item.billnum }}</h2>
-      <h3><b>Total Amount</b> {{ item.totalamount }}</h3>
-    </ion-item>-->
+  <div ion-row>
+    <ion-col col-4>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="searchByDate" style="font-weight:bold; font-size:14px;"></ion-datetime>
+    </ion-col>
+    <ion-col col-8>
+      <ion-searchbar placeholder="Bill No" [(ngModel)]="billNoStr" (ionInput)="SearchByBillNo()"></ion-searchbar>
+    </ion-col>
+  </div>
+  <ion-list [virtualScroll]="myFiltersortedList" approxItemHeight="250px">    
+    <ion-item *virtualItem="let item" (click)="ShowBillDetails(item)">
+    <b>{{item.billNo}}</b>
+    </ion-item>    
   </ion-list>
   <ion-fab bottom right>
     <button ion-fab color="secondary" big (click)="LoadMySalesForDay()"><ion-icon name="refresh-circle"></ion-icon></button>

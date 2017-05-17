@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authorization;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Collections.Concurrent;
+using System.Threading;
 
 namespace PosAPI.Controllers
 {
@@ -15,6 +17,8 @@ namespace PosAPI.Controllers
     [Authorize]
     public class SalesController : Controller
     {
+        private static ConcurrentDictionary<string, SemaphoreSlim> Locks = new ConcurrentDictionary<string, SemaphoreSlim>();
+
         private readonly posprojectContext _context;
         private readonly ILogger<SalesController> _logger;
 
@@ -32,7 +36,8 @@ namespace PosAPI.Controllers
         //}
 
         // GET api/values/5
-        [HttpGet]        
+        [HttpGet]       
+        [AllowAnonymous]
         [Route("GetMySalesForDay")]
         public async Task<IActionResult>  GetMySalesForDay(GetQueryStr query)
         {
@@ -41,7 +46,7 @@ namespace PosAPI.Controllers
                 return BadRequest();
             }
             var saleslist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
-            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Equals(query.Sdate)).ToListAsync();
+            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Date.Equals(query.Sdate.Date)).ToListAsync();
             var mysaleList = Mapper.Map<List<SalesDTO>>(saleslist);
 
             return Ok(mysaleList);
@@ -69,17 +74,21 @@ namespace PosAPI.Controllers
         }
 
         // POST api/values
-        [HttpPost]
+        [HttpPost]        
         public async Task<IActionResult> Post([FromBody] IEnumerable<SalesDTO> saleList)
         {
+            var generatedBillNumb = "";
+            if (saleList == null)
+            {
+                return BadRequest();
+            }
+
+            var lockKey = (saleList.FirstOrDefault().BranchId + saleList.FirstOrDefault().ShopId).ToString();
+            var sem = Locks.GetOrAdd(lockKey, x => new SemaphoreSlim(1));
+            await sem.WaitAsync();
+
             try
             {
-                var generatedBillNumb = "";
-                if (saleList.ToList().Count == 0)
-                {
-                    return BadRequest();
-                }
-
                 int maxCount = await GetMaximumSaleNumber(new GetQueryStr()
                 {
                     branchid = saleList.FirstOrDefault().BranchId,
@@ -90,7 +99,7 @@ namespace PosAPI.Controllers
 
                 var reverseSales = Mapper.Map<List<SalesDTO>, List<Sales>>(saleList.ToList());
                 foreach (var item in reverseSales)
-                {                    
+                {
                     item.Commision = string.Empty;
                     item.Size = string.Empty;
                     item.Image = "products/no-img.png";
@@ -128,6 +137,10 @@ namespace PosAPI.Controllers
             {
                 _logger.LogCritical("Save Saled FAILED", ex);
                 throw ex;
+            }
+            finally
+            {
+                sem.Release();
             }
         }
 

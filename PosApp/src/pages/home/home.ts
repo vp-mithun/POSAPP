@@ -7,7 +7,7 @@ import { Users } from './../../models/Users';
 import { PosDataService } from './../../providers/pos-data-service';
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { NavController, Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -21,7 +21,7 @@ export class HomePage {
   loggedInUser:Users;
   //loggedInUser: Users[] = [];
 
-  constructor(public navCtrl: NavController, private _posService:PosDataService,
+  constructor(public navCtrl: NavController,public events: Events, private _posService:PosDataService,
    private authenticationService: AuthService) {
     
   }
@@ -47,6 +47,7 @@ export class HomePage {
     this._posService.getStoreDetails()
             .subscribe(storedetails => {
                 localStorage.setItem('loggedUserStoreInfo', JSON.stringify(storedetails));
+                this.events.publish('user:loggedin',Date.now());
             });    
   }
 

@@ -69,16 +69,14 @@ PosApiUrl:string;
 
         let headers:Headers = new Headers();
         headers.append('Authorization', 'Bearer ' + this.authServ.token);
-        headers.append('Content-Type', 'application/json');
-        headers.append("Accept",  "application/json");
-
-        let options = new RequestOptions({ headers: headers });
+        headers.append('Content-Type', 'application/json;charset=utf-8');
+        headers.append("Accept",  "application/json");        
         let body = JSON.stringify(tosaveSalesList);
-        // this.saleInfoArry =  new SalesInfoObject();
-        // this.saleInfoArry.SaleInfos = tosaveSalesList;
-        //let body = JSON.stringify(this.saleInfoArry);
+        
+        let options = new RequestOptions({ headers: headers });       
+        
         return this.http.post(this.confgSrv.getPosApiUrl() + 'api/sales', 
-         body,options)
+        body,options)
             .map((response: Response) => {
                 console.log(response);
                 if (response.status == 200) {
@@ -116,12 +114,13 @@ PosApiUrl:string;
     }
 
     //Gets list of Sales based on Loggedin User ShopId & BranchId and Date
-    getMySalesForDay(): Observable<SalesInfo[]> {
+    getMySalesForDay(searchdate:any): Observable<SalesInfo[]> {
         // add authorization header with jwt token
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.authServ.token });
         let options = new RequestOptions({ headers: headers });
         let userinfo = JSON.parse(localStorage.getItem("loggedUserInfo"));
-        let saleDate = moment().format('L');
+        //let saleDate = moment().format('L');
+        let saleDate = moment(searchdate).format('MM[/]DD[/]YYYY');       
         
         let querystr = this.confgSrv.getPosApiUrl() + "api/sales/GetMySalesForDay?branchid="+userinfo.branchId+"&shopid="+
                         userinfo.shopId+"&userId="+userinfo.id+"&sdate="+saleDate;
