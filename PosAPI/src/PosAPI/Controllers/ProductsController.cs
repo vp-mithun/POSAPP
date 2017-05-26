@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace PosAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("posapi/api/[controller]")]
     [Authorize]
     public class ProductsController : Controller
     {

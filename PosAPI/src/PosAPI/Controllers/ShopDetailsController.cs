@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PosAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("posapi/api/[controller]")]
     [Authorize]
     public class ShopDetailsController : Controller
     {

@@ -13,7 +13,7 @@ using System.Text;
 
 namespace PosAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("posapi/api/[controller]")]
     public class AuthController : Controller
     {
         private readonly posprojectContext _context;

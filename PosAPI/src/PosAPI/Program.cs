@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using System.IO;
 
 namespace PosAPI
@@ -8,8 +9,13 @@ namespace PosAPI
     {
         public static void Main(string[] args)
         {
+            var config = new ConfigurationBuilder()
+            .AddJsonFile("hosting.json", optional: false)
+            .Build();
+
             var host = new WebHostBuilder()
-                .UseKestrel()
+                .UseConfiguration(config)
+                .UseKestrel()                
                 .UseSetting("detailedErrors", "true")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()

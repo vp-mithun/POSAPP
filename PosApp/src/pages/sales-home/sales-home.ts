@@ -16,7 +16,8 @@ import * as _ from 'lodash';
 import * as moment from 'moment';
 import {Printer, PrintOptions} from 'ionic-native';
 var Handlebars = require('Handlebars');
-
+import * as html2canvas from "html2canvas"
+declare let DatecsPrinter:any;
 
 @Component({
   selector: 'page-sales-home',
@@ -114,7 +115,70 @@ export class SalesHomePage {
 {b}Bill By:{/b} {{billBy}}
 {center}{h}Jai Swaminarayan{/h}{br}{br}{br}`;
 
-  this.billHtmlTemplate = Handlebars.compile(template);
+let htmlbasedtemplate = `<div>
+<div style="max-width: 380px; margin: 5px auto; font-family: Arial, Helvetica, sans-serif; font-size: 20px; text-align: center;">
+<div style="min-width: 250px; margin: 0 auto;">
+<div style="overflow: hidden; margin-bottom: 15px;">&nbsp;</div>
+<h3 style="margin: 0; padding-top: 5px; font-size: 30px; float: left; text-align: center; width: 100%;">{{storeName}}, {{storeLoc}}</h3>
+</div><br>
+<h5><strong> Counter: {{counter}}</strong></h5>
+<span style="float: left; margin-bottom: 3px; text-align: left; width: 50%;"><strong>Bill # </strong> {{billNo}}</span> 
+ <span style="float: right; margin-bottom: 3px; text-align: right; width: 50%;"><strong>Date:</strong> {{billdate}}</span> <span style="float: left; margin-bottom: 3px; text-align: left; width: 50%;"><strong>Name: </strong>{{custName}}</span> 
+ <span style="float: right; margin-bottom: 3px; text-align: right; width: 50%;"><strong>Time:</strong> {{billTime}}</span>
+<br>
+  <br>
+  
+<table style="margin: 10px 0; width: 100%; font-size: 16px;" border="0" cellspacing="0">
+<thead>
+<tr><th style="border-bottom: 1px solid #000;">Desc.</th><th style="border-bottom: 1px solid #000; text-align: center;">Qty.</th><th style="border-bottom: 1px solid #000; text-align: center;">Rate</th><th style="border-bottom: 1px solid #000;">Amount</th></tr>
+</thead>
+<tbody>
+{{#SalesItems}}
+<tr>
+<td style="text-align: left; vertical-align: top; padding: 5px;">{{shortproductName}}</td>
+<td style="text-align: center; vertical-align: top; padding: 5px;">{{quantity}}</td>
+<td style="text-align: right; vertical-align: top; padding: 5px;">{{price}}</td>
+<td style="text-align: right; vertical-align: top; padding: 5px; padding-right: 18px;">{{amount}}</td>
+</tr>
+{{/SalesItems}}
+<tr>
+<td colspan="4"><hr /></td>
+</tr>
+{{#if isDiscountApplies}}
+<tr><th style="text-align: right; vertical-align: top; padding: 5px; border-bottom: 1px solid #000;" colspan="3">Discount:</th><th style="text-align: right; vertical-align: top; padding: 5px; border-bottom: 1px solid #000;"><span style="font-weight: normal;">{{discPert}}</span></th></tr>
+{{/if}}
+{{#if isTaxable}}
+  <tr>
+            <th colspan='3' style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'>Tax:</th>
+            <th style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'><span style='font-weight:normal'>{{taxapplied}}</span></th>
+        </tr>
+{{/if}}
+  <tr>
+            <th colspan='1' style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'>Sub Total:</th>
+            <th colspan='1' style='text-align:center;border-bottom: 1px solid #000;'>{{billQty}}</th>
+            <th colspan='2' style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'>{{billSubTotal}}</th>
+        </tr>  
+{{#if isGrandTotal}}
+  <tr>
+            <th colspan='2' style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'>Grand Total:</th>
+            <th colspan='2' style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'>{{grandTotal}}</th>
+        </tr>
+{{/if}}
+		</tfoot>
+  </table>
+  <div style=' text-align:left;font-size: 22px;' >{{billInWords}}</div>
+  <br>
+    <div style='padding-bottom:10px; margin:0;font-style:italic;font-size: 18px;'>Jai Swaminarayan</div>
+</div>
+
+</div> </div>
+</tbody>
+</table>
+</div>
+</div>`
+
+  //this.billHtmlTemplate = Handlebars.compile(template);
+  this.billHtmlTemplate = Handlebars.compile(htmlbasedtemplate);
 
   }
 
@@ -308,6 +372,7 @@ export class SalesHomePage {
       singleSale.customer = this.customerName;
       singleSale.totalamount = 0; // This gets updated while saving
       singleSale.dates = this.todayDate;
+      //singleSale.dates = new Date(moment().format('DD[/]MM[/]YYYY'));
       singleSale.validitydate = this.validateDate;
       singleSale.userId = this.loggedInUser.id;
       singleSale.branchId = this.loggedInUser.branchId;
@@ -521,12 +586,28 @@ RunPrintSlips(tasks) {
   var result = Promise.resolve();
   tasks.forEach(task => {
     result = result.then(() =>{
-      //console.log(task);      
-      //alert('Abt to print' + task.length);
-      this.printSer.printText(task, null).then(function(){
-      }).catch(function(err){
-        alert("Printer Erro! " + err);
-      });
+      document.getElementById("generatedBill").innerHTML = "";
+      document.getElementById("generatedBill").innerHTML = task;
+      // //console.log(task);      
+      // //alert('Abt to print' + task.length);
+      // this.printSer.printText("jai Swaminarayan", null).then(function(){
+      // }).catch(function(err){
+      //   alert("Printer Erro! " + err);
+      // });     
+      
+      html2canvas(document.getElementById("generatedBill"), {background: '#fff', width:380}).then((canvas) => {
+        //document.body.appendChild(canvas);
+        //alert(canvas);
+        var imageData = canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
+           //window.open(imageData);
+          this.printSer.printImage(imageData, canvas.width, canvas.height).then(function(){            
+              }).catch(function(err){
+                        alert("Printer Erro! " + err);
+      });     
+
+
+    });
+
       });
   });
   return result;
@@ -536,11 +617,12 @@ GenerateBillHTML(newBill:BillInfo){
         this.BuildHTMLInvoice();
         var result = this.billHtmlTemplate(newBill);
         //alert('HTML prepared');
-        console.log(result);
+        //console.log(result);
+        //document.getElementById("generatedBill").innerHTML = result;
         return result;
 }
 
-  //Save to DB & Print BILL
+  //Save to DB & Print BILL -- Not used now
   PrintSales(billHtml): Promise<boolean>{
     var options = { name: 'awesome' };
     return new Promise<boolean>((resolve, reject)=>{
@@ -554,6 +636,7 @@ GenerateBillHTML(newBill:BillInfo){
     });
   }
 
+  //NOt used now
   isPrintAvailable():boolean{
     Printer.isAvailable().then(function(){
       return true;
@@ -703,13 +786,14 @@ GenerateBillHTML(newBill:BillInfo){
     this.preloadSaleValues();
     this.setQuantityFocus();
     this.isSalesItemsExists = false;
+    document.getElementById("generatedBill").innerHTML = "";
     this.LoadEssentials();
 
   }
 
   preloadSaleValues(){
     console.log('preloadSaleValues');
-    this.validateDate = moment().format('MM[/]DD[/]YYYY');// moment().format('L');
+    this.validateDate = moment().format('DD[/]MM[/]YYYY');// moment().format('L');
     this.saleBookopt = "Cash Sales";
     this.saleBookoptAbbr = "CS";
     this.payByopt = "cash";

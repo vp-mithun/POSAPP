@@ -70,5 +70,26 @@ export class PrinterService {
     });
   }
 
+  public printImage (image2Print:any, cwidth:number, cheight:number)
+  {
+    return new Promise((resolve, reject) => {
+        DatecsPrinter.printImage(image2Print,cwidth,cheight,
+          1,        
+          function (success) {            
+            DatecsPrinter.feedPaper(5,
+          function (success) {            
+            resolve(success);
+          },
+          function (error) {
+            reject(error);
+          });
+            //resolve(success);
+          },
+          function (error) {
+            reject(error);
+          });
+    });
+  }
+
 }
 

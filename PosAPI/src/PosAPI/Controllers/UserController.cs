@@ -7,7 +7,7 @@ using PosAPI.DTO;
 
 namespace PosAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("posapi/api/[controller]")]
     [Authorize]
     public class UserController : Controller
     {

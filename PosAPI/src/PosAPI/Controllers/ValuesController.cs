@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PosAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("posapi/api/[controller]")]
     public class ValuesController : Controller
     {
         // GET api/values

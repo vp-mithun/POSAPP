@@ -13,7 +13,7 @@ using System.Threading;
 
 namespace PosAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("posapi/api/[controller]")]
     [Authorize]
     public class SalesController : Controller
     {
