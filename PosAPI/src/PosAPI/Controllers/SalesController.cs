@@ -36,20 +36,27 @@ namespace PosAPI.Controllers
         //}
 
         // GET api/values/5
-        [HttpGet]       
-        [AllowAnonymous]
+        [HttpGet]               
         [Route("GetMySalesForDay")]
         public async Task<IActionResult>  GetMySalesForDay(GetQueryStr query)
         {
             if (query.userId == 0 && query.branchid == 0)
             {
                 return BadRequest();
-            }
-            var saleslist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
-            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Date.Equals(query.Sdate.Date)).ToListAsync();
-            var mysaleList = Mapper.Map<List<SalesDTO>>(saleslist);
+            }            
 
-            return Ok(mysaleList);
+            var saleslist = await _context.Sales.Where(e => e.BranchId.Equals(query.branchid)
+            && e.ShopId.Equals(query.shopid) && e.UserId.Equals(query.userId) && e.Dates.Date.Equals(query.Sdate.Date))
+            .GroupBy(e => new { e.Billnum, e.Totalamount })
+            .Select(y => new SaleDtoArray()
+            {
+                BillNum = y.Key.Billnum,
+                Totalamount = y.Key.Totalamount,
+                SaleInfos = Mapper.Map<List<SalesDTO>>(y.ToList())
+
+        }).ToListAsync();
+
+            return Ok(saleslist);
         }
 
 

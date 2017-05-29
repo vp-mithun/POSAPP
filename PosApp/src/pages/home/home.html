@@ -1,23 +1,23 @@
 <ion-header>
-  <ion-navbar color="primary">    
+  <ion-navbar color="primary">
     <ion-title>BAPS POS</ion-title>
     <ion-buttons large end>
       <button ion-button>
         {{loggedInUserName}} &nbsp;
         <ion-icon name="contact"></ion-icon>
       </button>
-    </ion-buttons>    
+    </ion-buttons>
     <ion-buttons end>
       <button ion-button icon-only (click)="doLogout()">
         <ion-icon name="log-out"></ion-icon>
       </button>
-    </ion-buttons>    
-  </ion-navbar>  
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 <ion-tabs>
-  <ion-tab tabTitle="My Sale" [root]="mysalestab" tabIcon="analytics"></ion-tab>
-  <ion-tab tabTitle="Sales" [root]="saleshometab" tabIcon="basket"></ion-tab>
+  <ion-tab tabTitle="My Sale" [root]="mysalestab"  tabIcon="analytics"></ion-tab>
+  <ion-tab tabTitle="Sales" [root]="saleshometab"  tabIcon="basket"></ion-tab>
   <ion-tab tabTitle="Products" [root]="productstab" tabIcon="list"></ion-tab>
-  
+
 </ion-tabs>

@@ -1,5 +1,5 @@
 import { Mysalemodal } from './../mysalemodal/mysalemodal';
-import { SalesInfo } from './../../models/SalesInfo';
+import { SalesInfo, SaleDtoArray } from './../../models/SalesInfo';
 import { PosDataService } from './../../providers/pos-data-service';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, Events, ModalController } from 'ionic-angular';
@@ -12,45 +12,56 @@ import * as moment from 'moment';
 })
 export class MySalePage {
 loading:any;
-mysaleList:SalesInfo[];
-mysortedList = [];
-myFiltersortedList = [];
+//mysaleList:SaleDtoArray[];
+mysortedList:SaleDtoArray[] = [];
+myFiltersortedList:SaleDtoArray[] = [];
 searchByDate:string = new Date().toISOString();
 billNoStr:string = '';
 
-private allSalesDivision:any;
-
   constructor(public navCtrl: NavController,
-              public navParams: NavParams, 
+              public navParams: NavParams,
               public modalCtrl: ModalController,
-              private _posService:PosDataService,              
+              private _posService:PosDataService,
               public events: Events ) {
 
-                this.events.subscribe('user:loggedin', ( time) => {  
+                this.events.subscribe('user:loggedin', ( time) => {
                                           this.LoadMySalesForDay();
                     });
               }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MySalePage');    
-  }  
+    console.log('ionViewDidLoad MySalePage');
+  }
 
-  LoadMySalesForDay(){    
-    //var searchdate = moment(this.searchByDate, 'DD/MM/YYYY');    
+  returnSale(){
+    // if (this.billdetails.saleInfos.length == 0) {
+    //   let toast = this.toastCtrl.create({
+    //         message: "No items to return",
+    //         duration: 2000,
+    //         position: 'middle'
+    //       });
+    //       toast.present();
+    // }
+    // else{
+    //   this.navCtrl.parent.select(2);
+    // }
+    this.navCtrl.parent.select(1);
+}
+
+  LoadMySalesForDay(){
+    //var searchdate = moment(this.searchByDate, 'DD/MM/YYYY');
     this._posService.getMySalesForDay(this.searchByDate)
-            .subscribe(salelist => {                
-                this.mysaleList = salelist;
+            .subscribe(salelist => {
+                //this.mysaleList = salelist;
 
-                this.allSalesDivision =
-                _.chain(salelist)
-                .groupBy('billnum')
-                .toPairs()
-                .map(item => _.zipObject(['billNo', 'billItems'], item))
-                .value();
 
-                this.mysortedList = this.allSalesDivision;
-                this.myFiltersortedList = this.allSalesDivision;
-                console.log(this.mysortedList);
+                if (salelist.length > 0) {
+                  this.myFiltersortedList = salelist;
+                  this.mysortedList = salelist;
+                } else {
+                    this.myFiltersortedList = [];
+                    this.mysortedList = [];
+                }
             });
   }
 
@@ -66,7 +77,7 @@ private allSalesDivision:any;
       let qryStr = this.billNoStr.toLowerCase();
 
       let filterProds = [];
-      filterProds = _.filter(this.mysortedList, t=> (<any>t).billNo.toLowerCase().includes(qryStr));
+      filterProds = _.filter(this.mysortedList, t=> (<SaleDtoArray>t).billNum.toLowerCase().includes(qryStr));
       this.myFiltersortedList = filterProds;
     }
     else{

@@ -9,12 +9,12 @@ namespace PosAPI
     {
         public static void Main(string[] args)
         {
-            var config = new ConfigurationBuilder()
-            .AddJsonFile("hosting.json", optional: false)
-            .Build();
+            //var config = new ConfigurationBuilder()
+            //.AddJsonFile("hosting.json", optional: false)
+            //.Build();
 
             var host = new WebHostBuilder()
-                .UseConfiguration(config)
+                //.UseConfiguration(config)
                 .UseKestrel()                
                 .UseSetting("detailedErrors", "true")
                 .UseContentRoot(Directory.GetCurrentDirectory())

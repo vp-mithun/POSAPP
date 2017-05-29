@@ -20,16 +20,29 @@ export class HomePage {
   loggedInUserName:string;
   loggedInUser:Users;
   //loggedInUser: Users[] = [];
+  //pages: Array<{title: string, component: any}>;
+  //rootPage = MySalePage;
 
   constructor(public navCtrl: NavController,public events: Events, private _posService:PosDataService,
    private authenticationService: AuthService) {
-    
+
+    //  this.pages = [
+    //   { title: 'My Sale', component: MySalePage },
+    //   { title: 'Sales', component: SalesHomePage },
+    //   { title: 'Products', component: ProductsPage }
+    // ];
+
   }
 
+  // openPage(page) {
+  //   this.navCtrl.setRoot(page.component);
+  // }
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');    
-        this.loadUserInfo();        
+    console.log('ionViewDidLoad LoginPage');
+        this.loadUserInfo();
   }
+
 
   loadUserInfo()
   {
@@ -39,6 +52,7 @@ export class HomePage {
                 this.loggedInUserName = users.employeeName;
                 localStorage.setItem('loggedUserInfo', JSON.stringify(this.loggedInUser));
                 this.loadStoreDetails();
+                this.loadUserPermissions(users.id);
             });
   }
 
@@ -48,7 +62,15 @@ export class HomePage {
             .subscribe(storedetails => {
                 localStorage.setItem('loggedUserStoreInfo', JSON.stringify(storedetails));
                 this.events.publish('user:loggedin',Date.now());
-            });    
+            });
+  }
+
+  loadUserPermissions(userId:number)
+  {
+    this._posService.getUserPermissions(userId)
+            .subscribe(usrspm => {
+                localStorage.setItem('loggedUserPermission', JSON.stringify(usrspm));
+            });
   }
 
   doLogout(){

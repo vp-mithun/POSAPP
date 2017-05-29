@@ -11,11 +11,54 @@
       <ion-searchbar placeholder="Bill No" [(ngModel)]="billNoStr" (ionInput)="SearchByBillNo()"></ion-searchbar>
     </ion-col>
   </div>
-  <ion-list [virtualScroll]="myFiltersortedList" approxItemHeight="250px">    
-    <ion-item *virtualItem="let item" (click)="ShowBillDetails(item)">
-    <b>{{item.billNo}}</b>
-    </ion-item>    
-  </ion-list>
+  <!--<ion-list *ngFor="let item of myFiltersortedList">
+    <ion-item  (click)="ShowBillDetails(item)">
+    <h4><b>{{item.billNum}}</b></h4>
+    <p>Amount: Rs.{{item.totalamount}}</p>
+    <button ion-button small (click)="returnSale()" color="secondary">Return</button>
+    </ion-item>
+  </ion-list>-->
+  <!--<ion-card *ngFor="let item of myFiltersortedList">
+    <ion-card-content>
+      <ion-card-title>
+        {{item.billNum}}
+      </ion-card-title>
+      <p>Amount: Rs.{{item.totalamount}}</p>
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="secondary" icon-left (click)="ShowBillDetails(item)">
+          <ion-icon name='eye'></ion-icon>
+          View
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-left (click)="returnSale()">
+          <ion-icon name='return-left'></ion-icon>
+          Return
+        </button>
+      </ion-col>
+    </ion-row>
+</ion-card>-->
+
+<ion-list *ngFor="let item of myFiltersortedList">
+    <ion-item-sliding>
+      <ion-item (click)="ShowBillDetails(item)">
+        <h2>{{item.billNum}}</h2>
+        <p>Total Amount: Rs.{{item.totalamount}}</p>
+      </ion-item>
+      <ion-item-options>
+        <!--<button ion-button color="secondary" icon-left (click)="ShowBillDetails(item)">
+          <ion-icon name="eye"></ion-icon>
+          View
+        </button>-->
+        <button ion-button color="danger" icon-left (click)="returnSale()">
+          <ion-icon name="return-left"></ion-icon>
+          Return
+        </button>
+      </ion-item-options>
+</ion-item-sliding>
+</ion-list>
   <ion-fab bottom right>
     <button ion-fab color="secondary" big (click)="LoadMySalesForDay()"><ion-icon name="refresh-circle"></ion-icon></button>
   </ion-fab>

@@ -28,36 +28,6 @@ namespace PosAPI.Controllers
                 return Ok(Mapper.Map<UsersDTO>(userdata));
             }
             return NotFound();
-        }
-
-        // GET: api/values
-        //[HttpGet]
-        //public IActionResult Get()
-        //{
-        //    var userList = _context.Users.ToList();
-        //    return Ok(userList);
-        //}
-
-
-        //[HttpGet]        
-        //public IActionResult Get([FromQuery] UserQueryStr query)
-        //{
-        //    if (query == null)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    var userList = _context.Users.Where(e => e.UserName.Equals(query.username) && e.Password.Equals(query.password));
-        //    if (userList.ToList().Count > 0)
-        //    {
-        //        return Ok(userList.FirstOrDefault());
-        //    }
-        //    return NotFound();
-        //}
-    }
-
-    //public class UserQueryStr
-    //{
-    //    public string username { get; set; }
-    //    public string password { get; set; }
-    //}
+        }        
+    }    
 }

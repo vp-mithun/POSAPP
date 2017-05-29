@@ -41,6 +41,8 @@ namespace PosAPI.DTO
 
     public class SaleDtoArray
     {
+        public string  BillNum { get; set; }
+        public float Totalamount { get; set; }
         public List<SalesDTO> SaleInfos { get; set; }
     }
 }

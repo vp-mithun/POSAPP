@@ -3,11 +3,10 @@ import { PrinterService } from './../../providers/printer-service';
 import { InvoiceGenerator } from './../../providers/invoice-generator';
 import { BillInfo } from './../../models/BillInfo';
 import { BillInvoice } from './../../models/BillInvoice';
-import { Observable } from 'rxjs';
 import { Users } from './../../models/Users';
 import { Salebook } from './../../models/Salebook';
 import { SalesInfo } from './../../models/SalesInfo';
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Products } from './../../models/Products';
 import { PosDataService } from './../../providers/pos-data-service';
 import { Component, Input, ViewChild } from '@angular/core';
@@ -31,7 +30,7 @@ export class SalesHomePage {
   productslist: Products[] = []; //Based on loggedIn user branchid & shopid
   fullproductslist: Products[] = [];
   singleFilterProduct:Products;
-  salesBookList:Salebook[] = [];  
+  salesBookList:Salebook[] = [];
   productsGrid: Array<Array<Products>>;
   searchTypestr:string;
   chkSearchType:boolean;
@@ -48,8 +47,8 @@ export class SalesHomePage {
 
   //Sale Common Properties
   customerName:string = "Haribhakt";
-  dateValue = moment();  
-  validityDate:string = this.dateValue.toISOString();  
+  dateValue = moment();
+  validityDate:string = this.dateValue.toISOString();
   validateDate:any = moment().format('MM[/]DD[/]YYYY');
   saleBookopt:string = "Cash Sales";
   saleBookoptAbbr:string = "CS";
@@ -68,18 +67,18 @@ export class SalesHomePage {
     }
 
   constructor(public navCtrl: NavController,
-              public alertCtrl: AlertController, 
+              public alertCtrl: AlertController,
               private fb: FormBuilder,
               private invbill:InvoiceGenerator,
               private _posService:PosDataService,
               public printSer:PrinterService,
-              private loadingCtrl:LoadingController, 
+              private loadingCtrl:LoadingController,
               private actShtCtr: ActionSheetController) {
 
     this.chkSearchType = true;
     this.searchTypestr = "Search Products..";
 
-    this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;   
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;
 
     //Initiate Form
     this.SetupSalesForm();
@@ -122,12 +121,12 @@ let htmlbasedtemplate = `<div>
 <h3 style="margin: 0; padding-top: 5px; font-size: 30px; float: left; text-align: center; width: 100%;">{{storeName}}, {{storeLoc}}</h3>
 </div><br>
 <h5><strong> Counter: {{counter}}</strong></h5>
-<span style="float: left; margin-bottom: 3px; text-align: left; width: 50%;"><strong>Bill # </strong> {{billNo}}</span> 
- <span style="float: right; margin-bottom: 3px; text-align: right; width: 50%;"><strong>Date:</strong> {{billdate}}</span> <span style="float: left; margin-bottom: 3px; text-align: left; width: 50%;"><strong>Name: </strong>{{custName}}</span> 
+<span style="float: left; margin-bottom: 3px; text-align: left; width: 50%;"><strong>Bill # </strong> {{billNo}}</span>
+ <span style="float: right; margin-bottom: 3px; text-align: right; width: 50%;"><strong>Date:</strong> {{billdate}}</span> <span style="float: left; margin-bottom: 3px; text-align: left; width: 50%;"><strong>Name: </strong>{{custName}}</span>
  <span style="float: right; margin-bottom: 3px; text-align: right; width: 50%;"><strong>Time:</strong> {{billTime}}</span>
 <br>
   <br>
-  
+
 <table style="margin: 10px 0; width: 100%; font-size: 16px;" border="0" cellspacing="0">
 <thead>
 <tr><th style="border-bottom: 1px solid #000;">Desc.</th><th style="border-bottom: 1px solid #000; text-align: center;">Qty.</th><th style="border-bottom: 1px solid #000; text-align: center;">Rate</th><th style="border-bottom: 1px solid #000;">Amount</th></tr>
@@ -157,7 +156,7 @@ let htmlbasedtemplate = `<div>
             <th colspan='1' style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'>Sub Total:</th>
             <th colspan='1' style='text-align:center;border-bottom: 1px solid #000;'>{{billQty}}</th>
             <th colspan='2' style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'>{{billSubTotal}}</th>
-        </tr>  
+        </tr>
 {{#if isGrandTotal}}
   <tr>
             <th colspan='2' style='text-align:right; vertical-align:top; padding:5px;border-bottom: 1px solid #000;'>Grand Total:</th>
@@ -188,8 +187,8 @@ let htmlbasedtemplate = `<div>
               //this.PosApiUrl = settingsObj.printerName
               if(settingsObj.printerName !== null){
               this.printSer.connectToBlueToothDevice(settingsObj.printerName).then(result => {
-                      console.log('Connection ' + JSON.stringify(result));                      
-                            
+                      console.log('Connection ' + JSON.stringify(result));
+
                               }).catch(err => {
                                 alert('Printer Connectin ' + err);
                               });
@@ -202,10 +201,10 @@ let htmlbasedtemplate = `<div>
   }
 
   ionViewDidEnter() {
-    console.log("Sales Home enter");    
+    console.log("Sales Home enter");
     this.setQuantityFocus();
     this.LoadEssentials();
-  }  
+  }
 
   setQuantityFocus(){
     setTimeout(() => {
@@ -231,7 +230,7 @@ let htmlbasedtemplate = `<div>
     this._posService.countOfSalesForDay()
             .subscribe(salecount => {
                 billNumb = this.saleBookoptAbbr  + "-" + this.padZero((salecount+1), 4,null);
-                this.generatedBillNo = billNumb;                
+                this.generatedBillNo = billNumb;
             });
 
     return billNumb;
@@ -286,13 +285,13 @@ let htmlbasedtemplate = `<div>
         else{
           this.PrepareSaleInfoList(selProduct);
         }
-    
+
         this.isSalesItemsExists = true;
-        this.salesItems.push(this.buildSalesItems(selProduct));    
+        this.salesItems.push(this.buildSalesItems(selProduct));
         this.UpdateSubGrandTotal();
-      }      
+      }
     } else {
-      this.productslist = this.fullproductslist;      
+      this.productslist = this.fullproductslist;
     }
   }
 
@@ -305,7 +304,7 @@ let htmlbasedtemplate = `<div>
       let filterProds = [];
       if (this.chkSearchType) {
         //Barcode search
-        filterProds = _.filter(this.productslist, t=> (<Products>t).barcode.toLowerCase().includes(qryStr) || (<Products>t).productName.toLowerCase().includes(qryStr));  
+        filterProds = _.filter(this.productslist, t=> (<Products>t).barcode.toLowerCase().includes(qryStr) || (<Products>t).productName.toLowerCase().includes(qryStr));
       } else {
         //Name search
         filterProds = _.filter(this.productslist, t=> (<Products>t).productName.toLowerCase().includes(qryStr));
@@ -314,7 +313,7 @@ let htmlbasedtemplate = `<div>
 
       if (filterProds.length == 1) {
         //Add to SalesList
-        this.singleFilterProduct = filterProds[0];        
+        this.singleFilterProduct = filterProds[0];
       }
     } else {
       this.productslist = this.fullproductslist;
@@ -323,7 +322,7 @@ let htmlbasedtemplate = `<div>
 
   setQuantityColor(btnNo){
     //console.log(btnNo);
-    this.qtyBtnSelected = btnNo;    
+    this.qtyBtnSelected = btnNo;
   }
 
   AddProductToSale(selProduct:Products){
@@ -339,9 +338,9 @@ let htmlbasedtemplate = `<div>
     else{
       this.PrepareSaleInfoList(selProduct);
     }
-    
+
     this.isSalesItemsExists = true;
-    this.salesItems.push(this.buildSalesItems(selProduct));    
+    this.salesItems.push(this.buildSalesItems(selProduct));
     this.UpdateSubGrandTotal();
   }
 
@@ -392,7 +391,7 @@ let htmlbasedtemplate = `<div>
     if(toAddProd == null){
       return;
     }
-    let prodExists:boolean = false;   
+    let prodExists:boolean = false;
 
     let foundPrd = _.find(this.salesList, { 'productCode': toAddProd.barcode });
     if (foundPrd !== undefined) {
@@ -412,27 +411,27 @@ let htmlbasedtemplate = `<div>
   ApplyDiscount(){
     if(this.discountper !== undefined){
       let disGrandTotal = (this.discountper/100) * this.salesubTotal;
-      this.grandTotal = Math.round(this.salesubTotal - disGrandTotal);      
+      this.grandTotal = Math.round(this.salesubTotal - disGrandTotal);
       this.setDiscountOnSingleSales();
     }
     this.setTotalAmountOnSales(this.grandTotal);
   }
 
-  setDiscountOnSingleSales(){    
+  setDiscountOnSingleSales(){
     let disc = this.discountper;
     _.forEach(this.salesList, function(item:SalesInfo) {
         item.discount = disc;
       });
   }
 
-  setTotalAmountOnSales(grandTotal:number){    
+  setTotalAmountOnSales(grandTotal:number){
     _.forEach(this.salesList, function(item:SalesInfo) {
         item.totalamount = grandTotal;
       });
   }
 
   SetupSalesForm()
-  {    
+  {
     console.log("Setupsalesform")
     this.salesForm = this.fb.group({
       salesItems: this.fb.array([])
@@ -443,9 +442,9 @@ let htmlbasedtemplate = `<div>
      this.productsGrid = Array(Math.ceil(this.productslist.length/3));
 
      let rowNum = 0;
-    
+
     for (let i = 0; i < this.productslist.length; i+=3) {
-      
+
       if(this.productslist[i])
 
       this.productsGrid[rowNum] = Array(3);
@@ -458,12 +457,12 @@ let htmlbasedtemplate = `<div>
       }
       if (this.productslist[i+2]!==undefined) {
         this.productsGrid[rowNum][2] = this.productslist[i+2]
-      }     
-    
+      }
+
       rowNum++;
     }
-      
-  } 
+
+  }
 
   buildSalesItems(selProduct:Products): FormGroup {
     if (selProduct.barcode !== undefined && selProduct.productName !== undefined) {
@@ -474,16 +473,16 @@ let htmlbasedtemplate = `<div>
                 //itemPrice: this.qtyBtnSelected * selProduct.sellingPrice,
                 itemPrice: this.quantityItems * selProduct.sellingPrice,
                 itemSellingPrice: selProduct.sellingPrice,
-                itembarcode:selProduct.barcode                
+                itembarcode:selProduct.barcode
         });
       }
-  } 
+  }
 
   //Only Save to DB
-  SaveSales(){    
+  SaveSales(){
 
     this.loading  = this.loadingCtrl.create({
-        content: 'Processing Order..'        
+        content: 'Processing Order..'
       });
 
     if (this.salesList.length > 0) {
@@ -504,11 +503,11 @@ let htmlbasedtemplate = `<div>
     else{
       this.showAlert("Add items to Sales");
     }
-  }  
+  }
 
   isReadyToPrint(event):boolean{
     let isready:boolean = true;
-    //This is ensure that 
+    //This is ensure that
     if(this.productSearchQuery == "0" &&
      this.productSearchQuery.length == 1 && this.salesList.length == 0){
        isready = false;
@@ -523,7 +522,7 @@ let htmlbasedtemplate = `<div>
       this.showAlert("Invalid quantity");
       return;
     }
-    
+
     if(event.keyCode == 13 && !this.isReadyToPrint(event)){
       this.showAlert("No items exists, add one");
       return;
@@ -531,10 +530,10 @@ let htmlbasedtemplate = `<div>
 
     // Goes for saving & printing - IMP
     if(event.keyCode == 13 && this.productSearchQuery == "0" &&
-     this.productSearchQuery.length == 1 && this.salesList.length > 0){       
+     this.productSearchQuery.length == 1 && this.salesList.length > 0){
        this.SaveSales();
        //this.PrepareBillToPrint();
-    }   
+    }
 
     if(event.keyCode == 13 && this.productSearchQuery != "0" &&
      this.productSearchQuery.length != 1 && this.singleFilterProduct !== null){
@@ -545,20 +544,20 @@ let htmlbasedtemplate = `<div>
         else{
           this.PrepareSaleInfoList(this.singleFilterProduct);
         }
-    
+
         this.isSalesItemsExists = true;
-        this.salesItems.push(this.buildSalesItems(this.singleFilterProduct));    
+        this.salesItems.push(this.buildSalesItems(this.singleFilterProduct));
         this.UpdateSubGrandTotal();
 
         this.productSearchQuery = '';
-        this.productslist = this.fullproductslist;      
+        this.productslist = this.fullproductslist;
     }
 }
 
 //Gets called after Save to DB
 PrepareBillToPrint(newBillNo:string){
   let grpbyCounter = _.toArray(_.groupBy(this.salesList, 'counter'));
-       let printSlips = []; 
+       let printSlips = [];
 
        //grpbyCounter.forEach(elem => {
         // alert('grpLength' + grpbyCounter.length)
@@ -574,7 +573,7 @@ PrepareBillToPrint(newBillNo:string){
               newBill = billInv.PrepareBill(element, false);
               newBill.billNo = newBillNo;
             }
-            printSlips.push(this.GenerateBillHTML(newBill));                      
+            printSlips.push(this.GenerateBillHTML(newBill));
        };
 
        this.RunPrintSlips(printSlips).then(res => {
@@ -582,28 +581,28 @@ PrepareBillToPrint(newBillNo:string){
        });
 }
 
-RunPrintSlips(tasks) {  
+RunPrintSlips(tasks) {
   var result = Promise.resolve();
   tasks.forEach(task => {
     result = result.then(() =>{
       document.getElementById("generatedBill").innerHTML = "";
       document.getElementById("generatedBill").innerHTML = task;
-      // //console.log(task);      
+      // //console.log(task);
       // //alert('Abt to print' + task.length);
       // this.printSer.printText("jai Swaminarayan", null).then(function(){
       // }).catch(function(err){
       //   alert("Printer Erro! " + err);
-      // });     
-      
+      // });
+
       html2canvas(document.getElementById("generatedBill"), {background: '#fff', width:380}).then((canvas) => {
         //document.body.appendChild(canvas);
         //alert(canvas);
         var imageData = canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
            //window.open(imageData);
-          this.printSer.printImage(imageData, canvas.width, canvas.height).then(function(){            
+          this.printSer.printImage(imageData, canvas.width, canvas.height).then(function(){
               }).catch(function(err){
                         alert("Printer Erro! " + err);
-      });     
+      });
 
 
     });
@@ -613,7 +612,7 @@ RunPrintSlips(tasks) {
   return result;
 }
 
-GenerateBillHTML(newBill:BillInfo){        
+GenerateBillHTML(newBill:BillInfo){
         this.BuildHTMLInvoice();
         var result = this.billHtmlTemplate(newBill);
         //alert('HTML prepared');
@@ -651,27 +650,27 @@ GenerateBillHTML(newBill:BillInfo){
   }
 
   ReduceQty(index){
-    
+
     let itemqty = this.salesForm.value.salesItems[index].itemQty;
     if (itemqty == 1) {
       this.showAlert("Minimum Qty is 1");
       return;
-    }    
+    }
     let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
     let item = itemsArray.at(index);
     let newPrice = ((parseInt(itemqty) - 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
     let barcode = this.salesForm.value.salesItems[index].itembarcode;
     let newQty =  parseInt(itemqty) - 1;
 
-    item.patchValue({      
+    item.patchValue({
         itemPrice : newPrice,
-        itemQty: newQty      
+        itemQty: newQty
     });
     this.setQtyPriceOnSingleSales(newQty,newPrice, barcode);
     this.UpdateSubGrandTotal();
   }
 
-  setQtyPriceOnSingleSales(newQty:number,newPrice:number, itembarcode:string){    
+  setQtyPriceOnSingleSales(newQty:number,newPrice:number, itembarcode:string){
     _.forEach(this.salesList, function(item:SalesInfo) {
       if(item.productCode == itembarcode){
         item.quantity = newQty.toString();
@@ -692,9 +691,9 @@ GenerateBillHTML(newBill:BillInfo){
     let newPrice = ((parseInt(itemqty) + 1) * this.salesForm.value.salesItems[index].itemSellingPrice);
     let newQty = parseInt(itemqty) + 1;
 
-    item.patchValue({      
+    item.patchValue({
         itemPrice : newPrice,
-        itemQty: newQty      
+        itemQty: newQty
     });
     this.setQtyPriceOnSingleSales(newQty,newPrice, barcode);
     this.UpdateSubGrandTotal();
@@ -703,7 +702,7 @@ GenerateBillHTML(newBill:BillInfo){
   RemoveItem(index){
     console.log('Remove ' + index);
     let itemsArray = this.salesForm.get(['salesItems']) as FormArray;
-    let item = itemsArray.at(index);    
+    let item = itemsArray.at(index);
     itemsArray.removeAt(index);
     this.RemoveFromSalesList(item.value.itembarcode);
     this.UpdateSubGrandTotal();
@@ -764,7 +763,7 @@ GenerateBillHTML(newBill:BillInfo){
         {
           text: 'Yes',
           handler: () => {
-            //Unsubscribe Observable            
+            //Unsubscribe Observable
           }
         }
       ]
@@ -772,7 +771,7 @@ GenerateBillHTML(newBill:BillInfo){
     confirm.present();
   }
 
-  //Creates new SALE form, loads necessary with data  
+  //Creates new SALE form, loads necessary with data
   createNewSaleForm(){
     this.salesList = [];
     this.qtyBtnSelected = undefined;
@@ -805,11 +804,11 @@ GenerateBillHTML(newBill:BillInfo){
 
   SalesItemsMoreOptions(index:any){
     console.log(index +  ' INdex');
-    
+
     let actionSheet = this.actShtCtr.create({
       title: 'Options',
       cssClass: 'action-sheets-basic-page',
-      buttons: [        
+      buttons: [
         {
           text: 'Add Qty.',
           icon: 'add',

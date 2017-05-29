@@ -22,7 +22,7 @@ export class SalesInfo {
     //totaldiscount:number;
     totalamount:number;
     // tax:string;
-    // extradiscount:string;    
+    // extradiscount:string;
     dates:Date;
     status:number;
     // returns:number;
@@ -44,3 +44,8 @@ export class SalesInfo {
 }
 
 
+export class SaleDtoArray{
+    billNum:string;
+    totalamount:number;
+    saleInfos: SalesInfo[]
+}

@@ -8,4 +8,30 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>D:\PosOutput</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="Controllers/AuthController.cs">
+      <publishTime>05/17/2017 14:32:52</publishTime>
+    </File>
+    <File Include="Controllers/GetQueryStr.cs">
+      <publishTime>03/15/2017 17:24:17</publishTime>
+    </File>
+    <File Include="Controllers/ProductsController.cs">
+      <publishTime>05/17/2017 14:33:00</publishTime>
+    </File>
+    <File Include="Controllers/SalebookController.cs">
+      <publishTime>05/17/2017 14:33:29</publishTime>
+    </File>
+    <File Include="Controllers/SalesController.cs">
+      <publishTime>05/27/2017 02:10:05</publishTime>
+    </File>
+    <File Include="Controllers/ShopDetailsController.cs">
+      <publishTime>05/17/2017 14:33:51</publishTime>
+    </File>
+    <File Include="Controllers/UserController.cs">
+      <publishTime>05/17/2017 14:34:01</publishTime>
+    </File>
+    <File Include="Controllers/ValuesController.cs">
+      <publishTime>05/17/2017 14:34:10</publishTime>
+    </File>
+  </ItemGroup>
 </Project>
