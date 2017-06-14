@@ -1,1 +1,23 @@
-<ion-nav [root]="rootPage"></ion-nav>
+
+<ion-menu [content]="content" id="loggedInMenu">
+  <ion-toolbar>
+    <!--<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>-->
+     <ion-title>BAPS POS</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list>
+        <ion-list-header>Navigate</ion-list-header>
+    </ion-list>
+     <ion-item-group>
+    <ion-item-divider color="secondary">Tasks</ion-item-divider>
+    <button menuClose ion-item *ngFor="let p of menupages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+  </ion-item-group>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+

@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Products</ion-title>
+    <ion-title>User Profile</ion-title>
     <!--<ion-buttons end>
       <button ion-button icon-only (click)="goHome()">
                 <ion-icon name="home"></ion-icon>
@@ -11,7 +11,8 @@
     </ion-buttons>-->
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-List of Products
+<button ion-button icon-only (click)="doLogout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
 </ion-content>

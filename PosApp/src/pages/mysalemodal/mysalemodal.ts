@@ -1,3 +1,5 @@
+import { SalesHomePage } from './../sales-home/sales-home';
+import { Configservice } from './../../providers/configservice';
 import { UserPermissions } from './../../models/UserPermissions';
 import { SalesInfo, SaleDtoArray } from './../../models/SalesInfo';
 import { Component } from '@angular/core';
@@ -11,15 +13,17 @@ import * as _ from 'lodash';
 export class Mysalemodal {
   billdetails:SaleDtoArray;
   firstbill:SalesInfo
-  canReturnSale:boolean = false;
+  canReturnSale:boolean;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public toastCtrl: ToastController,
-              public viewCtrl: ViewController) {
+              public viewCtrl: ViewController,
+              public _config:Configservice) {
     this.billdetails = navParams.get('selectedbill') as SaleDtoArray;
     this.firstbill = this.billdetails.saleInfos[0];
-    this.setControlsVisibility();
+    //this.setControlsVisibility();
+    this.canReturnSale = _config.checkForPermissions("salesreturns");
   }
 
   //Sets Controls visibility based on User Permissions
@@ -52,7 +56,7 @@ returnSale(){
         toast.present();
   }
   else{
-    this.navCtrl.parent.select(2);
+    this.navCtrl.push(SalesHomePage, {"EditSale":this.billdetails});
   }
 }
 }

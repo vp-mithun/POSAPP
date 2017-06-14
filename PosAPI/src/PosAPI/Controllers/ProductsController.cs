@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
+using System.Data;
+//using Dapper;
+
 
 namespace PosAPI.Controllers
 {
@@ -21,6 +25,7 @@ namespace PosAPI.Controllers
         }
         
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Get([FromQuery]GetQueryStr query)
         {
             if (query == null)
@@ -32,10 +37,20 @@ namespace PosAPI.Controllers
 
             if (prodlist.Count > 0)
             {
+                foreach (var item in prodlist)
+                {
+                  item.ProductName = ConvertToUTF8(item.ProductName);
+                }
                 var proddtolist = Mapper.Map<List<ProductsDTO>>(prodlist);
                 return Ok(proddtolist);
             }
             return NotFound();
+        }
+
+        private string ConvertToUTF8(string prodname)
+        {
+            var str = Encoding.UTF8.GetString(Encoding.GetEncoding("latin1").GetBytes(prodname));
+            return str;
         }
 
         [Route("fullcount")]
@@ -47,5 +62,5 @@ namespace PosAPI.Controllers
 
             return Ok(("Count of Products " + prodlist));
         }
-    }
+    }   
 }

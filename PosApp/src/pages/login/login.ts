@@ -5,7 +5,7 @@ import { SettingsPage } from './../settings/settings';
 import { AuthService } from './../../providers/auth-service';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { NavController, ToastController, LoadingController, Platform } from 'ionic-angular';
+import { NavController, ToastController, LoadingController, Platform, Events } from 'ionic-angular';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 
 @Component({
@@ -29,35 +29,33 @@ export class LoginPage {
               private fb: FormBuilder,
               private platform: Platform,
               private sqlDB:SqlDbService,
+              public events:Events,
               private confSrv:Configservice
               ) {
                 this.loginform = this.fb.group({
                   username: [this.loginModel.username, [Validators.required]],
-                  password: [this.loginModel.password, [Validators.required]]      
+                  password: [this.loginModel.password, [Validators.required]]
     });
 
     platform.ready()
 		.then(() => {
       //this.sqlDB.init();
       // this.sqlDB.getSettings().then((data)=>{
-      //   console.log(JSON.stringify(data));      
+      //   console.log(JSON.stringify(data));
       // });
     });
 	}
 
-  ionViewDidLoad() {    
-    console.log('Login Load');
-    
-    
+  ionViewDidLoad() {
   }
 
-  onSubmit({value,valid}: {value: any,valid: boolean}) {   
+  onSubmit({value,valid}: {value: any,valid: boolean}) {
 
     //this.navCtrl.setRoot(HomePage);
     let loading  = this.loadingCtrl.create({
-        content: 'Please wait...'        
+        content: 'Please wait...'
       });
-      loading.present();    
+      loading.present();
 
     if (value.username == "bapsadmin" &&  value.password == "admin123") {
       loading.dismiss();
@@ -70,11 +68,12 @@ export class LoginPage {
         loading.dismiss();
         return;
       }else{
-      this.authenticationService.login(value.username, value.password).subscribe((resp) => {      
+      this.authenticationService.login(value.username, value.password).subscribe((resp) => {
         loading.dismiss();
         //console.log(resp);
         if (resp === true) {
                       // login successful
+                      this.events.publish('user:login');
                       this.navCtrl.setRoot(HomePage);
                   } else {
                       // login failed
@@ -83,18 +82,18 @@ export class LoginPage {
                       let toast = this.toastCtrl.create({
                         message: "Login Failed",
                         duration: 3000,
-                        position: 'middle'        
+                        position: 'middle'
                       });
                       toast.present();
-                  }      
-        
-      }, (err) => {      
+                  }
+
+      }, (err) => {
         // Unable to log in
         loading.dismiss();
         let toast = this.toastCtrl.create({
           message: err,
           duration: 2000,
-          position: 'middle'        
+          position: 'middle'
         });
         toast.present();
       });

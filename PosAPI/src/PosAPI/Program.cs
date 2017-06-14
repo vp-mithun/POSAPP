@@ -15,6 +15,7 @@ namespace PosAPI
 
             var host = new WebHostBuilder()
                 //.UseConfiguration(config)
+                .UseUrls("http://192.168.0.3:1000")
                 .UseKestrel()                
                 .UseSetting("detailedErrors", "true")
                 .UseContentRoot(Directory.GetCurrentDirectory())

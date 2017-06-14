@@ -1,10 +1,11 @@
+import { ProductsPage } from './../pages/products/products';
+import { UserProfilePage } from './../pages/user-profile/user-profile';
 import { Mysalemodal } from './../pages/mysalemodal/mysalemodal';
 import { Configservice } from './../providers/configservice';
 import { PrinterService } from './../providers/printer-service';
 import { SqlDbService } from './../providers/sql-db-service';
 import { SettingsPage } from './../pages/settings/settings';
 import { InvoiceGenerator } from './../providers/invoice-generator';
-import { ProductsPage } from './../pages/products/products';
 import { SalesHomePage } from './../pages/sales-home/sales-home';
 import { MySalePage } from './../pages/my-sale/my-sale';
 import { PosDataService } from './../providers/pos-data-service';
@@ -20,17 +21,18 @@ import { BrowserModule } from "@angular/platform-browser";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage, 
+    HomePage,
     LoginPage,
     MySalePage,
     SalesHomePage,
-    ProductsPage,
     SettingsPage,
-    Mysalemodal
+    Mysalemodal,
+    UserProfilePage,
+    ProductsPage
   ],
   imports: [
     BrowserModule,
-    HttpModule,    
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -40,9 +42,10 @@ import { BrowserModule } from "@angular/platform-browser";
     LoginPage,
     MySalePage,
     SalesHomePage,
-    ProductsPage,
     SettingsPage,
-    Mysalemodal
+    Mysalemodal,
+    UserProfilePage,
+    ProductsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, PosDataService, InvoiceGenerator, SqlDbService, PrinterService, Configservice]
 })

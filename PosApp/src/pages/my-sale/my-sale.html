@@ -1,11 +1,15 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Sales</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content no-padding>
   <div ion-row>
     <ion-col col-4>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="searchByDate" style="font-weight:bold; font-size:14px;"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="searchByDate" style="font-weight:bold; font-size:16px;"></ion-datetime>
     </ion-col>
     <ion-col col-8>
       <ion-searchbar placeholder="Bill No" [(ngModel)]="billNoStr" (ionInput)="SearchByBillNo()"></ion-searchbar>
@@ -52,7 +56,7 @@
           <ion-icon name="eye"></ion-icon>
           View
         </button>-->
-        <button ion-button color="danger" icon-left (click)="returnSale()">
+        <button ion-button color="danger" icon-right *ngIf="canReturnSale" (click)="returnSale(item)">
           <ion-icon name="return-left"></ion-icon>
           Return
         </button>

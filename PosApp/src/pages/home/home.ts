@@ -1,46 +1,31 @@
 import { LoginPage } from './../login/login';
 import { AuthService } from './../../providers/auth-service';
-import { ProductsPage } from './../products/products';
-import { SalesHomePage } from './../sales-home/sales-home';
-import { MySalePage } from './../my-sale/my-sale';
 import { Users } from './../../models/Users';
 import { PosDataService } from './../../providers/pos-data-service';
 import { Component } from '@angular/core';
 
-import { NavController, Events } from 'ionic-angular';
+import { NavController, Events, MenuController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  mysalestab = MySalePage;
-  saleshometab = SalesHomePage;
-  productstab = ProductsPage;
+  // mysalestab = MySalePage;
+  // saleshometab = SalesHomePage;
+  // productstab = ProductsPage;
   loggedInUserName:string;
   loggedInUser:Users;
-  //loggedInUser: Users[] = [];
-  //pages: Array<{title: string, component: any}>;
-  //rootPage = MySalePage;
+
+
 
   constructor(public navCtrl: NavController,public events: Events, private _posService:PosDataService,
-   private authenticationService: AuthService) {
-
-    //  this.pages = [
-    //   { title: 'My Sale', component: MySalePage },
-    //   { title: 'Sales', component: SalesHomePage },
-    //   { title: 'Products', component: ProductsPage }
-    // ];
+   private authenticationService: AuthService, public menu:MenuController) {
 
   }
 
-  // openPage(page) {
-  //   this.navCtrl.setRoot(page.component);
-  // }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-        this.loadUserInfo();
+      this.loadUserInfo();
   }
 
 
@@ -72,6 +57,8 @@ export class HomePage {
                 localStorage.setItem('loggedUserPermission', JSON.stringify(usrspm));
             });
   }
+
+
 
   doLogout(){
     this.authenticationService.logout();

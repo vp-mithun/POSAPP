@@ -5,15 +5,15 @@ import { BillInfo } from './../../models/BillInfo';
 import { BillInvoice } from './../../models/BillInvoice';
 import { Users } from './../../models/Users';
 import { Salebook } from './../../models/Salebook';
-import { SalesInfo } from './../../models/SalesInfo';
+import { SalesInfo, SaleDtoArray } from './../../models/SalesInfo';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Products } from './../../models/Products';
 import { PosDataService } from './../../providers/pos-data-service';
 import { Component, Input, ViewChild } from '@angular/core';
-import { NavController, AlertController, LoadingController, ActionSheetController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, ActionSheetController, NavParams } from 'ionic-angular';
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import {Printer, PrintOptions} from 'ionic-native';
+import {Printer, BarcodeScanner, BarcodeScannerOptions} from 'ionic-native';
 var Handlebars = require('Handlebars');
 import * as html2canvas from "html2canvas"
 declare let DatecsPrinter:any;
@@ -44,6 +44,7 @@ export class SalesHomePage {
   loggedInUser: Users;
   txtnarration:string;
   billHtmlTemplate:any;
+  options :BarcodeScannerOptions;
 
   //Sale Common Properties
   customerName:string = "Haribhakt";
@@ -73,46 +74,25 @@ export class SalesHomePage {
               private _posService:PosDataService,
               public printSer:PrinterService,
               private loadingCtrl:LoadingController,
-              private actShtCtr: ActionSheetController) {
+              private actShtCtr: ActionSheetController,
+              public _navParams:NavParams) {
 
     this.chkSearchType = true;
     this.searchTypestr = "Search Products..";
 
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedUserInfo')) as Users;
 
+    console.log(_navParams.get("EditSale"));
+
+    let editSaleitem = _navParams.get("EditSale") as SaleDtoArray;
+
     //Initiate Form
-    this.SetupSalesForm();
+    this.SetupSalesForm(editSaleitem);
     this.ConnectToPrinter();
   }
 
 
   BuildHTMLInvoice(){
-    let template = `{center}{h}{{storeName}},{{storeLoc}}{/h}
-{b}Counter : {{counter}}{/b}
-{left}{s}Bill# {{billNo}}{/s}{right}{s}   Date: {{billdate}}{/s}
-{left}{s}Name:{{custName}}{/s}{right}{s} Time: {{billTime}}{/s}
-{s}Desc.          Qty.   Rate   Amount{/s}
---------------------------------
-{{#SalesItems}}
-{{shortproductName}}    {{quantity}}  {{price}}   {{amount}}
-{{/SalesItems}}
---------------------------------
-{{#if isDiscountApplies}}
-          Discount : {{discPert}}%
---------------------------------
-{{/if}}
-{{#if isTaxable}}
-          Tax : {{taxapplied}}
---------------------------------
-{{/if}}
-        Sub Total : {{billQty}}  {{billSubTotal}}
---------------------------------
-{{#if isGrandTotal}}
- {center}{h}Grand Total: {{grandTotal}}{/h}
-{{/if}}
-{s}{{billInWords}}{/s}{br}
-{b}Bill By:{/b} {{billBy}}
-{center}{h}Jai Swaminarayan{/h}{br}{br}{br}`;
 
 let htmlbasedtemplate = `<div>
 <div style="max-width: 380px; margin: 5px auto; font-family: Arial, Helvetica, sans-serif; font-size: 20px; text-align: center;">
@@ -283,11 +263,11 @@ let htmlbasedtemplate = `<div>
             return;
           }
         else{
-          this.PrepareSaleInfoList(selProduct);
+          this.PrepareSaleInfoList(selProduct, false);
         }
 
         this.isSalesItemsExists = true;
-        this.salesItems.push(this.buildSalesItems(selProduct));
+        this.salesItems.push(this.buildSalesItems(selProduct, false));
         this.UpdateSubGrandTotal();
       }
     } else {
@@ -336,11 +316,11 @@ let htmlbasedtemplate = `<div>
       return;
     }
     else{
-      this.PrepareSaleInfoList(selProduct);
+      this.PrepareSaleInfoList(selProduct, false);
     }
 
     this.isSalesItemsExists = true;
-    this.salesItems.push(this.buildSalesItems(selProduct));
+    this.salesItems.push(this.buildSalesItems(selProduct, false));
     this.UpdateSubGrandTotal();
   }
 
@@ -348,7 +328,7 @@ let htmlbasedtemplate = `<div>
     return (prodname.substring(0,20));
   }
 
-  PrepareSaleInfoList(selProduct:Products){
+  PrepareSaleInfoList(selProduct:Products, frmBarcode:boolean){
     if(selProduct !== null){
     let singleSale = new SalesInfo();
       //singleSale.id = selProduct.id;
@@ -356,7 +336,7 @@ let htmlbasedtemplate = `<div>
       singleSale.branchId = selProduct.branchId;
       singleSale.productName = selProduct.productName;
       singleSale.shortproductName = this.ShortProductName(selProduct.productName);
-      singleSale.quantity = this.quantityItems.toString();
+      singleSale.quantity = frmBarcode? "1" : this.quantityItems.toString();
       //singleSale.quantity = this.qtyBtnSelected.toString();
       singleSale.price = selProduct.sellingPrice;
       singleSale.discount = 0;
@@ -430,12 +410,23 @@ let htmlbasedtemplate = `<div>
       });
   }
 
-  SetupSalesForm()
+  SetupSalesForm(editSaleitem:SaleDtoArray)
   {
-    console.log("Setupsalesform")
     this.salesForm = this.fb.group({
       salesItems: this.fb.array([])
     });
+
+    // if (editSaleitem !== undefined) {
+    //     this.salesForm = this.fb.group({
+    //     salesItems: this.fb.array(editSaleitem.saleInfos)
+    //   });
+
+    //   editSaleitem.saleInfos.forEach(element => {
+    //     this.salesItems = this.buildSalesItems(element);
+    //   });
+
+    console.log("Setupsalesform")
+
   }
 
   CalculateLoadProducts(){
@@ -464,14 +455,16 @@ let htmlbasedtemplate = `<div>
 
   }
 
-  buildSalesItems(selProduct:Products): FormGroup {
+  buildSalesItems(selProduct:Products, frmBarcode:boolean): FormGroup {
+    let qtyItem:number = (frmBarcode) ? 1: this.quantityItems;
     if (selProduct.barcode !== undefined && selProduct.productName !== undefined) {
       return this.fb.group({
                 itemName: selProduct.productName,
-                //itemQty: this.qtyBtnSelected,
-                itemQty: this.quantityItems,
+                itemQty: qtyItem,
+                //itemQty: this.quantityItems,
                 //itemPrice: this.qtyBtnSelected * selProduct.sellingPrice,
-                itemPrice: this.quantityItems * selProduct.sellingPrice,
+                //itemPrice: this.quantityItems * selProduct.sellingPrice,
+                itemPrice: qtyItem * selProduct.sellingPrice,
                 itemSellingPrice: selProduct.sellingPrice,
                 itembarcode:selProduct.barcode
         });
@@ -542,11 +535,11 @@ let htmlbasedtemplate = `<div>
             return;
           }
         else{
-          this.PrepareSaleInfoList(this.singleFilterProduct);
+          this.PrepareSaleInfoList(this.singleFilterProduct, false);
         }
 
         this.isSalesItemsExists = true;
-        this.salesItems.push(this.buildSalesItems(this.singleFilterProduct));
+        this.salesItems.push(this.buildSalesItems(this.singleFilterProduct, false));
         this.UpdateSubGrandTotal();
 
         this.productSearchQuery = '';
@@ -776,7 +769,7 @@ GenerateBillHTML(newBill:BillInfo){
     this.salesList = [];
     this.qtyBtnSelected = undefined;
     //Initiate Form
-    this.SetupSalesForm();
+    this.SetupSalesForm(undefined);
 
     this.chkSearchType = true;
     this.searchTypestr = "Search Products..";
@@ -788,6 +781,41 @@ GenerateBillHTML(newBill:BillInfo){
     document.getElementById("generatedBill").innerHTML = "";
     this.LoadEssentials();
 
+  }
+
+  scanBarcode(){
+    this.options = {showTorchButton: true };
+    BarcodeScanner.scan(this.options).then((barcode) => {
+      console.log(barcode);
+      this.CheckProductFromBarcode(barcode.text);
+    }, (err)=>{
+      alert(`Error Scanning: ${err}`);
+    });
+  }
+
+  CheckProductFromBarcode(barcodestr:string){
+    let foundPrd = _.find(this.fullproductslist, { 'barcode': barcodestr }) as Products;
+    if (foundPrd !== undefined) {
+      //alert('exists ' + foundPrd.productName);
+      this.AddProductToSalesBarcode(foundPrd);
+    }
+    else{
+      alert("Does not exists in our database");
+    }
+  }
+
+  AddProductToSalesBarcode(foundPrd:Products){
+    if(this.IsDuplicateProductAdded(foundPrd)){
+            this.showAlert("Product already added...");
+            return;
+          }
+        else{
+          this.PrepareSaleInfoList(foundPrd, true);
+        }
+
+        this.isSalesItemsExists = true;
+        this.salesItems.push(this.buildSalesItems(foundPrd, true));
+        this.UpdateSubGrandTotal();
   }
 
   preloadSaleValues(){
