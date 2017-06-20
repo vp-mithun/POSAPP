@@ -9,13 +9,13 @@ namespace PosAPI
     {
         public static void Main(string[] args)
         {
-            //var config = new ConfigurationBuilder()
-            //.AddJsonFile("hosting.json", optional: false)
-            //.Build();
+            var config = new ConfigurationBuilder()
+            .AddJsonFile(Directory.GetCurrentDirectory() + "\\hosting.json", optional: false)
+            .Build();
 
             var host = new WebHostBuilder()
-                //.UseConfiguration(config)
-                .UseUrls("http://192.168.0.3:1000")
+                .UseConfiguration(config)
+                //.UseUrls("http://192.168.0.3:1000")
                 .UseKestrel()                
                 .UseSetting("detailedErrors", "true")
                 .UseContentRoot(Directory.GetCurrentDirectory())

@@ -6,7 +6,8 @@
     <AssemblyName>PosAPI</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>PosAPI</PackageId>
-    <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>    
+    <RuntimeFrameworkVersion>1.1.1</RuntimeFrameworkVersion>
+    <RuntimeIdentifiers>win7-x86</RuntimeIdentifiers>
     <PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
   </PropertyGroup>
 

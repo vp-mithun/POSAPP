@@ -40,6 +40,7 @@ export class SalesInfo {
     counter:number;
     narration:string;
     validitydate:string;
+    canReturn:boolean;
 
 }
 
@@ -47,5 +48,6 @@ export class SalesInfo {
 export class SaleDtoArray{
     billNum:string;
     totalamount:number;
+    canReturn:boolean;
     saleInfos: SalesInfo[]
 }

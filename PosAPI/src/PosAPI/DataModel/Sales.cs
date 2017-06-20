@@ -136,5 +136,12 @@ namespace PosAPI
         [Required]
         [Column("validitydate", TypeName = "text")]
         public string Validitydate { get; set; }
+        [Required]
+        [Column("bill_time", TypeName = "TimeSpan")]
+        public TimeSpan BillTime { get; set; }
+        [Required]
+        [Column("billstatus", TypeName = "text")]
+        public string Billstatus { get; set; }
+
     }
 }

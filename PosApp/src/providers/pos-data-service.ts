@@ -86,6 +86,30 @@ PosApiUrl:string;
         });
 }
 
+returnSalesDB(toreturnSalesList:SalesInfo[]):Observable<string>{
+        let billNum:string = "";
+        //let headers = new Headers([{ 'Authorization': 'Bearer ' + this.authServ.token,
+        //'Content-Type': 'application/json', "Accept" : "application/json" }]);
+
+        let headers:Headers = new Headers();
+        headers.append('Authorization', 'Bearer ' + this.authServ.token);
+        headers.append('Content-Type', 'application/json;charset=utf-8');
+        headers.append("Accept",  "application/json");
+        let body = JSON.stringify(toreturnSalesList);
+
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.confgSrv.getPosApiUrl() + 'api/sales/ReturnSale',
+        body,options)
+            .map((response: Response) => {
+                console.log(response);
+                if (response.status == 200) {
+                    billNum = response.text();
+                }
+            return billNum
+        });
+}
+
     countOfSalesForDay():Observable<number>{
         let headers = new Headers({ 'Authorization': 'Bearer ' + this.authServ.token });
         let options = new RequestOptions({ headers: headers });

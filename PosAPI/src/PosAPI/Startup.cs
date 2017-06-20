@@ -11,6 +11,7 @@ using Serilog;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using PosAPI.Utility;
 
 namespace PosAPI
 {
@@ -78,13 +79,17 @@ namespace PosAPI
 
             AutoMapper.Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Products, ProductsDTO>();
+                cfg.CreateMap<Products, ProductsDTO>()
+                               .ForMember(d => d.ProductName, sr => sr.ResolveUsing<ProductNameToUtf8Resolver>()); 
                 cfg.CreateMap<Salebook, SalebookDTO>();
-                cfg.CreateMap<SalesDTO, Sales>().ForMember(v =>v.Billnum, m=>m.MapFrom(u=>u.Billnum));
+                cfg.CreateMap<SalesDTO, Sales>()
+                             .ForMember(v =>v.Billnum, m=>m.MapFrom(u=>u.Billnum))
+                             .ForMember(d => d.ProductName, sr => sr.ResolveUsing<ProductNameToLatin1Resolver>());
                 cfg.CreateMap<ShopDetails, ShopDetailsDTO>();
                 cfg.CreateMap<Users, UsersDTO>();
-                cfg.CreateMap<Sales, SalesDTO>().ForMember(v => v.Billnum, m => m.MapFrom(u => u.Billnum));
-                
+                cfg.CreateMap<Sales, SalesDTO>().ForMember(v => v.Billnum, m => m.MapFrom(u => u.Billnum))
+                                .ForMember(d => d.ProductName, sr => sr.ResolveUsing<ProductNameToSalesDTOUtf8Resolver>()); ;
+
             });
             
             app.UseMvc();

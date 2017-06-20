@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PosAPI.DTO
 {
@@ -37,12 +34,14 @@ namespace PosAPI.DTO
         public float Totalamount { get; set; }                
         public int UserId { get; set; }        
         public string Validitydate { get; set; }
+        public bool canReturn { get; set; }
     }
 
     public class SaleDtoArray
     {
         public string  BillNum { get; set; }
         public float Totalamount { get; set; }
+        public bool CanReturn { get; set; }
         public List<SalesDTO> SaleInfos { get; set; }
     }
 }

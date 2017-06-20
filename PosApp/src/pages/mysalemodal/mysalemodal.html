@@ -32,7 +32,7 @@
     </ion-col>
   </ion-row>
   <ion-row style="background-color:lightgrey;">
-    <ion-col col-8>
+    <ion-col col-6>
     Product
     </ion-col>
     <ion-col col-2>
@@ -41,9 +41,12 @@
     <ion-col col-2>
       Amt.
     </ion-col>
+    <ion-col col-2>
+
+    </ion-col>
   </ion-row>
-  <ion-row *ngFor="let item of billdetails.saleInfos;">
-    <ion-col col-8>
+  <ion-row *ngFor="let item of billdetails.saleInfos;let i=index">
+    <ion-col col-6>
     {{item.productName}}
     </ion-col>
     <ion-col col-2>
@@ -51,6 +54,9 @@
     </ion-col>
     <ion-col col-2>
       {{item.amount}}
+    </ion-col>
+    <ion-col col-2>
+      <ion-checkbox color="danger" (ionChange)="selectToReturn(item)"></ion-checkbox>
     </ion-col>
   </ion-row>
 </ion-grid>

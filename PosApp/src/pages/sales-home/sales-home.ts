@@ -45,6 +45,7 @@ export class SalesHomePage {
   txtnarration:string;
   billHtmlTemplate:any;
   options :BarcodeScannerOptions;
+  inEditSale:boolean = false;
 
   //Sale Common Properties
   customerName:string = "Haribhakt";
@@ -85,6 +86,10 @@ export class SalesHomePage {
     console.log(_navParams.get("EditSale"));
 
     let editSaleitem = _navParams.get("EditSale") as SaleDtoArray;
+
+    if (editSaleitem !== undefined) {
+      this.inEditSale = true;
+    }
 
     //Initiate Form
     this.SetupSalesForm(editSaleitem);
@@ -325,7 +330,8 @@ let htmlbasedtemplate = `<div>
   }
 
   ShortProductName(prodname:string){
-    return (prodname.substring(0,20));
+    //return (prodname.substring(0,20));
+    return decodeURIComponent((prodname));
   }
 
   PrepareSaleInfoList(selProduct:Products, frmBarcode:boolean){
@@ -413,20 +419,38 @@ let htmlbasedtemplate = `<div>
   SetupSalesForm(editSaleitem:SaleDtoArray)
   {
     this.salesForm = this.fb.group({
-      salesItems: this.fb.array([])
-    });
+              salesItems: this.fb.array([])
+                });
 
-    // if (editSaleitem !== undefined) {
-    //     this.salesForm = this.fb.group({
-    //     salesItems: this.fb.array(editSaleitem.saleInfos)
-    //   });
+    if (editSaleitem !== undefined) {
+       this._posService.getProductList()
+             .subscribe(prodlist => {
+                 this.fullproductslist = prodlist;
 
-    //   editSaleitem.saleInfos.forEach(element => {
-    //     this.salesItems = this.buildSalesItems(element);
-    //   });
+                editSaleitem.saleInfos.forEach(element => {
+                  //this.salesItems = this.buildSalesItems(element);
+                  this.salesItems.push(this.buildSalesItemsEdit(this.TransformSalesInfoToProducts(element), element));
 
+                  this.UpdateSubGrandTotal();
+                });
+                this.isSalesItemsExists = true;
+             });
+    }
+    else{
+
+    }
     console.log("Setupsalesform")
 
+  }
+
+  TransformSalesInfoToProducts(element:SalesInfo):Products{
+    let foundPrd = _.find(this.fullproductslist, { 'barcode': element.productCode });
+    if (foundPrd !== undefined) {
+      //this.PrepareSaleInfoList(foundPrd, false);
+      this.salesList.push(element);
+      return foundPrd;
+    }
+    return undefined;
   }
 
   CalculateLoadProducts(){
@@ -471,6 +495,22 @@ let htmlbasedtemplate = `<div>
       }
   }
 
+  buildSalesItemsEdit(selProduct:Products, saleInfoItem:SalesInfo): FormGroup {
+    let qtyItem:number = parseInt(saleInfoItem.quantity);
+    if (selProduct.barcode !== undefined && selProduct.productName !== undefined) {
+      return this.fb.group({
+                itemName: selProduct.productName,
+                itemQty: qtyItem,
+                //itemQty: this.quantityItems,
+                //itemPrice: this.qtyBtnSelected * selProduct.sellingPrice,
+                //itemPrice: this.quantityItems * selProduct.sellingPrice,
+                itemPrice: qtyItem * selProduct.sellingPrice,
+                itemSellingPrice: selProduct.sellingPrice,
+                itembarcode:selProduct.barcode
+        });
+      }
+  }
+
   //Only Save to DB
   SaveSales(){
 
@@ -485,13 +525,31 @@ let htmlbasedtemplate = `<div>
         item.narration = narration;
       });
 
-      this._posService.saveSalesListDB(this.salesList)
+      if (this.inEditSale) {
+        this._posService.returnSalesDB(this.salesList)
+            .subscribe(savedbillNo => {
+                console.log('return sale save ' + savedbillNo);
+                this.loading.dismiss();
+                //this.createNewSaleForm();
+                //this.PrepareBillToPrint(savedbillNo);
+            });
+      } else {
+        this._posService.saveSalesListDB(this.salesList)
             .subscribe(savedbillNo => {
                 console.log('return save ' + savedbillNo);
                 this.loading.dismiss();
                 //this.createNewSaleForm();
                 this.PrepareBillToPrint(savedbillNo);
             });
+      }
+
+      // this._posService.saveSalesListDB(this.salesList)
+      //       .subscribe(savedbillNo => {
+      //           console.log('return save ' + savedbillNo);
+      //           this.loading.dismiss();
+      //           //this.createNewSaleForm();
+      //           this.PrepareBillToPrint(savedbillNo);
+      //       });
     }
     else{
       this.showAlert("Add items to Sales");

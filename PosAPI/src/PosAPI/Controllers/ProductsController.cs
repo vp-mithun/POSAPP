@@ -25,6 +25,7 @@ namespace PosAPI.Controllers
         }
         
         [HttpGet]
+        
         [AllowAnonymous]
         public async Task<IActionResult> Get([FromQuery]GetQueryStr query)
         {
@@ -36,11 +37,7 @@ namespace PosAPI.Controllers
                 && e.ShopId.Equals(query.shopid)).ToListAsync();
 
             if (prodlist.Count > 0)
-            {
-                foreach (var item in prodlist)
-                {
-                  item.ProductName = ConvertToUTF8(item.ProductName);
-                }
+            {   
                 var proddtolist = Mapper.Map<List<ProductsDTO>>(prodlist);
                 return Ok(proddtolist);
             }
@@ -49,7 +46,7 @@ namespace PosAPI.Controllers
 
         private string ConvertToUTF8(string prodname)
         {
-            var str = Encoding.UTF8.GetString(Encoding.GetEncoding("latin1").GetBytes(prodname));
+            var str = Encoding.UTF8.GetString(Encoding.GetEncoding("latin1").GetBytes(prodname));            
             return str;
         }
 

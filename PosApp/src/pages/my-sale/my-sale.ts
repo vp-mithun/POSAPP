@@ -37,6 +37,7 @@ canReturnSale:boolean;
   ionViewDidLoad() {
     console.log('ionViewDidLoad MySalePage');
     this.canReturnSale = this._config.checkForPermissions("salesreturns");
+    //this.canReturnSale = true; //TODO - Remove it
   }
 
   returnSale(selectItem:SaleDtoArray){
